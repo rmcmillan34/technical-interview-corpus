@@ -1,0 +1,98 @@
+schema_version: 0.1.0
+id: tic-q-000020
+revision: 1
+status: draft
+question:
+  prompt: >
+    Tell me about a time you needed several teams or stakeholders to change direction on a technically important
+    issue even though you did not have authority over them. How did you build alignment, what resistance did you
+    encounter, and what was the outcome?
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 12
+classification:
+  competencies:
+    primary: leadership-and-influence
+    secondary:
+    - stakeholder-management
+    - technical-judgement
+    - communication
+    - prioritisation
+  roles:
+  - swe
+  difficulty:
+    level: D4
+    drivers:
+      ambiguity: high
+      tradeoff_reasoning: high
+      organisational_complexity: high
+      communication_demand: high
+    rationale: >
+      Requires influence across organisational boundaries, competing priorities and a substantive technical decision
+      without relying on positional authority.
+  aspects:
+  - tradeoff-reasoning
+  - perspective-taking
+  - reflection
+  tags:
+  - cross-team
+  - influence-without-authority
+  - alignment
+assessment:
+  intent: >
+    Assess whether the candidate can build evidence-backed alignment across teams when incentives, priorities or
+    technical views differ.
+  strong_signals:
+  - identifies the incentives and constraints of different stakeholders
+  - tailors evidence and communication rather than repeating one argument
+  - creates a decision mechanism, experiment, proposal or incremental path that reduces disagreement
+  - distinguishes influence from escalation or authority
+  - explains second-order effects on teams, delivery or maintainability
+  red_flags:
+  - treats resistance as ignorance or obstruction
+  - relies primarily on executive escalation
+  - cannot explain why other teams had different priorities
+  - claims success without a concrete organisational or technical outcome
+  rubric:
+  - id: context
+    criterion: Establishes the technical decision, organisational boundaries and competing interests clearly.
+    importance: supporting
+  - id: stakeholder-reasoning
+    criterion: Understands and works with the incentives and constraints of other groups.
+    importance: essential
+  - id: influence
+    criterion: Uses credible evidence and mechanisms to build alignment without positional authority.
+    importance: essential
+  - id: judgement
+    criterion: Demonstrates sound technical and prioritisation judgement across competing objectives.
+    importance: essential
+  - id: reflection
+    criterion: Reflects on what made the influence strategy effective or ineffective.
+    importance: differentiator
+followups:
+- id: f1
+  prompt: Which stakeholder had the strongest reason not to support your proposal, and why?
+  axis: perspective-taking
+  difficulty_effect: same
+- id: f2
+  prompt: What would you have done if the teams still could not reach agreement?
+  axis: escalation
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: Tech Interview Handbook
+    url: https://github.com/yangshun/tech-interview-handbook
+    license: MIT
+    attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+    modification: Authored a new cross-team influence prompt and adapted the handbook's guidance on leadership moments, high-impact stories, conflict, influence and reflection into a D4 behavioural rubric.
+license:
+  spdx: MIT
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

@@ -1,0 +1,96 @@
+schema_version: 0.1.0
+id: tic-q-000012
+revision: 1
+status: draft
+question:
+  prompt: >
+    A build system receives a set of components and directed dependency pairs where A -> B means A must be
+    completed before B. Return one valid build order, or report that no valid order exists. Explain your approach,
+    implement it, and state the complexity. Then explain how you would identify useful diagnostic information when
+    a cycle is present.
+  domain: coding
+  response_modes:
+  - discussion
+  - code
+  timebox_minutes: 30
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary:
+    - data-structures
+    - programming
+    - debugging
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D3
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: high
+      ambiguity: medium
+      failure_reasoning: medium
+      tradeoff_reasoning: medium
+    rationale: >
+      Requires a correct graph algorithm, cycle handling, implementation discipline and diagnostic reasoning beyond
+      returning a happy-path ordering.
+  aspects:
+  - failure-mode-analysis
+  - tradeoff-reasoning
+  tags:
+  - graphs
+  - topological-sort
+  - cycle-detection
+assessment:
+  intent: >
+    Assess graph modelling, topological ordering, cycle detection and the ability to explain failure rather than
+    silently returning a misleading result.
+  must_surface:
+  - models dependencies as a directed graph
+  - produces a valid topological ordering when one exists
+  - detects cycles
+  - states O(V+E) style complexity for a standard implementation
+  strong_signals:
+  - compares indegree-based and DFS-based approaches
+  - preserves deterministic output when useful
+  - explains how to return a cycle path or involved nodes for diagnostics
+  - tests disconnected components and isolated nodes
+  red_flags:
+  - assumes the graph is always acyclic
+  - omits components with no incoming or outgoing edges
+  - uses repeated global scans without recognising avoidable complexity
+  rubric:
+  - id: modelling
+    criterion: Represents the dependency problem correctly as a directed graph.
+    importance: essential
+  - id: correctness
+    criterion: Produces a valid order and detects impossible cyclic input.
+    importance: essential
+  - id: implementation
+    criterion: Implements the selected graph algorithm clearly and completely.
+    importance: essential
+  - id: diagnostics
+    criterion: Explains how cycle failures could be made actionable to a caller.
+    importance: differentiator
+followups:
+- id: f1
+  prompt: How would you update the build order efficiently if one dependency is added at runtime?
+  axis: change
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: Tech Interview Handbook
+    url: https://github.com/yangshun/tech-interview-handbook
+    license: MIT
+    attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+    modification: Authored a new dependency-graph scenario and adapted the handbook's coding evaluation guidance into explicit correctness, implementation, testing and communication signals.
+license:
+  spdx: MIT
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

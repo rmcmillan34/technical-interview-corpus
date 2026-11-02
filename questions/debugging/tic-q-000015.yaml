@@ -1,0 +1,111 @@
+schema_version: 0.1.0
+id: tic-q-000015
+revision: 1
+status: draft
+question:
+  prompt: >
+    The supplied function is intended to return the index of target in a sorted ascending list, or -1 when the
+    target is absent. Review the code, identify the defect or defects, explain the failure mode, then correct the
+    implementation and propose tests that would have caught the issue.
+  domain: debugging
+  response_modes:
+  - discussion
+  - code
+  timebox_minutes: 20
+  stimuli:
+  - id: buggy-binary-search
+    type: code
+    language: python
+    content: |
+      def find_index(values, target):
+          low = 0
+          high = len(values)
+
+          while low <= high:
+              mid = (low + high) // 2
+              if values[mid] == target:
+                  return mid
+              if values[mid] < target:
+                  low = mid
+              else:
+                  high = mid - 1
+
+          return -1
+classification:
+  competencies:
+    primary: debugging
+    secondary:
+    - algorithms-and-complexity
+    - programming
+    - testing
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: medium
+      failure_reasoning: medium
+      communication_demand: medium
+    rationale: >
+      Requires systematic diagnosis of boundary and progress defects in a bounded implementation, followed by a
+      correct fix and regression-test design.
+  aspects:
+  - failure-mode-analysis
+  tags:
+  - binary-search
+  - off-by-one
+  - infinite-loop
+assessment:
+  intent: >
+    Assess whether the candidate can reason from code behaviour to root cause rather than patching symptoms.
+  must_surface:
+  - identifies that high=len(values) can produce an out-of-range index
+  - identifies that low=mid may fail to make progress
+  - corrects the search bounds consistently
+  - proposes regression tests for absent and boundary targets
+  strong_signals:
+  - walks through a minimal failing example
+  - explains and preserves the chosen binary-search invariant
+  - tests empty input, one element, first/last element and absent values
+  - distinguishes the two defects rather than treating them as one symptom
+  red_flags:
+  - changes operators experimentally without explaining an invariant
+  - fixes one defect while leaving the non-progress bug
+  - does not test absent targets
+  rubric:
+  - id: diagnosis
+    criterion: Identifies the root causes and demonstrates how they fail.
+    importance: essential
+  - id: correction
+    criterion: Produces a consistent correct binary-search implementation.
+    importance: essential
+  - id: testing
+    criterion: Proposes tests targeted at the observed defects and boundaries.
+    importance: essential
+  - id: explanation
+    criterion: Communicates the invariant and reasoning clearly.
+    importance: supporting
+followups:
+- id: f1
+  prompt: How would you modify this to return the first occurrence when duplicates are present?
+  axis: requirements
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: Tech Interview Handbook
+    url: https://github.com/yangshun/tech-interview-handbook
+    license: MIT
+    attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+    modification: Authored a new debugging stimulus and adapted the handbook's emphasis on systematic testing, self-correction, communication and technical implementation.
+license:
+  spdx: MIT
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved
