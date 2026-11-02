@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000168
+revision: 1
+status: draft
+question:
+  prompt: A containerized worker occasionally consumes all host memory and disrupts neighboring workloads. Design a resource-control and failure-handling approach using container memory/CPU limits and application behaviour.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: containerisation, secondary: [operating-systems, reliability-engineering, service-operations]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, failure_reasoning: medium, tradeoff_reasoning: medium}
+    rationale: Applies container resource isolation to a bounded noisy-neighbor problem.
+  tags: [resource-limits, memory, cpu]
+assessment:
+  intent: Assess whether the candidate can bound a container's resource impact and design for limit-triggered failure.
+  must_surface: [sets explicit resource limits or reservations appropriate to the workload, treats OOM or throttling as possible failure modes that require restart/retry or workload tuning]
+  strong_signals: [uses measurement to choose limits and leaves operational headroom]
+  red_flags: [relies on cooperative application behavior with no resource boundary]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

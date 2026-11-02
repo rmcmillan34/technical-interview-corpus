@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000165
+revision: 1
+status: draft
+question:
+  prompt: Why should important application data generally not depend on a container's writable filesystem surviving replacement? Explain the role of volumes or external storage.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: containerisation, secondary: [data-protection-and-privacy, service-operations]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational ephemeral-runtime and persistence concepts.
+  tags: [volumes, persistence, ephemeral]
+assessment:
+  intent: Assess whether the candidate separates container lifecycle from durable state lifecycle.
+  must_surface: [containers can be replaced or recreated, durable state should live in an explicitly persistent volume or external service when required]
+  red_flags: [assumes writing inside the container layer is sufficient durable storage]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

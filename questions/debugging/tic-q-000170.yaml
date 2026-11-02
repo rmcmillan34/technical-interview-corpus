@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000170
+revision: 1
+status: draft
+question:
+  prompt: >
+    A newly deployed container version repeatedly restarts in production. It works on a developer laptop. Production events show the process being OOM-killed at a 512 MiB memory limit; the prior version stayed near 220 MiB and the new version grows to the limit during startup. Build an investigation and mitigation plan that distinguishes an application regression from an incorrectly sized container limit.
+  domain: debugging
+  response_modes: [discussion]
+  timebox_minutes: 25
+classification:
+  competencies: {primary: containerisation, secondary: [operating-systems, debugging, observability, reliability-engineering]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: high, ambiguity: medium, failure_reasoning: high, tradeoff_reasoning: medium}
+    rationale: Requires production diagnosis across container resource limits and application memory behavior with reversible mitigation.
+  tags: [oom, restart-loop, memory-limit]
+assessment:
+  intent: Assess whether the candidate can investigate container OOM failure without assuming either the app or platform is automatically at fault.
+  must_surface: [compares memory behavior across versions under the same limit, profiles or identifies what changed during startup, chooses a temporary rollback or measured limit increase while root cause is established]
+  strong_signals: [checks whether the higher working set is expected and sustainable before permanently raising limits]
+  red_flags: [removes memory limits entirely as the first permanent fix]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

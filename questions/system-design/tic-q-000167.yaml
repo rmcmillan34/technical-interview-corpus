@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000167
+revision: 1
+status: draft
+question:
+  prompt: A Python web-service image is 1.8 GB and takes several minutes to build even for small source changes. Propose a bounded Dockerfile/image improvement plan without changing application behaviour.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: containerisation, secondary: [software-delivery-practices, ci-cd, performance-engineering]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: low, tradeoff_reasoning: medium}
+    rationale: Applies image layering, build context and runtime-image concepts to a bounded build problem.
+  tags: [dockerfile, multi-stage, build-cache]
+assessment:
+  intent: Assess whether the candidate can reduce image/build cost while preserving reproducibility.
+  must_surface: [reduces unnecessary build context or files, orders stable dependency installation to benefit cache reuse, removes build-only tools or uses a smaller/multi-stage runtime image when appropriate]
+  red_flags: [deletes dependencies merely to reduce size without preserving runtime behaviour]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

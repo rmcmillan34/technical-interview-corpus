@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000169
+revision: 1
+status: draft
+question:
+  prompt: A containerized application must accept configuration, credentials and durable uploaded files across environments. Decide what belongs in the image, environment/config injection, secret injection and persistent storage.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: containerisation, secondary: [secrets-management, service-operations, software-delivery-practices]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, security_reasoning: medium, tradeoff_reasoning: medium}
+    rationale: Applies immutable-image and externalized-state principles to a bounded deployment configuration problem.
+  tags: [configuration, secrets, volumes]
+assessment:
+  intent: Assess whether the candidate separates code artifact, environment-specific configuration, secrets and durable data.
+  must_surface: [application code/dependencies belong in the image, environment-specific config is injected at runtime, credentials are not baked into the image, durable uploads use persistent/external storage]
+  red_flags: [commits production credentials into the image]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

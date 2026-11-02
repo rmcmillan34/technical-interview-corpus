@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000166
+revision: 1
+status: draft
+question:
+  prompt: What are image layers and build cache in container image construction? Why can instruction ordering affect build speed and final image contents?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: containerisation, secondary: [software-delivery-practices, performance-engineering]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests basic layered-image and caching concepts.
+  tags: [layers, build-cache, dockerfile]
+assessment:
+  intent: Assess whether the candidate understands reusable image layers and cache invalidation at a conceptual level.
+  must_surface: [build steps can produce reusable layers, changing an earlier dependency can invalidate later cached work]
+  strong_signals: [mentions keeping frequently changing source-copy steps after stable dependency installation when appropriate]
+  red_flags: [assumes every image build always starts entirely from scratch]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
