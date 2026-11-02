@@ -30,7 +30,9 @@ assessment:
   red_flags:
   - describes a base case without requiring progress toward it
   rubric:
-  - {id: concepts, criterion: Correctly explains recursive structure, progress and stack use., importance: essential}
+  - id: concepts
+    criterion: Correctly explains recursive structure, progress and stack use.
+    importance: essential
 provenance:
   origin: native
   authoring: {method: llm-assisted, llm_assisted: true}

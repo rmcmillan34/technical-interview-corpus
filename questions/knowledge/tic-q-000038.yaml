@@ -30,7 +30,9 @@ assessment:
   red_flags:
   - claims binary search works on arbitrary unsorted input
   rubric:
-  - {id: concepts, criterion: Explains binary search preconditions, invariant and logarithmic complexity., importance: essential}
+  - id: concepts
+    criterion: Correctly explains binary-search preconditions, invariant and logarithmic complexity.
+    importance: essential
 provenance:
   origin: native
   authoring: {method: llm-assisted, llm_assisted: true}

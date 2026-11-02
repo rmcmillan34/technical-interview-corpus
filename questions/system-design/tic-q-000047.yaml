@@ -42,9 +42,15 @@ assessment:
   - proposes loading all 500 GB into memory
   - ignores partial-output integrity or restart behaviour
   rubric:
-  - {id: algorithm, criterion: Designs a correct external sorting workflow., importance: essential}
-  - {id: resources, criterion: Reasons explicitly about memory, disk and I/O constraints., importance: essential}
-  - {id: recovery, criterion: Makes the long-running process recoverable after interruption., importance: supporting}
+  - id: algorithm
+    criterion: Designs a correct external sorting workflow.
+    importance: essential
+  - id: resources
+    criterion: Reasons explicitly about memory, disk and I/O constraints.
+    importance: essential
+  - id: recovery
+    criterion: Makes the long-running process recoverable after interruption.
+    importance: supporting
 provenance:
   origin: native
   authoring: {method: llm-assisted, llm_assisted: true}

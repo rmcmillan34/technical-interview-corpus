@@ -30,7 +30,9 @@ assessment:
   red_flags:
   - treats best, average and worst case as three different algorithms
   rubric:
-  - {id: concepts, criterion: Correctly distinguishes best-case, average-case and worst-case analysis., importance: essential}
+  - id: concepts
+    criterion: Correctly distinguishes best-case, average-case and worst-case analysis.
+    importance: essential
 provenance:
   origin: native
   authoring: {method: llm-assisted, llm_assisted: true}
