@@ -1,0 +1,41 @@
+schema_version: 0.1.0
+taxonomy_version: 0.1.0
+role: de
+profile_revision: 1
+status: draft
+evidence_as_of: '2026-11-02'
+confidence: medium
+evidence:
+  source_count: 3
+  employer_count: 1
+  sources:
+  - employer: Atlassian
+    source_type: employer-job-description
+    url: https://www.atlassian.com/company/careers/details/27575
+    observed_at: '2026-11-02'
+    supports: [data-modelling, data-pipelines, software-architecture, stakeholder-management, analytical-data-platforms]
+  - employer: Atlassian
+    source_type: employer-job-description
+    url: https://www.atlassian.com/company/careers/details/26569
+    observed_at: '2026-11-02'
+    supports: [data-modelling, data-pipelines, analytical-data-platforms, software-architecture, leadership-and-influence]
+  - employer: Atlassian
+    source_type: employer-job-description
+    url: https://www.atlassian.com/company/careers/details/25998
+    observed_at: '2026-11-02'
+    supports: [metric-design, data-pipelines, data-quality, data-governance-and-lineage, data-visualisation, performance-engineering]
+  limitations:
+  - Current detailed evidence is concentrated in Atlassian roles; cross-employer validation should expand before the profile is marked reviewed.
+calibration:
+  defaults: {role_importance: contextual, interview_emphasis: unresolved}
+  role_importance:
+    core: [programming, testing, debugging, software-architecture, performance-engineering, distributed-systems, reliability-engineering, observability, cloud-architecture, service-operations, sql, data-modelling, databases, data-pipelines, data-quality, data-governance-and-lineage, orchestration, analytical-data-platforms, communication, ownership-and-delivery, technical-judgement]
+    important: [algorithms-and-complexity, data-structures, operating-systems, networking, concurrency, api-design, software-delivery-practices, containerisation, ci-cd, infrastructure-as-code, stream-processing, statistics, security-architecture, identity-and-access-control, cloud-security, secrets-management, data-protection-and-privacy, stakeholder-management, collaboration-and-conflict, ambiguity-and-adaptability, prioritisation, learning-and-reflection]
+    not_materially_characteristic: []
+  interview_emphasis:
+    status: provisional
+    high: [sql, data-modelling, databases, data-pipelines, stream-processing, distributed-systems, data-quality, programming, software-architecture, cloud-architecture, debugging]
+    medium: []
+    low: []
+    unresolved_policy: all-unlisted
+    basis: Maintainer synthesis from current role evidence unless an official employer interview guide is listed.

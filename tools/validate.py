@@ -1,0 +1,329 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+import re
+import sys
+from pathlib import Path
+
+import yaml
+from jsonschema import Draft202012Validator, FormatChecker
+
+ROOT = Path(__file__).resolve().parents[1]
+QUESTION_ROOT = ROOT / "questions"
+ROLE_PROFILE_ROOT = ROOT / "evidence" / "role-profiles"
+TAXONOMY_ROOT = ROOT / "taxonomy"
+QUESTION_SCHEMA_PATH = ROOT / "schemas" / "question.schema.json"
+ROLE_PROFILE_SCHEMA_PATH = ROOT / "schemas" / "role-profile.schema.json"
+TEMPLATE_RE = re.compile(r"\{\{([a-zA-Z0-9_-]+)\}\}")
+TAXONOMY_ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+
+
+def load_yaml(path: Path):
+    with path.open("r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+
+def taxonomy_ids(filename: str, key: str):
+    data = load_yaml(TAXONOMY_ROOT / filename)
+    values = data[key]
+    if values and isinstance(values[0], dict):
+        return {item["id"] for item in values}
+    return set(values)
+
+
+def technology_registry():
+    data = load_yaml(TAXONOMY_ROOT / "technologies.yaml")
+    return {item["id"]: set(item.get("categories", [])) for item in data["technologies"]}
+
+
+def validate_competency_taxonomy(errors: list[str]):
+    family_path = TAXONOMY_ROOT / "competency-families.yaml"
+    competency_path = TAXONOMY_ROOT / "competencies.yaml"
+
+    try:
+        family_data = load_yaml(family_path)
+        competency_data = load_yaml(competency_path)
+    except Exception as exc:
+        errors.append(f"competency taxonomy parse error: {exc}")
+        return
+
+    family_records = family_data.get("families", [])
+    family_ids = [item.get("id") for item in family_records]
+    if len(family_ids) != len(set(family_ids)):
+        errors.append(f"{family_path}: duplicate competency family id")
+    for family_id in family_ids:
+        if not isinstance(family_id, str) or not TAXONOMY_ID_RE.fullmatch(family_id):
+            errors.append(f"{family_path}: invalid competency family id {family_id!r}")
+
+    records = competency_data.get("competencies", [])
+    declared_count = competency_data.get("competency_count")
+    if declared_count != len(records):
+        errors.append(
+            f"{competency_path}: competency_count is {declared_count}, "
+            f"but registry contains {len(records)} records"
+        )
+
+    ids = [item.get("id") for item in records]
+    id_set = set(ids)
+    if len(ids) != len(id_set):
+        errors.append(f"{competency_path}: duplicate competency id")
+
+    aliases_seen: dict[str, str] = {}
+    for item in records:
+        competency_id = item.get("id")
+        if not isinstance(competency_id, str) or not TAXONOMY_ID_RE.fullmatch(competency_id):
+            errors.append(f"{competency_path}: invalid competency id {competency_id!r}")
+            continue
+
+        family = item.get("family")
+        if family not in family_ids:
+            errors.append(f"{competency_path}: {competency_id} references unknown family {family}")
+
+        definition = item.get("definition")
+        if not isinstance(definition, str) or not definition.strip():
+            errors.append(f"{competency_path}: {competency_id} requires a non-empty definition")
+
+        for list_field in ("includes", "excludes", "related", "aliases"):
+            value = item.get(list_field)
+            if not isinstance(value, list):
+                errors.append(f"{competency_path}: {competency_id}.{list_field} must be a list")
+
+        for related in item.get("related", []):
+            if related == competency_id:
+                errors.append(f"{competency_path}: {competency_id} cannot relate to itself")
+            elif related not in id_set:
+                errors.append(
+                    f"{competency_path}: {competency_id} references unknown related competency {related}"
+                )
+
+        for alias in item.get("aliases", []):
+            if alias in id_set:
+                errors.append(
+                    f"{competency_path}: alias {alias} for {competency_id} collides with a canonical id"
+                )
+            previous = aliases_seen.get(alias)
+            if previous and previous != competency_id:
+                errors.append(
+                    f"{competency_path}: alias {alias} is assigned to both {previous} and {competency_id}"
+                )
+            aliases_seen[alias] = competency_id
+
+
+def iter_asset_paths(question):
+    for item in question.get("question", {}).get("stimuli", []) or []:
+        if "path" in item:
+            yield item["path"]
+    for stimulus_set in question.get("question", {}).get("stimulus_sets", []) or []:
+        for item in stimulus_set.get("assets", []):
+            if "path" in item:
+                yield item["path"]
+
+
+def validate_question_semantics(path: Path, q: dict, seen_ids: set[str], errors: list[str]):
+    qid = q["id"]
+    if qid in seen_ids:
+        errors.append(f"{path}: duplicate question id {qid}")
+    seen_ids.add(qid)
+
+    roles = taxonomy_ids("roles.yaml", "roles")
+    competencies = taxonomy_ids("competencies.yaml", "competencies")
+    domains = taxonomy_ids("domains.yaml", "domains")
+    aspects = taxonomy_ids("assessment-aspects.yaml", "aspects")
+    technologies = technology_registry()
+
+    if q["question"]["domain"] not in domains:
+        errors.append(f"{path}: unknown domain {q['question']['domain']}")
+
+    for role in q["classification"]["roles"]:
+        if role not in roles:
+            errors.append(f"{path}: unknown role {role}")
+
+    competency_values = [q["classification"]["competencies"]["primary"]] + q["classification"]["competencies"].get("secondary", [])
+    for competency in competency_values:
+        if competency not in competencies:
+            errors.append(f"{path}: unknown competency {competency}")
+
+    for aspect in q["classification"].get("aspects", []):
+        if aspect not in aspects:
+            errors.append(f"{path}: unknown assessment aspect {aspect}")
+
+    for technology in q["classification"].get("technologies", []):
+        if technology not in technologies:
+            errors.append(f"{path}: unknown technology {technology}")
+
+    parameters = q.get("parameters", {})
+    prompt_template = q["question"].get("prompt_template")
+    template_slots = set(TEMPLATE_RE.findall(prompt_template or ""))
+    unknown_slots = template_slots - set(parameters)
+    for slot in sorted(unknown_slots):
+        errors.append(f"{path}: prompt template references undeclared parameter {slot}")
+
+    required_slots = {name for name, parameter in parameters.items() if parameter.get("policy") == "parameterised"}
+    missing_slots = required_slots - template_slots
+    for slot in sorted(missing_slots):
+        errors.append(f"{path}: parameterised binding {slot} is missing from prompt_template")
+
+    for name, parameter in parameters.items():
+        if parameter["type"] != "technology":
+            continue
+        category = parameter["category"]
+        for technology in parameter.get("allowed", []):
+            if technology not in technologies:
+                errors.append(f"{path}: parameter {name} references unknown technology {technology}")
+            elif category not in technologies[technology]:
+                errors.append(f"{path}: technology {technology} is not registered for parameter category {category}")
+
+    overlay_ids = set(q.get("assessment", {}).get("technology_overlays", {}))
+    parameter_techs = {tech for parameter in parameters.values() if parameter["type"] == "technology" for tech in parameter.get("allowed", [])}
+    unknown_overlays = overlay_ids - parameter_techs - set(q["classification"].get("technologies", []))
+    for technology in sorted(unknown_overlays):
+        errors.append(f"{path}: technology overlay {technology} is not bound to the question")
+
+    rubric_ids = {item["id"] for item in q.get("assessment", {}).get("rubric", [])}
+    for followup in q.get("followups", []) or []:
+        criterion = (followup.get("trigger") or {}).get("criterion")
+        if criterion and criterion not in rubric_ids:
+            errors.append(f"{path}: follow-up {followup['id']} references unknown rubric criterion {criterion}")
+
+    for asset in iter_asset_paths(q):
+        candidate = (ROOT / asset).resolve()
+        if ROOT.resolve() not in candidate.parents:
+            errors.append(f"{path}: asset path escapes repository: {asset}")
+        elif not candidate.is_file():
+            errors.append(f"{path}: missing asset {asset}")
+
+
+def validate_role_profile_semantics(path: Path, profile: dict, seen_roles: set[str], errors: list[str]):
+    roles = taxonomy_ids("roles.yaml", "roles")
+    competencies = taxonomy_ids("competencies.yaml", "competencies")
+    role_id = profile["role"]
+
+    if role_id not in roles:
+        errors.append(f"{path}: unknown role {role_id}")
+    if role_id in seen_roles:
+        errors.append(f"{path}: duplicate role profile for {role_id}")
+    seen_roles.add(role_id)
+
+    evidence = profile["evidence"]
+    sources = evidence["sources"]
+    if evidence["source_count"] != len(sources):
+        errors.append(
+            f"{path}: source_count is {evidence['source_count']}, but profile contains {len(sources)} sources"
+        )
+    employer_count = len({source["employer"] for source in sources})
+    if evidence["employer_count"] != employer_count:
+        errors.append(
+            f"{path}: employer_count is {evidence['employer_count']}, but sources contain {employer_count} employers"
+        )
+
+    for source in sources:
+        for competency in source["supports"]:
+            if competency not in competencies:
+                errors.append(f"{path}: evidence source references unknown competency {competency}")
+
+    importance = profile["calibration"]["role_importance"]
+    importance_buckets = {
+        "core": importance["core"],
+        "important": importance["important"],
+        "not_materially_characteristic": importance["not_materially_characteristic"],
+    }
+    assigned_importance: dict[str, str] = {}
+    for bucket, values in importance_buckets.items():
+        for competency in values:
+            if competency not in competencies:
+                errors.append(f"{path}: {bucket} references unknown competency {competency}")
+            previous = assigned_importance.get(competency)
+            if previous:
+                errors.append(
+                    f"{path}: competency {competency} appears in both role-importance buckets {previous} and {bucket}"
+                )
+            assigned_importance[competency] = bucket
+
+    emphasis = profile["calibration"]["interview_emphasis"]
+    assigned_emphasis: dict[str, str] = {}
+    for bucket in ("high", "medium", "low"):
+        for competency in emphasis[bucket]:
+            if competency not in competencies:
+                errors.append(f"{path}: interview emphasis {bucket} references unknown competency {competency}")
+            previous = assigned_emphasis.get(competency)
+            if previous:
+                errors.append(
+                    f"{path}: competency {competency} appears in both interview-emphasis buckets {previous} and {bucket}"
+                )
+            assigned_emphasis[competency] = bucket
+
+    if profile["status"] == "reviewed" and emphasis["unresolved_policy"] != "none":
+        errors.append(f"{path}: reviewed profiles must resolve all interview-emphasis values")
+
+
+def main():
+    question_schema = json.loads(QUESTION_SCHEMA_PATH.read_text(encoding="utf-8"))
+    role_profile_schema = json.loads(ROLE_PROFILE_SCHEMA_PATH.read_text(encoding="utf-8"))
+    question_validator = Draft202012Validator(question_schema, format_checker=FormatChecker())
+    role_profile_validator = Draft202012Validator(role_profile_schema, format_checker=FormatChecker())
+
+    question_paths = sorted(QUESTION_ROOT.rglob("*.yaml"))
+    role_profile_paths = sorted(ROLE_PROFILE_ROOT.rglob("*.yaml"))
+    errors = []
+    seen_ids = set()
+    seen_roles = set()
+
+    validate_competency_taxonomy(errors)
+
+    if not question_paths:
+        errors.append("No question YAML files found.")
+    if not role_profile_paths:
+        errors.append("No role profile YAML files found.")
+
+    for path in question_paths:
+        try:
+            question = load_yaml(path)
+        except Exception as exc:
+            errors.append(f"{path}: YAML parse error: {exc}")
+            continue
+
+        schema_errors = list(question_validator.iter_errors(question))
+        for error in sorted(schema_errors, key=lambda e: list(e.absolute_path)):
+            location = ".".join(str(p) for p in error.absolute_path) or "<root>"
+            errors.append(f"{path}: schema {location}: {error.message}")
+
+        if not schema_errors:
+            validate_question_semantics(path, question, seen_ids, errors)
+
+    for path in role_profile_paths:
+        try:
+            profile = load_yaml(path)
+        except Exception as exc:
+            errors.append(f"{path}: YAML parse error: {exc}")
+            continue
+
+        schema_errors = list(role_profile_validator.iter_errors(profile))
+        for error in sorted(schema_errors, key=lambda e: list(e.absolute_path)):
+            location = ".".join(str(p) for p in error.absolute_path) or "<root>"
+            errors.append(f"{path}: schema {location}: {error.message}")
+
+        if not schema_errors:
+            validate_role_profile_semantics(path, profile, seen_roles, errors)
+
+    expected_roles = taxonomy_ids("roles.yaml", "roles")
+    missing_profiles = expected_roles - seen_roles
+    for role_id in sorted(missing_profiles):
+        errors.append(f"missing role profile for {role_id}")
+
+    if errors:
+        print("Corpus validation failed:")
+        for error in errors:
+            print(f"  - {error}")
+        return 1
+
+    print(
+        f"Validated {len(question_paths)} question(s), "
+        f"{len(taxonomy_ids('competencies.yaml', 'competencies'))} canonical competencies, "
+        f"and {len(role_profile_paths)} role profile(s) successfully."
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

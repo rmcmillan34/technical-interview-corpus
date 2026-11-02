@@ -1,0 +1,1662 @@
+schema_version: 0.1.0
+taxonomy_version: 0.1.0
+status: canonical-draft
+competency_count: 95
+competencies:
+- id: algorithms-and-complexity
+  name: Algorithms & Complexity
+  family: computer-science
+  definition: Selecting, analysing and reasoning about algorithms with respect to correctness, time, space
+    and problem constraints.
+  includes:
+  - algorithm selection
+  - asymptotic complexity
+  - correctness reasoning
+  - graph and combinatorial problem solving
+  excludes:
+  - language-specific syntax
+  - general code quality
+  related:
+  - data-structures
+  - programming
+  - quantitative-reasoning
+  aliases: []
+- id: data-structures
+  name: Data Structures
+  family: computer-science
+  definition: Selecting and using data structures that represent information and support required operations
+    efficiently.
+  includes:
+  - arrays and sequences
+  - maps and sets
+  - trees and graphs
+  - heaps, queues and stacks
+  excludes:
+  - database schema design
+  related:
+  - algorithms-and-complexity
+  - programming
+  aliases: []
+- id: operating-systems
+  name: Operating Systems
+  family: computer-science
+  definition: Reasoning about operating-system abstractions and behaviour relevant to applications and
+    infrastructure.
+  includes:
+  - processes and threads
+  - memory and virtual memory
+  - filesystems
+  - scheduling and system calls
+  excludes:
+  - container orchestration as a platform concern
+  related:
+  - concurrency
+  - networking
+  - containerisation
+  - network-and-host-exploitation
+  aliases: []
+- id: networking
+  name: Networking
+  family: computer-science
+  definition: Understanding and reasoning about network communication, protocols, addressing, routing
+    and failure behaviour.
+  includes:
+  - TCP/IP
+  - DNS
+  - HTTP transport behaviour
+  - routing and network boundaries
+  excludes:
+  - application-level API design
+  related:
+  - distributed-systems
+  - cloud-architecture
+  - network-and-host-exploitation
+  aliases: []
+- id: concurrency
+  name: Concurrency
+  family: computer-science
+  definition: Designing and reasoning about concurrent execution, synchronisation, races and shared-state
+    coordination.
+  includes:
+  - threads and tasks
+  - locks and synchronisation
+  - race conditions
+  - deadlocks and coordination
+  excludes:
+  - distributed consensus unless multiple networked nodes are central
+  related:
+  - operating-systems
+  - distributed-systems
+  - performance-engineering
+  aliases: []
+- id: quantitative-reasoning
+  name: Quantitative Reasoning
+  family: mathematics-statistics
+  definition: Translating quantitative problems into defensible calculations, estimates and numerical
+    reasoning.
+  includes:
+  - estimation
+  - rates and ratios
+  - dimensional reasoning
+  - interpreting numerical constraints
+  excludes:
+  - formal statistical inference when statistics is the primary construct
+  related:
+  - probability
+  - statistics
+  - numerical-computing
+  aliases: []
+- id: probability
+  name: Probability
+  family: mathematics-statistics
+  definition: Reasoning about uncertainty using probability models, conditional relationships and random
+    variables.
+  includes:
+  - conditional probability
+  - distributions
+  - expectation
+  - Bayesian reasoning
+  excludes:
+  - statistical estimation from observed samples
+  related:
+  - statistics
+  - causal-inference
+  - quantitative-reasoning
+  aliases: []
+- id: statistics
+  name: Statistics
+  family: mathematics-statistics
+  definition: Using statistical concepts to estimate, compare, test and interpret patterns in observed
+    data.
+  includes:
+  - sampling
+  - estimation
+  - confidence intervals
+  - hypothesis testing
+  - statistical uncertainty
+  excludes:
+  - causal claims without an identification strategy
+  related:
+  - probability
+  - experimentation
+  - causal-inference
+  - model-evaluation
+  aliases: []
+- id: linear-algebra
+  name: Linear Algebra
+  family: mathematics-statistics
+  definition: Reasoning with vectors, matrices and linear transformations in computational and modelling
+    contexts.
+  includes:
+  - vectors and matrices
+  - matrix operations
+  - projections
+  - eigen concepts
+  excludes:
+  - general numerical optimisation
+  related:
+  - calculus-and-optimisation
+  - ml-fundamentals
+  - numerical-computing
+  aliases: []
+- id: calculus-and-optimisation
+  name: Calculus & Optimisation
+  family: mathematics-statistics
+  definition: Reasoning about change, gradients and optimisation methods used in engineering and machine
+    learning.
+  includes:
+  - derivatives and gradients
+  - objective functions
+  - convexity intuition
+  - iterative optimisation
+  excludes:
+  - linear algebra except where required by the optimisation problem
+  related:
+  - linear-algebra
+  - model-training
+  - numerical-computing
+  aliases: []
+- id: causal-inference
+  name: Causal Inference
+  family: mathematics-statistics
+  definition: Reasoning about cause and effect from experiments or observational data while accounting
+    for confounding and identification assumptions.
+  includes:
+  - confounding
+  - counterfactual reasoning
+  - causal identification
+  - experimental and observational designs
+  excludes:
+  - descriptive correlation alone
+  related:
+  - statistics
+  - experimentation
+  - metric-design
+  aliases: []
+- id: programming
+  name: Programming
+  family: software-engineering
+  definition: Writing, reading and reasoning about maintainable executable code using appropriate language
+    constructs and abstractions.
+  includes:
+  - control flow
+  - functions and types
+  - error handling
+  - code clarity and maintainability
+  excludes:
+  - algorithmic theory when code is incidental
+  - system architecture above component level
+  related:
+  - data-structures
+  - testing
+  - debugging
+  - software-architecture
+  aliases: []
+- id: api-design
+  name: API Design
+  family: software-engineering
+  definition: Designing stable, usable and evolvable programmatic interfaces between components or services.
+  includes:
+  - contracts and schemas
+  - versioning
+  - error semantics
+  - idempotency and compatibility
+  excludes:
+  - network transport internals
+  related:
+  - software-architecture
+  - distributed-systems
+  - identity-and-access-control
+  aliases: []
+- id: testing
+  name: Testing
+  family: software-engineering
+  definition: Designing tests that provide credible evidence of software correctness, behaviour and regression
+    resistance.
+  includes:
+  - unit and integration testing
+  - test design
+  - test doubles
+  - property and regression testing
+  excludes:
+  - production monitoring
+  related:
+  - debugging
+  - software-delivery-practices
+  - reliability-engineering
+  - ai-evaluation
+  aliases: []
+- id: debugging
+  name: Debugging
+  family: software-engineering
+  definition: Systematically isolating and explaining defects or unexpected behaviour using evidence.
+  includes:
+  - hypothesis-driven diagnosis
+  - reproduction
+  - instrumentation
+  - root-cause analysis
+  excludes:
+  - incident coordination as a broader operational process
+  related:
+  - testing
+  - observability
+  - incident-response
+  aliases: []
+- id: software-architecture
+  name: Software Architecture
+  family: software-engineering
+  definition: Decomposing software into components, responsibilities and interfaces while managing quality
+    attributes and change.
+  includes:
+  - component boundaries
+  - interfaces
+  - dependency direction
+  - architectural trade-offs
+  excludes:
+  - organisation-wide platform strategy unless that is the primary scope
+  related:
+  - api-design
+  - distributed-systems
+  - reliability-engineering
+  - security-architecture
+  aliases: []
+- id: software-delivery-practices
+  name: Software Delivery Practices
+  family: software-engineering
+  definition: Managing software change through source control, dependencies, configuration, review and
+    repeatable delivery practices.
+  includes:
+  - version control
+  - dependency management
+  - configuration management
+  - branching and review practices
+  excludes:
+  - automated deployment pipeline design as the primary construct
+  related:
+  - ci-cd
+  - testing
+  - infrastructure-as-code
+  aliases: []
+- id: performance-engineering
+  name: Performance Engineering
+  family: software-engineering
+  definition: Measuring, analysing and improving latency, throughput, resource use and scalability.
+  includes:
+  - profiling
+  - capacity reasoning
+  - latency and throughput
+  - bottleneck analysis
+  excludes:
+  - model-quality optimisation
+  related:
+  - concurrency
+  - distributed-systems
+  - observability
+  - model-optimisation
+  aliases: []
+- id: distributed-systems
+  name: Distributed Systems
+  family: software-engineering
+  definition: Designing and reasoning about systems whose components communicate across unreliable network
+    boundaries.
+  includes:
+  - consistency
+  - replication
+  - partitioning
+  - delivery semantics
+  - distributed failure
+  excludes:
+  - single-process concurrency where network failure is irrelevant
+  related:
+  - networking
+  - reliability-engineering
+  - performance-engineering
+  - service-operations
+  aliases: []
+- id: reliability-engineering
+  name: Reliability Engineering
+  family: software-engineering
+  definition: Designing software to tolerate, recover from and reason about failures while meeting reliability
+    objectives.
+  includes:
+  - failure modes
+  - resilience
+  - availability
+  - recovery
+  - SLO-oriented reasoning
+  excludes:
+  - production observability alone
+  related:
+  - distributed-systems
+  - observability
+  - service-operations
+  - incident-response
+  aliases: []
+- id: observability
+  name: Observability
+  family: software-engineering
+  definition: Designing telemetry and diagnostic signals that make system state, behaviour and failure understandable.
+  includes:
+  - logs
+  - metrics
+  - traces
+  - instrumentation
+  - diagnostic context
+  excludes:
+  - incident command and response process
+  related:
+  - debugging
+  - reliability-engineering
+  - service-operations
+  - ml-observability
+  aliases: []
+- id: cloud-architecture
+  name: Cloud Architecture
+  family: cloud-platform
+  definition: Designing systems using cloud primitives while reasoning about availability, scalability,
+    cost and managed-service trade-offs.
+  includes:
+  - managed services
+  - regional design
+  - service selection
+  - cloud networking and resilience
+  excludes:
+  - cloud security as the primary objective
+  related:
+  - distributed-systems
+  - service-operations
+  - cloud-security
+  - infrastructure-as-code
+  aliases: []
+- id: containerisation
+  name: Containerisation
+  family: cloud-platform
+  definition: Packaging and running workloads using container abstractions and reasoning about images,
+    runtime boundaries and deployment concerns.
+  includes:
+  - images
+  - container runtimes
+  - resource boundaries
+  - container build and execution
+  excludes:
+  - cluster orchestration strategy unless central to the question
+  related:
+  - operating-systems
+  - ci-cd
+  - service-operations
+  - cloud-security
+  aliases: []
+- id: ci-cd
+  name: CI/CD
+  family: cloud-platform
+  definition: Designing automated integration, verification and delivery pipelines for safe, repeatable
+    software change.
+  includes:
+  - build pipelines
+  - automated verification
+  - deployment promotion
+  - rollback and release controls
+  excludes:
+  - general version-control hygiene
+  related:
+  - testing
+  - software-delivery-practices
+  - infrastructure-as-code
+  - service-operations
+  aliases: []
+- id: infrastructure-as-code
+  name: Infrastructure as Code
+  family: cloud-platform
+  definition: Defining and managing infrastructure through declarative or programmatic, reviewable configuration.
+  includes:
+  - declarative infrastructure
+  - state and drift
+  - reusable modules
+  - change review
+  excludes:
+  - application configuration that does not provision infrastructure
+  related:
+  - cloud-architecture
+  - ci-cd
+  - cloud-security
+  aliases: []
+- id: service-operations
+  name: Service Operations
+  family: cloud-platform
+  definition: Operating production services through deployment, capacity, health, incident readiness and
+    lifecycle practices.
+  includes:
+  - runbooks
+  - deployment operations
+  - capacity and health
+  - on-call readiness
+  - operational ownership
+  excludes:
+  - incident handling as the sole focus
+  related:
+  - reliability-engineering
+  - observability
+  - incident-response
+  - cloud-architecture
+  aliases: []
+- id: sql
+  name: SQL
+  family: data-engineering
+  definition: Querying and transforming structured data using relational query concepts and SQL.
+  includes:
+  - joins
+  - aggregation
+  - window functions
+  - query reasoning
+  excludes:
+  - relational storage engine internals
+  related:
+  - databases
+  - data-modelling
+  - exploratory-data-analysis
+  aliases: []
+- id: data-modelling
+  name: Data Modelling
+  family: data-engineering
+  definition: Designing logical and physical data representations that support intended access, integrity
+    and evolution.
+  includes:
+  - entities and relationships
+  - normalisation and denormalisation
+  - schema evolution
+  - access-pattern-aware modelling
+  excludes:
+  - statistical feature representation
+  related:
+  - databases
+  - sql
+  - data-governance-and-lineage
+  aliases: []
+- id: databases
+  name: Databases
+  family: data-engineering
+  definition: Selecting and reasoning about database systems, storage models, transactions, indexing and
+    operational trade-offs.
+  includes:
+  - relational and non-relational stores
+  - transactions
+  - indexes
+  - consistency and durability
+  excludes:
+  - analytical warehouse architecture as the primary construct
+  related:
+  - data-modelling
+  - sql
+  - distributed-systems
+  - analytical-data-platforms
+  aliases: []
+- id: data-pipelines
+  name: Data Pipelines
+  family: data-engineering
+  definition: Designing reliable movement and transformation of data across sources, processing stages
+    and destinations.
+  includes:
+  - batch ingestion
+  - transformation
+  - pipeline failure handling
+  - reprocessing
+  excludes:
+  - workflow scheduling alone
+  related:
+  - orchestration
+  - data-quality
+  - stream-processing
+  - ml-pipelines
+  aliases: []
+- id: stream-processing
+  name: Stream Processing
+  family: data-engineering
+  definition: Processing unbounded or event-driven data while reasoning about ordering, time, state and
+    delivery semantics.
+  includes:
+  - event streams
+  - windows
+  - event time
+  - stateful processing
+  - delivery semantics
+  excludes:
+  - batch-only pipelines
+  related:
+  - data-pipelines
+  - distributed-systems
+  - analytical-data-platforms
+  aliases: []
+- id: data-quality
+  name: Data Quality
+  family: data-engineering
+  definition: Defining, detecting and managing the fitness, correctness and reliability of data.
+  includes:
+  - validity
+  - completeness
+  - freshness
+  - consistency
+  - quality checks
+  excludes:
+  - model-performance quality
+  related:
+  - data-pipelines
+  - data-governance-and-lineage
+  - ml-observability
+  aliases: []
+- id: data-governance-and-lineage
+  name: Data Governance & Lineage
+  family: data-engineering
+  definition: Managing data ownership, provenance, lineage, classification and lifecycle controls.
+  includes:
+  - lineage
+  - ownership
+  - metadata
+  - retention
+  - provenance
+  excludes:
+  - privacy law interpretation as a legal task
+  related:
+  - data-quality
+  - data-protection-and-privacy
+  - analytical-data-platforms
+  aliases: []
+- id: orchestration
+  name: Orchestration
+  family: data-engineering
+  definition: Coordinating dependent data or compute workflows through scheduling, retries, state and execution
+    control.
+  includes:
+  - DAGs
+  - scheduling
+  - dependency management
+  - retries and backfills
+  excludes:
+  - container cluster orchestration unless the workflow problem depends on it
+  related:
+  - data-pipelines
+  - ml-pipelines
+  - service-operations
+  aliases: []
+- id: analytical-data-platforms
+  name: Analytical Data Platforms
+  family: data-engineering
+  definition: Designing and operating platforms for large-scale analytical storage, transformation and
+    query workloads.
+  includes:
+  - warehouses
+  - lakehouses
+  - distributed analytical compute
+  - semantic and serving layers
+  excludes:
+  - transactional application databases as the primary concern
+  related:
+  - databases
+  - data-pipelines
+  - data-governance-and-lineage
+  aliases: []
+- id: exploratory-data-analysis
+  name: Exploratory Data Analysis
+  family: data-science
+  definition: Investigating data distributions, relationships, anomalies and limitations to form and test
+    analytical hypotheses.
+  includes:
+  - distribution inspection
+  - missingness
+  - outliers
+  - segmentation
+  - hypothesis formation
+  excludes:
+  - formal causal conclusions without identification
+  related:
+  - statistics
+  - data-visualisation
+  - metric-design
+  aliases: []
+- id: metric-design
+  name: Metric Design
+  family: data-science
+  definition: Defining measurable outcomes and guardrails that faithfully represent product, system or
+    experimental objectives.
+  includes:
+  - north-star and guardrail metrics
+  - operational definitions
+  - measurement validity
+  - metric trade-offs
+  excludes:
+  - generic monitoring metrics when product measurement is not central
+  related:
+  - experimentation
+  - causal-inference
+  - ai-evaluation
+  aliases: []
+- id: experimentation
+  name: Experimentation
+  family: data-science
+  definition: Designing, analysing and interpreting controlled experiments under practical statistical
+    and product constraints.
+  includes:
+  - A/B testing
+  - randomisation
+  - power and sample size
+  - guardrails
+  - experiment interpretation
+  excludes:
+  - observational causal inference when no experiment is possible
+  related:
+  - statistics
+  - causal-inference
+  - metric-design
+  aliases: []
+- id: data-visualisation
+  name: Data Visualisation
+  family: data-science
+  definition: Communicating quantitative information through appropriate visual encodings and interpretation.
+  includes:
+  - chart selection
+  - visual clarity
+  - comparisons
+  - uncertainty communication
+  excludes:
+  - dashboard operations as an infrastructure concern
+  related:
+  - exploratory-data-analysis
+  - communication
+  aliases: []
+- id: time-series-analysis
+  name: Time-Series Analysis
+  family: data-science
+  definition: Reasoning about temporally ordered data, dependence, seasonality and forecasting behaviour.
+  includes:
+  - trend and seasonality
+  - autocorrelation
+  - forecast evaluation
+  - temporal leakage
+  excludes:
+  - market microstructure
+  related:
+  - statistics
+  - simulation-and-backtesting
+  - ml-fundamentals
+  aliases: []
+- id: ml-fundamentals
+  name: Machine Learning Fundamentals
+  family: machine-learning
+  definition: Understanding core supervised and unsupervised learning concepts, assumptions and failure
+    modes.
+  includes:
+  - bias and variance
+  - generalisation
+  - common model families
+  - overfitting and underfitting
+  excludes:
+  - production serving infrastructure
+  related:
+  - model-training
+  - model-evaluation
+  - feature-engineering
+  aliases: []
+- id: feature-engineering
+  name: Feature Engineering
+  family: machine-learning
+  definition: Designing, transforming and validating model inputs while avoiding leakage and preserving
+    production consistency.
+  includes:
+  - encoding
+  - normalisation
+  - feature selection
+  - leakage prevention
+  - training-serving consistency
+  excludes:
+  - raw data pipeline orchestration
+  related:
+  - data-quality
+  - model-training
+  - ml-pipelines
+  aliases: []
+- id: model-training
+  name: Model Training
+  family: machine-learning
+  definition: Designing and executing model training procedures, optimisation choices and reproducible
+    experiments.
+  includes:
+  - training loops
+  - hyperparameters
+  - optimisation
+  - reproducibility
+  - training diagnostics
+  excludes:
+  - production serving
+  related:
+  - calculus-and-optimisation
+  - model-evaluation
+  - ml-pipelines
+  aliases: []
+- id: model-evaluation
+  name: Model Evaluation
+  family: machine-learning
+  definition: Assessing model quality using appropriate datasets, metrics, validation methods and error
+    analysis.
+  includes:
+  - validation design
+  - metrics
+  - error analysis
+  - calibration
+  - generalisation assessment
+  excludes:
+  - system-level AI application evaluation when model output is only one component
+  related:
+  - statistics
+  - ml-fundamentals
+  - ai-evaluation
+  aliases: []
+- id: model-serving
+  name: Model Serving
+  family: machine-learning
+  definition: Deploying models for reliable inference while managing latency, throughput, versioning and
+    runtime behaviour.
+  includes:
+  - online and batch inference
+  - serving architecture
+  - versioning
+  - rollback
+  - inference reliability
+  excludes:
+  - general API design when no model-serving concern exists
+  related:
+  - performance-engineering
+  - ml-pipelines
+  - model-optimisation
+  - service-operations
+  aliases: []
+- id: ml-pipelines
+  name: ML Pipelines
+  family: machine-learning
+  definition: Automating and coordinating data, training, evaluation, packaging and deployment workflows
+    for machine learning systems.
+  includes:
+  - training workflows
+  - artifact flow
+  - reproducibility
+  - promotion
+  - retraining
+  excludes:
+  - generic data pipelines with no ML lifecycle
+  related:
+  - data-pipelines
+  - orchestration
+  - model-training
+  - model-serving
+  aliases: []
+- id: ml-observability
+  name: ML Observability
+  family: machine-learning
+  definition: Monitoring machine-learning systems for model, data and inference behaviour that may degrade
+    production outcomes.
+  includes:
+  - drift
+  - training-serving skew
+  - prediction distributions
+  - model health
+  - data shifts
+  excludes:
+  - generic service telemetry alone
+  related:
+  - observability
+  - data-quality
+  - model-evaluation
+  aliases: []
+- id: model-optimisation
+  name: Model Optimisation
+  family: machine-learning
+  definition: Improving model inference or training efficiency while preserving required quality.
+  includes:
+  - quantisation
+  - distillation
+  - compilation
+  - batching
+  - memory and compute trade-offs
+  excludes:
+  - algorithmic optimisation unrelated to ML models
+  related:
+  - performance-engineering
+  - model-serving
+  - model-selection
+  aliases: []
+- id: model-provider-integration
+  name: Model Provider Integration
+  family: ai-engineering
+  definition: Integrating external or hosted model services as production dependencies with explicit contracts
+    and failure handling.
+  includes:
+  - provider APIs
+  - rate limits
+  - timeouts and retries
+  - version changes
+  - provider abstraction
+  excludes:
+  - general model-selection judgement
+  related:
+  - api-design
+  - reliability-engineering
+  - model-selection
+  aliases: []
+- id: prompt-and-context-engineering
+  name: Prompt & Context Engineering
+  family: ai-engineering
+  definition: Structuring instructions, context and interaction patterns to elicit reliable model behaviour.
+  includes:
+  - system and user instructions
+  - context construction
+  - few-shot examples
+  - context budgeting
+  excludes:
+  - security testing of prompt injection as the primary task
+  related:
+  - prompt-injection
+  - tool-use
+  - ai-evaluation
+  aliases: []
+- id: embeddings
+  name: Embeddings
+  family: ai-engineering
+  definition: Using and evaluating vector representations for semantic similarity, retrieval and downstream
+    AI workflows.
+  includes:
+  - embedding selection
+  - similarity
+  - vector indexing considerations
+  - embedding evaluation
+  excludes:
+  - general feature engineering for non-embedding ML
+  related:
+  - retrieval-augmented-generation
+  - model-selection
+  aliases: []
+- id: retrieval-augmented-generation
+  name: Retrieval-Augmented Generation
+  family: ai-engineering
+  definition: Designing AI systems that retrieve external knowledge and incorporate it into model context.
+  includes:
+  - chunking
+  - retrieval
+  - reranking
+  - grounding
+  - citation and provenance
+  excludes:
+  - generic search without model generation
+  related:
+  - embeddings
+  - ai-evaluation
+  - rag-security
+  - data-governance-and-lineage
+  aliases: []
+- id: ai-evaluation
+  name: AI Evaluation
+  family: ai-engineering
+  definition: Designing repeatable evidence that an AI application or workflow satisfies quality, safety
+    and task requirements.
+  includes:
+  - task-specific evals
+  - datasets
+  - rubric-based evaluation
+  - regression evaluation
+  - human evaluation
+  excludes:
+  - model metrics alone when no application behaviour is assessed
+  related:
+  - model-evaluation
+  - metric-design
+  - adversarial-ai-evaluation
+  aliases: []
+- id: model-selection
+  name: Model Selection
+  family: ai-engineering
+  definition: Choosing models or providers by balancing capability, quality, latency, cost, safety and operational
+    constraints.
+  includes:
+  - benchmarking
+  - capability fit
+  - cost and latency
+  - provider constraints
+  - fallback choices
+  excludes:
+  - training a model from scratch
+  related:
+  - ai-evaluation
+  - model-provider-integration
+  - model-optimisation
+  aliases: []
+- id: tool-use
+  name: Tool Use
+  family: ai-engineering
+  definition: Designing model interactions with external functions, APIs or systems using explicit schemas,
+    permissions and error handling.
+  includes:
+  - function calling
+  - tool schemas
+  - tool result handling
+  - permission boundaries
+  - tool failures
+  excludes:
+  - multi-step autonomous workflow design as the primary concern
+  related:
+  - agentic-systems
+  - api-design
+  - agent-security
+  aliases: []
+- id: agentic-systems
+  name: Agentic Systems
+  family: ai-engineering
+  definition: Designing AI systems that plan, select actions, use tools and maintain state across multi-step
+    tasks.
+  includes:
+  - planning loops
+  - state and memory
+  - tool selection
+  - termination
+  - delegation
+  excludes:
+  - single model call workflows without autonomous action
+  related:
+  - tool-use
+  - human-in-the-loop-design
+  - agent-security
+  - ai-evaluation
+  aliases: []
+- id: human-in-the-loop-design
+  name: Human-in-the-Loop Design
+  family: ai-engineering
+  definition: Designing points of human review, approval, override or escalation into automated and AI-assisted
+    workflows.
+  includes:
+  - approval gates
+  - escalation
+  - override
+  - review UX
+  - confidence-aware routing
+  excludes:
+  - generic stakeholder communication
+  related:
+  - agentic-systems
+  - ai-evaluation
+  - ai-abuse-and-misuse
+  aliases: []
+- id: threat-modelling
+  name: Threat Modelling
+  family: security-engineering
+  definition: Identifying assets, trust boundaries, adversaries, abuse paths and mitigations before or
+    during system design.
+  includes:
+  - assets and trust boundaries
+  - threat enumeration
+  - attack paths
+  - mitigation prioritisation
+  excludes:
+  - penetration testing execution
+  related:
+  - security-architecture
+  - application-security
+  - ai-abuse-and-misuse
+  aliases: []
+- id: security-architecture
+  name: Security Architecture
+  family: security-engineering
+  definition: Designing security controls, trust boundaries and assurance mechanisms across system architecture.
+  includes:
+  - defence in depth
+  - segmentation
+  - control placement
+  - trust models
+  - security trade-offs
+  excludes:
+  - general software decomposition unless security is primary
+  related:
+  - threat-modelling
+  - identity-and-access-control
+  - cloud-security
+  - application-security
+  aliases: []
+- id: identity-and-access-control
+  name: Identity & Access Control
+  family: security-engineering
+  definition: Designing and assessing authentication, authorisation, identity lifecycle and privilege boundaries.
+  includes:
+  - authentication
+  - authorisation
+  - RBAC and ABAC
+  - least privilege
+  - service identity
+  excludes:
+  - secret storage as the primary concern
+  related:
+  - secrets-management
+  - security-architecture
+  - application-security
+  aliases: []
+- id: application-security
+  name: Application Security
+  family: security-engineering
+  definition: Preventing, identifying and reasoning about vulnerabilities in application design and implementation.
+  includes:
+  - input and output handling
+  - authz flaws
+  - secure coding
+  - web and API defensive controls
+  excludes:
+  - offensive exploitation methodology as the primary objective
+  related:
+  - api-exploitation
+  - web-exploitation
+  - threat-modelling
+  - security-architecture
+  aliases: []
+- id: cloud-security
+  name: Cloud Security
+  family: security-engineering
+  definition: Designing and assessing security controls for cloud infrastructure, services and identity
+    boundaries.
+  includes:
+  - cloud IAM
+  - network controls
+  - managed-service security
+  - cloud posture
+  - workload isolation
+  excludes:
+  - general cloud architecture when security is not primary
+  related:
+  - cloud-architecture
+  - identity-and-access-control
+  - security-architecture
+  aliases: []
+- id: secrets-management
+  name: Secrets Management
+  family: security-engineering
+  definition: Protecting, distributing, rotating and revoking credentials, keys and other sensitive machine
+    or user secrets.
+  includes:
+  - secret storage
+  - rotation
+  - scoping
+  - delivery
+  - revocation
+  excludes:
+  - general encryption design
+  related:
+  - identity-and-access-control
+  - applied-cryptography
+  - cloud-security
+  aliases: []
+- id: applied-cryptography
+  name: Applied Cryptography
+  family: security-engineering
+  definition: Applying cryptographic primitives and protocols appropriately to protect confidentiality,
+    integrity and authenticity.
+  includes:
+  - encryption
+  - hashing
+  - digital signatures
+  - key management concepts
+  - protocol selection
+  excludes:
+  - inventing novel cryptographic algorithms
+  related:
+  - secrets-management
+  - data-protection-and-privacy
+  - security-architecture
+  aliases:
+  - cryptography
+- id: vulnerability-management
+  name: Vulnerability Management
+  family: security-engineering
+  definition: Prioritising, remediating and tracking vulnerabilities across systems using risk, exposure
+    and evidence.
+  includes:
+  - triage
+  - severity and exploitability
+  - remediation prioritisation
+  - retesting
+  - exception handling
+  excludes:
+  - hands-on exploitation as the primary task
+  related:
+  - application-security
+  - security-automation
+  - offensive-methodology
+  aliases: []
+- id: security-automation
+  name: Security Automation
+  family: security-engineering
+  definition: Automating repeatable security analysis, enforcement or response while preserving evidence
+    and safe failure behaviour.
+  includes:
+  - security tooling
+  - policy automation
+  - scanning workflows
+  - evidence automation
+  - response automation
+  excludes:
+  - generic CI/CD automation
+  related:
+  - vulnerability-management
+  - incident-response
+  - ci-cd
+  aliases: []
+- id: incident-response
+  name: Incident Response
+  family: security-engineering
+  definition: Detecting, containing, investigating, recovering from and learning from security incidents.
+  includes:
+  - triage
+  - containment
+  - eradication
+  - recovery
+  - forensics coordination
+  - lessons learned
+  excludes:
+  - general service debugging absent a security incident
+  related:
+  - observability
+  - service-operations
+  - security-automation
+  aliases: []
+- id: data-protection-and-privacy
+  name: Data Protection & Privacy
+  family: security-engineering
+  definition: Designing technical controls around sensitive data collection, access, minimisation, retention
+    and disclosure.
+  includes:
+  - data classification
+  - minimisation
+  - access controls
+  - retention
+  - privacy-preserving design
+  excludes:
+  - legal advice or regulatory interpretation
+  related:
+  - data-governance-and-lineage
+  - applied-cryptography
+  - identity-and-access-control
+  aliases: []
+- id: prompt-injection
+  name: Prompt Injection
+  family: ai-security
+  definition: Understanding, testing and mitigating instruction-manipulation attacks against language-model
+    applications.
+  includes:
+  - direct prompt injection
+  - indirect prompt injection
+  - instruction hierarchy abuse
+  - mitigation limits
+  excludes:
+  - general prompt quality optimisation
+  related:
+  - prompt-and-context-engineering
+  - rag-security
+  - agent-security
+  aliases: []
+- id: rag-security
+  name: RAG Security
+  family: ai-security
+  definition: Securing retrieval-augmented systems against untrusted content, access-control failures and
+    retrieval-specific abuse.
+  includes:
+  - retrieval authorisation
+  - indirect prompt injection via content
+  - poisoned knowledge
+  - provenance and isolation
+  excludes:
+  - generic RAG quality when no security property is involved
+  related:
+  - retrieval-augmented-generation
+  - prompt-injection
+  - data-protection-and-privacy
+  aliases: []
+- id: agent-security
+  name: Agent Security
+  family: ai-security
+  definition: Securing tool-using and agentic AI systems against unsafe actions, privilege abuse and adversarial
+    control.
+  includes:
+  - tool permissions
+  - action approval
+  - credential boundaries
+  - agent hijacking
+  - sandboxing
+  excludes:
+  - generic agent workflow quality
+  related:
+  - agentic-systems
+  - tool-use
+  - identity-and-access-control
+  - prompt-injection
+  aliases: []
+- id: ai-supply-chain-security
+  name: AI Supply-Chain Security
+  family: ai-security
+  definition: Managing security risks introduced by models, datasets, dependencies, providers and artifacts
+    in AI system supply chains.
+  includes:
+  - model provenance
+  - dataset provenance
+  - dependency integrity
+  - artifact integrity
+  - provider trust
+  excludes:
+  - general software dependency management without AI-specific artifacts
+  related:
+  - model-security
+  - data-governance-and-lineage
+  - software-delivery-practices
+  aliases: []
+- id: adversarial-ai-evaluation
+  name: Adversarial AI Evaluation
+  family: ai-security
+  definition: Designing systematic adversarial evaluations that measure AI system security and safety behaviour
+    under attack.
+  includes:
+  - attack datasets
+  - repeatable red-team evals
+  - coverage
+  - success metrics
+  - regression testing
+  excludes:
+  - single anecdotal jailbreaks without measurement
+  related:
+  - ai-evaluation
+  - prompt-injection
+  - offensive-methodology
+  aliases: []
+- id: model-security
+  name: Model Security
+  family: ai-security
+  definition: Protecting model artifacts, inference interfaces and model-specific assets against theft,
+    tampering or extraction.
+  includes:
+  - model extraction
+  - artifact protection
+  - inference abuse
+  - model integrity
+  - sensitive model access
+  excludes:
+  - general application security where model assets are incidental
+  related:
+  - ai-supply-chain-security
+  - data-protection-and-privacy
+  - application-security
+  aliases: []
+- id: ai-abuse-and-misuse
+  name: AI Abuse & Misuse
+  family: ai-security
+  definition: Reasoning about ways legitimate AI capabilities can be misused or abused and designing proportional
+    controls.
+  includes:
+  - abuse cases
+  - capability misuse
+  - rate and access controls
+  - monitoring
+  - safeguard trade-offs
+  excludes:
+  - prompt injection where control of the AI system itself is the main attack
+  related:
+  - threat-modelling
+  - human-in-the-loop-design
+  - adversarial-ai-evaluation
+  aliases: []
+- id: reconnaissance-and-enumeration
+  name: Reconnaissance & Enumeration
+  family: offensive-security
+  definition: Systematically discovering and characterising attack surface, assets, services and reachable
+    functionality.
+  includes:
+  - asset discovery
+  - service enumeration
+  - content discovery
+  - attack-surface mapping
+  excludes:
+  - exploitation after a weakness is established
+  related:
+  - offensive-methodology
+  - network-and-host-exploitation
+  - web-exploitation
+  aliases: []
+- id: web-exploitation
+  name: Web Exploitation
+  family: offensive-security
+  definition: Identifying and exploiting security weaknesses in browser-facing web applications.
+  includes:
+  - injection
+  - session flaws
+  - browser trust issues
+  - server-side web vulnerabilities
+  excludes:
+  - API-only testing where browser behaviour is irrelevant
+  related:
+  - application-security
+  - api-exploitation
+  - attack-chaining
+  aliases: []
+- id: api-exploitation
+  name: API Exploitation
+  family: offensive-security
+  definition: Identifying and exploiting security weaknesses in programmatic application interfaces.
+  includes:
+  - object-level authorisation flaws
+  - API authentication
+  - mass assignment
+  - schema and workflow abuse
+  excludes:
+  - generic API design absent security testing
+  related:
+  - application-security
+  - web-exploitation
+  - attack-chaining
+  aliases: []
+- id: network-and-host-exploitation
+  name: Network & Host Exploitation
+  family: offensive-security
+  definition: Identifying and exploiting weaknesses in network services, operating systems and host configurations.
+  includes:
+  - service exploitation
+  - host compromise
+  - network attack paths
+  - misconfiguration abuse
+  excludes:
+  - web-only vulnerabilities
+  related:
+  - networking
+  - operating-systems
+  - privilege-escalation
+  aliases: []
+- id: privilege-escalation
+  name: Privilege Escalation
+  family: offensive-security
+  definition: Increasing effective privileges after initial access by exploiting configuration, software
+    or trust weaknesses.
+  includes:
+  - local privilege escalation
+  - credential abuse
+  - misconfigured permissions
+  - trust abuse
+  excludes:
+  - initial access unless it directly establishes higher privilege
+  related:
+  - post-exploitation
+  - network-and-host-exploitation
+  - attack-chaining
+  aliases: []
+- id: attack-chaining
+  name: Attack Chaining
+  family: offensive-security
+  definition: Combining multiple weaknesses or trust relationships into a coherent attack path toward an
+    objective.
+  includes:
+  - multi-step exploitation
+  - trust-boundary traversal
+  - pivot reasoning
+  - impact amplification
+  excludes:
+  - isolated vulnerability identification
+  related:
+  - offensive-methodology
+  - privilege-escalation
+  - post-exploitation
+  aliases: []
+- id: post-exploitation
+  name: Post-Exploitation
+  family: offensive-security
+  definition: Reasoning about actions after initial compromise to validate impact while maintaining scope
+    and evidence discipline.
+  includes:
+  - situational awareness
+  - credential and access analysis
+  - pivoting
+  - impact validation
+  - cleanup
+  excludes:
+  - persistence or destructive actions outside authorised scope
+  related:
+  - privilege-escalation
+  - attack-chaining
+  - offensive-methodology
+  aliases: []
+- id: offensive-methodology
+  name: Offensive Methodology
+  family: offensive-security
+  definition: Planning and executing authorised adversarial assessments with disciplined scoping, evidence,
+    prioritisation and reporting.
+  includes:
+  - scope management
+  - test planning
+  - evidence capture
+  - risk-based prioritisation
+  - retest and reporting
+  excludes:
+  - unauthorised access or indiscriminate exploitation
+  related:
+  - reconnaissance-and-enumeration
+  - attack-chaining
+  - vulnerability-management
+  aliases: []
+- id: numerical-computing
+  name: Numerical Computing
+  family: quantitative-engineering
+  definition: Implementing and reasoning about efficient, stable numerical calculations and computational
+    methods.
+  includes:
+  - floating-point behaviour
+  - vectorised computation
+  - numerical stability
+  - scientific computing
+  excludes:
+  - pure symbolic mathematics
+  related:
+  - quantitative-reasoning
+  - linear-algebra
+  - performance-engineering
+  aliases: []
+- id: simulation-and-backtesting
+  name: Simulation & Backtesting
+  family: quantitative-engineering
+  definition: Designing simulations and historical evaluations that produce credible evidence while avoiding
+    leakage and unrealistic assumptions.
+  includes:
+  - backtest design
+  - transaction assumptions
+  - simulation validity
+  - look-ahead bias
+  - reproducibility
+  excludes:
+  - live trading strategy selection as a business decision
+  related:
+  - time-series-analysis
+  - experimentation
+  - numerical-computing
+  aliases: []
+- id: market-microstructure
+  name: Market Microstructure
+  family: quantitative-engineering
+  definition: Understanding how orders, venues, liquidity and execution mechanics affect quantitative systems.
+  includes:
+  - order books
+  - spreads
+  - liquidity
+  - execution mechanics
+  - market impact
+  excludes:
+  - investment thesis development
+  related:
+  - simulation-and-backtesting
+  - performance-engineering
+  - time-series-analysis
+  aliases: []
+- id: communication
+  name: Communication
+  family: professional-behavioural
+  definition: Explaining technical information clearly and adapting detail, structure and language to the
+    audience and objective.
+  includes:
+  - technical explanation
+  - written clarity
+  - active listening
+  - audience adaptation
+  excludes:
+  - stakeholder prioritisation as the primary construct
+  related:
+  - stakeholder-management
+  - collaboration-and-conflict
+  - data-visualisation
+  aliases: []
+- id: leadership-and-influence
+  name: Leadership & Influence
+  family: professional-behavioural
+  definition: Shaping technical or team outcomes through direction, influence, coaching or alignment, with
+    or without formal authority.
+  includes:
+  - influence without authority
+  - technical leadership
+  - mentoring
+  - alignment
+  excludes:
+  - people-management administration
+  related:
+  - stakeholder-management
+  - collaboration-and-conflict
+  - technical-judgement
+  aliases: []
+- id: ownership-and-delivery
+  name: Ownership & Delivery
+  family: professional-behavioural
+  definition: Taking responsibility for outcomes, following work through uncertainty and ensuring useful
+    completion.
+  includes:
+  - accountability
+  - follow-through
+  - risk escalation
+  - delivery focus
+  excludes:
+  - project-management process as an end in itself
+  related:
+  - prioritisation
+  - ambiguity-and-adaptability
+  - technical-judgement
+  aliases: []
+- id: stakeholder-management
+  name: Stakeholder Management
+  family: professional-behavioural
+  definition: Understanding stakeholder needs, negotiating constraints and maintaining alignment across
+    differing objectives.
+  includes:
+  - expectation management
+  - requirements negotiation
+  - cross-functional alignment
+  - trade-off communication
+  excludes:
+  - generic communication without stakeholder conflict or dependency
+  related:
+  - communication
+  - leadership-and-influence
+  - prioritisation
+  aliases: []
+- id: collaboration-and-conflict
+  name: Collaboration & Conflict
+  family: professional-behavioural
+  definition: Working constructively with others through disagreement, dependency and differing perspectives.
+  includes:
+  - constructive disagreement
+  - team collaboration
+  - perspective taking
+  - conflict resolution
+  excludes:
+  - formal organisational leadership unless influence is central
+  related:
+  - communication
+  - leadership-and-influence
+  - stakeholder-management
+  aliases: []
+- id: ambiguity-and-adaptability
+  name: Ambiguity & Adaptability
+  family: professional-behavioural
+  definition: Making progress when requirements, information or circumstances are incomplete or changing.
+  includes:
+  - clarifying ambiguity
+  - adapting plans
+  - learning under uncertainty
+  - reframing problems
+  excludes:
+  - risk-taking without evidence
+  related:
+  - technical-judgement
+  - ownership-and-delivery
+  - learning-and-reflection
+  aliases: []
+- id: prioritisation
+  name: Prioritisation
+  family: professional-behavioural
+  definition: Choosing what to do, defer or stop by balancing value, risk, urgency, cost and dependencies.
+  includes:
+  - trade-off prioritisation
+  - sequencing
+  - risk-based ordering
+  - scope control
+  excludes:
+  - algorithmic scheduling problems
+  related:
+  - ownership-and-delivery
+  - stakeholder-management
+  - technical-judgement
+  aliases: []
+- id: technical-judgement
+  name: Technical Judgement
+  family: professional-behavioural
+  definition: Making and defending engineering decisions using evidence, constraints, trade-offs and appropriate
+    uncertainty.
+  includes:
+  - decision framing
+  - trade-off reasoning
+  - evidence use
+  - reversibility
+  - risk judgement
+  excludes:
+  - specific domain knowledge that supplies the facts for a decision
+  related:
+  - leadership-and-influence
+  - ambiguity-and-adaptability
+  - prioritisation
+  aliases: []
+- id: learning-and-reflection
+  name: Learning & Reflection
+  family: professional-behavioural
+  definition: Learning from outcomes, feedback and mistakes and translating that learning into changed
+    future behaviour.
+  includes:
+  - retrospective reasoning
+  - feedback response
+  - self-directed learning
+  - behaviour change
+  excludes:
+  - simple recall of training completed
+  related:
+  - ambiguity-and-adaptability
+  - ownership-and-delivery
+  - technical-judgement
+  aliases: []

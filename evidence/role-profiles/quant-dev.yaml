@@ -1,0 +1,46 @@
+schema_version: 0.1.0
+taxonomy_version: 0.1.0
+role: quant-dev
+profile_revision: 1
+status: draft
+evidence_as_of: '2026-11-02'
+confidence: high
+evidence:
+  source_count: 4
+  employer_count: 2
+  sources:
+  - employer: Citadel
+    source_type: employer-job-description
+    url: https://www.citadel.com/careers/details/python-quantitative-developer/
+    observed_at: '2026-11-02'
+    supports: [programming, algorithms-and-complexity, data-structures, data-pipelines, quantitative-reasoning, communication, ownership-and-delivery]
+  - employer: Citadel
+    source_type: employer-interview-guide
+    url: https://www.citadel.com/careers/open-opportunities/?jobTitle=Global+Quantitative+Strategies
+    observed_at: '2026-11-02'
+    supports: [programming, algorithms-and-complexity, data-structures, communication]
+  - employer: IMC
+    source_type: employer-job-description
+    url: https://www.imc.com/in/careers/jobs/4874399101
+    observed_at: '2026-11-02'
+    supports: [programming, probability, statistics, time-series-analysis, simulation-and-backtesting, data-pipelines, ml-fundamentals]
+  - employer: IMC
+    source_type: employer-job-description
+    url: https://www.imc.com/ap/careers/jobs/4760871101
+    observed_at: '2026-11-02'
+    supports: [programming, performance-engineering, data-pipelines, testing, ownership-and-delivery]
+  limitations:
+  - Quant Developer varies by desk; the profile avoids treating every role as synonymous with ultra-low-latency C++ trading.
+calibration:
+  defaults: {role_importance: contextual, interview_emphasis: unresolved}
+  role_importance:
+    core: [algorithms-and-complexity, data-structures, programming, testing, debugging, software-architecture, performance-engineering, concurrency, quantitative-reasoning, probability, statistics, data-pipelines, numerical-computing, simulation-and-backtesting, communication, ownership-and-delivery, collaboration-and-conflict, ambiguity-and-adaptability, prioritisation, technical-judgement, learning-and-reflection]
+    important: [operating-systems, networking, linear-algebra, calculus-and-optimisation, api-design, distributed-systems, reliability-engineering, observability, software-delivery-practices, cloud-architecture, containerisation, ci-cd, service-operations, sql, data-modelling, databases, stream-processing, data-quality, orchestration, analytical-data-platforms, exploratory-data-analysis, experimentation, time-series-analysis, ml-fundamentals, model-evaluation, market-microstructure, stakeholder-management, leadership-and-influence]
+    not_materially_characteristic: []
+  interview_emphasis:
+    status: provisional
+    high: [algorithms-and-complexity, data-structures, programming, debugging, concurrency, performance-engineering, quantitative-reasoning, probability, statistics, numerical-computing, simulation-and-backtesting, data-pipelines, time-series-analysis]
+    medium: []
+    low: []
+    unresolved_policy: all-unlisted
+    basis: Maintainer synthesis from current role evidence unless an official employer interview guide is listed.

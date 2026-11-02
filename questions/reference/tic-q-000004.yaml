@@ -1,0 +1,84 @@
+schema_version: 0.1.0
+id: tic-q-000004
+revision: 1
+status: draft
+question:
+  prompt: Review one supplied application variant and identify the most significant security weakness. Explain how you would validate the finding during an authorised assessment and how you would remediate it.
+  domain: offensive-scenario
+  response_modes:
+  - discussion
+  - written
+  timebox_minutes: 20
+  stimulus_sets:
+  - id: variant-a
+    equivalence: canonical
+    difficulty_adjustment: none
+    assets:
+    - id: application
+      type: code
+      language: python
+      path: assets/tic-q-000004/variant-a/app.py
+    - id: routes
+      type: config
+      language: yaml
+      path: assets/tic-q-000004/variant-a/routes.yaml
+  - id: variant-b
+    equivalence: canonical
+    difficulty_adjustment: none
+    assets:
+    - id: controller
+      type: code
+      language: javascript
+      path: assets/tic-q-000004/variant-b/controller.js
+    - id: routes
+      type: config
+      language: yaml
+      path: assets/tic-q-000004/variant-b/routes.yaml
+classification:
+  competencies:
+    primary: api-exploitation
+    secondary:
+    - application-security
+    - identity-and-access-control
+    - communication
+  roles:
+  - pentest-redteam
+  - sec-eng
+  - ai-sec
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      security_reasoning: medium
+      implementation_depth: low
+    rationale: Tests recognition and bounded validation of an object-level authorisation weakness.
+  tags:
+  - bola
+  - idor
+  - authorisation
+  - api
+assessment:
+  intent: Assess recognition and validation of object-level authorisation weaknesses.
+  must_surface:
+  - object ownership or access permission is not visibly checked
+  - exploitation should only be validated within authorised scope
+  - remediation requires server-side authorisation
+  strong_signals:
+  - distinguishes authentication from object-level authorisation
+  - explains how to test without unnecessary impact
+  - proposes both implementation and regression-testing measures
+  red_flags:
+  - recommends relying on hidden identifiers
+  - treats authentication alone as sufficient authorisation
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

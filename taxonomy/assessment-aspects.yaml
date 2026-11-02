@@ -1,0 +1,7 @@
+schema_version: 0.1.0
+aspects:
+- failure-mode-analysis
+- tradeoff-reasoning
+- perspective-taking
+- reflection
+- requirements-elicitation

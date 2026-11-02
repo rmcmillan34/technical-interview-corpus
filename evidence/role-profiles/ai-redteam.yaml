@@ -1,0 +1,36 @@
+schema_version: 0.1.0
+taxonomy_version: 0.1.0
+role: ai-redteam
+profile_revision: 1
+status: draft
+evidence_as_of: '2026-11-02'
+confidence: high
+evidence:
+  source_count: 2
+  employer_count: 2
+  sources:
+  - employer: OpenAI
+    source_type: employer-job-description
+    url: https://openai.com/careers/red-team-cyber-san-francisco/
+    observed_at: '2026-11-02'
+    supports: [ai-evaluation, statistics, programming, prompt-injection, agent-security, adversarial-ai-evaluation, communication]
+  - employer: Anthropic
+    source_type: employer-job-description
+    url: https://job-boards.greenhouse.io/anthropic/jobs/5320469008
+    observed_at: '2026-11-02'
+    supports: [web-exploitation, api-exploitation, prompt-injection, adversarial-ai-evaluation, security-automation, communication]
+  limitations:
+  - The role family is new and employer terminology varies between red teaming, safeguards, evaluations and security research.
+calibration:
+  defaults: {role_importance: contextual, interview_emphasis: unresolved}
+  role_importance:
+    core: [statistics, programming, testing, debugging, observability, data-quality, metric-design, experimentation, ml-fundamentals, model-evaluation, ml-observability, model-provider-integration, prompt-and-context-engineering, retrieval-augmented-generation, ai-evaluation, tool-use, agentic-systems, threat-modelling, prompt-injection, rag-security, agent-security, ai-supply-chain-security, adversarial-ai-evaluation, model-security, ai-abuse-and-misuse, attack-chaining, offensive-methodology, communication, ownership-and-delivery, ambiguity-and-adaptability, technical-judgement]
+    important: [operating-systems, networking, probability, quantitative-reasoning, software-architecture, distributed-systems, reliability-engineering, cloud-architecture, containerisation, sql, data-pipelines, data-governance-and-lineage, orchestration, exploratory-data-analysis, data-visualisation, model-training, model-serving, ml-pipelines, embeddings, model-selection, human-in-the-loop-design, security-architecture, identity-and-access-control, application-security, cloud-security, secrets-management, data-protection-and-privacy, vulnerability-management, security-automation, reconnaissance-and-enumeration, web-exploitation, api-exploitation, network-and-host-exploitation, stakeholder-management, collaboration-and-conflict, prioritisation, learning-and-reflection]
+    not_materially_characteristic: []
+  interview_emphasis:
+    status: provisional
+    high: [statistics, experimentation, metric-design, ai-evaluation, adversarial-ai-evaluation, prompt-injection, rag-security, agent-security, model-security, ai-abuse-and-misuse, attack-chaining, offensive-methodology, programming, technical-judgement, communication]
+    medium: []
+    low: []
+    unresolved_policy: all-unlisted
+    basis: Maintainer synthesis from current role evidence unless an official employer interview guide is listed.

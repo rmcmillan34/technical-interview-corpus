@@ -1,0 +1,36 @@
+schema_version: 0.1.0
+taxonomy_version: 0.1.0
+role: ai-sec
+profile_revision: 1
+status: draft
+evidence_as_of: '2026-11-02'
+confidence: high
+evidence:
+  source_count: 2
+  employer_count: 2
+  sources:
+  - employer: OpenAI
+    source_type: employer-job-description
+    url: https://openai.com/careers/security-engineer-agent-security-san-francisco/
+    observed_at: '2026-11-02'
+    supports: [programming, agent-security, containerisation, identity-and-access-control, cloud-security, observability]
+  - employer: Anthropic
+    source_type: employer-job-description
+    url: https://job-boards.greenhouse.io/anthropic/jobs/5458420008
+    observed_at: '2026-11-02'
+    supports: [programming, distributed-systems, containerisation, agent-security, identity-and-access-control, security-architecture]
+  limitations:
+  - The role family is emerging and current evidence is concentrated in frontier-model companies.
+calibration:
+  defaults: {role_importance: contextual, interview_emphasis: unresolved}
+  role_importance:
+    core: [networking, programming, testing, debugging, software-architecture, distributed-systems, reliability-engineering, observability, cloud-architecture, containerisation, service-operations, data-governance-and-lineage, data-quality, ml-fundamentals, model-evaluation, model-provider-integration, prompt-and-context-engineering, retrieval-augmented-generation, ai-evaluation, tool-use, agentic-systems, human-in-the-loop-design, threat-modelling, security-architecture, identity-and-access-control, application-security, cloud-security, secrets-management, data-protection-and-privacy, prompt-injection, rag-security, agent-security, ai-supply-chain-security, adversarial-ai-evaluation, model-security, ai-abuse-and-misuse, communication, ownership-and-delivery, stakeholder-management, ambiguity-and-adaptability, technical-judgement]
+    important: [operating-systems, concurrency, probability, statistics, performance-engineering, ci-cd, infrastructure-as-code, data-pipelines, model-serving, ml-pipelines, ml-observability, model-selection, applied-cryptography, vulnerability-management, security-automation, reconnaissance-and-enumeration, web-exploitation, api-exploitation, network-and-host-exploitation, attack-chaining, offensive-methodology, collaboration-and-conflict, prioritisation, learning-and-reflection]
+    not_materially_characteristic: []
+  interview_emphasis:
+    status: provisional
+    high: [programming, software-architecture, threat-modelling, security-architecture, identity-and-access-control, application-security, agentic-systems, prompt-injection, rag-security, agent-security, ai-supply-chain-security, adversarial-ai-evaluation, model-security, data-protection-and-privacy, technical-judgement]
+    medium: []
+    low: []
+    unresolved_policy: all-unlisted
+    basis: Maintainer synthesis from current role evidence unless an official employer interview guide is listed.

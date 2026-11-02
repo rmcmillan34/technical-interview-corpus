@@ -1,0 +1,94 @@
+schema_version: 0.1.0
+id: tic-q-000003
+revision: 1
+status: draft
+question:
+  prompt_template: Design a production RAG assistant using {{model_provider}} and a retrieval system of your choice for an organisation containing documents with different access permissions.
+  domain: ai-system-design
+  response_modes:
+  - discussion
+  timebox_minutes: 35
+parameters:
+  model_provider:
+    type: technology
+    category: model-provider
+    policy: parameterised
+    allowed:
+    - openai-api
+    - anthropic-api
+  retrieval_system:
+    type: technology
+    category: retrieval-platform
+    policy: candidate-choice
+    allowed:
+    - postgres-pgvector
+    - pinecone
+    - weaviate
+classification:
+  competencies:
+    primary: retrieval-augmented-generation
+    secondary:
+    - software-architecture
+    - ai-evaluation
+    - identity-and-access-control
+    - data-protection-and-privacy
+    - observability
+  roles:
+  - ai-eng
+  - ai-sec
+  - mle
+  difficulty:
+    level: D4
+    drivers:
+      ambiguity: high
+      scope: high
+      tradeoff_reasoning: high
+      security_reasoning: high
+      failure_reasoning: high
+    rationale: Requires secure architecture under ambiguous production constraints and defence of competing design choices.
+  aspects:
+  - failure-mode-analysis
+  - tradeoff-reasoning
+  - requirements-elicitation
+  tags:
+  - rag
+  - authorisation
+  - evaluation
+  - prompt-injection
+assessment:
+  intent: Assess whether the candidate can design a secure and evaluable RAG system under realistic production constraints.
+  must_surface:
+  - retrieval authorisation must be enforced
+  - retrieved content must be treated as untrusted input
+  - evaluation must cover retrieval and generated output
+  - provenance or citation should be preserved
+  - operational telemetry is required
+  strong_signals:
+  - separates retrieval permissions from model behaviour
+  - considers indirect prompt injection
+  - defines measurable evaluation criteria
+  - discusses latency and cost
+  - considers failure behaviour for external providers
+  red_flags:
+  - relies on prompting alone for document access control
+  - gives the model unrestricted access to the entire corpus
+  - treats citations as proof of correctness
+  technology_overlays:
+    openai-api:
+      strong_signals:
+      - treats provider integration as an external service boundary
+    postgres-pgvector:
+      strong_signals:
+      - distinguishes application authorisation from vector similarity
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

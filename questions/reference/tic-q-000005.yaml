@@ -1,0 +1,51 @@
+schema_version: 0.1.0
+id: tic-q-000005
+revision: 1
+status: draft
+question:
+  prompt: A strategy produced daily returns of 1%, -0.5%, 2% and -1%. Calculate the cumulative return using compounding, then explain why simply summing the daily percentages is not generally equivalent.
+  domain: quantitative
+  response_modes:
+  - calculation
+  - discussion
+  timebox_minutes: 10
+classification:
+  competencies:
+    primary: quantitative-reasoning
+    secondary:
+    - statistics
+  roles:
+  - quant-dev
+  - ds
+  difficulty:
+    level: D2
+    drivers:
+      quantitative_reasoning: medium
+      knowledge_depth: low
+    rationale: Requires correct application of compounding to a bounded quantitative problem and explanation of the underlying reasoning.
+  tags:
+  - returns
+  - compounding
+assessment:
+  intent: Assess basic quantitative reasoning about compounded returns.
+  answer_key:
+    type: numeric
+    value: 0.01479851
+    tolerance: 1.0e-06
+  must_surface:
+  - returns compound multiplicatively rather than additively
+  strong_signals:
+  - clearly distinguishes arithmetic addition from compounding
+  - performs the calculation systematically
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

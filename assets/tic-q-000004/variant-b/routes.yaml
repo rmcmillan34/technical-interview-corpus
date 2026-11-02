@@ -1,0 +1,5 @@
+routes:
+  - method: GET
+    path: /api/invoices/:invoiceId
+    authn: session
+    object_authorisation: application
