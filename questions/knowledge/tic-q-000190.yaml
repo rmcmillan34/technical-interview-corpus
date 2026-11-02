@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000190
+revision: 1
+status: draft
+question:
+  prompt: >
+    Given scores(player_id, game_id, score), write SQL that returns each player's three highest scores and their rank within that player. Explain when ROW_NUMBER, RANK and DENSE_RANK differ.
+  domain: knowledge
+  response_modes: [sql, discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: sql, secondary: [data-modelling, databases]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: medium, ambiguity: medium}
+    rationale: Applies window functions, partitioning and tie semantics to a bounded query.
+  tags: [window-functions, ranking, top-n]
+assessment:
+  intent: Assess whether the candidate can use partitioned ranking and reason about ties.
+  must_surface: [partitions ranking by player, orders scores descending, filters to the intended top-three rank semantics]
+  strong_signals: [defines deterministic tiebreaking when using ROW_NUMBER]
+  red_flags: [uses one global LIMIT 3 for all players]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

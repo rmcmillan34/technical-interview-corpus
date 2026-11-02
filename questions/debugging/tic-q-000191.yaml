@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000191
+revision: 1
+status: draft
+question:
+  prompt: >
+    A production report query joining orders, order_items, products and customers has grown from 200 ms to 18 s as data volume increased. It also occasionally double-counts order totals because one-to-many joins multiply rows. Describe how you would establish the correct relational grain, rewrite or pre-aggregate the query, inspect its execution plan, and validate that performance changes preserve result correctness.
+  domain: debugging
+  response_modes: [discussion, sql]
+  timebox_minutes: 30
+classification:
+  competencies: {primary: sql, secondary: [databases, data-modelling, performance-engineering, debugging, testing]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: high, implementation_depth: medium, scale: high, failure_reasoning: high, quantitative_reasoning: medium, tradeoff_reasoning: high}
+    rationale: Requires production reasoning about relational grain, join cardinality, query plans, indexing and correctness under scale.
+  tags: [query-plan, join-cardinality, aggregation, performance]
+assessment:
+  intent: Assess whether the candidate can fix both semantic and performance defects in a realistic multi-table query.
+  must_surface: [defines the intended output grain before aggregation, prevents one-to-many join multiplication from double-counting, uses execution-plan evidence rather than guessing, validates result equivalence after optimization]
+  strong_signals: [pre-aggregates at appropriate grains, considers supporting indexes and statistics after fixing query semantics]
+  red_flags: [adds DISTINCT blindly to hide duplicate rows without proving the intended grain]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

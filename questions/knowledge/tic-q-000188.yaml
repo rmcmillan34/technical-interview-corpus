@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000188
+revision: 1
+status: draft
+question:
+  prompt: >
+    Given customers(id, name) and orders(id, customer_id, total_cents), write SQL that returns each customer with the total value of their orders, including customers with no orders, ordered from highest total to lowest.
+  domain: knowledge
+  response_modes: [sql, discussion]
+  timebox_minutes: 15
+classification:
+  competencies: {primary: sql, secondary: [data-modelling, databases]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: medium, ambiguity: low}
+    rationale: Applies joins, grouping, aggregation and null handling to a bounded query.
+  tags: [join, aggregate, group-by]
+assessment:
+  intent: Assess whether the candidate can combine a preserving join with grouped aggregation correctly.
+  must_surface: [uses a left-preserving join from customers to orders, groups at customer granularity, converts the no-order aggregate to an appropriate zero representation]
+  strong_signals: [avoids grouping by unstable non-key fields alone]
+  red_flags: [uses an inner join and silently drops customers without orders]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

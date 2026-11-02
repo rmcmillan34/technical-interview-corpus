@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000186
+revision: 1
+status: draft
+question:
+  prompt: What do GROUP BY and aggregate functions such as COUNT, SUM and AVG do? Why can HAVING be needed in addition to WHERE?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: sql, secondary: [databases, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational aggregation and group filtering.
+  tags: [group-by, aggregates, having]
+assessment:
+  intent: Assess whether the candidate understands grouping and filtering before versus after aggregation.
+  must_surface: [GROUP BY forms groups for aggregate calculation, WHERE filters input rows before grouping, HAVING can filter resulting groups]
+  red_flags: [uses WHERE as if it can directly filter an aggregate result in the same query level]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
