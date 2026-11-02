@@ -14,6 +14,7 @@ QUESTION_ROOT = ROOT / "questions"
 TAXONOMY_ROOT = ROOT / "taxonomy"
 SCHEMA_PATH = ROOT / "schemas" / "question.schema.json"
 TEMPLATE_RE = re.compile(r"\{\{([a-zA-Z0-9_-]+)\}\}")
+TAXONOMY_ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
 def load_yaml(path: Path):
@@ -32,6 +33,79 @@ def taxonomy_ids(filename: str, key: str):
 def technology_registry():
     data = load_yaml(TAXONOMY_ROOT / "technologies.yaml")
     return {item["id"]: set(item.get("categories", [])) for item in data["technologies"]}
+
+
+def validate_competency_taxonomy(errors: list[str]):
+    family_path = TAXONOMY_ROOT / "competency-families.yaml"
+    competency_path = TAXONOMY_ROOT / "competencies.yaml"
+
+    try:
+        family_data = load_yaml(family_path)
+        competency_data = load_yaml(competency_path)
+    except Exception as exc:
+        errors.append(f"competency taxonomy parse error: {exc}")
+        return
+
+    family_records = family_data.get("families", [])
+    family_ids = [item.get("id") for item in family_records]
+    if len(family_ids) != len(set(family_ids)):
+        errors.append(f"{family_path}: duplicate competency family id")
+    for family_id in family_ids:
+        if not isinstance(family_id, str) or not TAXONOMY_ID_RE.fullmatch(family_id):
+            errors.append(f"{family_path}: invalid competency family id {family_id!r}")
+
+    records = competency_data.get("competencies", [])
+    declared_count = competency_data.get("competency_count")
+    if declared_count != len(records):
+        errors.append(
+            f"{competency_path}: competency_count is {declared_count}, "
+            f"but registry contains {len(records)} records"
+        )
+
+    ids = [item.get("id") for item in records]
+    id_set = set(ids)
+    if len(ids) != len(id_set):
+        errors.append(f"{competency_path}: duplicate competency id")
+
+    aliases_seen: dict[str, str] = {}
+    for item in records:
+        competency_id = item.get("id")
+        if not isinstance(competency_id, str) or not TAXONOMY_ID_RE.fullmatch(competency_id):
+            errors.append(f"{competency_path}: invalid competency id {competency_id!r}")
+            continue
+
+        family = item.get("family")
+        if family not in family_ids:
+            errors.append(f"{competency_path}: {competency_id} references unknown family {family}")
+
+        definition = item.get("definition")
+        if not isinstance(definition, str) or not definition.strip():
+            errors.append(f"{competency_path}: {competency_id} requires a non-empty definition")
+
+        for list_field in ("includes", "excludes", "related", "aliases"):
+            value = item.get(list_field)
+            if not isinstance(value, list):
+                errors.append(f"{competency_path}: {competency_id}.{list_field} must be a list")
+
+        for related in item.get("related", []):
+            if related == competency_id:
+                errors.append(f"{competency_path}: {competency_id} cannot relate to itself")
+            elif related not in id_set:
+                errors.append(
+                    f"{competency_path}: {competency_id} references unknown related competency {related}"
+                )
+
+        for alias in item.get("aliases", []):
+            if alias in id_set:
+                errors.append(
+                    f"{competency_path}: alias {alias} for {competency_id} collides with a canonical id"
+                )
+            previous = aliases_seen.get(alias)
+            if previous and previous != competency_id:
+                errors.append(
+                    f"{competency_path}: alias {alias} is assigned to both {previous} and {competency_id}"
+                )
+            aliases_seen[alias] = competency_id
 
 
 def iter_asset_paths(question):
@@ -125,6 +199,8 @@ def main():
     errors = []
     seen_ids = set()
 
+    validate_competency_taxonomy(errors)
+
     if not paths:
         errors.append("No question YAML files found.")
 
@@ -149,7 +225,10 @@ def main():
             print(f"  - {error}")
         return 1
 
-    print(f"Validated {len(paths)} question(s) successfully.")
+    print(
+        f"Validated {len(paths)} question(s) and "
+        f"{len(taxonomy_ids('competencies.yaml', 'competencies'))} canonical competencies successfully."
+    )
     return 0
 
 
