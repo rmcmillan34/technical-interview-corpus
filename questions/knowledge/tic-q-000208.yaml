@@ -1,0 +1,56 @@
+schema_version: 0.1.0
+id: tic-q-000208
+revision: 1
+status: draft
+question:
+  prompt: Compare injecting a long-lived secret at runtime with using short-lived workload credentials.
+    What must still be protected in either approach?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: secrets-management
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - secrets-management
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable secrets-management evidence at D1.
+  must_surface:
+  - Runtime delivery avoids embedding credentials in source or immutable images but still requires access
+    control and leak prevention.
+  - Short-lived scoped credentials reduce exposure duration; issuance, identity, logs and runtime access
+    still need protection.
+  red_flags:
+  - Claims environment variables or a secret manager make credentials impossible to leak.
+  rubric:
+  - id: evidence-1
+    criterion: Runtime delivery avoids embedding credentials in source or immutable images but still requires
+      access control and leak prevention.
+    importance: essential
+  - id: evidence-2
+    criterion: Short-lived scoped credentials reduce exposure duration; issuance, identity, logs and runtime
+      access still need protection.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

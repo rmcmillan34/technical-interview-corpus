@@ -1,0 +1,54 @@
+schema_version: 0.1.0
+id: tic-q-000213
+revision: 1
+status: draft
+question:
+  prompt: What should a technical lead make clear when proposing a direction while important facts are
+    still uncertain?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: leadership-and-influence
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - leadership-and-influence
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable leadership-and-influence evidence at D1.
+  must_surface:
+  - Makes the objective, constraints, assumptions and decision boundaries explicit.
+  - Invites evidence and defines when the direction should be reconsidered rather than claiming unsupported
+    certainty.
+  red_flags:
+  - Hides uncertainty to make the proposal sound authoritative.
+  rubric:
+  - id: evidence-1
+    criterion: Makes the objective, constraints, assumptions and decision boundaries explicit.
+    importance: essential
+  - id: evidence-2
+    criterion: Invites evidence and defines when the direction should be reconsidered rather than claiming
+      unsupported certainty.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

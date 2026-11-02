@@ -1,0 +1,53 @@
+schema_version: 0.1.0
+id: tic-q-000207
+revision: 1
+status: draft
+question:
+  prompt: Why is a password or API key still exposed if you commit it to Git and then delete it in the
+    next commit? What immediate action is required?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: secrets-management
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - secrets-management
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable secrets-management evidence at D1.
+  must_surface:
+  - The value remains in history, clones or caches even after deletion.
+  - Revoke or rotate the exposed credential promptly; deleting history alone does not invalidate it.
+  red_flags:
+  - Treats deleting the latest line as sufficient incident containment.
+  rubric:
+  - id: evidence-1
+    criterion: The value remains in history, clones or caches even after deletion.
+    importance: essential
+  - id: evidence-2
+    criterion: Revoke or rotate the exposed credential promptly; deleting history alone does not invalidate
+      it.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

@@ -21,6 +21,9 @@ jobs:
       - name: Install validation dependencies
         run: python -m pip install -r requirements-dev.txt
 
+      - name: Test coverage inventory
+        run: python -m unittest discover -s tests -v
+
       - name: Validate corpus
         run: python tools/validate.py
 
@@ -32,6 +35,11 @@ jobs:
 
       - name: Build preview release bundle
         run: python tools/build_release.py --version 0.1.0-dev --include-drafts --skip-validation --output build/release-preview
+
+      - name: Export coverage inventory
+        run: |
+          python tools/audit_role_coverage.py >> "$GITHUB_STEP_SUMMARY"
+          python tools/audit_role_coverage.py --json > build/release-preview/swe-coverage-inventory.json
 
       - name: Finalize preview release metadata
         run: python tools/finalize_release_metadata.py --output build/release-preview

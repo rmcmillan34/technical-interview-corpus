@@ -71,3 +71,165 @@ edges:
 - {from: tic-q-000063, to: tic-q-000072, relation: escalate, rationale: Applies validation and authorization distinctions to a reusable public error contract.}
 - {from: tic-q-000072, to: tic-q-000063, relation: recover, rationale: Falls back to validation/error fundamentals if the public contract conflates client and server failures.}
 - {from: tic-q-000068, to: tic-q-000026, relation: escalate, rationale: Extends bounded mutation design into production retry-safe semantics under ambiguous failure.}
+- {from: tic-q-000012, to: tic-q-000046, relation: recover, rationale: Re-checks the narrower algorithms-and-complexity prerequisite after a weak scenario answer.}
+- {from: tic-q-000014, to: tic-q-000055, relation: escalate, rationale: Applies data-structures foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000055, to: tic-q-000014, relation: recover, rationale: Re-checks the narrower data-structures prerequisite after a weak scenario answer.}
+- {from: tic-q-000057, to: tic-q-000011, relation: escalate, rationale: Applies programming foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000011, to: tic-q-000057, relation: recover, rationale: Re-checks the narrower programming prerequisite after a weak scenario answer.}
+- {from: tic-q-000011, to: tic-q-000013, relation: escalate, rationale: Applies programming foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000013, to: tic-q-000011, relation: recover, rationale: Re-checks the narrower programming prerequisite after a weak scenario answer.}
+- {from: tic-q-000027, to: tic-q-000071, relation: recover, rationale: Re-checks the narrower api-design prerequisite after a weak scenario answer.}
+- {from: tic-q-000073, to: tic-q-000080, relation: escalate, rationale: Applies testing foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000080, to: tic-q-000073, relation: recover, rationale: Re-checks the narrower testing prerequisite after a weak scenario answer.}
+- {from: tic-q-000080, to: tic-q-000013, relation: escalate, rationale: Applies testing foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000013, to: tic-q-000080, relation: recover, rationale: Re-checks the narrower testing prerequisite after a weak scenario answer.}
+- {from: tic-q-000081, to: tic-q-000083, relation: escalate, rationale: Applies debugging foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000083, to: tic-q-000081, relation: recover, rationale: Re-checks the narrower debugging prerequisite after a weak scenario answer.}
+- {from: tic-q-000083, to: tic-q-000028, relation: escalate, rationale: Applies debugging foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000028, to: tic-q-000083, relation: recover, rationale: Re-checks the narrower debugging prerequisite after a weak scenario answer.}
+- {from: tic-q-000086, to: tic-q-000090, relation: escalate, rationale: Applies software-architecture foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000090, to: tic-q-000086, relation: recover, rationale: Re-checks the narrower software-architecture prerequisite after a weak scenario answer.}
+- {from: tic-q-000090, to: tic-q-000095, relation: escalate, rationale: Applies software-architecture foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000095, to: tic-q-000090, relation: recover, rationale: Re-checks the narrower software-architecture prerequisite after a weak scenario answer.}
+- {from: tic-q-000097, to: tic-q-000102, relation: escalate, rationale: Applies distributed-systems foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000102, to: tic-q-000097, relation: recover, rationale: Re-checks the narrower distributed-systems prerequisite after a weak scenario answer.}
+- {from: tic-q-000102, to: tic-q-000031, relation: escalate, rationale: Applies distributed-systems foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000031, to: tic-q-000102, relation: recover, rationale: Re-checks the narrower distributed-systems prerequisite after a weak scenario answer.}
+- {from: tic-q-000100, to: tic-q-000105, relation: escalate, rationale: Applies reliability-engineering foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000105, to: tic-q-000100, relation: recover, rationale: Re-checks the narrower reliability-engineering prerequisite after a weak scenario answer.}
+- {from: tic-q-000105, to: tic-q-000032, relation: escalate, rationale: Applies reliability-engineering foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000032, to: tic-q-000105, relation: recover, rationale: Re-checks the narrower reliability-engineering prerequisite after a weak scenario answer.}
+- {from: tic-q-000148, to: tic-q-000129, relation: escalate, rationale: Applies communication foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000129, to: tic-q-000148, relation: recover, rationale: Re-checks the narrower communication prerequisite after a weak scenario answer.}
+- {from: tic-q-000129, to: tic-q-000018, relation: escalate, rationale: Applies communication foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000018, to: tic-q-000129, relation: recover, rationale: Re-checks the narrower communication prerequisite after a weak scenario answer.}
+- {from: tic-q-000108, to: tic-q-000114, relation: escalate, rationale: Applies ownership-and-delivery foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000114, to: tic-q-000108, relation: recover, rationale: Re-checks the narrower ownership-and-delivery prerequisite after a weak scenario answer.}
+- {from: tic-q-000114, to: tic-q-000118, relation: escalate, rationale: Applies ownership-and-delivery foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000118, to: tic-q-000114, relation: recover, rationale: Re-checks the narrower ownership-and-delivery prerequisite after a weak scenario answer.}
+- {from: tic-q-000120, to: tic-q-000127, relation: escalate, rationale: Applies collaboration-and-conflict foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000127, to: tic-q-000120, relation: recover, rationale: Re-checks the narrower collaboration-and-conflict prerequisite after a weak scenario answer.}
+- {from: tic-q-000127, to: tic-q-000131, relation: escalate, rationale: Applies collaboration-and-conflict foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000131, to: tic-q-000127, relation: recover, rationale: Re-checks the narrower collaboration-and-conflict prerequisite after a weak scenario answer.}
+- {from: tic-q-000087, to: tic-q-000091, relation: escalate, rationale: Applies technical-judgement foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000091, to: tic-q-000087, relation: recover, rationale: Re-checks the narrower technical-judgement prerequisite after a weak scenario answer.}
+- {from: tic-q-000091, to: tic-q-000118, relation: escalate, rationale: Applies technical-judgement foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000118, to: tic-q-000091, relation: recover, rationale: Re-checks the narrower technical-judgement prerequisite after a weak scenario answer.}
+- {from: tic-q-000133, to: tic-q-000136, relation: escalate, rationale: Applies operating-systems foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000136, to: tic-q-000133, relation: recover, rationale: Re-checks the narrower operating-systems prerequisite after a weak scenario answer.}
+- {from: tic-q-000136, to: tic-q-000137, relation: escalate, rationale: Applies operating-systems foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000137, to: tic-q-000136, relation: recover, rationale: Re-checks the narrower operating-systems prerequisite after a weak scenario answer.}
+- {from: tic-q-000138, to: tic-q-000141, relation: escalate, rationale: Applies networking foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000141, to: tic-q-000138, relation: recover, rationale: Re-checks the narrower networking prerequisite after a weak scenario answer.}
+- {from: tic-q-000141, to: tic-q-000143, relation: escalate, rationale: Applies networking foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000143, to: tic-q-000141, relation: recover, rationale: Re-checks the narrower networking prerequisite after a weak scenario answer.}
+- {from: tic-q-000145, to: tic-q-000146, relation: escalate, rationale: Applies concurrency foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000146, to: tic-q-000145, relation: recover, rationale: Re-checks the narrower concurrency prerequisite after a weak scenario answer.}
+- {from: tic-q-000146, to: tic-q-000030, relation: escalate, rationale: Applies concurrency foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000030, to: tic-q-000146, relation: recover, rationale: Re-checks the narrower concurrency prerequisite after a weak scenario answer.}
+- {from: tic-q-000149, to: tic-q-000150, relation: escalate, rationale: Applies software-delivery-practices foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000150, to: tic-q-000149, relation: recover, rationale: Re-checks the narrower software-delivery-practices prerequisite after a weak scenario answer.}
+- {from: tic-q-000150, to: tic-q-000175, relation: escalate, rationale: Applies software-delivery-practices foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000175, to: tic-q-000150, relation: recover, rationale: Re-checks the narrower software-delivery-practices prerequisite after a weak scenario answer.}
+- {from: tic-q-000154, to: tic-q-000142, relation: escalate, rationale: Applies performance-engineering foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000142, to: tic-q-000154, relation: recover, rationale: Re-checks the narrower performance-engineering prerequisite after a weak scenario answer.}
+- {from: tic-q-000142, to: tic-q-000029, relation: escalate, rationale: Applies performance-engineering foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000029, to: tic-q-000142, relation: recover, rationale: Re-checks the narrower performance-engineering prerequisite after a weak scenario answer.}
+- {from: tic-q-000082, to: tic-q-000084, relation: escalate, rationale: Applies observability foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000084, to: tic-q-000082, relation: recover, rationale: Re-checks the narrower observability prerequisite after a weak scenario answer.}
+- {from: tic-q-000084, to: tic-q-000033, relation: escalate, rationale: Applies observability foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000033, to: tic-q-000084, relation: recover, rationale: Re-checks the narrower observability prerequisite after a weak scenario answer.}
+- {from: tic-q-000155, to: tic-q-000159, relation: escalate, rationale: Applies cloud-architecture foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000159, to: tic-q-000155, relation: recover, rationale: Re-checks the narrower cloud-architecture prerequisite after a weak scenario answer.}
+- {from: tic-q-000159, to: tic-q-000162, relation: escalate, rationale: Applies cloud-architecture foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000162, to: tic-q-000159, relation: recover, rationale: Re-checks the narrower cloud-architecture prerequisite after a weak scenario answer.}
+- {from: tic-q-000163, to: tic-q-000169, relation: escalate, rationale: Applies containerisation foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000169, to: tic-q-000163, relation: recover, rationale: Re-checks the narrower containerisation prerequisite after a weak scenario answer.}
+- {from: tic-q-000169, to: tic-q-000170, relation: escalate, rationale: Applies containerisation foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000170, to: tic-q-000169, relation: recover, rationale: Re-checks the narrower containerisation prerequisite after a weak scenario answer.}
+- {from: tic-q-000172, to: tic-q-000151, relation: escalate, rationale: Applies ci-cd foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000151, to: tic-q-000172, relation: recover, rationale: Re-checks the narrower ci-cd prerequisite after a weak scenario answer.}
+- {from: tic-q-000151, to: tic-q-000175, relation: escalate, rationale: Applies ci-cd foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000175, to: tic-q-000151, relation: recover, rationale: Re-checks the narrower ci-cd prerequisite after a weak scenario answer.}
+- {from: tic-q-000177, to: tic-q-000181, relation: escalate, rationale: Applies infrastructure-as-code foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000181, to: tic-q-000177, relation: recover, rationale: Re-checks the narrower infrastructure-as-code prerequisite after a weak scenario answer.}
+- {from: tic-q-000181, to: tic-q-000183, relation: escalate, rationale: Applies infrastructure-as-code foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000183, to: tic-q-000181, relation: recover, rationale: Re-checks the narrower infrastructure-as-code prerequisite after a weak scenario answer.}
+- {from: tic-q-000156, to: tic-q-000159, relation: escalate, rationale: Applies service-operations foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000159, to: tic-q-000156, relation: recover, rationale: Re-checks the narrower service-operations prerequisite after a weak scenario answer.}
+- {from: tic-q-000185, to: tic-q-000188, relation: escalate, rationale: Applies sql foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000188, to: tic-q-000185, relation: recover, rationale: Re-checks the narrower sql prerequisite after a weak scenario answer.}
+- {from: tic-q-000188, to: tic-q-000191, relation: escalate, rationale: Applies sql foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000191, to: tic-q-000188, relation: recover, rationale: Re-checks the narrower sql prerequisite after a weak scenario answer.}
+- {from: tic-q-000192, to: tic-q-000188, relation: escalate, rationale: Applies data-modelling foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000188, to: tic-q-000192, relation: recover, rationale: Re-checks the narrower data-modelling prerequisite after a weak scenario answer.}
+- {from: tic-q-000023, to: tic-q-000104, relation: escalate, rationale: Applies databases foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000104, to: tic-q-000023, relation: recover, rationale: Re-checks the narrower databases prerequisite after a weak scenario answer.}
+- {from: tic-q-000104, to: tic-q-000029, relation: escalate, rationale: Applies databases foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000029, to: tic-q-000104, relation: recover, rationale: Re-checks the narrower databases prerequisite after a weak scenario answer.}
+- {from: tic-q-000195, to: tic-q-000198, relation: escalate, rationale: Applies threat-modelling foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000198, to: tic-q-000195, relation: recover, rationale: Re-checks the narrower threat-modelling prerequisite after a weak scenario answer.}
+- {from: tic-q-000198, to: tic-q-000201, relation: escalate, rationale: Applies threat-modelling foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000201, to: tic-q-000198, relation: recover, rationale: Re-checks the narrower threat-modelling prerequisite after a weak scenario answer.}
+- {from: tic-q-000197, to: tic-q-000200, relation: escalate, rationale: Applies security-architecture foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000200, to: tic-q-000197, relation: recover, rationale: Re-checks the narrower security-architecture prerequisite after a weak scenario answer.}
+- {from: tic-q-000200, to: tic-q-000201, relation: escalate, rationale: Applies security-architecture foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000201, to: tic-q-000200, relation: recover, rationale: Re-checks the narrower security-architecture prerequisite after a weak scenario answer.}
+- {from: tic-q-000202, to: tic-q-000206, relation: escalate, rationale: Applies identity-and-access-control foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000206, to: tic-q-000202, relation: recover, rationale: Re-checks the narrower identity-and-access-control prerequisite after a weak scenario answer.}
+- {from: tic-q-000206, to: tic-q-000201, relation: escalate, rationale: Applies identity-and-access-control foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000201, to: tic-q-000206, relation: recover, rationale: Re-checks the narrower identity-and-access-control prerequisite after a weak scenario answer.}
+- {from: tic-q-000063, to: tic-q-000206, relation: escalate, rationale: Applies application-security foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000206, to: tic-q-000063, relation: recover, rationale: Re-checks the narrower application-security prerequisite after a weak scenario answer.}
+- {from: tic-q-000207, to: tic-q-000210, relation: escalate, rationale: Applies secrets-management foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000210, to: tic-q-000207, relation: recover, rationale: Re-checks the narrower secrets-management prerequisite after a weak scenario answer.}
+- {from: tic-q-000210, to: tic-q-000183, relation: escalate, rationale: Applies secrets-management foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000183, to: tic-q-000210, relation: recover, rationale: Re-checks the narrower secrets-management prerequisite after a weak scenario answer.}
+- {from: tic-q-000211, to: tic-q-000214, relation: escalate, rationale: Applies leadership-and-influence foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000214, to: tic-q-000211, relation: recover, rationale: Re-checks the narrower leadership-and-influence prerequisite after a weak scenario answer.}
+- {from: tic-q-000214, to: tic-q-000002, relation: escalate, rationale: Applies leadership-and-influence foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000002, to: tic-q-000214, relation: recover, rationale: Re-checks the narrower leadership-and-influence prerequisite after a weak scenario answer.}
+- {from: tic-q-000002, to: tic-q-000020, relation: escalate, rationale: Applies leadership-and-influence foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000020, to: tic-q-000002, relation: recover, rationale: Re-checks the narrower leadership-and-influence prerequisite after a weak scenario answer.}
+- {from: tic-q-000217, to: tic-q-000114, relation: escalate, rationale: Applies stakeholder-management foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000114, to: tic-q-000217, relation: recover, rationale: Re-checks the narrower stakeholder-management prerequisite after a weak scenario answer.}
+- {from: tic-q-000114, to: tic-q-000018, relation: escalate, rationale: Applies stakeholder-management foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000018, to: tic-q-000114, relation: recover, rationale: Re-checks the narrower stakeholder-management prerequisite after a weak scenario answer.}
+- {from: tic-q-000219, to: tic-q-000222, relation: escalate, rationale: Applies ambiguity-and-adaptability foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000222, to: tic-q-000219, relation: recover, rationale: Re-checks the narrower ambiguity-and-adaptability prerequisite after a weak scenario answer.}
+- {from: tic-q-000222, to: tic-q-000017, relation: escalate, rationale: Applies ambiguity-and-adaptability foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000017, to: tic-q-000222, relation: recover, rationale: Re-checks the narrower ambiguity-and-adaptability prerequisite after a weak scenario answer.}
+- {from: tic-q-000224, to: tic-q-000227, relation: escalate, rationale: Applies prioritisation foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000227, to: tic-q-000224, relation: recover, rationale: Re-checks the narrower prioritisation prerequisite after a weak scenario answer.}
+- {from: tic-q-000227, to: tic-q-000018, relation: escalate, rationale: Applies prioritisation foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000018, to: tic-q-000227, relation: recover, rationale: Re-checks the narrower prioritisation prerequisite after a weak scenario answer.}
+- {from: tic-q-000077, to: tic-q-000228, relation: escalate, rationale: Applies learning-and-reflection foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000228, to: tic-q-000077, relation: recover, rationale: Re-checks the narrower learning-and-reflection prerequisite after a weak scenario answer.}
+- {from: tic-q-000228, to: tic-q-000118, relation: escalate, rationale: Applies learning-and-reflection foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000118, to: tic-q-000228, relation: recover, rationale: Re-checks the narrower learning-and-reflection prerequisite after a weak scenario answer.}
+- {from: tic-q-000208, to: tic-q-000209, relation: escalate, rationale: Applies secrets-management foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000209, to: tic-q-000208, relation: recover, rationale: Re-checks the narrower secrets-management prerequisite after a weak scenario answer.}
+- {from: tic-q-000209, to: tic-q-000183, relation: escalate, rationale: Applies secrets-management foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000183, to: tic-q-000209, relation: recover, rationale: Re-checks the narrower secrets-management prerequisite after a weak scenario answer.}
+- {from: tic-q-000212, to: tic-q-000215, relation: escalate, rationale: Applies leadership-and-influence foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000215, to: tic-q-000212, relation: recover, rationale: Re-checks the narrower leadership-and-influence prerequisite after a weak scenario answer.}
+- {from: tic-q-000215, to: tic-q-000002, relation: escalate, rationale: Applies leadership-and-influence foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000002, to: tic-q-000215, relation: recover, rationale: Re-checks the narrower leadership-and-influence prerequisite after a weak scenario answer.}
+- {from: tic-q-000213, to: tic-q-000216, relation: escalate, rationale: Applies leadership-and-influence foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000216, to: tic-q-000213, relation: recover, rationale: Re-checks the narrower leadership-and-influence prerequisite after a weak scenario answer.}
+- {from: tic-q-000216, to: tic-q-000020, relation: escalate, rationale: Applies leadership-and-influence foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000020, to: tic-q-000216, relation: recover, rationale: Re-checks the narrower leadership-and-influence prerequisite after a weak scenario answer.}
+- {from: tic-q-000218, to: tic-q-000115, relation: escalate, rationale: Applies stakeholder-management foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000115, to: tic-q-000218, relation: recover, rationale: Re-checks the narrower stakeholder-management prerequisite after a weak scenario answer.}
+- {from: tic-q-000115, to: tic-q-000018, relation: escalate, rationale: Applies stakeholder-management foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000018, to: tic-q-000115, relation: recover, rationale: Re-checks the narrower stakeholder-management prerequisite after a weak scenario answer.}
+- {from: tic-q-000220, to: tic-q-000222, relation: escalate, rationale: Applies ambiguity-and-adaptability foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000222, to: tic-q-000220, relation: recover, rationale: Re-checks the narrower ambiguity-and-adaptability prerequisite after a weak scenario answer.}
+- {from: tic-q-000221, to: tic-q-000223, relation: escalate, rationale: Applies ambiguity-and-adaptability foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000223, to: tic-q-000221, relation: recover, rationale: Re-checks the narrower ambiguity-and-adaptability prerequisite after a weak scenario answer.}
+- {from: tic-q-000223, to: tic-q-000017, relation: escalate, rationale: Applies ambiguity-and-adaptability foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000017, to: tic-q-000223, relation: recover, rationale: Re-checks the narrower ambiguity-and-adaptability prerequisite after a weak scenario answer.}
+- {from: tic-q-000225, to: tic-q-000227, relation: escalate, rationale: Applies prioritisation foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000227, to: tic-q-000225, relation: recover, rationale: Re-checks the narrower prioritisation prerequisite after a weak scenario answer.}
+- {from: tic-q-000226, to: tic-q-000227, relation: escalate, rationale: Applies prioritisation foundations in a more demanding scenario with additional constraints.}
+- {from: tic-q-000227, to: tic-q-000226, relation: recover, rationale: Re-checks the narrower prioritisation prerequisite after a weak scenario answer.}

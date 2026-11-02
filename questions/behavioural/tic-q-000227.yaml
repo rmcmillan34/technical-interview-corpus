@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+id: tic-q-000227
+revision: 1
+status: draft
+question:
+  prompt: 'You have one engineering day: a customer-impacting bug needs four hours, a regulatory control
+    due tomorrow needs four hours, and a demo feature needs six hours. Explain how you would reach and
+    communicate a feasible plan.'
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 15
+classification:
+  competencies:
+    primary: prioritisation
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      ambiguity: medium
+    rationale: Applies principles to a bounded scenario with explicit constraints and verifiable actions.
+  tags:
+  - prioritisation
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable prioritisation evidence at D2.
+  must_surface:
+  - Clarifies severity, deadline consequences, dependencies and available capacity before ranking the
+    work.
+  - Makes the capacity conflict explicit and proposes sequencing, escalation, delegation or agreed deferral
+    with stated consequences.
+  - Preserves essential controls and communicates what will not fit instead of promising all work.
+  red_flags:
+  - Commits to fourteen hours of work in an eight-hour day without a credible capacity change.
+  rubric:
+  - id: evidence-1
+    criterion: Clarifies severity, deadline consequences, dependencies and available capacity before ranking
+      the work.
+    importance: essential
+  - id: evidence-2
+    criterion: Makes the capacity conflict explicit and proposes sequencing, escalation, delegation or
+      agreed deferral with stated consequences.
+    importance: essential
+  - id: evidence-3
+    criterion: Preserves essential controls and communicates what will not fit instead of promising all
+      work.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

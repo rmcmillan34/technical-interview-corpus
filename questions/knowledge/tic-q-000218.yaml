@@ -1,0 +1,54 @@
+schema_version: 0.1.0
+id: tic-q-000218
+revision: 1
+status: draft
+question:
+  prompt: How would you check that an engineer and a non-technical stakeholder mean the same thing by
+    a requirement being done?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: stakeholder-management
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - stakeholder-management
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable stakeholder-management evidence at D1.
+  must_surface:
+  - Uses concrete acceptance examples and desired outcomes to expose differing interpretations.
+  - Agrees verification evidence and relevant constraints rather than treating implementation complete
+    as acceptance.
+  red_flags:
+  - Assumes technical completion automatically meets the stakeholder need.
+  rubric:
+  - id: evidence-1
+    criterion: Uses concrete acceptance examples and desired outcomes to expose differing interpretations.
+    importance: essential
+  - id: evidence-2
+    criterion: Agrees verification evidence and relevant constraints rather than treating implementation
+      complete as acceptance.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

@@ -1,0 +1,53 @@
+schema_version: 0.1.0
+id: tic-q-000219
+revision: 1
+status: draft
+question:
+  prompt: What is the difference between a known requirement, an assumption and an unanswered question?
+    Why record the distinction before implementing a feature?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: ambiguity-and-adaptability
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - ambiguity-and-adaptability
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable ambiguity-and-adaptability evidence at D1.
+  must_surface:
+  - Separates agreed facts from provisional beliefs and unresolved information.
+  - Makes uncertainty visible so important assumptions can be tested and changed before expensive commitment.
+  red_flags:
+  - Treats an undocumented assumption as an agreed requirement.
+  rubric:
+  - id: evidence-1
+    criterion: Separates agreed facts from provisional beliefs and unresolved information.
+    importance: essential
+  - id: evidence-2
+    criterion: Makes uncertainty visible so important assumptions can be tested and changed before expensive
+      commitment.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

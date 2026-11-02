@@ -1,0 +1,55 @@
+schema_version: 0.1.0
+id: tic-q-000212
+revision: 1
+status: draft
+question:
+  prompt: What is the difference between mentoring a teammate through a problem and taking over the task?
+    How can you tell whether the mentoring helped?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: leadership-and-influence
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - leadership-and-influence
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable leadership-and-influence evidence at D1.
+  must_surface:
+  - Uses questions, scaffolding and feedback while leaving meaningful decisions and work with the learner.
+  - Checks improved independent understanding or performance rather than only whether the mentor finished
+    the task.
+  red_flags:
+  - Measures mentoring solely by how quickly the mentor can implement the solution.
+  rubric:
+  - id: evidence-1
+    criterion: Uses questions, scaffolding and feedback while leaving meaningful decisions and work with
+      the learner.
+    importance: essential
+  - id: evidence-2
+    criterion: Checks improved independent understanding or performance rather than only whether the mentor
+      finished the task.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved
