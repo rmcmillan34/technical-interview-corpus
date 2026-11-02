@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000175
+revision: 1
+status: draft
+question:
+  prompt: >
+    Design a production CI/CD pipeline for a containerized public API maintained by several teams. Changes should move from pull request to production with automated testing, security checks, immutable artifacts, progressive rollout, observability-based promotion and a recovery path. Explain which failures block the pipeline and where human approval is still justified.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 30
+classification:
+  competencies: {primary: ci-cd, secondary: [software-delivery-practices, testing, containerisation, application-security, observability, reliability-engineering, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: high, scope: high, failure_reasoning: high, tradeoff_reasoning: high, organisational_complexity: medium}
+    rationale: Requires an end-to-end production delivery pipeline with evidence, progressive deployment and risk-based gates.
+  tags: [pipeline, progressive-delivery, security-gates, rollback]
+assessment:
+  intent: Assess whether the candidate can turn CI/CD principles into a safe multi-stage production workflow.
+  must_surface: [validates changes before merge or promotion, builds and traces an immutable artifact, applies risk-proportionate security and quality gates, deploys progressively with observed health signals, defines rollback or forward-recovery behaviour]
+  strong_signals: [separates required automated evidence from exceptional human approvals and makes bypasses auditable]
+  red_flags: [rebuilds different production artifacts after testing, deploys globally before observing health]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

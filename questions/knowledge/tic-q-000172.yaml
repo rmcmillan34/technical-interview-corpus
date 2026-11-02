@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000172
+revision: 1
+status: draft
+question:
+  prompt: What is a build artifact in a delivery pipeline, and why is promoting the same immutable artifact between environments often safer than rebuilding separately for each environment?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: ci-cd, secondary: [software-delivery-practices, containerisation]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational artifact immutability and promotion concepts.
+  tags: [artifacts, promotion, reproducibility]
+assessment:
+  intent: Assess whether the candidate understands build outputs as versioned evidence carried through release stages.
+  must_surface: [an artifact is a versioned build output intended for deployment or distribution, reusing the same artifact avoids environment-specific rebuild drift]
+  red_flags: [assumes each environment should silently compile different source or dependencies]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
