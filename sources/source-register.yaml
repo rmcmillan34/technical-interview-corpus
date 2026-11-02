@@ -1,2 +1,102 @@
 schema_version: 0.1.0
-sources: []
+sources:
+- id: src-system-design-primer
+  title: System Design Primer
+  canonical_url: https://github.com/donnemartin/system-design-primer
+  publisher: Donne Martin
+  observed_at: 2026-11-02
+  distribution: core
+  permitted_uses:
+  - influence
+  - adapted
+  - verbatim
+  license:
+    spdx: CC-BY-4.0
+    url: https://creativecommons.org/licenses/by/4.0/
+  release_license_spdx: CC-BY-4.0
+  attribution: System Design Primer by Donne Martin, licensed under CC BY 4.0.
+  copyright_notice: Copyright 2017 Donne Martin
+  review: approved
+  notes: Repository license explicitly covers code and resources under CC BY 4.0.
+- id: src-tech-interview-handbook
+  title: Tech Interview Handbook
+  canonical_url: https://github.com/yangshun/tech-interview-handbook
+  publisher: Yangshun Tay
+  observed_at: 2026-11-02
+  distribution: core
+  permitted_uses:
+  - influence
+  - adapted
+  - verbatim
+  license:
+    spdx: MIT
+    url: https://opensource.org/license/mit/
+  release_license_spdx: MIT
+  attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+  copyright_notice: Copyright (c) 2017-Present Yangshun Tay
+  review: approved
+  notes: Core use applies only to material contained in the licensed repository, not third-party resources linked from it.
+- id: src-coding-interview-university
+  title: Coding Interview University
+  canonical_url: https://github.com/jwasham/coding-interview-university
+  publisher: John Washam
+  observed_at: 2026-11-02
+  distribution: research-only
+  permitted_uses:
+  - influence
+  license:
+    spdx: CC-BY-SA-4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+  release_license_spdx: null
+  attribution: null
+  copyright_notice: null
+  review: approved
+  notes: ShareAlike obligations are intentionally excluded from the core mixed-license corpus until a segregated compatible distribution is designed.
+- id: src-interview-rounds
+  title: The Loop / interview-rounds
+  canonical_url: https://github.com/sumitsingh4411/interview-rounds
+  publisher: Sumit Singh
+  observed_at: 2026-11-02
+  distribution: research-only
+  permitted_uses:
+  - influence
+  license:
+    spdx: CC-BY-NC-4.0
+    url: https://creativecommons.org/licenses/by-nc/4.0/
+  release_license_spdx: null
+  attribution: null
+  copyright_notice: Copyright (c) 2026 Sumit Singh
+  review: approved
+  notes: Repository-level content is noncommercial. Separately MIT-licensed sub-banks require separate source records before any distributable use.
+- id: src-awesome-interview-questions
+  title: Awesome Interview Questions
+  canonical_url: https://github.com/DopplerHQ/awesome-interview-questions
+  publisher: DopplerHQ
+  observed_at: 2026-11-02
+  distribution: research-only
+  permitted_uses:
+  - influence
+  license:
+    spdx: null
+    url: null
+  release_license_spdx: null
+  attribution: null
+  copyright_notice: null
+  review: approved
+  notes: Archived repository exposes no repository license file; use only as research influence unless rights are clarified.
+- id: src-the-coding-interview
+  title: The Coding Interview
+  canonical_url: https://github.com/mre/the-coding-interview
+  publisher: mre
+  observed_at: 2026-11-02
+  distribution: research-only
+  permitted_uses:
+  - influence
+  license:
+    spdx: MIT
+    url: https://opensource.org/license/mit/
+  release_license_spdx: null
+  attribution: null
+  copyright_notice: Copyright (c) 2013 Blake Embrey
+  review: approved
+  notes: Repository includes an MIT license naming a different copyright holder than the apparent repository author; distributable reuse is deferred pending provenance clarification.
