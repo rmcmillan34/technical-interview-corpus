@@ -1,0 +1,90 @@
+schema_version: 0.1.0
+role: swe
+profile_source: evidence/role-profiles/swe.yaml
+policy:
+  principle: >-
+    Maximise useful, non-duplicative assessment coverage. Difficulty distribution is expected
+    to form a diminishing pyramid, but target ranges are planning guidance rather than hard caps.
+  hard_caps: false
+  accept_above_target_when: >-
+    A question adds materially distinct assessment value, a useful stimulus or modality, a new
+    failure mode, a meaningful technology variant, or a credible interview path.
+  difficulty_mix_target:
+    D1: {min_percent: 40, max_percent: 50}
+    D2: {min_percent: 22, max_percent: 30}
+    D3: {min_percent: 15, max_percent: 23}
+    D4: {min_percent: 5, max_percent: 10}
+    D5: {min_percent: 1, max_percent: 5}
+  expected_shape:
+    D1_to_D5_min_ratio: 5
+  notes:
+  - Difficulty targets are evaluated as advisory coverage signals, not release blockers.
+  - D4 and D5 are only expected where the competency naturally supports complex or strategic assessment.
+  - Higher-difficulty questions may integrate several lower-level competencies and therefore need not have one-to-one descendants from every D1 question.
+coverage_targets:
+  core:
+    default:
+      D1: {min: 8, preferred: 12}
+      D2: {min: 5, preferred: 8}
+      D3: {min: 3, preferred: 5}
+      D4: {min: 0, preferred: 2}
+      D5: {min: 0, preferred: 1}
+    competencies:
+    - algorithms-and-complexity
+    - data-structures
+    - programming
+    - api-design
+    - testing
+    - debugging
+    - software-architecture
+    - distributed-systems
+    - reliability-engineering
+    - communication
+    - ownership-and-delivery
+    - collaboration-and-conflict
+    - technical-judgement
+  important:
+    default:
+      D1: {min: 4, preferred: 8}
+      D2: {min: 3, preferred: 5}
+      D3: {min: 1, preferred: 3}
+      D4: {min: 0, preferred: 1}
+      D5: {min: 0, preferred: 0}
+    competencies:
+    - operating-systems
+    - networking
+    - concurrency
+    - software-delivery-practices
+    - performance-engineering
+    - observability
+    - cloud-architecture
+    - containerisation
+    - ci-cd
+    - infrastructure-as-code
+    - service-operations
+    - sql
+    - data-modelling
+    - databases
+    - threat-modelling
+    - security-architecture
+    - identity-and-access-control
+    - application-security
+    - secrets-management
+    - leadership-and-influence
+    - stakeholder-management
+    - ambiguity-and-adaptability
+    - prioritisation
+    - learning-and-reflection
+exceptions:
+  strategic_depth_preferred:
+  - software-architecture
+  - distributed-systems
+  - reliability-engineering
+  - api-design
+  - ownership-and-delivery
+  - technical-judgement
+  lower_strategic_expectation:
+  - algorithms-and-complexity
+  - data-structures
+  - testing
+  - debugging
