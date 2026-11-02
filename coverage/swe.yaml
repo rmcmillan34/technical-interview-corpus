@@ -21,6 +21,27 @@ policy:
   - Difficulty targets are evaluated as advisory coverage signals, not release blockers.
   - D4 and D5 are only expected where the competency naturally supports complex or strategic assessment.
   - Higher-difficulty questions may integrate several lower-level competencies and therefore need not have one-to-one descendants from every D1 question.
+  topic_inventory: coverage/topics/swe.yaml
+  generation_completion:
+    count_floors_are_completion_criteria: false
+    preferred_counts_are_caps: false
+    unit_of_work: assessed-topic
+    stop_rule: >-
+      A declared competency pass is complete only after its relevant source topics are reconciled
+      to reviewed assessment evidence or explicit justified deferrals. Gap and partial topics keep
+      that scope open. Reaching a minimum, preferred count or difficulty ratio is not a stopping rule.
+    continue_above_floor_when: >-
+      Any relevant concept, implementation, constraint, failure mode, stimulus, technology semantic
+      or interview path introduces distinct assessment value that existing questions do not cover.
+    no_add_requires: >-
+      Cite the topic and specific assessment evidence or documented deferral; a count-only rationale
+      cannot close the pass. A source catalogue entry alone does not prove question coverage.
+    checkpoint_requires:
+    - inspected source revisions and declared pass scope
+    - topic dispositions and anchored assessment evidence
+    - question changes or evidence-backed no-add decisions
+    - escalation, recovery and deepen decisions
+    - remaining gaps and next action
 coverage_targets:
   core:
     default:
