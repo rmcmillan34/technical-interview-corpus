@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+id: tic-q-000094
+revision: 1
+status: draft
+question:
+  prompt: A modular monolith has grown to 40 engineers. One billing module has very different scaling, release and compliance needs from the rest of the application. Design a staged extraction plan that preserves behaviour while moving billing toward an independently deployable service.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 30
+classification:
+  competencies: {primary: software-architecture, secondary: [distributed-systems, reliability-engineering, software-delivery-practices, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: high, implementation_depth: medium, ambiguity: medium, scope: high, failure_reasoning: medium, tradeoff_reasoning: high, organisational_complexity: medium}
+    rationale: Requires a production migration plan across data, interfaces, deployment and rollback concerns.
+  tags: [service-extraction, migration, modular-monolith]
+assessment:
+  intent: Assess whether the candidate can evolve architecture incrementally without a high-risk rewrite.
+  must_surface:
+  - defines a stable boundary before extraction
+  - plans data ownership and migration deliberately
+  - supports incremental traffic cutover and rollback
+  - preserves observability and contract verification through the transition
+  strong_signals:
+  - uses strangler/dual-run or compatibility techniques where appropriate
+  red_flags:
+  - proposes a flag-day rewrite with no rollback path
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

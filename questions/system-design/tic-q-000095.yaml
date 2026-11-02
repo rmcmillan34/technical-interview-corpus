@@ -1,0 +1,33 @@
+schema_version: 0.1.0
+id: tic-q-000095
+revision: 1
+status: draft
+question:
+  prompt: >
+    A product integrates with three external payment providers. Each supports different capabilities, error models and availability characteristics. Design an architecture that keeps the core payment workflow provider-agnostic while allowing capability detection, graceful degradation, testing and later addition of a fourth provider.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 30
+classification:
+  competencies: {primary: software-architecture, secondary: [reliability-engineering, api-design, testing, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: high, implementation_depth: medium, ambiguity: medium, failure_reasoning: high, tradeoff_reasoning: high}
+    rationale: Requires production-grade boundary design around heterogeneous external dependencies and failure modes.
+  tags: [adapters, providers, capabilities, degradation]
+assessment:
+  intent: Assess whether the candidate can isolate external-provider volatility behind stable core architecture.
+  must_surface:
+  - defines a provider adapter/interface boundary
+  - models provider capability differences explicitly
+  - translates failures into stable internal semantics
+  - supports testing providers independently of core workflow
+  strong_signals:
+  - considers health/capability detection, fallback policy and observability per provider
+  - adding another provider does not require changes to unrelated core workflow logic
+  red_flags:
+  - embeds provider-specific conditionals throughout the business workflow
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
