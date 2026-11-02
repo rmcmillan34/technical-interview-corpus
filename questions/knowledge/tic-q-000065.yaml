@@ -1,0 +1,40 @@
+schema_version: 0.1.0
+id: tic-q-000065
+revision: 1
+status: draft
+question:
+  prompt: >
+    What does backward compatibility mean for an API? Give examples of changes that are usually safer for existing clients and changes that are more likely to break them.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: api-design
+    secondary: [software-architecture, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational compatibility and contract-evolution concepts.
+  tags: [compatibility, versioning, contracts]
+assessment:
+  intent: Assess whether the candidate understands that APIs are contracts consumed independently of the server implementation.
+  must_surface:
+  - backward compatibility allows existing conforming clients to keep working after a change
+  - removing or changing required fields or semantics can break clients
+  strong_signals:
+  - identifies additive optional fields as commonly safer when clients tolerate unknown fields
+  - notes that behavioural changes can break clients even when schemas look compatible
+  red_flags:
+  - assumes version numbers automatically make any breaking change safe
+  rubric:
+  - id: compatibility
+    criterion: Correctly explains backward compatibility and common breaking changes.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

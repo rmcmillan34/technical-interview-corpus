@@ -1,0 +1,40 @@
+schema_version: 0.1.0
+id: tic-q-000063
+revision: 1
+status: draft
+question:
+  prompt: >
+    What is request validation in an API? Explain the difference between syntactic validation, semantic validation and authorization checks, and why useful error responses matter to clients.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: api-design
+    secondary: [application-security, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low, security_reasoning: low}
+    rationale: Tests foundational validation and error-contract concepts without requiring implementation.
+  tags: [validation, errors, authorization]
+assessment:
+  intent: Assess whether the candidate separates malformed input, invalid domain requests and permission failures.
+  must_surface:
+  - syntactic validation checks shape or format
+  - semantic validation checks whether a well-formed request is meaningful or allowed by domain rules
+  - authorization determines whether the caller is permitted to perform the action
+  strong_signals:
+  - explains that errors should be machine-readable enough for clients to react predictably
+  red_flags:
+  - treats authorization as ordinary field validation
+  rubric:
+  - id: distinctions
+    criterion: Correctly distinguishes validation and authorization responsibilities.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

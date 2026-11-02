@@ -1,0 +1,39 @@
+schema_version: 0.1.0
+id: tic-q-000061
+revision: 1
+status: draft
+question:
+  prompt: >
+    In a resource-oriented HTTP API, what is a resource and how should that influence endpoint naming? Contrast resource-oriented paths with RPC-style action endpoints.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: api-design
+    secondary: [communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational API resource modelling and endpoint-shape concepts.
+  tags: [http, resources, endpoints]
+assessment:
+  intent: Assess whether the candidate can explain basic resource-oriented API modelling.
+  must_surface:
+  - a resource represents an identifiable domain concept or collection
+  - resource-oriented paths usually name nouns rather than encoding every action in the path
+  strong_signals:
+  - notes that RPC-style APIs can still be valid when operation semantics fit poorly into CRUD-style resources
+  red_flags:
+  - claims every API action must always map to a unique verb in the URL
+  rubric:
+  - id: modelling
+    criterion: Explains resource-oriented endpoint modelling accurately.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

@@ -58,3 +58,16 @@ edges:
 - {from: tic-q-000015, to: tic-q-000059, relation: recover, rationale: Falls back to control-flow fundamentals if the candidate cannot reason about loop progress or branching.}
 - {from: tic-q-000060, to: tic-q-000031, relation: escalate, rationale: Extends basic error propagation and handling concepts into production at-least-once processing and retry behaviour.}
 - {from: tic-q-000031, to: tic-q-000060, relation: recover, rationale: Re-checks foundational failure-handling responsibilities after weak retry/error reasoning.}
+- {from: tic-q-000061, to: tic-q-000068, relation: escalate, rationale: Applies resource-oriented modelling to a bounded CRUD API contract.}
+- {from: tic-q-000068, to: tic-q-000061, relation: recover, rationale: Falls back to resource-modelling fundamentals if endpoint structure is incoherent.}
+- {from: tic-q-000064, to: tic-q-000069, relation: escalate, rationale: Applies pagination fundamentals to a large changing collection with filters and stable ordering.}
+- {from: tic-q-000069, to: tic-q-000064, relation: recover, rationale: Re-checks offset/cursor fundamentals after weak collection traversal design.}
+- {from: tic-q-000067, to: tic-q-000070, relation: escalate, rationale: Applies asynchronous-operation fundamentals to a concrete long-running job lifecycle.}
+- {from: tic-q-000070, to: tic-q-000067, relation: recover, rationale: Falls back to synchronous/asynchronous contract fundamentals.}
+- {from: tic-q-000022, to: tic-q-000070, relation: escalate, rationale: Applies idempotency fundamentals to retryable asynchronous job submission.}
+- {from: tic-q-000065, to: tic-q-000071, relation: escalate, rationale: Applies backward-compatibility fundamentals to a staged multi-client migration.}
+- {from: tic-q-000071, to: tic-q-000065, relation: recover, rationale: Re-checks compatibility fundamentals after an unsafe rollout proposal.}
+- {from: tic-q-000071, to: tic-q-000027, relation: escalate, rationale: Extends a bounded API migration into complex public API evolution and deprecation trade-offs.}
+- {from: tic-q-000063, to: tic-q-000072, relation: escalate, rationale: Applies validation and authorization distinctions to a reusable public error contract.}
+- {from: tic-q-000072, to: tic-q-000063, relation: recover, rationale: Falls back to validation/error fundamentals if the public contract conflates client and server failures.}
+- {from: tic-q-000068, to: tic-q-000026, relation: escalate, rationale: Extends bounded mutation design into production retry-safe semantics under ambiguous failure.}

@@ -1,0 +1,44 @@
+schema_version: 0.1.0
+id: tic-q-000071
+revision: 1
+status: draft
+question:
+  prompt: >
+    An existing API returns a user object with fields used by several clients. You need to introduce a new account state and eventually retire an old field. Propose a backward-compatible rollout plan and explain how clients should migrate.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 20
+classification:
+  competencies:
+    primary: api-design
+    secondary: [software-architecture, stakeholder-management, communication]
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: medium, scope: medium, tradeoff_reasoning: medium}
+    rationale: Applies compatibility fundamentals to a bounded multi-client API evolution problem.
+  tags: [compatibility, deprecation, migration]
+assessment:
+  intent: Assess whether the candidate can evolve a live API without forcing an immediate coordinated client deployment.
+  must_surface:
+  - introduces the new contract additively before removing the old one
+  - defines a deprecation or migration window
+  - considers clients that update at different times
+  strong_signals:
+  - includes telemetry or usage evidence before removal
+  - defines documentation and change communication
+  red_flags:
+  - removes the old field immediately because the server was updated
+  rubric:
+  - id: rollout
+    criterion: Provides a backward-compatible staged migration.
+    importance: essential
+  - id: consumers
+    criterion: Accounts for independently deployed clients.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

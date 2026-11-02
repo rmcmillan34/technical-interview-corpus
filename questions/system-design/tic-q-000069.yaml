@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+id: tic-q-000069
+revision: 1
+status: draft
+question:
+  prompt: >
+    Design the list endpoint for an API that returns millions of audit records. Support pagination, stable ordering, a bounded page size and optional filtering by actor and time range. Explain the pagination contract you choose.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 20
+classification:
+  competencies:
+    primary: api-design
+    secondary: [databases, performance-engineering, communication]
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: low, scale: medium, tradeoff_reasoning: medium}
+    rationale: Applies pagination and filtering concepts to a bounded high-volume API contract.
+  tags: [pagination, filtering, ordering]
+assessment:
+  intent: Assess whether the candidate can define stable collection traversal under scale and changing data.
+  must_surface:
+  - defines a bounded page-size policy
+  - defines stable ordering required for repeatable pagination
+  - selects offset or cursor pagination and explains the trade-off
+  - defines filters without making pagination semantics ambiguous
+  strong_signals:
+  - uses an immutable or monotonic tiebreaker in cursor ordering
+  - explains what clients may observe when records are inserted during traversal
+  red_flags:
+  - leaves ordering unspecified
+  rubric:
+  - id: pagination
+    criterion: Defines coherent scalable pagination semantics.
+    importance: essential
+  - id: filtering
+    criterion: Integrates filtering without breaking ordering or traversal semantics.
+    importance: supporting
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
