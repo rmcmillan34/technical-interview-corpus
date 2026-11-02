@@ -1,0 +1,41 @@
+schema_version: 0.1.0
+taxonomy_version: 0.1.0
+role: ds
+profile_revision: 1
+status: draft
+evidence_as_of: '2026-11-02'
+confidence: medium
+evidence:
+  source_count: 3
+  employer_count: 2
+  sources:
+  - employer: OpenAI
+    source_type: employer-job-description
+    url: https://openai.com/careers/data-scientist-core-experimentation-seattle/
+    observed_at: '2026-11-02'
+    supports: [statistics, causal-inference, experimentation, metric-design, data-quality, programming, communication, leadership-and-influence]
+  - employer: OpenAI
+    source_type: employer-job-description
+    url: https://openai.com/careers/data-scientist-preparedness-san-francisco/
+    observed_at: '2026-11-02'
+    supports: [experimentation, causal-inference, sql, programming, metric-design, model-evaluation, communication]
+  - employer: Airbnb
+    source_type: employer-careers-index
+    url: https://careers.airbnb.com/positions/?_departments=data-science
+    observed_at: '2026-11-02'
+    supports: [statistics, metric-design, time-series-analysis, ml-fundamentals]
+  limitations:
+  - Two detailed sources are from one employer; the Airbnb source confirms role breadth but not detailed competency prevalence.
+calibration:
+  defaults: {role_importance: contextual, interview_emphasis: unresolved}
+  role_importance:
+    core: [quantitative-reasoning, probability, statistics, causal-inference, sql, data-quality, exploratory-data-analysis, metric-design, experimentation, data-visualisation, ml-fundamentals, model-evaluation, communication, stakeholder-management, ownership-and-delivery, ambiguity-and-adaptability, technical-judgement]
+    important: [linear-algebra, calculus-and-optimisation, programming, debugging, data-modelling, databases, data-pipelines, data-governance-and-lineage, analytical-data-platforms, time-series-analysis, feature-engineering, model-training, leadership-and-influence, collaboration-and-conflict, prioritisation, learning-and-reflection]
+    not_materially_characteristic: []
+  interview_emphasis:
+    status: provisional
+    high: [probability, statistics, causal-inference, quantitative-reasoning, sql, exploratory-data-analysis, metric-design, experimentation, model-evaluation, communication, stakeholder-management]
+    medium: []
+    low: []
+    unresolved_policy: all-unlisted
+    basis: Maintainer synthesis from current role evidence unless an official employer interview guide is listed.

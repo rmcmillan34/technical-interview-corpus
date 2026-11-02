@@ -1,0 +1,41 @@
+schema_version: 0.1.0
+taxonomy_version: 0.1.0
+role: ai-eng
+profile_revision: 1
+status: draft
+evidence_as_of: '2026-11-02'
+confidence: high
+evidence:
+  source_count: 3
+  employer_count: 3
+  sources:
+  - employer: OpenAI
+    source_type: employer-job-description
+    url: https://openai.com/careers/applied-ai-engineer-sydney-australia/
+    observed_at: '2026-11-02'
+    supports: [programming, ai-evaluation, model-provider-integration, reliability-engineering, observability, performance-engineering, communication]
+  - employer: Databricks
+    source_type: employer-job-description
+    url: https://www.databricks.com/company/careers/support/senior-ml--ai-technical-solutions-engineer--7845325002
+    observed_at: '2026-11-02'
+    supports: [programming, ai-evaluation, retrieval-augmented-generation, agentic-systems, ml-pipelines, reliability-engineering]
+  - employer: Airwallex
+    source_type: employer-job-description
+    url: https://careers.airwallex.com/job/f5c945c9-dc25-4b35-a6bd-ae2fef539727/senior-ai-engineer/
+    observed_at: '2026-11-02'
+    supports: [programming, distributed-systems, model-provider-integration, ml-pipelines, communication, leadership-and-influence]
+  limitations:
+  - AI Engineering remains a fast-moving role family; profile revisions should expect taxonomy and emphasis changes as hiring practice stabilises.
+calibration:
+  defaults: {role_importance: contextual, interview_emphasis: unresolved}
+  role_importance:
+    core: [programming, api-design, testing, debugging, software-architecture, performance-engineering, distributed-systems, reliability-engineering, observability, cloud-architecture, service-operations, ml-fundamentals, model-evaluation, model-provider-integration, prompt-and-context-engineering, retrieval-augmented-generation, ai-evaluation, model-selection, tool-use, agentic-systems, human-in-the-loop-design, communication, ownership-and-delivery, stakeholder-management, ambiguity-and-adaptability, technical-judgement]
+    important: [algorithms-and-complexity, data-structures, operating-systems, networking, concurrency, quantitative-reasoning, probability, statistics, linear-algebra, software-delivery-practices, containerisation, ci-cd, infrastructure-as-code, sql, data-modelling, databases, data-pipelines, data-quality, data-governance-and-lineage, orchestration, metric-design, experimentation, feature-engineering, model-training, model-serving, ml-pipelines, ml-observability, model-optimisation, embeddings, threat-modelling, security-architecture, identity-and-access-control, application-security, cloud-security, secrets-management, data-protection-and-privacy, prompt-injection, rag-security, agent-security, adversarial-ai-evaluation, ai-abuse-and-misuse, collaboration-and-conflict, prioritisation, learning-and-reflection]
+    not_materially_characteristic: []
+  interview_emphasis:
+    status: provisional
+    high: [programming, api-design, software-architecture, distributed-systems, reliability-engineering, model-provider-integration, prompt-and-context-engineering, retrieval-augmented-generation, ai-evaluation, model-selection, tool-use, agentic-systems, ml-fundamentals, technical-judgement]
+    medium: []
+    low: []
+    unresolved_policy: all-unlisted
+    basis: Maintainer synthesis from current role evidence unless an official employer interview guide is listed.

@@ -1,0 +1,36 @@
+schema_version: 0.1.0
+taxonomy_version: 0.1.0
+role: sec-eng
+profile_revision: 1
+status: draft
+evidence_as_of: '2026-11-02'
+confidence: high
+evidence:
+  source_count: 2
+  employer_count: 2
+  sources:
+  - employer: Atlassian
+    source_type: employer-job-description
+    url: https://www.atlassian.com/company/careers/details/26986
+    observed_at: '2026-11-02'
+    supports: [identity-and-access-control, cloud-security, security-automation, data-protection-and-privacy, vulnerability-management, communication]
+  - employer: Microsoft
+    source_type: employer-job-description
+    url: https://microsoft.ai/careers/job/4424233009/sr-security-operations-engineer/
+    observed_at: '2026-11-02'
+    supports: [security-automation, incident-response, service-operations, communication, ownership-and-delivery]
+  limitations:
+  - Security Engineering spans product, infrastructure, enterprise and operations specialisations; the profile is intentionally broad.
+calibration:
+  defaults: {role_importance: contextual, interview_emphasis: unresolved}
+  role_importance:
+    core: [operating-systems, networking, threat-modelling, security-architecture, identity-and-access-control, application-security, cloud-security, secrets-management, data-protection-and-privacy, vulnerability-management, security-automation, incident-response, communication, ownership-and-delivery, stakeholder-management, technical-judgement]
+    important: [concurrency, programming, api-design, testing, debugging, software-architecture, distributed-systems, reliability-engineering, observability, cloud-architecture, containerisation, ci-cd, infrastructure-as-code, service-operations, data-governance-and-lineage, applied-cryptography, web-exploitation, api-exploitation, network-and-host-exploitation, offensive-methodology, leadership-and-influence, collaboration-and-conflict, ambiguity-and-adaptability, prioritisation, learning-and-reflection]
+    not_materially_characteristic: []
+  interview_emphasis:
+    status: provisional
+    high: [operating-systems, networking, threat-modelling, security-architecture, identity-and-access-control, application-security, cloud-security, secrets-management, data-protection-and-privacy, vulnerability-management, incident-response, technical-judgement]
+    medium: []
+    low: []
+    unresolved_policy: all-unlisted
+    basis: Maintainer synthesis from current role evidence unless an official employer interview guide is listed.

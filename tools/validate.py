@@ -11,8 +11,10 @@ from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
 QUESTION_ROOT = ROOT / "questions"
+ROLE_PROFILE_ROOT = ROOT / "evidence" / "role-profiles"
 TAXONOMY_ROOT = ROOT / "taxonomy"
-SCHEMA_PATH = ROOT / "schemas" / "question.schema.json"
+QUESTION_SCHEMA_PATH = ROOT / "schemas" / "question.schema.json"
+ROLE_PROFILE_SCHEMA_PATH = ROOT / "schemas" / "role-profile.schema.json"
 TEMPLATE_RE = re.compile(r"\{\{([a-zA-Z0-9_-]+)\}\}")
 TAXONOMY_ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
@@ -118,7 +120,7 @@ def iter_asset_paths(question):
                 yield item["path"]
 
 
-def validate_semantics(path: Path, q: dict, seen_ids: set[str], errors: list[str]):
+def validate_question_semantics(path: Path, q: dict, seen_ids: set[str], errors: list[str]):
     qid = q["id"]
     if qid in seen_ids:
         errors.append(f"{path}: duplicate question id {qid}")
@@ -192,32 +194,122 @@ def validate_semantics(path: Path, q: dict, seen_ids: set[str], errors: list[str
             errors.append(f"{path}: missing asset {asset}")
 
 
+def validate_role_profile_semantics(path: Path, profile: dict, seen_roles: set[str], errors: list[str]):
+    roles = taxonomy_ids("roles.yaml", "roles")
+    competencies = taxonomy_ids("competencies.yaml", "competencies")
+    role_id = profile["role"]
+
+    if role_id not in roles:
+        errors.append(f"{path}: unknown role {role_id}")
+    if role_id in seen_roles:
+        errors.append(f"{path}: duplicate role profile for {role_id}")
+    seen_roles.add(role_id)
+
+    evidence = profile["evidence"]
+    sources = evidence["sources"]
+    if evidence["source_count"] != len(sources):
+        errors.append(
+            f"{path}: source_count is {evidence['source_count']}, but profile contains {len(sources)} sources"
+        )
+    employer_count = len({source["employer"] for source in sources})
+    if evidence["employer_count"] != employer_count:
+        errors.append(
+            f"{path}: employer_count is {evidence['employer_count']}, but sources contain {employer_count} employers"
+        )
+
+    for source in sources:
+        for competency in source["supports"]:
+            if competency not in competencies:
+                errors.append(f"{path}: evidence source references unknown competency {competency}")
+
+    importance = profile["calibration"]["role_importance"]
+    importance_buckets = {
+        "core": importance["core"],
+        "important": importance["important"],
+        "not_materially_characteristic": importance["not_materially_characteristic"],
+    }
+    assigned_importance: dict[str, str] = {}
+    for bucket, values in importance_buckets.items():
+        for competency in values:
+            if competency not in competencies:
+                errors.append(f"{path}: {bucket} references unknown competency {competency}")
+            previous = assigned_importance.get(competency)
+            if previous:
+                errors.append(
+                    f"{path}: competency {competency} appears in both role-importance buckets {previous} and {bucket}"
+                )
+            assigned_importance[competency] = bucket
+
+    emphasis = profile["calibration"]["interview_emphasis"]
+    assigned_emphasis: dict[str, str] = {}
+    for bucket in ("high", "medium", "low"):
+        for competency in emphasis[bucket]:
+            if competency not in competencies:
+                errors.append(f"{path}: interview emphasis {bucket} references unknown competency {competency}")
+            previous = assigned_emphasis.get(competency)
+            if previous:
+                errors.append(
+                    f"{path}: competency {competency} appears in both interview-emphasis buckets {previous} and {bucket}"
+                )
+            assigned_emphasis[competency] = bucket
+
+    if profile["status"] == "reviewed" and emphasis["unresolved_policy"] != "none":
+        errors.append(f"{path}: reviewed profiles must resolve all interview-emphasis values")
+
+
 def main():
-    schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
-    validator = Draft202012Validator(schema, format_checker=FormatChecker())
-    paths = sorted(QUESTION_ROOT.rglob("*.yaml"))
+    question_schema = json.loads(QUESTION_SCHEMA_PATH.read_text(encoding="utf-8"))
+    role_profile_schema = json.loads(ROLE_PROFILE_SCHEMA_PATH.read_text(encoding="utf-8"))
+    question_validator = Draft202012Validator(question_schema, format_checker=FormatChecker())
+    role_profile_validator = Draft202012Validator(role_profile_schema, format_checker=FormatChecker())
+
+    question_paths = sorted(QUESTION_ROOT.rglob("*.yaml"))
+    role_profile_paths = sorted(ROLE_PROFILE_ROOT.rglob("*.yaml"))
     errors = []
     seen_ids = set()
+    seen_roles = set()
 
     validate_competency_taxonomy(errors)
 
-    if not paths:
+    if not question_paths:
         errors.append("No question YAML files found.")
+    if not role_profile_paths:
+        errors.append("No role profile YAML files found.")
 
-    for path in paths:
+    for path in question_paths:
         try:
             question = load_yaml(path)
         except Exception as exc:
             errors.append(f"{path}: YAML parse error: {exc}")
             continue
 
-        schema_errors = list(validator.iter_errors(question))
+        schema_errors = list(question_validator.iter_errors(question))
         for error in sorted(schema_errors, key=lambda e: list(e.absolute_path)):
             location = ".".join(str(p) for p in error.absolute_path) or "<root>"
             errors.append(f"{path}: schema {location}: {error.message}")
 
         if not schema_errors:
-            validate_semantics(path, question, seen_ids, errors)
+            validate_question_semantics(path, question, seen_ids, errors)
+
+    for path in role_profile_paths:
+        try:
+            profile = load_yaml(path)
+        except Exception as exc:
+            errors.append(f"{path}: YAML parse error: {exc}")
+            continue
+
+        schema_errors = list(role_profile_validator.iter_errors(profile))
+        for error in sorted(schema_errors, key=lambda e: list(e.absolute_path)):
+            location = ".".join(str(p) for p in error.absolute_path) or "<root>"
+            errors.append(f"{path}: schema {location}: {error.message}")
+
+        if not schema_errors:
+            validate_role_profile_semantics(path, profile, seen_roles, errors)
+
+    expected_roles = taxonomy_ids("roles.yaml", "roles")
+    missing_profiles = expected_roles - seen_roles
+    for role_id in sorted(missing_profiles):
+        errors.append(f"missing role profile for {role_id}")
 
     if errors:
         print("Corpus validation failed:")
@@ -226,8 +318,9 @@ def main():
         return 1
 
     print(
-        f"Validated {len(paths)} question(s) and "
-        f"{len(taxonomy_ids('competencies.yaml', 'competencies'))} canonical competencies successfully."
+        f"Validated {len(question_paths)} question(s), "
+        f"{len(taxonomy_ids('competencies.yaml', 'competencies'))} canonical competencies, "
+        f"and {len(role_profile_paths)} role profile(s) successfully."
     )
     return 0
 
