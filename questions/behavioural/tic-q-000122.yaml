@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000122
+revision: 1
+status: draft
+question:
+  prompt: When should a technical disagreement be escalated rather than continuing discussion between the same people?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [technical-judgement, prioritisation]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: medium, organisational_complexity: low}
+    rationale: Tests basic escalation triggers and proportionality.
+  tags: [escalation, decision-making]
+assessment:
+  intent: Assess whether the candidate can recognise when unresolved disagreement is blocking delivery or exceeds local authority.
+  must_surface: [escalation is appropriate when impact or deadlock exceeds the participants' decision authority, escalation should carry the evidence options and trade-offs rather than blame]
+  red_flags: [escalates ordinary disagreement immediately as a personal complaint]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

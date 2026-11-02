@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000126
+revision: 1
+status: draft
+question:
+  prompt: Why is shared evidence useful when two engineers have competing technical intuitions?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [technical-judgement, experimentation]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational evidence-oriented disagreement resolution.
+  tags: [evidence, experiments, disagreement]
+assessment:
+  intent: Assess whether the candidate can shift disagreement from status or preference toward falsifiable evidence.
+  must_surface: [shared measurements tests or experiments can distinguish competing claims, decision criteria should be agreed before interpreting evidence when practical]
+  red_flags: [defaults to seniority as the only way to settle a technical question]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

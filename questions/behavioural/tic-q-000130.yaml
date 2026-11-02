@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000130
+revision: 1
+status: draft
+question:
+  prompt: Your team decides on an architecture you argued against. The decision is documented and within the team's authority. How do you proceed?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 12
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [ownership-and-delivery, technical-judgement, communication]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: low, organisational_complexity: low, communication_demand: medium}
+    rationale: Applies healthy dissent and post-decision commitment to a bounded technical decision.
+  tags: [disagree-and-commit, architecture]
+assessment:
+  intent: Assess whether the candidate can preserve dissent evidence while executing an agreed decision constructively.
+  must_surface: [supports implementation in good faith, monitors agreed risks or decision assumptions without trying to sabotage the outcome]
+  strong_signals: [reopens the decision only if material new evidence invalidates its assumptions]
+  red_flags: [continues relitigating the same settled decision without new evidence]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

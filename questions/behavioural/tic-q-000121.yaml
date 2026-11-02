@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000121
+revision: 1
+status: draft
+question:
+  prompt: What makes engineering feedback constructive rather than merely critical?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [communication, learning-and-reflection]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low, communication_demand: low}
+    rationale: Tests foundational feedback behaviour.
+  tags: [feedback, review]
+assessment:
+  intent: Assess whether the candidate understands useful feedback as specific evidence-based and actionable.
+  must_surface: [focuses on observable work or behaviour rather than personal labels, explains impact or rationale and provides a path forward]
+  red_flags: [equates bluntness with quality feedback]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

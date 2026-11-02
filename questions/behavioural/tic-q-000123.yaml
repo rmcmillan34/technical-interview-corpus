@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000123
+revision: 1
+status: draft
+question:
+  prompt: Why is disagree-and-commit useful after a decision has been made, and what does it not require you to do?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [ownership-and-delivery, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational decision alignment after healthy dissent.
+  tags: [disagree-and-commit, alignment]
+assessment:
+  intent: Assess whether the candidate can support an agreed direction without pretending they originally preferred it.
+  must_surface: [dissent can be recorded before the decision, commitment means executing the chosen direction in good faith afterward]
+  red_flags: [continues undermining the decision after normal decision rights were exercised]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

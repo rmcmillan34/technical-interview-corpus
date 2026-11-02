@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000127
+revision: 1
+status: draft
+question:
+  prompt: A teammate requests changes in code review that you believe add complexity without improving correctness. How do you respond and get the review unstuck?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 12
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [technical-judgement, communication, ownership-and-delivery]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: medium, tradeoff_reasoning: medium, communication_demand: medium}
+    rationale: Applies proportional review and evidence-oriented disagreement to a bounded collaboration problem.
+  tags: [code-review, disagreement]
+assessment:
+  intent: Assess whether the candidate can challenge feedback respectfully while preserving delivery and review quality.
+  must_surface: [asks for the concern or decision criterion behind the request, explains the complexity trade-off with evidence and seeks a clear resolution]
+  strong_signals: [offers a small experiment or alternative that addresses the underlying concern]
+  red_flags: [dismisses the reviewer or implements unwanted complexity silently while remaining resentful]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

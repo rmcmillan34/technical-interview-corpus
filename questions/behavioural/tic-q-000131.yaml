@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000131
+revision: 1
+status: draft
+question:
+  prompt: >
+    Tell me about a significant engineering disagreement or conflict where the relationship and delivery outcome both mattered. Explain the competing positions, how you personally changed the quality of the discussion, the decision or resolution, the result, and what you learned.
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 15
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [communication, technical-judgement, learning-and-reflection]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: medium, ambiguity: high, tradeoff_reasoning: high, organisational_complexity: medium, communication_demand: high}
+    rationale: Requires evidence from a real consequential conflict including actions resolution outcome and reflection.
+  tags: [star, conflict, disagreement]
+assessment:
+  intent: Assess demonstrated conflict-navigation behaviour from a concrete engineering experience.
+  must_surface: [specific competing positions and stakes, personal actions that influenced the discussion, outcome for both work and relationship where observable, reflection or changed practice]
+  strong_signals: [uses evidence and active listening rather than authority or avoidance]
+  red_flags: [frames all conflict as other people's failure, provides only a hypothetical answer]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
