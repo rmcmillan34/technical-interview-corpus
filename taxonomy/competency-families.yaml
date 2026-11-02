@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+taxonomy_version: 0.1.0
+families:
+- id: computer-science
+  name: Computer Science
+- id: mathematics-statistics
+  name: Mathematics & Statistics
+- id: software-engineering
+  name: Software Engineering
+- id: cloud-platform
+  name: Cloud & Platform
+- id: data-engineering
+  name: Data Engineering
+- id: data-science
+  name: Data Science
+- id: machine-learning
+  name: Machine Learning
+- id: ai-engineering
+  name: AI Engineering
+- id: security-engineering
+  name: Security Engineering
+- id: ai-security
+  name: AI Security
+- id: offensive-security
+  name: Offensive Security
+- id: quantitative-engineering
+  name: Quantitative Engineering
+- id: professional-behavioural
+  name: Professional & Behavioural
