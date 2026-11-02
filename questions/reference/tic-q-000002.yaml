@@ -1,0 +1,95 @@
+schema_version: 0.1.0
+id: tic-q-000002
+revision: 1
+status: draft
+question:
+  prompt: Tell me about a time you disagreed with an important technical decision. What did you do?
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 15
+classification:
+  competencies:
+    primary: technical-judgement
+    secondary:
+    - collaboration-and-conflict
+    - communication
+    - leadership-and-influence
+  roles:
+  - swe
+  - de
+  - ds
+  - mle
+  - ai-eng
+  - sec-eng
+  - ai-sec
+  - pentest-redteam
+  - ai-redteam
+  - quant-dev
+  difficulty:
+    level: D3
+    drivers:
+      ambiguity: medium
+      tradeoff_reasoning: high
+      communication_demand: high
+    rationale: Requires evidence of technical judgement, constructive disagreement and reflection in a realistic professional situation.
+  aspects:
+  - perspective-taking
+  - reflection
+  tags:
+  - behavioural
+  - disagreement
+  - influence
+assessment:
+  intent: Assess technical judgement, constructive disagreement, ownership and reflection using a real candidate experience.
+  strong_signals:
+  - clearly separates personal actions from team actions
+  - explains the substantive technical disagreement
+  - uses evidence rather than authority alone
+  - acknowledges the competing position fairly
+  - explains the result
+  - reflects on what they would repeat or change
+  red_flags:
+  - cannot identify their own contribution
+  - portrays disagreement primarily as interpersonal conflict
+  - retrospectively claims certainty without evidence
+  rubric:
+  - id: situation
+    criterion: Establishes enough context to understand the decision.
+    importance: supporting
+  - id: judgement
+    criterion: Explains the technical reasoning and competing trade-offs.
+    importance: essential
+  - id: action
+    criterion: Clearly describes the candidate's own actions.
+    importance: essential
+  - id: reflection
+    criterion: Demonstrates credible learning or reflection.
+    importance: differentiator
+followups:
+- id: f1
+  prompt: What did the other person believe you were getting wrong?
+  axis: perspective-taking
+  difficulty_effect: same
+  trigger:
+    when: weak
+    criterion: judgement
+- id: f2
+  prompt: What would you do differently now?
+  axis: reflection
+  difficulty_effect: down
+  trigger:
+    when: missing
+    criterion: reflection
+provenance:
+  origin: native
+  authoring:
+    method: human
+    llm_assisted: false
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

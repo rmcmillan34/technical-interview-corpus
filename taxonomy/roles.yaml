@@ -1,0 +1,22 @@
+schema_version: 0.1.0
+roles:
+- id: swe
+  name: Software Engineering
+- id: de
+  name: Data Engineering
+- id: ds
+  name: Data Science
+- id: mle
+  name: Machine Learning Engineering
+- id: ai-eng
+  name: AI Engineering
+- id: sec-eng
+  name: Security Engineering
+- id: ai-sec
+  name: AI Security Engineering
+- id: pentest-redteam
+  name: Penetration Testing / Red Team
+- id: ai-redteam
+  name: AI Red Team
+- id: quant-dev
+  name: Quantitative Development

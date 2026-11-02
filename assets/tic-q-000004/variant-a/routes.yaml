@@ -1,0 +1,4 @@
+routes:
+  - path: /api/invoices/{invoice_id}
+    authn: required
+    object_authorisation: not_configured

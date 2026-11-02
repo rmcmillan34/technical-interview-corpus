@@ -1,0 +1,81 @@
+schema_version: 0.1.0
+id: tic-q-000001
+revision: 1
+status: draft
+question:
+  prompt_template: Implement an LRU cache in {{language}} supporting get and put operations.
+  domain: coding
+  response_modes:
+  - code
+  - discussion
+  timebox_minutes: 25
+parameters:
+  language:
+    type: technology
+    category: programming-language
+    policy: parameterised
+    allowed:
+    - python
+    - java
+    - cpp
+    - rust
+    - go
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - algorithms-and-complexity
+    - programming
+  roles:
+  - swe
+  - mle
+  - ai-eng
+  - quant-dev
+  difficulty:
+    level: D2
+    drivers:
+      implementation_depth: medium
+      quantitative_reasoning: low
+    rationale: Requires selection and implementation of complementary data structures in a bounded problem.
+  tags:
+  - cache
+  - lru
+  - hash-map
+  - linked-list
+  technologies: []
+assessment:
+  intent: Assess whether the candidate can combine appropriate data structures to meet explicit complexity requirements.
+  must_surface:
+  - get should have expected O(1) complexity
+  - put should have expected O(1) complexity
+  - least-recently-used entries must be evicted correctly
+  strong_signals:
+  - handles capacity edge cases cleanly
+  - explains why the selected structures meet the complexity target
+  red_flags:
+  - scans the cache linearly on each operation
+  - eviction order is incorrect
+  technology_overlays:
+    rust:
+      strong_signals:
+      - handles ownership and mutation idiomatically
+    cpp:
+      strong_signals:
+      - manages iterator or pointer validity safely
+followups:
+- id: f1
+  prompt: How would you make this safe for concurrent access?
+  axis: concurrency
+  difficulty_effect: up
+provenance:
+  origin: native
+  authoring:
+    method: human
+    llm_assisted: false
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

@@ -1,0 +1,32 @@
+schema_version: 0.1.0
+technologies:
+- id: python
+  name: Python
+  categories: [programming-language]
+- id: java
+  name: Java
+  categories: [programming-language]
+- id: cpp
+  name: C++
+  categories: [programming-language]
+- id: rust
+  name: Rust
+  categories: [programming-language]
+- id: go
+  name: Go
+  categories: [programming-language]
+- id: openai-api
+  name: OpenAI API
+  categories: [model-provider]
+- id: anthropic-api
+  name: Anthropic API
+  categories: [model-provider]
+- id: postgres-pgvector
+  name: PostgreSQL + pgvector
+  categories: [database, retrieval-platform, vector-search]
+- id: pinecone
+  name: Pinecone
+  categories: [retrieval-platform, vector-search]
+- id: weaviate
+  name: Weaviate
+  categories: [retrieval-platform, vector-search]

@@ -1,0 +1,14 @@
+schema_version: 0.1.0
+domains:
+- knowledge
+- coding
+- debugging
+- system-design
+- data-analysis
+- data-design
+- ml-design
+- ai-system-design
+- security-scenario
+- offensive-scenario
+- quantitative
+- behavioural

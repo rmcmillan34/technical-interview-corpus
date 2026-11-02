@@ -1,0 +1,37 @@
+schema_version: 0.1.0
+status: reference-subset
+competencies:
+- id: data-structures
+  name: Data Structures
+- id: algorithms-and-complexity
+  name: Algorithms And Complexity
+- id: programming
+  name: Programming
+- id: technical-judgement
+  name: Technical Judgement
+- id: collaboration-and-conflict
+  name: Collaboration And Conflict
+- id: communication
+  name: Communication
+- id: leadership-and-influence
+  name: Leadership And Influence
+- id: retrieval-augmented-generation
+  name: Retrieval Augmented Generation
+- id: software-architecture
+  name: Software Architecture
+- id: ai-evaluation
+  name: AI Evaluation
+- id: identity-and-access-control
+  name: Identity And Access Control
+- id: data-protection-and-privacy
+  name: Data Protection And Privacy
+- id: observability
+  name: Observability
+- id: api-exploitation
+  name: API Exploitation
+- id: application-security
+  name: Application Security
+- id: quantitative-reasoning
+  name: Quantitative Reasoning
+- id: statistics
+  name: Statistics

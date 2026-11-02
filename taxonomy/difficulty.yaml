@@ -1,0 +1,20 @@
+schema_version: 0.1.0
+levels:
+- id: D1
+  name: Foundation
+  definition: Recall, recognise and explain concepts accurately.
+- id: D2
+  name: Applied
+  definition: Apply knowledge to a bounded problem and justify the approach.
+- id: D3
+  name: Production
+  definition: Handle realistic constraints, failure modes, testing, operations and trade-offs.
+- id: D4
+  name: Complex
+  definition: Resolve ambiguity, compare viable alternatives and defend consequential engineering decisions.
+- id: D5
+  name: Strategic
+  definition: Reason across systems, teams, migrations, governance and long-term competing objectives.
+principles:
+- Difficulty describes assessment demand, not job seniority.
+- Specialised factual recall alone does not increase D-level.
