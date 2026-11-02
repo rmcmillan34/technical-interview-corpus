@@ -1,0 +1,9 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Native corpus content in this repository is licensed under CC BY 4.0 unless a record explicitly declares another license.
+
+License summary: https://creativecommons.org/licenses/by/4.0/
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Suggested attribution:
+Technical Interview Corpus contributors, rmcmillan34/technical-interview-corpus, CC BY 4.0. Changes indicated where applicable.

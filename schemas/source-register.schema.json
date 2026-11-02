@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rmcmillan34/technical-interview-corpus/schemas/source-register.schema.json",
+  "title": "Technical Interview Corpus Source Register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "sources"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "0.1.0"},
+    "sources": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source"}
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "canonical_url",
+        "publisher",
+        "observed_at",
+        "distribution",
+        "permitted_uses",
+        "license",
+        "release_license_spdx",
+        "attribution",
+        "review"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^src-[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {"type": "string", "minLength": 1},
+        "canonical_url": {"type": "string", "format": "uri"},
+        "publisher": {"type": "string", "minLength": 1},
+        "observed_at": {"type": "string", "format": "date"},
+        "distribution": {
+          "enum": ["core", "research-only", "excluded"]
+        },
+        "permitted_uses": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"enum": ["influence", "adapted", "verbatim"]}
+        },
+        "license": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["spdx", "url"],
+          "properties": {
+            "spdx": {"type": ["string", "null"]},
+            "url": {"type": ["string", "null"], "format": "uri"}
+          }
+        },
+        "release_license_spdx": {"type": ["string", "null"]},
+        "attribution": {"type": ["string", "null"]},
+        "copyright_notice": {"type": ["string", "null"]},
+        "review": {"enum": ["pending", "approved", "rejected"]},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}
