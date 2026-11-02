@@ -24,8 +24,14 @@ jobs:
       - name: Validate corpus
         run: python tools/validate.py
 
+      - name: Validate licensing and provenance
+        run: python tools/validate_provenance.py
+
       - name: Build preview release bundle
         run: python tools/build_release.py --version 0.1.0-dev --include-drafts --skip-validation --output build/release-preview
+
+      - name: Finalize preview release metadata
+        run: python tools/finalize_release_metadata.py --output build/release-preview
 
       - name: Upload preview release bundle
         uses: actions/upload-artifact@v7
