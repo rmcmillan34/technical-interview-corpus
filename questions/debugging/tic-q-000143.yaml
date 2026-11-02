@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000143
+revision: 1
+status: draft
+question:
+  prompt: >
+    After a network change, a production service shows normal median latency but severe tail latency and intermittent connection resets between two regions. Host CPU and database metrics are normal. Build an investigation plan that can distinguish packet loss, path/MTU issues, connection churn and application-level causes, then propose safe mitigations while evidence is collected.
+  domain: debugging
+  response_modes: [discussion]
+  timebox_minutes: 28
+classification:
+  competencies: {primary: networking, secondary: [observability, reliability-engineering, service-operations, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: high, ambiguity: high, scale: medium, failure_reasoning: high, tradeoff_reasoning: medium}
+    rationale: Requires production network diagnosis across multiple plausible failure modes and controlled mitigation.
+  tags: [packet-loss, mtu, tail-latency, resets]
+assessment:
+  intent: Assess whether the candidate can investigate a cross-region networking incident with layer-specific evidence.
+  must_surface: [collects connection error and latency evidence by path or region, tests packet loss routing and MTU hypotheses, distinguishes application retries or churn from underlying path failure]
+  strong_signals: [uses controlled failover traffic reduction or route rollback as reversible mitigations]
+  red_flags: [attributes the issue to the database despite normal evidence and network-change correlation]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

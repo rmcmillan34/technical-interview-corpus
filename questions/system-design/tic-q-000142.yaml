@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000142
+revision: 1
+status: draft
+question:
+  prompt: A service makes thousands of HTTPS requests per second to the same downstream API. Explain why opening a fresh TCP/TLS connection for every request is costly and design a bounded connection-reuse policy.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: networking, secondary: [performance-engineering, reliability-engineering, api-design]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, scale: medium, tradeoff_reasoning: medium}
+    rationale: Applies connection establishment and reuse concepts to a bounded high-request-rate client.
+  tags: [keepalive, pooling, tls]
+assessment:
+  intent: Assess whether the candidate can reduce connection setup overhead while bounding pooled resources.
+  must_surface: [connection establishment and TLS handshakes add latency and CPU/network work, persistent connections or a bounded pool can amortise setup cost]
+  strong_signals: [mentions idle expiry max connections and unhealthy-connection replacement]
+  red_flags: [creates an unbounded connection per request]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

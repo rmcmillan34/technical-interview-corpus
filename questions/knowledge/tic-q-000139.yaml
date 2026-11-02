@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000139
+revision: 1
+status: draft
+question:
+  prompt: Compare TCP and UDP at a high level. What guarantees does TCP provide that UDP does not, and why might an application still choose UDP?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: networking, secondary: [communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational transport-protocol semantics.
+  tags: [tcp, udp, transport]
+assessment:
+  intent: Assess whether the candidate understands connection-oriented reliable byte streams versus datagram delivery.
+  must_surface: [TCP provides ordered reliable byte-stream delivery within a connection, UDP does not provide those reliability or ordering guarantees]
+  strong_signals: [notes that UDP can suit latency-sensitive or application-managed reliability cases]
+  red_flags: [claims UDP guarantees delivery but is simply faster TCP]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

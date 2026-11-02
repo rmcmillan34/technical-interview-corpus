@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000138
+revision: 1
+status: draft
+question:
+  prompt: Explain what DNS does between a client using a hostname and opening a network connection. What can go wrong even if the target service itself is healthy?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: networking, secondary: [service-operations, debugging]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational name-resolution concepts.
+  tags: [dns, resolution]
+assessment:
+  intent: Assess whether the candidate understands hostname resolution as a dependency before connection establishment.
+  must_surface: [DNS maps names to address information, resolution can fail or return stale or unreachable addresses independently of service health]
+  red_flags: [treats hostname resolution and TCP connection establishment as the same operation]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
