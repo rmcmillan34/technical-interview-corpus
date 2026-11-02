@@ -4,7 +4,7 @@ sources:
   title: System Design Primer
   canonical_url: https://github.com/donnemartin/system-design-primer
   publisher: Donne Martin
-  observed_at: 2026-11-02
+  observed_at: "2026-11-02"
   distribution: core
   permitted_uses:
   - influence
@@ -22,7 +22,7 @@ sources:
   title: Tech Interview Handbook
   canonical_url: https://github.com/yangshun/tech-interview-handbook
   publisher: Yangshun Tay
-  observed_at: 2026-11-02
+  observed_at: "2026-11-02"
   distribution: core
   permitted_uses:
   - influence
@@ -40,7 +40,7 @@ sources:
   title: Coding Interview University
   canonical_url: https://github.com/jwasham/coding-interview-university
   publisher: John Washam
-  observed_at: 2026-11-02
+  observed_at: "2026-11-02"
   distribution: research-only
   permitted_uses:
   - influence
@@ -56,7 +56,7 @@ sources:
   title: The Loop / interview-rounds
   canonical_url: https://github.com/sumitsingh4411/interview-rounds
   publisher: Sumit Singh
-  observed_at: 2026-11-02
+  observed_at: "2026-11-02"
   distribution: research-only
   permitted_uses:
   - influence
@@ -72,7 +72,7 @@ sources:
   title: Awesome Interview Questions
   canonical_url: https://github.com/DopplerHQ/awesome-interview-questions
   publisher: DopplerHQ
-  observed_at: 2026-11-02
+  observed_at: "2026-11-02"
   distribution: research-only
   permitted_uses:
   - influence
@@ -88,7 +88,7 @@ sources:
   title: The Coding Interview
   canonical_url: https://github.com/mre/the-coding-interview
   publisher: mre
-  observed_at: 2026-11-02
+  observed_at: "2026-11-02"
   distribution: research-only
   permitted_uses:
   - influence
