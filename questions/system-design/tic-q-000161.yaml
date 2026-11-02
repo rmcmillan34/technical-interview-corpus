@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000161
+revision: 1
+status: draft
+question:
+  prompt: A small team needs durable asynchronous task processing but does not want to operate a message broker cluster. Design a cloud architecture using a managed queue and workers, including retries and poison-message handling.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 20
+classification:
+  competencies: {primary: cloud-architecture, secondary: [distributed-systems, reliability-engineering, service-operations]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, failure_reasoning: medium, tradeoff_reasoning: medium}
+    rationale: Applies managed-service selection to bounded asynchronous processing requirements.
+  tags: [managed-queue, workers, dead-letter]
+assessment:
+  intent: Assess whether the candidate can choose managed cloud primitives while preserving explicit delivery/failure semantics.
+  must_surface: [uses a durable queue between producers and workers, defines bounded retry behaviour, isolates repeatedly failing work via dead-letter or equivalent handling]
+  strong_signals: [notes idempotent consumers and autoscaling based on queue pressure]
+  red_flags: [assumes a managed queue removes the need to design duplicate or poison-message behaviour]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

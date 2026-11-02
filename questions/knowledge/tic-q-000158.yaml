@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000158
+revision: 1
+status: draft
+question:
+  prompt: What is the cloud shared-responsibility model? Give examples of security or operational responsibilities that remain with an application team even when infrastructure is provided by a cloud vendor.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: cloud-architecture, secondary: [cloud-security, security-architecture]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, security_reasoning: low}
+    rationale: Tests foundational allocation of cloud responsibilities.
+  tags: [shared-responsibility, cloud-security]
+assessment:
+  intent: Assess whether the candidate understands that cloud providers and customers own different layers of risk.
+  must_surface: [provider responsibility does not remove customer responsibility for identities configuration application code and data controls]
+  red_flags: [assumes moving to cloud transfers all security responsibility to the provider]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

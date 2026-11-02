@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000157
+revision: 1
+status: draft
+question:
+  prompt: Compare using a managed cloud service with operating the equivalent software yourself. What responsibilities and trade-offs move between the customer and provider?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: cloud-architecture, secondary: [service-operations, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, tradeoff_reasoning: low}
+    rationale: Tests foundational managed-service trade-offs.
+  tags: [managed-services, operations]
+assessment:
+  intent: Assess whether the candidate understands that managed services trade control for reduced operational responsibility.
+  must_surface: [provider can take on parts of patching availability or platform operation, customer retains application configuration data and usage responsibilities]
+  strong_signals: [mentions cost portability constraints or reduced low-level control]
+  red_flags: [assumes managed means the customer has no operational responsibility]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
