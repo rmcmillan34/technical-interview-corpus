@@ -6,6 +6,7 @@ policy:
   - Questions remain independently reusable; progression is modeled separately.
   - Escalation may skip a level when the candidate has already demonstrated prerequisite knowledge.
   - Recovery edges point toward narrower prerequisite checks after a weak answer.
+  - Deepen edges remain at the same nominal difficulty while probing a different or more integrated line of reasoning.
   - Not every D1 node requires a descendant at every higher difficulty.
   - Higher-difficulty questions may converge several foundational concepts.
 edges:
@@ -63,8 +64,8 @@ edges:
   rationale: Narrows an incident investigation back to telemetry design and signal selection.
 - from: tic-q-000031
   to: tic-q-000032
-  relation: escalate
-  rationale: Extends delivery-semantics reasoning into overload containment, queue pressure and backpressure.
+  relation: deepen
+  rationale: Moves laterally from delivery semantics into overload containment, queue pressure and backpressure at the same production difficulty.
 - from: tic-q-000027
   to: tic-q-000035
   relation: escalate
