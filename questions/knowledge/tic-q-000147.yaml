@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000147
+revision: 1
+status: draft
+question:
+  prompt: What is the purpose of small incremental changes in a software delivery workflow? Why can smaller changes be easier to review, test and roll back than large batches?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: software-delivery-practices, secondary: [testing, ownership-and-delivery]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational incremental-delivery reasoning.
+  tags: [incremental-delivery, small-batches]
+assessment:
+  intent: Assess whether the candidate understands the risk-reduction value of small changes.
+  must_surface: [smaller changes reduce the amount of behaviour changing at once, smaller diffs are generally easier to review isolate and revert]
+  red_flags: [assumes batching unrelated changes always makes delivery more efficient]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
