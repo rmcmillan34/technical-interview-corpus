@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000195
+revision: 1
+status: draft
+question:
+  prompt: In a threat model, what are assets, trust boundaries and attack surfaces? Give one simple example of each for a web application.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: threat-modelling, secondary: [security-architecture, application-security]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, security_reasoning: low, ambiguity: low}
+    rationale: Tests foundational threat-model vocabulary.
+  tags: [assets, trust-boundaries, attack-surface]
+assessment:
+  intent: Assess whether the candidate can identify what matters, where trust changes and where attackers can interact.
+  must_surface: [assets are valuable data/capabilities, trust boundaries mark changes in trust or control, attack surface includes reachable inputs/interfaces]
+  red_flags: [treats only internet-facing endpoints as possible attack surface]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

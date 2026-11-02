@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000194
+revision: 1
+status: draft
+question:
+  prompt: What is threat modelling, and at what point in software design is it most useful?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: threat-modelling, secondary: [security-architecture, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, security_reasoning: low, ambiguity: low}
+    rationale: Tests foundational threat-modelling purpose and timing.
+  tags: [threat-model, design]
+assessment:
+  intent: Assess whether the candidate understands threat modelling as structured design-time security reasoning.
+  must_surface: [identifies assets boundaries actors or threats before implementation decisions are fixed, uses the model to prioritize mitigations]
+  red_flags: [defines threat modelling only as penetration testing after release]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

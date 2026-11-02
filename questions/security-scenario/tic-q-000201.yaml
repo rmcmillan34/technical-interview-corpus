@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000201
+revision: 1
+status: draft
+question:
+  prompt: >
+    Produce a threat model for a multi-tenant SaaS application with a public web/API edge, background workers, object storage and a relational database. Prioritize threats that could cause cross-tenant access, privilege escalation, sensitive-data disclosure, service abuse or control-plane compromise, and explain how the model should influence architecture and verification work.
+  domain: security-scenario
+  response_modes: [discussion, written]
+  timebox_minutes: 30
+classification:
+  competencies: {primary: threat-modelling, secondary: [security-architecture, identity-and-access-control, application-security, data-protection-and-privacy, cloud-security, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: high, scope: high, security_reasoning: high, ambiguity: high, failure_reasoning: high, tradeoff_reasoning: high}
+    rationale: Requires an end-to-end production threat model spanning tenant isolation, identities, data stores, asynchronous work and control-plane boundaries.
+  tags: [multi-tenant, tenant-isolation, saas]
+assessment:
+  intent: Assess whether the candidate can turn a complex architecture into prioritized threats, mitigations and verification targets.
+  must_surface: [identifies tenant identity/authorization boundaries, traces sensitive data and privileged control paths, prioritizes threats by plausible impact/exposure, links important threats to concrete architectural controls and tests]
+  strong_signals: [distinguishes control-plane and data-plane threats and documents residual assumptions]
+  red_flags: [produces only a generic vulnerability checklist without mapping threats to the architecture]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

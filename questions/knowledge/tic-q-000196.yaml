@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000196
+revision: 1
+status: draft
+question:
+  prompt: Explain the difference between a threat, a vulnerability and a risk. Why is a vulnerability not automatically the highest-priority risk?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: threat-modelling, secondary: [vulnerability-management, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, security_reasoning: low, ambiguity: low}
+    rationale: Tests foundational security-risk distinctions.
+  tags: [threat, vulnerability, risk]
+assessment:
+  intent: Assess whether the candidate separates weakness, adversarial event and consequence/likelihood reasoning.
+  must_surface: [a vulnerability is a weakness, a threat is a potential harmful actor/event or action, risk considers likelihood/exposure and impact in context]
+  red_flags: [ranks every vulnerability solely by technical severity with no context]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

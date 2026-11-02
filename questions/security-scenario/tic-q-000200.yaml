@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000200
+revision: 1
+status: draft
+question:
+  prompt: A service consumes events from an internal message broker and writes customer records to a database. Threat-model the path assuming a compromised internal producer may send malicious or unauthorized events.
+  domain: security-scenario
+  response_modes: [discussion, written]
+  timebox_minutes: 20
+classification:
+  competencies: {primary: threat-modelling, secondary: [security-architecture, identity-and-access-control, data-protection-and-privacy, distributed-systems]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, security_reasoning: medium, ambiguity: medium, failure_reasoning: medium}
+    rationale: Applies trust-boundary reasoning to an internal event pipeline where network location does not imply trust.
+  tags: [messaging, zero-trust, authorization]
+assessment:
+  intent: Assess whether the candidate can model compromised-internal-producer threats and enforce message-level trust decisions.
+  must_surface: [internal producer identity and authorization still matter, messages require validation before state changes, consumer privileges should be bounded to required data/actions]
+  strong_signals: [considers provenance/audit integrity replay or duplicate controls and schema validation]
+  red_flags: [assumes all broker-delivered events are trusted because the broker is internal]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000199
+revision: 1
+status: draft
+question:
+  prompt: Threat-model a password-reset flow that sends a one-time link by email. Identify the most important assets, attacker goals, trust boundaries and security properties the reset token and workflow need.
+  domain: security-scenario
+  response_modes: [discussion, written]
+  timebox_minutes: 20
+classification:
+  competencies: {primary: threat-modelling, secondary: [identity-and-access-control, application-security, security-architecture]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, security_reasoning: medium, ambiguity: medium, failure_reasoning: medium}
+    rationale: Applies threat modelling to an authentication-recovery workflow with clear attacker goals.
+  tags: [password-reset, tokens, account-recovery]
+assessment:
+  intent: Assess whether the candidate can reason about takeover risk in account recovery.
+  must_surface: [tokens must be unpredictable time-bounded and single-use or otherwise replay-controlled, reset flow must bind the token to the intended account, responses should avoid unnecessary account enumeration]
+  strong_signals: [considers token storage protection session invalidation and rate limiting]
+  red_flags: [uses long-lived reusable predictable reset links]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

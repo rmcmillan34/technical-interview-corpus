@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000197
+revision: 1
+status: draft
+question:
+  prompt: What is STRIDE used for in threat modelling? Name the categories and explain why a checklist taxonomy is useful but not a substitute for understanding the system.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 9
+classification:
+  competencies: {primary: threat-modelling, secondary: [security-architecture, application-security]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: medium, security_reasoning: low, ambiguity: low}
+    rationale: Tests recognition of a common threat taxonomy and its role.
+  tags: [stride, threat-taxonomy]
+assessment:
+  intent: Assess whether the candidate can use STRIDE as structured prompting without treating it as complete proof of security.
+  must_surface: [spoofing tampering repudiation information-disclosure denial-of-service elevation-of-privilege, categories help systematically prompt threat discovery]
+  red_flags: [assumes completing a STRIDE checklist guarantees all threats have been found]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
