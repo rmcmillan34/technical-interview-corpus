@@ -1,0 +1,42 @@
+schema_version: 0.1.0
+id: tic-q-000105
+revision: 1
+status: draft
+question:
+  prompt: >
+    A request-handling service calls a downstream pricing API that occasionally becomes slow or unavailable.
+    Design a bounded client policy for timeouts, retries and backoff. Explain how you would avoid turning a
+    downstream incident into a retry storm, and what assumptions you need about whether the operation is safe to retry.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 20
+classification:
+  competencies:
+    primary: reliability-engineering
+    secondary: [distributed-systems, api-design, service-operations, technical-judgement]
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: medium, failure_reasoning: medium, tradeoff_reasoning: medium}
+    rationale: Applies bounded reliability controls to a single downstream dependency and requires justification of retry safety and load behaviour.
+  tags: [timeouts, retries, backoff, retry-storm]
+assessment:
+  intent: Assess whether the candidate can define a safe caller-side failure policy rather than retrying indiscriminately.
+  must_surface:
+  - sets a finite timeout aligned with the caller's latency budget
+  - limits retry count or retry budget
+  - uses backoff and preferably jitter to avoid synchronized retry pressure
+  - checks whether the operation is idempotent or otherwise safe to retry
+  strong_signals:
+  - distinguishes connection, timeout and application failures when deciding retryability
+  - considers total deadline propagation and load shedding when the dependency is unhealthy
+  red_flags:
+  - retries indefinitely
+  - retries non-idempotent operations without a duplicate-safety mechanism
+  - sets each retry timeout independently without considering the caller's total deadline
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
