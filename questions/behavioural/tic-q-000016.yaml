@@ -1,0 +1,96 @@
+schema_version: 0.1.0
+id: tic-q-000016
+revision: 1
+status: draft
+question:
+  prompt: >
+    Tell me about a time you disagreed with a technical direction that your team was preparing to take. What was
+    the disagreement, what did you do, and what happened?
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 10
+classification:
+  competencies:
+    primary: technical-judgement
+    secondary:
+    - collaboration-and-conflict
+    - communication
+    - leadership-and-influence
+  roles:
+  - swe
+  difficulty:
+    level: D3
+    drivers:
+      ambiguity: medium
+      tradeoff_reasoning: high
+      organisational_complexity: medium
+      communication_demand: high
+    rationale: >
+      Requires evidence of a substantive engineering disagreement, balanced trade-off reasoning, constructive
+      influence and reflection rather than a simple interpersonal anecdote.
+  aspects:
+  - tradeoff-reasoning
+  - perspective-taking
+  - reflection
+  tags:
+  - disagreement
+  - influence
+  - engineering-decision
+assessment:
+  intent: >
+    Assess whether the candidate can disagree constructively, reason from evidence and influence a technical
+    outcome without reducing the story to personal conflict.
+  strong_signals:
+  - explains the technical stakes and competing trade-offs clearly
+  - represents the other position fairly
+  - distinguishes personal actions from team actions
+  - uses evidence, experiments or explicit constraints to influence the decision
+  - explains the outcome and what they learned
+  red_flags:
+  - frames disagreement primarily as winning an argument
+  - cannot explain why the alternative position was reasonable
+  - relies on authority rather than evidence
+  - provides no reflection on the result
+  rubric:
+  - id: context
+    criterion: Establishes enough technical and organisational context to understand the disagreement.
+    importance: supporting
+  - id: judgement
+    criterion: Explains the engineering reasoning and competing trade-offs credibly.
+    importance: essential
+  - id: action
+    criterion: Clearly describes the candidate's own constructive actions.
+    importance: essential
+  - id: outcome
+    criterion: Connects actions to an observable outcome or decision.
+    importance: supporting
+  - id: reflection
+    criterion: Demonstrates learning or changed future behaviour.
+    importance: differentiator
+followups:
+- id: f1
+  prompt: What did the strongest person on the other side believe you were getting wrong?
+  axis: perspective-taking
+  difficulty_effect: same
+- id: f2
+  prompt: What would you do differently if the same disagreement happened now?
+  axis: reflection
+  difficulty_effect: down
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: Tech Interview Handbook
+    url: https://github.com/yangshun/tech-interview-handbook
+    license: MIT
+    attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+    modification: Authored a new technical-disagreement prompt and adapted the handbook's behavioural guidance on conflict, influence, STAR-style evidence and reflection into a competency rubric.
+license:
+  spdx: MIT
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

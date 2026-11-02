@@ -1,0 +1,96 @@
+schema_version: 0.1.0
+id: tic-q-000018
+revision: 1
+status: draft
+question:
+  prompt: >
+    Tell me about a time you were responsible for a delivery that missed an important target or was at serious risk
+    of doing so. What did you do when you recognised the risk, how did you communicate it, and what changed afterward?
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 10
+classification:
+  competencies:
+    primary: ownership-and-delivery
+    secondary:
+    - prioritisation
+    - communication
+    - learning-and-reflection
+    - stakeholder-management
+  roles:
+  - swe
+  difficulty:
+    level: D3
+    drivers:
+      ambiguity: medium
+      tradeoff_reasoning: medium
+      organisational_complexity: medium
+      communication_demand: high
+    rationale: >
+      Requires credible ownership of a delivery problem, transparent risk communication, prioritisation under
+      pressure and reflection on changed future practice.
+  aspects:
+  - tradeoff-reasoning
+  - reflection
+  tags:
+  - delivery-risk
+  - missed-target
+  - escalation
+assessment:
+  intent: >
+    Assess whether the candidate takes responsibility for delivery outcomes, surfaces risk early and converts
+    failure into improved future behaviour.
+  strong_signals:
+  - identifies when they first knew the plan was at risk
+  - distinguishes controllable factors from external constraints without deflecting responsibility
+  - communicates risk and options before the outcome is inevitable
+  - explains concrete scope, sequencing or resource decisions
+  - describes a lasting process or judgement change after the event
+  red_flags:
+  - blames others without examining their own decisions
+  - hides or delays communication of known risk
+  - cannot explain what trade-offs were available
+  - presents no learning beyond working harder next time
+  rubric:
+  - id: ownership
+    criterion: Takes appropriate responsibility for the outcome and their decisions.
+    importance: essential
+  - id: risk
+    criterion: Recognises, frames and communicates delivery risk credibly.
+    importance: essential
+  - id: action
+    criterion: Takes concrete action to improve the outcome once risk is known.
+    importance: essential
+  - id: communication
+    criterion: Keeps affected stakeholders informed with useful options and consequences.
+    importance: supporting
+  - id: reflection
+    criterion: Shows how the experience changed future delivery practice or judgement.
+    importance: differentiator
+followups:
+- id: f1
+  prompt: What signal did you miss earliest in the project?
+  axis: reflection
+  difficulty_effect: same
+- id: f2
+  prompt: If you could only preserve one part of the original scope, how would you have chosen it?
+  axis: prioritisation
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: Tech Interview Handbook
+    url: https://github.com/yangshun/tech-interview-handbook
+    license: MIT
+    attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+    modification: Authored a new delivery-risk prompt and adapted the handbook's behavioural guidance on challenging situations, ownership, actions, outcomes and reflection.
+license:
+  spdx: MIT
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

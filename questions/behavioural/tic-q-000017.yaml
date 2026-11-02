@@ -1,0 +1,98 @@
+schema_version: 0.1.0
+id: tic-q-000017
+revision: 1
+status: draft
+question:
+  prompt: >
+    Tell me about a project where the requirements were materially ambiguous or kept changing. How did you decide
+    what to do first, reduce uncertainty, and keep the work moving?
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 10
+classification:
+  competencies:
+    primary: ambiguity-and-adaptability
+    secondary:
+    - ownership-and-delivery
+    - prioritisation
+    - stakeholder-management
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D3
+    drivers:
+      ambiguity: high
+      scope: medium
+      tradeoff_reasoning: medium
+      organisational_complexity: medium
+      communication_demand: high
+    rationale: >
+      Requires evidence of making progress under incomplete information, explicitly reducing uncertainty and
+      balancing delivery against stakeholder needs.
+  aspects:
+  - requirements-elicitation
+  - tradeoff-reasoning
+  - reflection
+  tags:
+  - ambiguity
+  - changing-requirements
+  - prioritisation
+assessment:
+  intent: >
+    Assess whether the candidate can create structure under uncertainty rather than waiting passively for perfect
+    requirements.
+  strong_signals:
+  - identifies the highest-risk unknowns before committing deeply
+  - seeks targeted clarification from appropriate stakeholders
+  - separates reversible from costly or irreversible decisions
+  - establishes a useful incremental delivery path
+  - explains how new information changed the plan
+  red_flags:
+  - treats ambiguity only as a stakeholder failure
+  - proceeds on unstated assumptions without validating them
+  - repeatedly replans without delivering evidence or value
+  - cannot explain prioritisation choices
+  rubric:
+  - id: uncertainty
+    criterion: Identifies and frames the important unknowns and assumptions.
+    importance: essential
+  - id: action
+    criterion: Takes concrete steps to reduce uncertainty and keep delivery moving.
+    importance: essential
+  - id: prioritisation
+    criterion: Explains why work was sequenced or scoped in the chosen way.
+    importance: essential
+  - id: adaptation
+    criterion: Shows how the plan changed when new evidence arrived.
+    importance: supporting
+  - id: reflection
+    criterion: Identifies learning that would improve future ambiguous work.
+    importance: differentiator
+followups:
+- id: f1
+  prompt: Which assumption would have been most expensive if it had been wrong?
+  axis: risk
+  difficulty_effect: same
+- id: f2
+  prompt: How did you know you had enough information to stop analysing and start building?
+  axis: judgement
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: Tech Interview Handbook
+    url: https://github.com/yangshun/tech-interview-handbook
+    license: MIT
+    attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+    modification: Authored a new ambiguity-and-delivery prompt and adapted the handbook's guidance on selecting high-complexity stories, STAR-style evidence, ownership and reflection.
+license:
+  spdx: MIT
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

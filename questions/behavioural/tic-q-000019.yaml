@@ -1,0 +1,94 @@
+schema_version: 0.1.0
+id: tic-q-000019
+revision: 1
+status: draft
+question:
+  prompt: >
+    Tell me about a piece of constructive feedback that materially changed how you work as an engineer. What was
+    the feedback, how did you respond, and what evidence do you have that your behaviour changed?
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 10
+classification:
+  competencies:
+    primary: learning-and-reflection
+    secondary:
+    - communication
+    - collaboration-and-conflict
+    - technical-judgement
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      ambiguity: low
+      communication_demand: high
+      organisational_complexity: low
+    rationale: >
+      A bounded behavioural question focused on accepting feedback, translating it into changed behaviour and
+      demonstrating credible evidence of improvement.
+  aspects:
+  - reflection
+  - perspective-taking
+  tags:
+  - feedback
+  - growth
+  - self-awareness
+assessment:
+  intent: >
+    Assess whether the candidate can receive difficult feedback without defensiveness, evaluate it thoughtfully and
+    convert it into observable improvement.
+  strong_signals:
+  - gives specific feedback rather than a disguised strength
+  - explains their initial reaction honestly without centring defensiveness
+  - tests or applies a concrete behavioural change
+  - provides later evidence that the change was useful
+  - can distinguish valid feedback from feedback they would challenge
+  red_flags:
+  - claims never to have received meaningful corrective feedback
+  - chooses feedback that required no real change
+  - focuses on proving the reviewer wrong
+  - cannot identify an observable change in behaviour
+  rubric:
+  - id: specificity
+    criterion: Describes real, concrete feedback and enough context to evaluate it.
+    importance: supporting
+  - id: response
+    criterion: Engages with the feedback constructively and decides what to change.
+    importance: essential
+  - id: change
+    criterion: Demonstrates a specific change in subsequent behaviour or practice.
+    importance: essential
+  - id: evidence
+    criterion: Provides credible evidence that the change had an effect.
+    importance: supporting
+  - id: reflection
+    criterion: Shows mature judgement about feedback and continued development.
+    importance: differentiator
+followups:
+- id: f1
+  prompt: What made you decide that the feedback was valid?
+  axis: judgement
+  difficulty_effect: same
+- id: f2
+  prompt: Tell me about feedback you did not fully agree with. How did you handle that differently?
+  axis: perspective-taking
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: Tech Interview Handbook
+    url: https://github.com/yangshun/tech-interview-handbook
+    license: MIT
+    attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+    modification: Authored a new feedback-and-growth prompt and adapted the handbook's learning-experience and STAR(R)-style reflection guidance into an assessment rubric.
+license:
+  spdx: MIT
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

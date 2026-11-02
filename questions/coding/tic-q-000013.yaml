@@ -1,0 +1,97 @@
+schema_version: 0.1.0
+id: tic-q-000013
+revision: 1
+status: draft
+question:
+  prompt: >
+    Implement an in-memory cache with get(key), put(key, value, ttl_seconds) and a fixed maximum capacity.
+    Expired entries must never be returned, and when capacity is exceeded the least-recently-used live entry should
+    be evicted. You may assume a monotonic clock is available. Explain the data structures you choose, complexity,
+    expiry behaviour and how you would test time-dependent edge cases.
+  domain: coding
+  response_modes:
+  - discussion
+  - code
+  timebox_minutes: 35
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - algorithms-and-complexity
+    - programming
+    - testing
+    - performance-engineering
+  roles:
+  - swe
+  difficulty:
+    level: D3
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: high
+      scope: medium
+      failure_reasoning: high
+      tradeoff_reasoning: high
+    rationale: >
+      Combines standard cache structures with expiry semantics, bounded capacity, testability and consistency under
+      time-dependent state.
+  aspects:
+  - failure-mode-analysis
+  - tradeoff-reasoning
+  tags:
+  - cache
+  - lru
+  - ttl
+  - time
+assessment:
+  intent: >
+    Assess whether the candidate can combine data structures into a robust bounded cache and reason precisely about
+    expiry, eviction and testability.
+  must_surface:
+  - expired values are checked before return
+  - recency is updated on successful access and writes
+  - capacity eviction ignores or removes expired state appropriately
+  - core get and put operations have defensible expected complexity
+  strong_signals:
+  - injects or abstracts the clock for deterministic tests
+  - distinguishes lazy expiry from proactive cleanup
+  - handles overwrites and TTL refresh consistently
+  - explains memory overhead and stale-expiry metadata risks
+  red_flags:
+  - relies on wall-clock sleeping in tests
+  - can return expired values
+  - uses a linear scan for every get without acknowledging the cost
+  rubric:
+  - id: structures
+    criterion: Selects data structures that support efficient lookup and recency tracking.
+    importance: essential
+  - id: expiry
+    criterion: Implements coherent TTL semantics that never expose expired values.
+    importance: essential
+  - id: capacity
+    criterion: Handles bounded-capacity eviction correctly.
+    importance: essential
+  - id: testing
+    criterion: Designs deterministic tests for expiry, eviction and boundary conditions.
+    importance: supporting
+followups:
+- id: f1
+  prompt: What changes if get and put can be called concurrently by many threads?
+  axis: concurrency
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: Tech Interview Handbook
+    url: https://github.com/yangshun/tech-interview-handbook
+    license: MIT
+    attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+    modification: Authored a new production-oriented cache implementation problem and adapted the handbook's coding rubric emphasis on approach, implementation, testing and complexity.
+license:
+  spdx: MIT
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

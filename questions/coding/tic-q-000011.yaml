@@ -1,0 +1,95 @@
+schema_version: 0.1.0
+id: tic-q-000011
+revision: 1
+status: draft
+question:
+  prompt: >
+    You are given an unsorted list of maintenance windows, where each window has a start and end time.
+    Merge every pair of windows that overlap or touch and return the minimal list of non-overlapping windows
+    sorted by start time. Explain your endpoint assumptions, implement the solution, and state its time and
+    space complexity.
+  domain: coding
+  response_modes:
+  - discussion
+  - code
+  timebox_minutes: 25
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary:
+    - data-structures
+    - programming
+    - testing
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: medium
+      ambiguity: low
+      tradeoff_reasoning: medium
+      communication_demand: medium
+    rationale: >
+      A bounded sort-and-scan problem requiring clarification, correct implementation, complexity reasoning and
+      deliberate testing.
+  aspects:
+  - requirements-elicitation
+  - tradeoff-reasoning
+  tags:
+  - intervals
+  - sorting
+  - edge-cases
+assessment:
+  intent: >
+    Assess whether the candidate can derive a correct efficient algorithm, explain its invariant, implement it
+    cleanly and validate boundary cases.
+  must_surface:
+  - states whether touching endpoints should merge
+  - establishes a valid processing order
+  - maintains a correct current merged interval while scanning
+  - states defensible time and space complexity
+  strong_signals:
+  - explains why sorting makes one scan sufficient
+  - tests empty, singleton, nested and touching intervals
+  - distinguishes input assumptions from algorithm correctness
+  red_flags:
+  - repeatedly merges arbitrary pairs without considering complexity
+  - ignores endpoint semantics
+  - gives complexity inconsistent with the implementation
+  rubric:
+  - id: approach
+    criterion: Derives a correct and efficient algorithm.
+    importance: essential
+  - id: implementation
+    criterion: Produces clear working code that preserves the merge invariant.
+    importance: essential
+  - id: testing
+    criterion: Exercises representative and boundary cases and self-corrects defects.
+    importance: supporting
+  - id: communication
+    criterion: Makes assumptions, approach and complexity understandable.
+    importance: supporting
+followups:
+- id: f1
+  prompt: What changes if windows arrive continuously and you cannot sort the full input first?
+  axis: scale
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: Tech Interview Handbook
+    url: https://github.com/yangshun/tech-interview-handbook
+    license: MIT
+    attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+    modification: Authored a new interval scenario and adapted the coding assessment dimensions around clarification, approach, implementation, complexity, testing and communication.
+license:
+  spdx: MIT
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

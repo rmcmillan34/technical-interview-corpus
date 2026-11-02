@@ -1,0 +1,91 @@
+schema_version: 0.1.0
+id: tic-q-000014
+revision: 1
+status: draft
+question:
+  prompt: >
+    A service receives a stream of integer scores and must report the k largest values seen so far after each new
+    value. Design and implement a data structure for this when k is much smaller than the total number of values.
+    Explain the complexity of each update and how you would handle duplicate scores.
+  domain: coding
+  response_modes:
+  - discussion
+  - code
+  timebox_minutes: 25
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - algorithms-and-complexity
+    - programming
+    - testing
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: medium
+      scale: medium
+      quantitative_reasoning: low
+    rationale: >
+      The problem is bounded and primarily tests selecting and maintaining an appropriate heap-based structure with
+      correct complexity reasoning.
+  aspects:
+  - tradeoff-reasoning
+  tags:
+  - heap
+  - streaming
+  - top-k
+assessment:
+  intent: >
+    Assess whether the candidate recognises that maintaining a bounded min-heap avoids sorting all historical data
+    on every update.
+  must_surface:
+  - keeps at most k candidate values in the primary structure
+  - compares incoming values against the current threshold when capacity is full
+  - handles duplicate values according to stated semantics
+  - states O(log k) update complexity for the standard heap approach
+  strong_signals:
+  - explains why a min-heap is preferable to a max-heap for bounded top-k maintenance
+  - handles k=0 and k larger than values seen
+  - distinguishes returning an unordered top-k set from returning sorted output
+  red_flags:
+  - sorts the entire history after each update
+  - cannot explain the heap invariant
+  - silently drops duplicates without defining the requirement
+  rubric:
+  - id: selection
+    criterion: Selects a bounded structure appropriate to the streaming requirement.
+    importance: essential
+  - id: implementation
+    criterion: Maintains the top-k invariant correctly as values arrive.
+    importance: essential
+  - id: complexity
+    criterion: Explains update and reporting costs accurately.
+    importance: supporting
+  - id: testing
+    criterion: Tests duplicate, empty and boundary-k cases.
+    importance: supporting
+followups:
+- id: f1
+  prompt: What changes if scores can also be deleted later?
+  axis: change
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: Tech Interview Handbook
+    url: https://github.com/yangshun/tech-interview-handbook
+    license: MIT
+    attribution: Copyright (c) 2017-Present Yangshun Tay. MIT License.
+    modification: Authored a new streaming top-k problem and adapted the handbook's coding evaluation guidance into explicit approach, implementation, complexity and testing criteria.
+license:
+  spdx: MIT
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved
