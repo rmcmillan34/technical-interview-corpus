@@ -27,6 +27,9 @@ jobs:
       - name: Validate licensing and provenance
         run: python tools/validate_provenance.py
 
+      - name: Validate role coverage and progression
+        run: python tools/validate_coverage.py
+
       - name: Build preview release bundle
         run: python tools/build_release.py --version 0.1.0-dev --include-drafts --skip-validation --output build/release-preview
 
