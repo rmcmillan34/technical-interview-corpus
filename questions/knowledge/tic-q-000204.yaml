@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000204
+revision: 1
+status: draft
+question:
+  prompt: Compare role-based access control and attribute-based access control at a high level. What kinds of policy are easier to express with each?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: identity-and-access-control, secondary: [security-architecture, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, security_reasoning: low, ambiguity: low}
+    rationale: Tests foundational authorization-policy models.
+  tags: [rbac, abac, policy]
+assessment:
+  intent: Assess whether the candidate understands common access-control policy models.
+  must_surface: [RBAC grants permissions through roles, ABAC can evaluate attributes of subjects resources actions or context]
+  strong_signals: [notes that simple role models are often easier to reason about while attributes can express finer contextual policy]
+  red_flags: [treats RBAC and ABAC as authentication mechanisms]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

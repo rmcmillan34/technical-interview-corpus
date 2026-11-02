@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000202
+revision: 1
+status: draft
+question:
+  prompt: Explain the difference between authentication and authorization. Why should a system perform both even when a user is successfully logged in?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: identity-and-access-control, secondary: [application-security, security-architecture]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, security_reasoning: low, ambiguity: low}
+    rationale: Tests foundational identity and permission distinctions.
+  tags: [authentication, authorization]
+assessment:
+  intent: Assess whether the candidate distinguishes proving identity from deciding permitted actions.
+  must_surface: [authentication establishes or verifies identity, authorization decides whether that identity can perform a requested action]
+  red_flags: [assumes login alone authorizes every action]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
