@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000146
+revision: 1
+status: draft
+question:
+  prompt: Design a bounded in-memory producer-consumer queue used by multiple producer and consumer threads. Explain how you protect shared state, how producers behave when the queue is full, how consumers wait when it is empty, and how shutdown is signalled safely.
+  domain: system-design
+  response_modes: [discussion, code]
+  timebox_minutes: 22
+classification:
+  competencies: {primary: concurrency, secondary: [data-structures, reliability-engineering, performance-engineering]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: medium, ambiguity: low, failure_reasoning: medium, tradeoff_reasoning: medium}
+    rationale: Applies synchronization and coordination primitives to a bounded concurrent structure with lifecycle semantics.
+  tags: [producer-consumer, condition-variable, backpressure]
+assessment:
+  intent: Assess whether the candidate can preserve queue invariants and coordinate waiters without busy-waiting or unbounded growth.
+  must_surface: [shared queue state is synchronized, empty and full conditions are waited on or signalled correctly, bounded capacity creates an explicit backpressure policy, shutdown wakes or terminates blocked participants safely]
+  strong_signals: [handles spurious wakeups by rechecking conditions, separates queue correctness from worker lifecycle]
+  red_flags: [uses unsynchronised access to the shared queue, busy-spins indefinitely when empty or full]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

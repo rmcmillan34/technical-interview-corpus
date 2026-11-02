@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000145
+revision: 1
+status: draft
+question:
+  prompt: What conditions commonly make deadlock possible? Explain circular wait and why using a consistent lock-acquisition order can prevent one class of deadlock.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: concurrency, secondary: [operating-systems, debugging]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low, failure_reasoning: low}
+    rationale: Tests foundational deadlock reasoning and prevention.
+  tags: [deadlock, locks, lock-order]
+assessment:
+  intent: Assess whether the candidate understands circular waiting and a standard prevention technique.
+  must_surface: [deadlock can occur when participants wait on resources held by one another, consistent global lock ordering prevents circular acquisition for those locks]
+  red_flags: [claims adding timeouts is equivalent to proving deadlock cannot occur]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
