@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000193
+revision: 1
+status: draft
+question:
+  prompt: What is normalization in relational data modelling, and why might a production system deliberately denormalize some data?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: data-modelling, secondary: [databases, performance-engineering, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, tradeoff_reasoning: low, ambiguity: low}
+    rationale: Tests foundational normalization purpose and denormalization trade-offs.
+  tags: [normalization, denormalization]
+assessment:
+  intent: Assess whether the candidate understands redundancy/update-anomaly reduction and intentional duplication trade-offs.
+  must_surface: [normalization separates facts to reduce unnecessary redundancy or update anomalies, denormalization may trade duplication and consistency work for simpler or faster reads]
+  red_flags: [claims denormalization is always bad or that normalization automatically maximizes query performance]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

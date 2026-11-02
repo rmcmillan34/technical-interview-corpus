@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000192
+revision: 1
+status: draft
+question:
+  prompt: Explain one-to-one, one-to-many and many-to-many relationships in a relational data model. How are primary keys and foreign keys commonly used to represent them?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: data-modelling, secondary: [databases, sql]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational relationship cardinality and key concepts.
+  tags: [cardinality, primary-key, foreign-key]
+assessment:
+  intent: Assess whether the candidate can model basic entity relationships relationally.
+  must_surface: [one-to-many commonly places a foreign key on the many side, many-to-many commonly uses an associative or junction relation]
+  red_flags: [cannot distinguish entity identity from relationship references]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
