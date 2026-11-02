@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+id: tic-q-000210
+revision: 1
+status: draft
+question:
+  prompt: A CI job accidentally prints a production API credential in a publicly readable log. Describe
+    the first containment steps and how you would verify recovery.
+  domain: security-scenario
+  response_modes:
+  - discussion
+  timebox_minutes: 15
+classification:
+  competencies:
+    primary: secrets-management
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      ambiguity: medium
+    rationale: Applies principles to a bounded scenario with explicit constraints and verifiable actions.
+  tags:
+  - secrets-management
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable secrets-management evidence at D2.
+  must_surface:
+  - Revoke or rotate the credential, restrict the exposure and preserve appropriate incident evidence
+    without copying the secret into tickets.
+  - Identify consumers and inspect access audit evidence to assess possible misuse and restore them with
+    scoped replacement credentials.
+  - Verify the old credential is rejected and prevent recurrence through logging and pipeline controls;
+    log deletion alone is insufficient.
+  red_flags:
+  - Focuses only on deleting the log while the credential remains valid.
+  rubric:
+  - id: evidence-1
+    criterion: Revoke or rotate the credential, restrict the exposure and preserve appropriate incident
+      evidence without copying the secret into tickets.
+    importance: essential
+  - id: evidence-2
+    criterion: Identify consumers and inspect access audit evidence to assess possible misuse and restore
+      them with scoped replacement credentials.
+    importance: essential
+  - id: evidence-3
+    criterion: Verify the old credential is rejected and prevent recurrence through logging and pipeline
+      controls; log deletion alone is insufficient.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

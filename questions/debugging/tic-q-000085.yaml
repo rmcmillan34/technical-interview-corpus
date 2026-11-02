@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+id: tic-q-000085
+revision: 1
+status: draft
+question:
+  prompt: >
+    A test that updates a shared in-memory counter from two worker threads fails roughly once in 200 runs. Describe a debugging plan that helps determine whether the failure is a race condition rather than ordinary nondeterministic test noise.
+  domain: debugging
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: debugging, secondary: [concurrency, testing, observability, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: medium, failure_reasoning: medium}
+    rationale: Requires a bounded evidence plan for an intermittent concurrency failure rather than simple recall.
+  tags: [race-condition, flaky-tests, concurrency]
+assessment:
+  intent: Assess whether the candidate can turn an intermittent failure into a reproducible evidence-gathering strategy.
+  must_surface:
+  - increases observability around interleavings or shared-state updates
+  - attempts controlled repetition or stress to increase reproduction probability
+  - compares behaviour with and without synchronisation or serial execution
+  strong_signals:
+  - proposes a minimal reproducer or scheduler/control mechanism where available
+  red_flags:
+  - labels it a race solely because it is intermittent
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

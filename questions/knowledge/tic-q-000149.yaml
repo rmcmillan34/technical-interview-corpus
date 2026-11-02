@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000149
+revision: 1
+status: draft
+question:
+  prompt: What is rollback in software delivery, and why should rollback or forward-fix strategy be considered before a risky release rather than only after something goes wrong?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: software-delivery-practices, secondary: [reliability-engineering, service-operations]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, failure_reasoning: low}
+    rationale: Tests foundational release-recovery planning.
+  tags: [rollback, releases]
+assessment:
+  intent: Assess whether the candidate understands reversibility as part of release design.
+  must_surface: [rollback restores a previously known state or version, data/schema changes can make rollback harder and should be planned]
+  strong_signals: [distinguishes rollback from forward-fix based on recovery safety]
+  red_flags: [assumes every deployment can always be instantly rolled back]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

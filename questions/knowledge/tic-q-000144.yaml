@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000144
+revision: 1
+status: draft
+question:
+  prompt: Explain the difference between mutual exclusion and atomicity. When can a mutex protect a larger invariant that a single atomic variable cannot express by itself?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: concurrency, secondary: [programming, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational synchronization vocabulary and scope.
+  tags: [mutex, atomicity, invariants]
+assessment:
+  intent: Assess whether the candidate distinguishes indivisible operations from protecting multi-step shared-state invariants.
+  must_surface: [atomicity concerns indivisible state transitions or operations, mutual exclusion can serialize a critical section spanning multiple pieces of shared state]
+  red_flags: [assumes one atomic variable automatically makes any multi-variable invariant safe]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

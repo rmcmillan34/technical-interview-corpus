@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000179
+revision: 1
+status: draft
+question:
+  prompt: Why are reusable modules useful in infrastructure-as-code? What should be exposed as an input versus hidden as an internal implementation detail?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: infrastructure-as-code, secondary: [software-architecture, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, tradeoff_reasoning: low}
+    rationale: Tests basic abstraction and module-boundary reasoning in IaC.
+  tags: [modules, abstraction, inputs]
+assessment:
+  intent: Assess whether the candidate can distinguish stable reusable configuration interfaces from leaked implementation detail.
+  must_surface: [modules package repeated infrastructure patterns, inputs should represent meaningful caller choices while internal wiring can remain encapsulated]
+  red_flags: [exposes every underlying resource attribute as a mandatory module input]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

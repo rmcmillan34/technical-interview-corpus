@@ -1,0 +1,38 @@
+schema_version: 0.1.0
+id: tic-q-000037
+revision: 1
+status: draft
+question:
+  prompt: >
+    What is space complexity? Distinguish total space from auxiliary space, explain what people usually mean by an
+    in-place algorithm, and describe how recursion can consume additional memory even when no explicit collection is created.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary: [programming, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low, quantitative_reasoning: low}
+    rationale: Tests foundational memory-complexity vocabulary without implementation.
+  tags: [space-complexity, auxiliary-space, recursion]
+assessment:
+  intent: Assess whether the candidate reasons about memory use as well as runtime.
+  must_surface:
+  - auxiliary space excludes the input storage itself
+  - recursive calls consume stack frames
+  strong_signals:
+  - notes that in-place usually means constant or very small auxiliary storage rather than literally zero memory
+  red_flags:
+  - assumes recursion has no memory cost
+  rubric:
+  - {id: concepts, criterion: Correctly explains space and auxiliary-space complexity., importance: essential}
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

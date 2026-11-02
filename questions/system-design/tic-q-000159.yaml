@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000159
+revision: 1
+status: draft
+question:
+  prompt: Design a small stateless web API so it can survive the loss of one availability zone in its region. Identify the minimum placement, routing and state assumptions required.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: cloud-architecture, secondary: [reliability-engineering, service-operations]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, scope: medium, failure_reasoning: medium, tradeoff_reasoning: medium}
+    rationale: Applies cloud failure-domain concepts to a bounded high-availability service.
+  tags: [multi-az, load-balancing, availability]
+assessment:
+  intent: Assess whether the candidate can distribute compute and state dependencies across zonal failure boundaries.
+  must_surface: [runs service capacity in more than one zone, routes around unhealthy instances or zones, ensures required state dependencies do not remain single-zone single points of failure]
+  strong_signals: [considers capacity headroom after one zone is lost]
+  red_flags: [places all instances in one zone behind a load balancer and calls it multi-zone]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

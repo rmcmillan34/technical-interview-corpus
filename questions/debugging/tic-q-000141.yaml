@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000141
+revision: 1
+status: draft
+question:
+  prompt: A command-line client can reach an API by IP address but fails when using api.example.test. Describe a bounded diagnostic sequence that distinguishes DNS problems from connection, TLS and application failures.
+  domain: debugging
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: networking, secondary: [debugging, service-operations, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: low, failure_reasoning: medium}
+    rationale: Applies network-layer decomposition to a bounded hostname failure.
+  tags: [dns, connectivity, tls]
+assessment:
+  intent: Assess whether the candidate isolates the failing layer using evidence rather than changing unrelated application code.
+  must_surface: [checks name resolution first, separately tests transport reachability and TLS/application behaviour after resolution]
+  strong_signals: [checks resolver configuration caching and returned addresses]
+  red_flags: [starts by rewriting API request logic despite successful IP connectivity]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

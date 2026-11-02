@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000114
+revision: 1
+status: draft
+question:
+  prompt: You own a feature due Friday and learn on Wednesday that a required dependency will probably arrive Monday. What do you do next?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 12
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [stakeholder-management, prioritisation, communication]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: medium, scope: low, tradeoff_reasoning: medium, communication_demand: medium}
+    rationale: Applies delivery ownership to a bounded dependency risk with several response options.
+  tags: [dependency-risk, delivery]
+assessment:
+  intent: Assess whether the candidate surfaces the risk early and actively explores alternatives rather than waiting.
+  must_surface: [communicates likely impact, evaluates alternatives such as scope sequencing mocking or date change]
+  strong_signals: [updates stakeholders with confidence and evidence, agrees a revised plan and follows it through]
+  red_flags: [waits until Friday because the dependency is another team's responsibility]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

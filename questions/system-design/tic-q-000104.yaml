@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+id: tic-q-000104
+revision: 1
+status: draft
+question:
+  prompt: A multi-tenant service partitions customer data by tenant_id across eight shards. One tenant grows to 35% of all traffic. Propose a bounded strategy to reduce the hot-shard problem while preserving a workable lookup/routing model.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 20
+classification:
+  competencies: {primary: distributed-systems, secondary: [databases, performance-engineering, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: medium, scale: medium, tradeoff_reasoning: medium}
+    rationale: Applies partition-key and hot-spot reasoning to a bounded skew problem.
+  tags: [sharding, hot-partition, routing]
+assessment:
+  intent: Assess whether the candidate can evolve a partitioning scheme when one key dominates load.
+  must_surface:
+  - identifies tenant_id alone as the source of unavoidable skew for the large tenant
+  - proposes a controlled sub-partitioning or dedicated-placement strategy for the hot tenant
+  - preserves a deterministic routing or lookup mechanism
+  strong_signals:
+  - considers migration, rebalancing and cross-partition query cost
+  red_flags:
+  - adds more shards without changing how the hot tenant maps to one shard
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

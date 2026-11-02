@@ -1,0 +1,52 @@
+schema_version: 0.1.0
+id: tic-q-000225
+revision: 1
+status: draft
+question:
+  prompt: What does reducing scope mean in a delivery plan? How can you reduce scope while keeping a usable
+    and safe outcome?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: prioritisation
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - prioritisation
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable prioritisation evidence at D1.
+  must_surface:
+  - Defers separable lower-value capability while preserving an explicit useful outcome.
+  - Keeps essential correctness and security constraints and agrees changed acceptance expectations.
+  red_flags:
+  - Treats skipping essential validation or access controls as ordinary scope reduction.
+  rubric:
+  - id: evidence-1
+    criterion: Defers separable lower-value capability while preserving an explicit useful outcome.
+    importance: essential
+  - id: evidence-2
+    criterion: Keeps essential correctness and security constraints and agrees changed acceptance expectations.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

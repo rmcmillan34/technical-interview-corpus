@@ -1,0 +1,52 @@
+schema_version: 0.1.0
+id: tic-q-000221
+revision: 1
+status: draft
+question:
+  prompt: A requirement changes after you have started work. What should you establish before either ignoring
+    the change or restarting the implementation?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: ambiguity-and-adaptability
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - ambiguity-and-adaptability
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable ambiguity-and-adaptability evidence at D1.
+  must_surface:
+  - Clarifies the new objective and why it changed, including what still remains valid.
+  - Assesses impact and agrees an updated scope or plan with the relevant owner.
+  red_flags:
+  - Treats every change as either automatically invalid or grounds for a complete rewrite.
+  rubric:
+  - id: evidence-1
+    criterion: Clarifies the new objective and why it changed, including what still remains valid.
+    importance: essential
+  - id: evidence-2
+    criterion: Assesses impact and agrees an updated scope or plan with the relevant owner.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000110
+revision: 1
+status: draft
+question:
+  prompt: Why is validating a change after deployment or release part of delivery ownership? What evidence might you check?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [observability, reliability-engineering]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests basic post-release ownership and evidence concepts.
+  tags: [release-validation, follow-through]
+assessment:
+  intent: Assess whether the candidate treats release as a point requiring verification rather than the end of responsibility.
+  must_surface: [checks whether intended behaviour occurred, checks for unexpected regressions or operational signals]
+  strong_signals: [mentions metrics logs user feedback or targeted smoke tests]
+  red_flags: [assumes successful deployment means successful outcome]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

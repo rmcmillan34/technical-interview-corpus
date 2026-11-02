@@ -1,0 +1,71 @@
+schema_version: 0.1.0
+id: tic-q-000030
+revision: 1
+status: draft
+question:
+  prompt: >
+    Review the concurrent transfer routine below. Under load, some requests hang indefinitely even though CPU usage is low.
+    Identify the likely failure mode, explain the interleaving that causes it, and redesign the synchronization so correctness
+    is preserved without relying on a global lock.
+  domain: debugging
+  response_modes: [discussion, code]
+  timebox_minutes: 25
+  stimuli:
+  - id: transfer-code
+    type: code
+    language: python
+    content: |
+      def transfer(src, dst, amount):
+          with src.lock:
+              if src.balance < amount:
+                  raise ValueError("insufficient funds")
+              with dst.lock:
+                  src.balance -= amount
+                  dst.balance += amount
+classification:
+  competencies:
+    primary: concurrency
+    secondary: [debugging, programming, reliability-engineering]
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: medium
+      ambiguity: medium
+      failure_reasoning: high
+      tradeoff_reasoning: high
+    rationale: Requires recognizing a realistic deadlock, explaining the wait cycle and proposing a robust synchronization policy.
+  aspects: [failure-mode-analysis, tradeoff-reasoning]
+  tags: [deadlock, locks, lock-ordering, shared-state]
+assessment:
+  intent: Assess whether the candidate can diagnose and remediate deadlock in multi-lock application code.
+  must_surface:
+  - identifies inconsistent lock ordering as the deadlock risk
+  - explains how opposite-direction transfers can each hold one lock and wait for the other
+  - proposes a deterministic global ordering for acquiring account locks or an equivalent safe design
+  - preserves the balance invariant while changing synchronization
+  strong_signals:
+  - discusses releasing locks automatically on exceptions
+  - considers lock granularity and contention
+  - proposes tests that force opposite-direction concurrent transfers
+  red_flags:
+  - suggests adding sleeps or retry loops without addressing lock ordering
+  - proposes removing synchronization entirely
+  - confuses deadlock with a race condition
+  rubric:
+  - id: diagnosis
+    criterion: Correctly identifies and explains the deadlock cycle.
+    importance: essential
+  - id: remediation
+    criterion: Provides a synchronization strategy that prevents cyclic lock acquisition.
+    importance: essential
+  - id: correctness
+    criterion: Preserves transfer invariants under concurrency.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

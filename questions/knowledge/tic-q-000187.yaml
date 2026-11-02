@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000187
+revision: 1
+status: draft
+question:
+  prompt: How does NULL behave differently from an ordinary value in SQL? Why should comparisons use IS NULL rather than = NULL, and what does three-valued logic mean at a high level?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: sql, secondary: [databases, debugging]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational NULL and unknown-value semantics.
+  tags: ["null", three-valued-logic]
+assessment:
+  intent: Assess whether the candidate understands SQL NULL as unknown/missing rather than an ordinary comparable value.
+  must_surface: [NULL comparisons can yield unknown rather than true or false, IS NULL or IS NOT NULL checks nullness explicitly]
+  red_flags: [expects column = NULL to match null rows reliably]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

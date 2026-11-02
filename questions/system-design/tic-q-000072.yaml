@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+id: tic-q-000072
+revision: 1
+status: draft
+question:
+  prompt: >
+    Define a consistent error-response contract for a public API used by browser and service clients. The contract should support validation failures, missing resources, conflicts and unexpected server errors without leaking sensitive implementation detail.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 20
+classification:
+  competencies:
+    primary: api-design
+    secondary: [application-security, debugging, communication]
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: low, failure_reasoning: medium, security_reasoning: medium}
+    rationale: Applies validation, HTTP semantics and client usability to a bounded error-contract design.
+  tags: [errors, validation, contracts]
+assessment:
+  intent: Assess whether the candidate can design errors that are actionable to clients while remaining safe and consistent.
+  must_surface:
+  - maps major error categories to coherent status semantics
+  - provides a stable machine-readable error identifier or type
+  - provides useful client-safe detail for validation failures
+  - avoids exposing stack traces or sensitive internals
+  strong_signals:
+  - includes correlation/request identifiers for support and debugging
+  - distinguishes retryable server failure from client-correctable errors
+  red_flags:
+  - returns raw exception messages as the public contract
+  rubric:
+  - id: consistency
+    criterion: Defines a stable error envelope across endpoint categories.
+    importance: essential
+  - id: safety
+    criterion: Balances client usefulness with information-disclosure risk.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

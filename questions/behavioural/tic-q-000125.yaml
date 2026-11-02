@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000125
+revision: 1
+status: draft
+question:
+  prompt: What should you do when you realise you misunderstood a teammate and argued strongly against a position they were not actually proposing?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [learning-and-reflection, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low, communication_demand: low}
+    rationale: Tests basic repair behaviour after a communication mistake.
+  tags: [misunderstanding, repair]
+assessment:
+  intent: Assess whether the candidate can correct the record without defensiveness.
+  must_surface: [acknowledges the misunderstanding explicitly, restates the actual position and revisits the decision based on it]
+  red_flags: [continues arguing to avoid admitting the misunderstanding]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

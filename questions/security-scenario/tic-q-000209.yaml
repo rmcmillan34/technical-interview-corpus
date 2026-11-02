@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+id: tic-q-000209
+revision: 1
+status: draft
+question:
+  prompt: A database credential used by two API replicas must rotate without downtime. Propose a bounded
+    rollout, validation and rollback plan, including when to revoke the old credential.
+  domain: security-scenario
+  response_modes:
+  - discussion
+  timebox_minutes: 15
+classification:
+  competencies:
+    primary: secrets-management
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      ambiguity: medium
+    rationale: Applies principles to a bounded scenario with explicit constraints and verifiable actions.
+  tags:
+  - secrets-management
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable secrets-management evidence at D2.
+  must_surface:
+  - Use overlapping valid credentials or an explicitly supported rotation mechanism rather than assuming
+    an instantaneous atomic switch.
+  - Update and verify every consumer, including connection pools and background jobs, before retiring
+    the old credential.
+  - Revoke the old credential after the bounded migration; rollback must not silently restore an already
+    revoked or compromised secret.
+  red_flags:
+  - Revokes the only live credential before checking consumers have switched.
+  rubric:
+  - id: evidence-1
+    criterion: Use overlapping valid credentials or an explicitly supported rotation mechanism rather
+      than assuming an instantaneous atomic switch.
+    importance: essential
+  - id: evidence-2
+    criterion: Update and verify every consumer, including connection pools and background jobs, before
+      retiring the old credential.
+    importance: essential
+  - id: evidence-3
+    criterion: Revoke the old credential after the bounded migration; rollback must not silently restore
+      an already revoked or compromised secret.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

@@ -1,0 +1,54 @@
+schema_version: 0.1.0
+id: tic-q-000226
+revision: 1
+status: draft
+question:
+  prompt: Why can a small dependency-unblocking task deserve priority over a larger feature? What would
+    you check before choosing it?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: prioritisation
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - prioritisation
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable prioritisation evidence at D1.
+  must_surface:
+  - Recognises impact on other work and the critical sequence of delivery.
+  - Checks the actual blocked outcomes and task cost instead of assuming every dependency is automatically
+    highest priority.
+  red_flags:
+  - Ranks tasks only by their individual size or visibility.
+  rubric:
+  - id: evidence-1
+    criterion: Recognises impact on other work and the critical sequence of delivery.
+    importance: essential
+  - id: evidence-2
+    criterion: Checks the actual blocked outcomes and task cost instead of assuming every dependency is
+      automatically highest priority.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+id: tic-q-000034
+revision: 1
+status: draft
+question:
+  prompt: >
+    A multi-service checkout flow has a new production issue: about 1% of requests take 8-12 seconds, but average service
+    latency and CPU look normal. The slow requests are not tied to one region or customer. Walk through how you would investigate
+    this from first signal to root cause. Explain what evidence you would seek, how you would narrow hypotheses, and what you
+    would avoid changing until you had stronger evidence.
+  domain: debugging
+  response_modes: [discussion]
+  timebox_minutes: 30
+classification:
+  competencies:
+    primary: debugging
+    secondary: [observability, distributed-systems, reliability-engineering, technical-judgement]
+  roles: [swe]
+  difficulty:
+    level: D4
+    drivers:
+      ambiguity: high
+      scope: high
+      failure_reasoning: high
+      tradeoff_reasoning: high
+      communication_demand: high
+    rationale: Requires structured diagnosis across multiple services under sparse evidence, with hypothesis management and resistance to premature fixes.
+  aspects: [failure-mode-analysis, tradeoff-reasoning]
+  tags: [tail-latency, traces, incident-debugging, hypothesis-testing]
+assessment:
+  intent: Assess whether the candidate can investigate an ambiguous distributed production incident systematically rather than guess from averages.
+  must_surface:
+  - recognizes that averages can hide tail-latency problems
+  - seeks request-level or trace-level evidence for slow outliers
+  - compares slow and normal requests to isolate differences
+  - forms and tests hypotheses incrementally
+  - avoids broad production changes without evidence
+  strong_signals:
+  - examines p95/p99 latency and dependency spans
+  - considers queueing, retries, connection pools, lock contention, GC pauses and dependency tails as hypotheses rather than assumptions
+  - uses correlation across deploys, versions, hosts and dependencies
+  - defines what evidence would falsify each leading hypothesis
+  red_flags:
+  - concludes there is no issue because averages are normal
+  - immediately scales the service without checking the slow path
+  - changes several variables simultaneously and loses causal evidence
+  rubric:
+  - id: framing
+    criterion: Correctly reframes the problem around tail latency and sparse outliers.
+    importance: essential
+  - id: method
+    criterion: Uses a structured evidence-driven hypothesis process across service boundaries.
+    importance: essential
+  - id: judgement
+    criterion: Avoids premature remediation and preserves diagnostic evidence.
+    importance: supporting
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

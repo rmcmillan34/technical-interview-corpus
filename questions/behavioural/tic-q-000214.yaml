@@ -1,0 +1,59 @@
+schema_version: 0.1.0
+id: tic-q-000214
+revision: 1
+status: draft
+question:
+  prompt: Your team keeps finding API compatibility defects late in review. You have no management authority.
+    Propose a small process improvement and explain how you would gain adoption and evaluate it.
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 15
+classification:
+  competencies:
+    primary: leadership-and-influence
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      ambiguity: medium
+    rationale: Applies principles to a bounded scenario with explicit constraints and verifiable actions.
+  tags:
+  - leadership-and-influence
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable leadership-and-influence evidence at D2.
+  must_surface:
+  - Uses examples of the recurring failure and understands team constraints before proposing a targeted
+    change.
+  - Pilots a lightweight contract check or review aid with shared ownership and feedback.
+  - Measures defect prevention and review cost, adapting or stopping the intervention if it fails.
+  red_flags:
+  - Mandates a large process change and treats resistance as insubordination.
+  rubric:
+  - id: evidence-1
+    criterion: Uses examples of the recurring failure and understands team constraints before proposing
+      a targeted change.
+    importance: essential
+  - id: evidence-2
+    criterion: Pilots a lightweight contract check or review aid with shared ownership and feedback.
+    importance: essential
+  - id: evidence-3
+    criterion: Measures defect prevention and review cost, adapting or stopping the intervention if it
+      fails.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

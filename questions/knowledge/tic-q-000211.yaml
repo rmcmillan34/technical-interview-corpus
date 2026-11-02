@@ -1,0 +1,55 @@
+schema_version: 0.1.0
+id: tic-q-000211
+revision: 1
+status: draft
+question:
+  prompt: How can an engineer influence a technical decision without being the team lead? Give an example
+    of useful evidence and explain how to handle disagreement.
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: leadership-and-influence
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - leadership-and-influence
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable leadership-and-influence evidence at D1.
+  must_surface:
+  - Influence can come from clear problem framing, evidence and understanding others constraints rather
+    than positional authority.
+  - Invites challenge and works toward an explicit shared decision instead of treating agreement as obedience.
+  red_flags:
+  - Equates influence with insisting until others stop objecting.
+  rubric:
+  - id: evidence-1
+    criterion: Influence can come from clear problem framing, evidence and understanding others constraints
+      rather than positional authority.
+    importance: essential
+  - id: evidence-2
+    criterion: Invites challenge and works toward an explicit shared decision instead of treating agreement
+      as obedience.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

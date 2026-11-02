@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000148
+revision: 1
+status: draft
+question:
+  prompt: What information should a useful pull request or code-review description provide to help another engineer review the change effectively?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: software-delivery-practices, secondary: [communication, collaboration-and-conflict]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, communication_demand: low}
+    rationale: Tests foundational review and change-context practices.
+  tags: [pull-request, code-review]
+assessment:
+  intent: Assess whether the candidate understands how to make change intent and evidence reviewable.
+  must_surface: [purpose and scope of the change, relevant testing or verification evidence, noteworthy risk or migration context]
+  red_flags: [relies on reviewers to infer intent from code alone]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

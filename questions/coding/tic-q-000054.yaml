@@ -1,0 +1,76 @@
+schema_version: 0.1.0
+id: tic-q-000054
+revision: 1
+status: draft
+question:
+  prompt: >
+    Implement a stack supporting push(value), pop(), top() and get_min(), where every operation must be O(1).
+    Explain the data structure or structures you use, how duplicate minimum values are handled, and test boundary cases.
+  domain: coding
+  response_modes:
+  - discussion
+  - code
+  timebox_minutes: 22
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - algorithms-and-complexity
+    - programming
+    - testing
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: medium
+      ambiguity: low
+      tradeoff_reasoning: low
+    rationale: Requires combining bounded state with a stack invariant to satisfy explicit constant-time operations.
+  tags:
+  - stack
+  - min-stack
+  - invariants
+assessment:
+  intent: Assess whether the candidate can augment a standard stack to maintain an additional query invariant efficiently.
+  must_surface:
+  - maintains enough information to recover the minimum after every pop
+  - preserves O(1) push pop top and get_min operations
+  - handles duplicate minima correctly
+  - defines behaviour for an empty stack
+  strong_signals:
+  - explains either a parallel minimum stack or equivalent encoded-state approach clearly
+  - tests transitions where the current minimum is duplicated and then removed
+  - distinguishes operation complexity from total storage complexity
+  red_flags:
+  - scans all values during get_min
+  - loses the previous minimum after popping the current minimum
+  - leaves empty-stack behaviour undefined
+  rubric:
+  - id: invariant
+    criterion: Maintains a correct minimum-tracking invariant across all stack operations.
+    importance: essential
+  - id: complexity
+    criterion: Meets and explains the O(1) operation requirement.
+    importance: essential
+  - id: testing
+    criterion: Covers empty state duplicates and minimum transitions.
+    importance: supporting
+followups:
+- id: f1
+  prompt: How would your design change if you also needed get_max in O(1)?
+  axis: requirements
+  difficulty_effect: same
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

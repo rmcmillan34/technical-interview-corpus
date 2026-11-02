@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000129
+revision: 1
+status: draft
+question:
+  prompt: A teammate repeatedly interrupts you in design discussions and your contribution is being lost. How would you address it while preserving the working relationship?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 12
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [communication, stakeholder-management]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: medium, communication_demand: high}
+    rationale: Applies direct respectful conflict repair to a bounded interpersonal behaviour.
+  tags: [interpersonal-conflict, feedback]
+assessment:
+  intent: Assess whether the candidate addresses harmful collaboration behaviour specifically and proportionately.
+  must_surface: [raises the observable behaviour and its impact rather than attacking intent, attempts direct resolution and agrees a workable behaviour change]
+  strong_signals: [chooses an appropriate private setting and escalates only if direct repair fails or safety requires it]
+  red_flags: [retaliates during meetings or avoids the issue indefinitely while impact continues]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

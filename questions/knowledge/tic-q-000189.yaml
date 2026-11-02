@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000189
+revision: 1
+status: draft
+question:
+  prompt: >
+    Given users(id) and logins(user_id, logged_at), write SQL to return users who have never logged in. Explain at least two valid query shapes and one NULL-related trap to avoid.
+  domain: knowledge
+  response_modes: [sql, discussion]
+  timebox_minutes: 15
+classification:
+  competencies: {primary: sql, secondary: [databases, debugging]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: medium, ambiguity: low}
+    rationale: Applies anti-join semantics and NULL reasoning to a bounded query.
+  tags: [anti-join, not-exists, "null"]
+assessment:
+  intent: Assess whether the candidate can express absence safely.
+  must_surface: [uses NOT EXISTS or a LEFT JOIN followed by a null check or another equivalent safe form, explains why NOT IN can be surprising when its subquery contains NULL]
+  red_flags: [uses a NULL-sensitive anti-membership expression without recognising the consequence]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

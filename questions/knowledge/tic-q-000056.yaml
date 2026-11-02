@@ -1,0 +1,44 @@
+schema_version: 0.1.0
+id: tic-q-000056
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain the difference between copying a value and copying a reference to an object. What is aliasing, and why can mutation through one reference sometimes be visible through another?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: programming
+    secondary: [debugging, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational reasoning about references, mutation and aliasing without requiring implementation.
+  tags: [references, mutation, aliasing]
+assessment:
+  intent: Assess whether the candidate understands basic value/reference semantics and mutation visibility.
+  must_surface:
+  - copied values can be independent while copied references may refer to the same underlying object
+  - mutation through an alias can affect observations through another alias
+  strong_signals:
+  - distinguishes rebinding a variable from mutating the referenced object
+  - notes that exact semantics vary by language and type
+  red_flags:
+  - claims all assignment always deep-copies data
+  - cannot explain why two variables might observe the same mutation
+  rubric:
+  - id: semantics
+    criterion: Correctly explains value copying, reference copying and aliasing.
+    importance: essential
+  - id: mutation
+    criterion: Explains the effect of mutation on aliased references.
+    importance: supporting
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

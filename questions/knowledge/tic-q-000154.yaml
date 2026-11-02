@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000154
+revision: 1
+status: draft
+question:
+  prompt: What is a performance bottleneck? Explain why profiling or measurement should usually precede optimization and give examples of CPU, memory, I/O and network bottlenecks.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: performance-engineering, secondary: [observability, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, quantitative_reasoning: low, ambiguity: low}
+    rationale: Tests basic bottleneck and evidence-driven optimization concepts.
+  tags: [profiling, bottlenecks, measurement]
+assessment:
+  intent: Assess whether the candidate understands that optimization should target measured limiting resources.
+  must_surface: [a bottleneck is a resource or stage limiting system performance, measurement identifies where time or capacity is actually consumed]
+  strong_signals: [distinguishes CPU memory I/O and network evidence rather than using one universal optimization]
+  red_flags: [starts optimizing arbitrary code without measuring the limiting resource]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000162
+revision: 1
+status: draft
+question:
+  prompt: >
+    A revenue-critical SaaS product currently runs in one cloud region across multiple zones. The business now requires recovery from a full regional outage with an RTO of 30 minutes and an RPO of 5 minutes. Design a pragmatic multi-region recovery architecture and explain data replication, traffic failover, capacity, testing and operational trade-offs.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 30
+classification:
+  competencies: {primary: cloud-architecture, secondary: [reliability-engineering, distributed-systems, databases, service-operations, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: high, scope: high, scale: high, failure_reasoning: high, tradeoff_reasoning: high, organisational_complexity: medium}
+    rationale: Requires production disaster-recovery design against explicit recovery objectives and regional failure assumptions.
+  tags: [multi-region, disaster-recovery, rto, rpo]
+assessment:
+  intent: Assess whether the candidate can translate recovery objectives into a tested regional-failover design.
+  must_surface: [replication strategy is consistent with the RPO, failover and capacity can meet the RTO, traffic routing and dependency recovery are addressed, recovery is exercised rather than assumed]
+  strong_signals: [compares active-active warm-standby and pilot-light cost/complexity, addresses split-brain or stale-write risk]
+  red_flags: [claims multi-AZ deployment alone satisfies full regional outage recovery]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

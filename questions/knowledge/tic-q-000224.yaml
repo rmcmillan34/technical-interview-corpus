@@ -1,0 +1,52 @@
+schema_version: 0.1.0
+id: tic-q-000224
+revision: 1
+status: draft
+question:
+  prompt: Why are urgent work and important work not always the same? What information helps decide which
+    engineering task should happen first?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: prioritisation
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - prioritisation
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable prioritisation evidence at D1.
+  must_surface:
+  - Distinguishes time pressure from impact and value.
+  - Considers risk, dependencies, effort and cost of delay rather than only the loudest request.
+  red_flags:
+  - Always selects the latest request regardless of impact or risk.
+  rubric:
+  - id: evidence-1
+    criterion: Distinguishes time pressure from impact and value.
+    importance: essential
+  - id: evidence-2
+    criterion: Considers risk, dependencies, effort and cost of delay rather than only the loudest request.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

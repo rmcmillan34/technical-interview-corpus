@@ -1,0 +1,44 @@
+schema_version: 0.1.0
+id: tic-q-000059
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain the purpose of common control-flow constructs such as conditionals, loops, early returns and break/continue. What kinds of mistakes can make control flow difficult to reason about?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: programming
+    secondary: [debugging, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Requires recognition and explanation of basic control-flow mechanisms and common readability hazards.
+  tags: [control-flow, loops, conditionals]
+assessment:
+  intent: Assess whether the candidate can explain basic control flow and recognise reasoning hazards in overly complex branching.
+  must_surface:
+  - conditionals select paths based on conditions
+  - loops repeat work while a condition or iteration rule holds
+  - early exits alter the normal sequential path
+  strong_signals:
+  - identifies deeply nested conditions, hidden state changes or non-progressing loops as reasoning hazards
+  - connects simpler control flow with easier testing and debugging
+  red_flags:
+  - cannot distinguish loop termination from branch selection
+  rubric:
+  - id: constructs
+    criterion: Explains the purpose of common control-flow constructs.
+    importance: essential
+  - id: reasoning
+    criterion: Identifies common control-flow patterns that create bugs or confusion.
+    importance: supporting
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

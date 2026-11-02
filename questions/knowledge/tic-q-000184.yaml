@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000184
+revision: 1
+status: draft
+question:
+  prompt: Explain the roles of SELECT, FROM and WHERE in a SQL query. In what conceptual order are rows sourced, filtered and projected?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: sql, secondary: [databases, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational query structure and row filtering.
+  tags: [select, where, projection]
+assessment:
+  intent: Assess whether the candidate understands basic relational query structure.
+  must_surface: [FROM identifies source relations, WHERE filters rows, SELECT produces the requested output columns or expressions]
+  red_flags: [cannot distinguish filtering rows from selecting output columns]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

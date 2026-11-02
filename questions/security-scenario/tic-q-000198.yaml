@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000198
+revision: 1
+status: draft
+question:
+  prompt: A web application lets authenticated users upload profile images that are later served to other users. Produce a bounded threat model covering assets, trust boundaries, abuse cases and priority mitigations.
+  domain: security-scenario
+  response_modes: [discussion, written]
+  timebox_minutes: 20
+classification:
+  competencies: {primary: threat-modelling, secondary: [application-security, data-protection-and-privacy, security-architecture]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, security_reasoning: medium, ambiguity: medium, tradeoff_reasoning: medium}
+    rationale: Applies threat-model structure to a bounded untrusted-file workflow.
+  tags: [file-upload, untrusted-input, abuse]
+assessment:
+  intent: Assess whether the candidate can systematically reason about untrusted upload and later content delivery.
+  must_surface: [treats uploaded content as untrusted, considers type/content validation and storage/serving isolation, considers size/resource abuse and access/privacy boundaries]
+  strong_signals: [considers malware scanning or content transformation as defense-in-depth and avoids trusting filenames/content-type alone]
+  red_flags: [stores and serves arbitrary user bytes from the application origin with no validation or isolation]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

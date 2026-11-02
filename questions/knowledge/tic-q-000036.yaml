@@ -1,0 +1,41 @@
+schema_version: 0.1.0
+id: tic-q-000036
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain the difference between best-case, average-case and worst-case time complexity. Use linear search as a
+    simple example, and explain why engineers often pay particular attention to worst-case behaviour.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary: [communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low, quantitative_reasoning: low}
+    rationale: Requires recall and explanation of foundational complexity-case terminology.
+  tags: [complexity, best-case, average-case, worst-case]
+assessment:
+  intent: Assess whether the candidate distinguishes input-dependent complexity cases and their practical meaning.
+  must_surface:
+  - best, average and worst case describe different input conditions for the same algorithm
+  - linear search can be constant in the best case and linear in the worst case
+  strong_signals:
+  - notes that average-case claims depend on an input distribution or assumptions
+  - explains why worst-case bounds matter for predictability
+  red_flags:
+  - treats best, average and worst case as three different algorithms
+  rubric:
+  - id: concepts
+    criterion: Correctly distinguishes best-case, average-case and worst-case analysis.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

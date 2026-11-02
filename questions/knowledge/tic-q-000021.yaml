@@ -1,0 +1,61 @@
+schema_version: 0.1.0
+id: tic-q-000021
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain what Big O notation tells you about an algorithm. Compare O(1), O(log n), O(n), and O(n log n),
+    and give a simple example of the kind of operation or algorithm that commonly has each complexity.
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary:
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      implementation_depth: low
+      ambiguity: low
+      quantitative_reasoning: low
+      communication_demand: medium
+    rationale: Requires recall and explanation of foundational complexity concepts without implementation or trade-off-heavy design.
+  tags:
+  - big-o
+  - complexity
+assessment:
+  intent: Assess whether the candidate can explain basic asymptotic complexity clearly and distinguish common growth rates.
+  must_surface:
+  - Big O describes how resource use grows with input size
+  - distinguishes constant, logarithmic, linear and linearithmic growth
+  strong_signals:
+  - notes that Big O abstracts away constants and lower-order terms
+  - gives sensible examples without claiming exact runtime from Big O alone
+  red_flags:
+  - treats Big O as literal execution time
+  - cannot distinguish O(log n) from O(n)
+  rubric:
+  - id: concepts
+    criterion: Correctly explains the meaning of Big O and the listed growth rates.
+    importance: essential
+  - id: examples
+    criterion: Gives reasonable examples that match the stated complexities.
+    importance: supporting
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

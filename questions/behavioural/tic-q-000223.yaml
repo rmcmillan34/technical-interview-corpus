@@ -1,0 +1,58 @@
+schema_version: 0.1.0
+id: tic-q-000223
+revision: 1
+status: draft
+question:
+  prompt: Halfway through a CSV export feature, you learn customers also require audit records and sensitive-field
+    restrictions. The deadline is unchanged. Explain how you would adapt the plan.
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 15
+classification:
+  competencies:
+    primary: ambiguity-and-adaptability
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      ambiguity: medium
+    rationale: Applies principles to a bounded scenario with explicit constraints and verifiable actions.
+  tags:
+  - ambiguity-and-adaptability
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable ambiguity-and-adaptability evidence at D2.
+  must_surface:
+  - Clarifies the new security and audit requirements, affected data and acceptance evidence.
+  - Assesses existing work and options, explicitly surfacing infeasible combinations of scope, assurance
+    and deadline.
+  - Agrees a revised safe slice and validation plan; does not silently discard the new controls.
+  red_flags:
+  - Ships sensitive data without required controls to preserve the original deadline.
+  rubric:
+  - id: evidence-1
+    criterion: Clarifies the new security and audit requirements, affected data and acceptance evidence.
+    importance: essential
+  - id: evidence-2
+    criterion: Assesses existing work and options, explicitly surfacing infeasible combinations of scope,
+      assurance and deadline.
+    importance: essential
+  - id: evidence-3
+    criterion: Agrees a revised safe slice and validation plan; does not silently discard the new controls.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

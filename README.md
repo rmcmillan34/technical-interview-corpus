@@ -23,7 +23,7 @@ The v0.1 specification currently includes:
 - semantic validation in CI; and
 - deterministic preview release builds.
 
-The current questions are reference fixtures used to validate the specification. Bulk corpus ingestion follows the licensing/provenance governance defined below.
+The current questions include draft reference fixtures and population tranches. Technical/taxonomy approval remains pending; population follows the licensing/provenance governance defined below.
 
 ## Licensing and provenance
 
@@ -43,6 +43,9 @@ See [LICENSE.md](LICENSE.md), [docs/licensing-and-provenance.md](docs/licensing-
 python -m pip install -r requirements-dev.txt
 python tools/validate.py
 python tools/validate_provenance.py
+python tools/validate_coverage.py
+python tools/validate_source_topics.py
+python -m unittest discover -s tests -v
 ```
 
 To prove the distribution pipeline with current draft fixtures:
@@ -54,3 +57,11 @@ python tools/build_release.py \
   --output build/release-preview
 python tools/finalize_release_metadata.py --output build/release-preview
 ```
+
+## SWE source-topic coverage
+
+[coverage/topics/swe.yaml](coverage/topics/swe.yaml) records source revisions, assessment topics, canonical competency mappings, anchored question evidence, open gaps and next actions. See [the source-scope reconciliation](docs/swe-source-scope-2026-11-03.md) for inspection boundaries and specialist tracks.
+
+Minimum and preferred question counts are advisory planning signals. A competency pass stays open while relevant topics are gaps or partial; useful questions may exceed every numerical target. Source discovery and question population are separate activities. Secondary tags alone do not establish separately assessed competence, and green CI does not approve technical content.
+
+Follow [AGENTS.md](AGENTS.md) for generation checkpoints and source rights. The release finaliser includes the topic inventory in assessment metadata and checksums.

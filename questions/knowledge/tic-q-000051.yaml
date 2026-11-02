@@ -1,0 +1,61 @@
+schema_version: 0.1.0
+id: tic-q-000051
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain the difference between a general binary tree and a binary search tree. What ordering property does a
+    binary search tree maintain, and how can tree shape affect search performance?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - algorithms-and-complexity
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      implementation_depth: low
+      ambiguity: low
+    rationale: Requires explanation of foundational tree terminology ordering and shape effects.
+  tags:
+  - trees
+  - binary-search-tree
+assessment:
+  intent: Assess whether the candidate understands binary-tree structure and the search-order invariant of a BST.
+  must_surface:
+  - a binary tree limits each node to at most two children
+  - a BST adds an ordering invariant relating left and right subtrees to a node key
+  - search cost depends on tree height
+  strong_signals:
+  - contrasts balanced logarithmic-height behaviour with a degenerate linear-height tree
+  - states a consistent policy for duplicate keys if discussing them
+  red_flags:
+  - assumes every binary tree is ordered
+  - claims BST search is always logarithmic without a balancing assumption
+  rubric:
+  - id: structure
+    criterion: Distinguishes a binary tree from a binary search tree and states the ordering invariant.
+    importance: essential
+  - id: shape
+    criterion: Explains how tree height affects operation cost.
+    importance: supporting
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

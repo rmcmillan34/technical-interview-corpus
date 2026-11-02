@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000174
+revision: 1
+status: draft
+question:
+  prompt: Compare rolling, blue-green and canary deployments at a high level. What differs about traffic movement and rollback risk?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 9
+classification:
+  competencies: {primary: ci-cd, secondary: [software-delivery-practices, reliability-engineering]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, failure_reasoning: low, tradeoff_reasoning: low}
+    rationale: Tests foundational deployment-strategy concepts.
+  tags: [rolling, blue-green, canary]
+assessment:
+  intent: Assess whether the candidate can distinguish common progressive/reversible deployment patterns.
+  must_surface: [rolling gradually replaces instances, blue-green switches traffic between two environments, canary exposes a limited cohort before expansion]
+  red_flags: [treats all three strategies as synonymous]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

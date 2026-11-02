@@ -1,0 +1,52 @@
+schema_version: 0.1.0
+id: tic-q-000220
+revision: 1
+status: draft
+question:
+  prompt: How can a small prototype reduce uncertainty before a full implementation? What should you decide
+    before building it?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: ambiguity-and-adaptability
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - ambiguity-and-adaptability
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable ambiguity-and-adaptability evidence at D1.
+  must_surface:
+  - States a specific uncertainty or hypothesis and what observation would change the decision.
+  - Bounds the experiment and recognises that prototype success does not prove production readiness.
+  red_flags:
+  - Builds a complete product without identifying the question the prototype should answer.
+  rubric:
+  - id: evidence-1
+    criterion: States a specific uncertainty or hypothesis and what observation would change the decision.
+    importance: essential
+  - id: evidence-2
+    criterion: Bounds the experiment and recognises that prototype success does not prove production readiness.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

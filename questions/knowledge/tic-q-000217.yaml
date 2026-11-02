@@ -1,0 +1,53 @@
+schema_version: 0.1.0
+id: tic-q-000217
+revision: 1
+status: draft
+question:
+  prompt: When a stakeholder asks when a feature will be ready, what makes an estimate useful if dependencies
+    and acceptance criteria are still uncertain?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: stakeholder-management
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      ambiguity: low
+    rationale: Checks a bounded foundational concept.
+  tags:
+  - stakeholder-management
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable stakeholder-management evidence at D1.
+  must_surface:
+  - Distinguishes a forecast with assumptions from an unconditional commitment.
+  - Explains uncertainty, dependencies and a next decision or update point in terms useful to the stakeholder.
+  red_flags:
+  - Presents a precise date without stating uncertainty or assumptions.
+  rubric:
+  - id: evidence-1
+    criterion: Distinguishes a forecast with assumptions from an unconditional commitment.
+    importance: essential
+  - id: evidence-2
+    criterion: Explains uncertainty, dependencies and a next decision or update point in terms useful
+      to the stakeholder.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

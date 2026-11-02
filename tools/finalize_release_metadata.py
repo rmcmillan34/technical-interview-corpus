@@ -20,8 +20,14 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def replace_tree(source: Path, destination: Path) -> None:
+    if destination.exists():
+        shutil.rmtree(destination)
+    shutil.copytree(source, destination)
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Add licensing and provenance metadata to a built release bundle.")
+    parser = argparse.ArgumentParser(description="Add licensing, provenance and assessment metadata to a built release bundle.")
     parser.add_argument("--output", default="build/release", help="Existing release bundle directory.")
     args = parser.parse_args()
 
@@ -30,16 +36,20 @@ def main() -> int:
         raise SystemExit(f"release output does not exist: {output}")
 
     shutil.copy2(ROOT / "LICENSE.md", output / "LICENSE.md")
-    destination = output / "LICENSES"
-    if destination.exists():
-        shutil.rmtree(destination)
-    shutil.copytree(ROOT / "LICENSES", destination)
+    replace_tree(ROOT / "LICENSES", output / "LICENSES")
 
     source_register = yaml.safe_load((ROOT / "sources" / "source-register.yaml").read_text(encoding="utf-8"))
     (output / "source-register.json").write_text(
         json.dumps(source_register, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
+
+    assessment_metadata = {}
+    for directory, key in (("coverage", "coverage_plans"), ("paths", "progression_graphs")):
+        source = ROOT / directory
+        if source.is_dir():
+            replace_tree(source, output / directory)
+            assessment_metadata[key] = f"{directory}/"
 
     manifest_path = output / "manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -51,6 +61,8 @@ def main() -> int:
         "license_material": "LICENSES/",
         "source_register": "source-register.json",
     }
+    if assessment_metadata:
+        manifest["assessment_metadata"] = assessment_metadata
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
     checksum_path = output / "checksums.txt"
@@ -61,7 +73,7 @@ def main() -> int:
 
     print(
         f"Finalized release metadata: {len(source_register['sources'])} registered external source(s), "
-        f"licensing policy and licence material included."
+        f"licensing material and {len(assessment_metadata)} assessment metadata collection(s) included."
     )
     return 0
 

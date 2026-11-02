@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000182
+revision: 1
+status: draft
+question:
+  prompt: A team currently creates infrastructure manually and wants to adopt IaC without recreating production resources. Propose a bounded migration approach for importing existing resources, validating state and reducing manual changes afterward.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 20
+classification:
+  competencies: {primary: infrastructure-as-code, secondary: [cloud-architecture, software-delivery-practices, service-operations]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: medium, scope: medium, failure_reasoning: medium}
+    rationale: Applies IaC adoption to existing infrastructure where unintended replacement is a material risk.
+  tags: [import, migration, brownfield]
+assessment:
+  intent: Assess whether the candidate can bring brownfield resources under declarative management incrementally.
+  must_surface: [captures declarations matching real resources, imports or maps existing resource identity, reviews plans until no unintended destructive change remains, establishes a controlled path for future changes]
+  red_flags: [destroys and recreates production resources solely to make them match a new IaC repository]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

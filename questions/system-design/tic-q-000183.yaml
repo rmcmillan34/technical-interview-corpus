@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000183
+revision: 1
+status: draft
+question:
+  prompt: >
+    Design an organisation-scale IaC workflow for dozens of services and environments. Cover module/version governance, remote state and locking, pull-request plans, policy/security checks, secrets handling, controlled applies, drift detection and emergency changes without turning the platform team into a manual bottleneck.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 30
+classification:
+  competencies: {primary: infrastructure-as-code, secondary: [ci-cd, cloud-architecture, security-architecture, secrets-management, software-delivery-practices, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: high, scope: high, security_reasoning: high, tradeoff_reasoning: high, organisational_complexity: high}
+    rationale: Requires production IaC governance across state, reusable modules, automation, security and team autonomy.
+  tags: [iac-governance, remote-state, policy, drift]
+assessment:
+  intent: Assess whether the candidate can scale IaC from files to a governed engineering system.
+  must_surface: [remote durable state with concurrency control, reviewable plans before controlled apply, versioned reusable modules, secrets kept out of plaintext state/config where possible, automated policy/security checks and drift detection, an auditable emergency path]
+  strong_signals: [balances self-service with guardrails and avoids central manual approval for every low-risk change]
+  red_flags: [stores shared production state locally on engineer laptops, embeds long-lived plaintext secrets in version control]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

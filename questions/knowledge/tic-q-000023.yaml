@@ -1,0 +1,63 @@
+schema_version: 0.1.0
+id: tic-q-000023
+revision: 1
+status: draft
+question:
+  prompt: >
+    What is a database index, why can it make reads faster, and what trade-offs does adding an index introduce?
+    Give one example of a query pattern that would benefit from an index.
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: databases
+    secondary:
+    - data-modelling
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      implementation_depth: low
+      ambiguity: low
+      tradeoff_reasoning: low
+      communication_demand: medium
+    rationale: Requires recognition and explanation of a foundational database concept and its basic trade-offs.
+  tags:
+  - indexes
+  - query-performance
+assessment:
+  intent: Assess whether the candidate understands what indexes do and why they are not free.
+  must_surface:
+  - an index is an auxiliary data structure used to locate rows more efficiently
+  - indexes can reduce the amount of data scanned for suitable queries
+  - indexes consume storage and add work to writes or updates
+  strong_signals:
+  - connects index usefulness to the columns and access pattern used by the query
+  - notes that an index does not guarantee every query becomes faster
+  red_flags:
+  - claims indexes remove the need to store the underlying table data
+  - assumes more indexes are always better
+  rubric:
+  - id: concept
+    criterion: Correctly explains the purpose of a database index.
+    importance: essential
+  - id: tradeoffs
+    criterion: Identifies basic read, write and storage trade-offs.
+    importance: supporting
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

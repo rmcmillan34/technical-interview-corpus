@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000163
+revision: 1
+status: draft
+question:
+  prompt: Explain the difference between a container image and a running container. Why is an image intended to be immutable while a container can have runtime state?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: containerisation, secondary: [software-delivery-practices]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational image/runtime concepts.
+  tags: [images, containers, immutability]
+assessment:
+  intent: Assess whether the candidate distinguishes build artifacts from running instances.
+  must_surface: [an image is a packaged filesystem/configuration template, a container is a runtime instance created from an image]
+  red_flags: [treats modifying a running container as the normal way to publish a new image version]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

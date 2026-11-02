@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+id: tic-q-000048
+revision: 1
+status: draft
+question:
+  prompt: >
+    Compare arrays and linked lists. Explain how their memory layout affects indexed access, insertion or deletion,
+    and iteration, and give an example of when you would prefer each.
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - algorithms-and-complexity
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      implementation_depth: low
+      ambiguity: low
+      communication_demand: medium
+    rationale: Requires explanation and comparison of two foundational sequence structures without implementation.
+  tags:
+  - arrays
+  - linked-lists
+assessment:
+  intent: Assess whether the candidate understands the basic structural and complexity trade-offs between arrays and linked lists.
+  must_surface:
+  - arrays provide direct indexed access while linked lists require traversal
+  - insertion and deletion cost depends on whether an element location is already known
+  - arrays and linked lists have different locality and per-element overhead characteristics
+  strong_signals:
+  - distinguishes dynamic-array resizing from ordinary indexed access
+  - notes that linked-list theoretical insertion advantages can be offset by traversal and cache locality
+  red_flags:
+  - claims arbitrary linked-list lookup is constant time
+  - treats all insertions into an array as identical in cost
+  rubric:
+  - id: structure
+    criterion: Correctly explains how arrays and linked lists store and access elements.
+    importance: essential
+  - id: tradeoffs
+    criterion: Gives defensible complexity and practical trade-offs for common operations.
+    importance: supporting
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

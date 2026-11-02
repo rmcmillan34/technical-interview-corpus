@@ -1,0 +1,92 @@
+schema_version: 0.1.0
+id: tic-q-000055
+revision: 1
+status: draft
+question:
+  prompt: >
+    Design the core in-memory data structure for a timer service that may hold millions of scheduled tasks.
+    It must support schedule(task_id, due_time), cancel(task_id), reschedule(task_id, due_time), and efficiently
+    return tasks that are due. Explain your chosen structures, operation complexity, how you handle stale or cancelled
+    entries, bounded memory growth, tie ordering and how you would test the implementation deterministically.
+  domain: coding
+  response_modes:
+  - discussion
+  - code
+  timebox_minutes: 35
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - algorithms-and-complexity
+    - programming
+    - testing
+    - performance-engineering
+  roles:
+  - swe
+  difficulty:
+    level: D3
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: high
+      ambiguity: medium
+      scale: high
+      failure_reasoning: medium
+      tradeoff_reasoning: high
+    rationale: >
+      Requires combining priority ordering with direct identity lookup while handling cancellation stale entries
+      large-scale memory behaviour and deterministic testability.
+  aspects:
+  - tradeoff-reasoning
+  - failure-mode-analysis
+  tags:
+  - heap
+  - scheduler
+  - indexing
+  - cancellation
+assessment:
+  intent: Assess whether the candidate can compose data structures into a production-oriented timer index with coherent update and cleanup semantics.
+  must_surface:
+  - uses an ordering structure suitable for efficiently finding the next due task
+  - supports direct task identity lookup or version tracking for cancellation and rescheduling
+  - defines how stale queue entries are detected and removed or compacted
+  - provides defensible operation and memory complexity
+  strong_signals:
+  - combines a min-heap with a map or equivalent indexed structure
+  - considers lazy deletion versus indexed heap updates and explains the trade-off
+  - bounds stale-entry growth with cleanup or rebuilding criteria
+  - injects time or passes now explicitly for deterministic testing
+  - defines deterministic tie behaviour when due times are equal
+  red_flags:
+  - linearly scans all scheduled tasks to find the next due task
+  - allows repeated rescheduling to grow stale state without bound
+  - cannot make cancellation consistent with queued entries
+  rubric:
+  - id: structures
+    criterion: Selects complementary structures that support priority ordering and task identity operations.
+    importance: essential
+  - id: stale-state
+    criterion: Defines correct cancellation rescheduling and stale-entry handling.
+    importance: essential
+  - id: scale
+    criterion: Reasons about complexity and memory growth at the stated scale.
+    importance: essential
+  - id: testability
+    criterion: Designs deterministic tests for time ordering cancellation and ties.
+    importance: supporting
+followups:
+- id: f1
+  prompt: What changes if many worker threads can schedule cancel and drain due tasks concurrently?
+  axis: concurrency
+  difficulty_effect: up
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

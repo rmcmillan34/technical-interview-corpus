@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000185
+revision: 1
+status: draft
+question:
+  prompt: Compare INNER JOIN and LEFT JOIN. What happens to rows from the left table when no matching row exists on the right?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: sql, secondary: [data-modelling, databases]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational join semantics.
+  tags: [joins, inner-join, left-join]
+assessment:
+  intent: Assess whether the candidate understands row-preservation semantics of common joins.
+  must_surface: [INNER JOIN keeps matching combinations, LEFT JOIN preserves unmatched left rows with null right-side values]
+  red_flags: [claims LEFT JOIN removes unmatched left rows]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

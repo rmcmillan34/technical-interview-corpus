@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+id: tic-q-000091
+revision: 1
+status: draft
+question:
+  prompt: A team of four is launching a new internal workflow product with uncertain demand and one database. Choose between a modular monolith and multiple independently deployed services for the first release, and justify what evidence would make you revisit the choice.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: software-architecture, secondary: [technical-judgement, ownership-and-delivery, service-operations]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: medium, organisational_complexity: medium, tradeoff_reasoning: medium}
+    rationale: Requires an architecture choice under bounded team and uncertainty constraints rather than recall.
+  tags: [monolith, microservices, tradeoffs]
+assessment:
+  intent: Assess whether the candidate matches architecture complexity to current constraints and defines triggers for evolution.
+  must_surface:
+  - considers team size and operational overhead
+  - considers current domain/data boundaries and deployment needs
+  - names evidence that would justify later decomposition
+  strong_signals:
+  - prefers reversible simplicity while preserving internal modular boundaries
+  red_flags:
+  - selects microservices solely because future scale is possible
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

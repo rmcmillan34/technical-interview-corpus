@@ -1,0 +1,57 @@
+schema_version: 0.1.0
+id: tic-q-000222
+revision: 1
+status: draft
+question:
+  prompt: A ticket says make search fast, with no target or workload. You have one day before planning.
+    How would you turn it into an implementable problem?
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 15
+classification:
+  competencies:
+    primary: ambiguity-and-adaptability
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      ambiguity: medium
+    rationale: Applies principles to a bounded scenario with explicit constraints and verifiable actions.
+  tags:
+  - ambiguity-and-adaptability
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable ambiguity-and-adaptability evidence at D2.
+  must_surface:
+  - Asks who is affected and establishes representative queries, current measurements and desired outcomes.
+  - Agrees a bounded success criterion, constraints and the most consequential unknowns.
+  - Uses a small measurement or experiment and records assumptions before committing to a solution.
+  red_flags:
+  - Selects a cache or search engine before establishing the actual workload or target.
+  rubric:
+  - id: evidence-1
+    criterion: Asks who is affected and establishes representative queries, current measurements and desired
+      outcomes.
+    importance: essential
+  - id: evidence-2
+    criterion: Agrees a bounded success criterion, constraints and the most consequential unknowns.
+    importance: essential
+  - id: evidence-3
+    criterion: Uses a small measurement or experiment and records assumptions before committing to a solution.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000124
+revision: 1
+status: draft
+question:
+  prompt: Why should code review comments distinguish blocking correctness issues from optional style or preference suggestions?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [testing, communication, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low, communication_demand: low}
+    rationale: Tests basic review-priority and collaboration signalling.
+  tags: [code-review, review-severity]
+assessment:
+  intent: Assess whether the candidate can make review feedback proportionate and actionable.
+  must_surface: [blocking comments should relate to required correctness safety or agreed standards, non-blocking suggestions should be labelled so preference does not masquerade as a defect]
+  red_flags: [treats every personal preference as a merge blocker]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

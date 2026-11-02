@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+id: tic-q-000077
+revision: 1
+status: draft
+question:
+  prompt: What is a regression test? When a bug is fixed, why is a focused regression test often worth adding even if broader tests already exist?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: testing, secondary: [debugging, learning-and-reflection]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational understanding of preserving fixes through automated evidence.
+  tags: [regression-testing, defects]
+assessment:
+  intent: Assess whether the candidate understands how tests preserve knowledge about previously observed failures.
+  must_surface:
+  - a regression test reproduces or guards against a previously failing behaviour
+  - it should fail before the fix and pass after the fix when practical
+  strong_signals:
+  - prefers the narrowest stable test that captures the defect mechanism
+  red_flags:
+  - treats manual verification alone as equivalent long-term protection
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

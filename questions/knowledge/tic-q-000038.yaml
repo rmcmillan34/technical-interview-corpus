@@ -1,0 +1,41 @@
+schema_version: 0.1.0
+id: tic-q-000038
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain how binary search works. What must be true about the search space, what invariant is maintained as the
+    search range shrinks, and why is the time complexity logarithmic?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary: [data-structures, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low, quantitative_reasoning: low}
+    rationale: Requires explanation of a standard search algorithm and its preconditions.
+  tags: [binary-search, searching, invariants]
+assessment:
+  intent: Assess conceptual understanding of binary search before implementation or debugging.
+  must_surface:
+  - the search space must have an ordering or monotonic property that permits discarding half
+  - each step removes roughly half of the remaining candidates
+  - the chosen bounds must continue to contain every possible valid answer
+  strong_signals:
+  - distinguishes a binary-searchable monotonic predicate from merely searching an array
+  red_flags:
+  - claims binary search works on arbitrary unsorted input
+  rubric:
+  - id: concepts
+    criterion: Correctly explains binary-search preconditions, invariant and logarithmic complexity.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

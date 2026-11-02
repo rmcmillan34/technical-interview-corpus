@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000206
+revision: 1
+status: draft
+question:
+  prompt: >
+    A multi-tenant API exposes GET /projects/{project_id}. A project belongs to one tenant, and users may have roles within their tenant. Design the authorization check so knowing another tenant's project ID does not grant access, and explain where the policy should be enforced and tested.
+  domain: security-scenario
+  response_modes: [discussion, written]
+  timebox_minutes: 20
+classification:
+  competencies: {primary: identity-and-access-control, secondary: [application-security, security-architecture, testing]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, security_reasoning: medium, ambiguity: low, failure_reasoning: medium}
+    rationale: Applies tenant-scoped authorization to a bounded object-access scenario.
+  tags: [tenant-isolation, object-authorization, bola]
+assessment:
+  intent: Assess whether the candidate enforces object-level authorization rather than relying on identifier secrecy.
+  must_surface: [resolves authenticated identity and tenant context, verifies the requested project belongs to an authorized tenant and role/policy before returning data, tests cross-tenant and insufficient-role cases]
+  strong_signals: [centralizes or consistently applies policy close to resource access and avoids trusting client-supplied tenant identifiers alone]
+  red_flags: [authorizes access solely because the project ID exists or is difficult to guess]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

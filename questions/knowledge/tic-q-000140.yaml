@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000140
+revision: 1
+status: draft
+question:
+  prompt: What happens conceptually when a client establishes a TCP connection and then establishes TLS over it? What security properties is TLS intended to add?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: networking, secondary: [application-security, applied-cryptography]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low, security_reasoning: low}
+    rationale: Tests basic transport and secure-channel layering.
+  tags: [tcp, tls, handshake]
+assessment:
+  intent: Assess whether the candidate distinguishes transport connectivity from authenticated encrypted communication.
+  must_surface: [TCP establishes a transport connection, TLS negotiates a protected channel over a transport and authenticates at least the server in common web use]
+  strong_signals: [mentions confidentiality and integrity]
+  red_flags: [treats TLS as a replacement for IP routing or TCP]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

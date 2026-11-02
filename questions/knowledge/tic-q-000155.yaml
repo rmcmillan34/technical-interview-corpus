@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000155
+revision: 1
+status: draft
+question:
+  prompt: Explain the difference between a cloud region and an availability zone. What failure boundary is each intended to represent at a high level?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: cloud-architecture, secondary: [reliability-engineering]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational cloud failure-domain concepts.
+  tags: [regions, availability-zones, failure-domains]
+assessment:
+  intent: Assess whether the candidate distinguishes regional geography from independent zonal infrastructure within a region.
+  must_surface: [a region is a broader geographic deployment area, availability zones are separate infrastructure failure domains within a region]
+  red_flags: [treats multiple zones as the same as multiple regions]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

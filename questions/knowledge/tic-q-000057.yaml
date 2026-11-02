@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+id: tic-q-000057
+revision: 1
+status: draft
+question:
+  prompt: >
+    What is a function contract? Explain the roles of parameters, return values, preconditions, postconditions and side effects in describing what a function does.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: programming
+    secondary: [testing, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Requires explanation of foundational function behaviour and interfaces without implementation.
+  tags: [functions, contracts, side-effects]
+assessment:
+  intent: Assess whether the candidate can describe a function as an explicit behavioural contract rather than only as syntax.
+  must_surface:
+  - parameters describe inputs and return values describe outputs
+  - preconditions constrain valid inputs or state
+  - postconditions describe expected outcomes
+  - side effects change state outside the returned value
+  strong_signals:
+  - connects clear contracts to testing and maintainability
+  - distinguishes pure computation from observable side effects
+  red_flags:
+  - treats a function contract as only its name and parameter list
+  rubric:
+  - id: contract
+    criterion: Explains inputs, outputs, conditions and side effects accurately.
+    importance: essential
+  - id: implications
+    criterion: Connects explicit contracts to reliable use and testing.
+    importance: supporting
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

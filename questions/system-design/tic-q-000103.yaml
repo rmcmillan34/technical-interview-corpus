@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+id: tic-q-000103
+revision: 1
+status: draft
+question:
+  prompt: An event consumer receives order-paid events with at-least-once delivery and sends a receipt email. Design the consumer so duplicate deliveries do not send duplicate receipts, and explain what state must be recorded.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 20
+classification:
+  competencies: {primary: distributed-systems, secondary: [reliability-engineering, data-modelling, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: low, failure_reasoning: medium, tradeoff_reasoning: medium}
+    rationale: Applies delivery semantics and idempotency to a bounded side-effecting consumer.
+  tags: [at-least-once, idempotency, consumers]
+assessment:
+  intent: Assess whether the candidate can make an external side effect duplicate-safe under redelivery.
+  must_surface:
+  - identifies a stable event or business idempotency key
+  - records processed/receipt state durably enough for the required guarantee
+  - handles crash timing between state update and side effect explicitly
+  strong_signals:
+  - discusses an outbox/inbox or provider idempotency mechanism to close the crash window
+  red_flags:
+  - relies only on in-memory duplicate tracking
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

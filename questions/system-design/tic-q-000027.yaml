@@ -1,0 +1,66 @@
+schema_version: 0.1.0
+id: tic-q-000027
+revision: 1
+status: draft
+question:
+  prompt: >
+    Your team owns a public API used by hundreds of client applications. A new requirement needs a breaking change to a core
+    resource representation, but many clients cannot migrate immediately. Design an evolution and migration plan covering
+    compatibility, versioning, rollout, observability, deprecation and how you decide when the old contract can be removed.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 35
+classification:
+  competencies:
+    primary: api-design
+    secondary: [software-architecture, reliability-engineering, stakeholder-management, technical-judgement]
+  roles: [swe]
+  difficulty:
+    level: D4
+    drivers:
+      ambiguity: high
+      scope: high
+      tradeoff_reasoning: high
+      organisational_complexity: high
+      communication_demand: high
+    rationale: Requires resolving an ambiguous compatibility problem across many consumers and defending migration decisions under organisational constraints.
+  aspects: [requirements-elicitation, tradeoff-reasoning]
+  tags: [api-versioning, backward-compatibility, deprecation, migration]
+assessment:
+  intent: Assess whether the candidate can evolve a widely consumed API without treating versioning as a purely syntactic choice.
+  must_surface:
+  - identifies existing consumer compatibility as a primary constraint
+  - proposes an explicit compatibility or versioning strategy
+  - provides a staged migration and deprecation path
+  - uses telemetry to understand old-version usage
+  - defines communication and support expectations for consumers
+  strong_signals:
+  - considers additive changes before a new major contract
+  - distinguishes source compatibility from behavioural compatibility
+  - defines exit criteria from observed migration rather than time alone
+  - includes rollback and contract testing
+  red_flags:
+  - changes the existing contract in place and expects clients to adapt
+  - removes the old API based only on elapsed time
+  - ignores consumer communication
+  rubric:
+  - id: compatibility
+    criterion: Preserves existing consumers while enabling the new capability.
+    importance: essential
+  - id: migration
+    criterion: Provides a staged, observable and reversible migration plan.
+    importance: essential
+  - id: coordination
+    criterion: Accounts for consumer communication, ownership and deprecation governance.
+    importance: supporting
+followups:
+- id: f1
+  prompt: A major customer cannot migrate before your planned deprecation date. What evidence would you use to decide whether to extend support?
+  axis: organisational-complexity
+  difficulty_effect: same
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

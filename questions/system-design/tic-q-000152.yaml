@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000152
+revision: 1
+status: draft
+question:
+  prompt: A new recommendation algorithm is ready but product wants exposure limited to 5% of users before a full release. Design a feature-flag rollout and explain the evidence and rollback conditions you would use.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: software-delivery-practices, secondary: [ci-cd, observability, experimentation, ownership-and-delivery]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: medium, failure_reasoning: medium, tradeoff_reasoning: medium}
+    rationale: Applies progressive delivery and reversible rollout to a bounded feature change.
+  tags: [feature-flags, canary, progressive-delivery]
+assessment:
+  intent: Assess whether the candidate can release code separately from broad feature exposure and use evidence to expand or roll back.
+  must_surface: [defines deterministic cohorting or exposure, monitors agreed success and safety signals, can disable or reduce exposure quickly]
+  strong_signals: [plans flag cleanup after successful rollout]
+  red_flags: [treats a 5% rollout as safe without defining what will be monitored]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

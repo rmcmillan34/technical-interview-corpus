@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+id: tic-q-000228
+revision: 1
+status: draft
+question:
+  prompt: A deployment issue recurs after a retrospective already recommended a fix. How would you determine
+    why the lesson failed to change practice and make the next improvement verifiable?
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 15
+classification:
+  competencies:
+    primary: learning-and-reflection
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      ambiguity: medium
+    rationale: Applies principles to a bounded scenario with explicit constraints and verifiable actions.
+  tags:
+  - learning-and-reflection
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable learning-and-reflection evidence at D2.
+  must_surface:
+  - Examines whether the prior action addressed the cause and had an owner, capacity and an observable
+    completion condition.
+  - Chooses a concrete change to workflow, automation or training based on evidence rather than repeating
+    blame.
+  - Defines how to check adoption and recurrence over time and revises the intervention if evidence is
+    weak.
+  red_flags:
+  - Calls writing another retrospective sufficient evidence that the team has learned.
+  rubric:
+  - id: evidence-1
+    criterion: Examines whether the prior action addressed the cause and had an owner, capacity and an
+      observable completion condition.
+    importance: essential
+  - id: evidence-2
+    criterion: Chooses a concrete change to workflow, automation or training based on evidence rather
+      than repeating blame.
+    importance: essential
+  - id: evidence-3
+    criterion: Defines how to check adoption and recurrence over time and revises the intervention if
+      evidence is weak.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

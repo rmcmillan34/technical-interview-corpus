@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000108
+revision: 1
+status: draft
+question:
+  prompt: Why should delivery risks and schedule uncertainty be communicated before a deadline is actually missed?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [stakeholder-management, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests basic risk-escalation and expectation-management behaviour.
+  tags: [delivery-risk, escalation]
+assessment:
+  intent: Assess whether the candidate understands early risk communication as part of delivery ownership.
+  must_surface: [early notice creates options to change scope resources or timing, uncertainty should be communicated with evidence rather than hidden]
+  red_flags: [waits until the deadline to report a known risk]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

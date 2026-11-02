@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000115
+revision: 1
+status: draft
+question:
+  prompt: You finish the planned implementation but the acceptance test exposes a defect that will require another day. The stakeholder expected the feature today. How do you handle the situation?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 12
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [technical-judgement, stakeholder-management, testing]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: medium, tradeoff_reasoning: medium, communication_demand: medium}
+    rationale: Applies outcome ownership when implementation completeness conflicts with acceptance evidence.
+  tags: [acceptance, quality, delivery]
+assessment:
+  intent: Assess whether the candidate protects the intended outcome while communicating schedule impact honestly.
+  must_surface: [does not redefine the defective change as done, communicates evidence and revised options]
+  strong_signals: [considers safe scope reduction or rollback rather than suppressing the failing test]
+  red_flags: [ships known incorrect behaviour solely to preserve the original date]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

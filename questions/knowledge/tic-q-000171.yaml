@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000171
+revision: 1
+status: draft
+question:
+  prompt: Explain continuous integration and continuous delivery/deployment. What problem does each practice try to reduce?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: ci-cd, secondary: [software-delivery-practices, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational CI/CD vocabulary and intent.
+  tags: [continuous-integration, continuous-delivery]
+assessment:
+  intent: Assess whether the candidate distinguishes frequent integration from automated releasability/deployment.
+  must_surface: [continuous integration integrates and validates changes frequently, continuous delivery keeps software releasable through automation while continuous deployment can automatically release validated changes]
+  red_flags: [treats CI and production deployment as identical concepts]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

@@ -1,0 +1,39 @@
+schema_version: 0.1.0
+id: tic-q-000039
+revision: 1
+status: draft
+question:
+  prompt: >
+    Compare breadth-first search and depth-first search for traversing a graph. What data structure is normally used
+    by each, what order do they explore nodes in, and when does BFS give a shortest path?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary: [data-structures, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests recognition and explanation of foundational graph-traversal behaviour.
+  tags: [graphs, bfs, dfs]
+assessment:
+  intent: Assess whether the candidate can distinguish BFS and DFS and select their basic use cases.
+  must_surface:
+  - BFS commonly uses a queue and explores by distance layers
+  - DFS commonly uses a stack or recursion and follows a path deeply before backtracking
+  - BFS finds shortest paths in unweighted or equally weighted graphs
+  strong_signals:
+  - states O(V+E) traversal complexity with adjacency-list representation
+  red_flags:
+  - claims DFS always finds a shortest path
+  rubric:
+  - {id: concepts, criterion: Correctly compares BFS and DFS traversal semantics and common uses., importance: essential}
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

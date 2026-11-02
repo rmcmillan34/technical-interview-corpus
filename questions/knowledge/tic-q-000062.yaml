@@ -1,0 +1,41 @@
+schema_version: 0.1.0
+id: tic-q-000062
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain the purpose of HTTP status codes in an API. What is the broad difference between 2xx, 4xx and 5xx responses, and why should an API choose status codes consistently?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies:
+    primary: api-design
+    secondary: [communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Requires recall and explanation of standard HTTP response semantics.
+  tags: [http, status-codes]
+assessment:
+  intent: Assess whether the candidate understands basic HTTP response classes and their role in API contracts.
+  must_surface:
+  - 2xx indicates successful handling
+  - 4xx indicates a client-side/request problem
+  - 5xx indicates a server-side failure
+  strong_signals:
+  - distinguishes transport status from application-specific error detail
+  - explains why consistent status choices improve client behaviour
+  red_flags:
+  - recommends returning 200 for every outcome without a reasoned contract
+  rubric:
+  - id: semantics
+    criterion: Correctly explains the major HTTP status-code classes.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

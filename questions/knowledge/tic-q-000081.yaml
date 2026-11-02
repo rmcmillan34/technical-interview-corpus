@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+id: tic-q-000081
+revision: 1
+status: draft
+question:
+  prompt: What is the difference between a symptom and a root cause when debugging? How should a debugging hypothesis help you choose the next piece of evidence to collect?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: debugging, secondary: [technical-judgement, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low, failure_reasoning: low}
+    rationale: Tests foundational debugging reasoning without implementation.
+  tags: [root-cause, hypotheses]
+assessment:
+  intent: Assess whether the candidate distinguishes observable failure from underlying cause and uses hypotheses to guide evidence collection.
+  must_surface:
+  - a symptom is observed incorrect behaviour while a root cause explains why it occurs
+  - a hypothesis should make a prediction that can be checked with evidence
+  strong_signals:
+  - prefers discriminating evidence over random changes
+  red_flags:
+  - treats the first visible error as proof of root cause
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

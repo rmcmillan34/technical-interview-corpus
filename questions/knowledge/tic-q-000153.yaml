@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000153
+revision: 1
+status: draft
+question:
+  prompt: Explain the difference between latency and throughput. Give an example where improving one does not necessarily improve the other.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: performance-engineering, secondary: [communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, quantitative_reasoning: low, ambiguity: low}
+    rationale: Tests foundational performance vocabulary and trade-off awareness.
+  tags: [latency, throughput]
+assessment:
+  intent: Assess whether the candidate distinguishes per-operation delay from work completed per unit time.
+  must_surface: [latency measures elapsed time for an operation or request, throughput measures rate of completed work]
+  strong_signals: [notes batching can improve throughput while increasing individual latency]
+  red_flags: [treats latency and throughput as interchangeable]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

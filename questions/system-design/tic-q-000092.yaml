@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+id: tic-q-000092
+revision: 1
+status: draft
+question:
+  prompt: Decompose a checkout feature into modules for cart management, pricing, inventory reservation, payment initiation and order creation. Define which responsibilities belong together and which interfaces should cross module boundaries.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 22
+classification:
+  competencies: {primary: software-architecture, secondary: [api-design, data-modelling, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: medium, scope: medium, tradeoff_reasoning: medium}
+    rationale: Applies cohesion and boundary reasoning to a bounded business workflow.
+  tags: [decomposition, checkout, module-boundaries]
+assessment:
+  intent: Assess whether the candidate groups cohesive responsibilities and defines explicit interaction contracts.
+  must_surface:
+  - separates pricing, inventory, payment and order responsibilities coherently
+  - identifies data or commands crossing module boundaries
+  strong_signals:
+  - distinguishes domain ownership from incidental technical layering
+  red_flags:
+  - creates modules with circular or undefined responsibility ownership
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

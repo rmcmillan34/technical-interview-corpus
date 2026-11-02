@@ -1,0 +1,44 @@
+schema_version: 0.1.0
+id: tic-q-000068
+revision: 1
+status: draft
+question:
+  prompt: >
+    Design a small HTTP API for a personal task list. Define the resources, endpoints and methods for creating, reading, updating and deleting tasks, and specify representative success and validation/error responses.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 20
+classification:
+  competencies:
+    primary: api-design
+    secondary: [data-modelling, communication]
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: low, scope: low, tradeoff_reasoning: low}
+    rationale: Applies foundational API concepts to a bounded CRUD contract with explicit response semantics.
+  tags: [crud, http, resources]
+assessment:
+  intent: Assess whether the candidate can turn a simple domain into a coherent HTTP contract.
+  must_surface:
+  - identifies task resources and collection/item endpoints
+  - selects defensible methods for create/read/update/delete operations
+  - defines representative success and invalid-request responses
+  strong_signals:
+  - distinguishes full replacement from partial update semantics
+  - defines stable identifiers and clear request/response fields
+  red_flags:
+  - exposes only generic action endpoints without articulating a contract
+  rubric:
+  - id: contract
+    criterion: Produces a coherent bounded API contract.
+    importance: essential
+  - id: semantics
+    criterion: Uses methods and responses consistently.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

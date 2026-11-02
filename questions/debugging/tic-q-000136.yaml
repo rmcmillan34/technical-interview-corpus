@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000136
+revision: 1
+status: draft
+question:
+  prompt: A service's resident memory climbs steadily while request volume is flat. The managed-language heap remains stable, but the process has a growing number of open sockets and file descriptors. Describe your debugging approach and likely classes of operating-system resource leak.
+  domain: debugging
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: operating-systems, secondary: [debugging, observability, reliability-engineering]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: medium, failure_reasoning: medium}
+    rationale: Applies process-resource and descriptor concepts to a bounded operational symptom.
+  tags: [resource-leak, file-descriptors, sockets]
+assessment:
+  intent: Assess whether the candidate can investigate non-heap process resource growth using evidence.
+  must_surface: [checks descriptor/socket counts and ownership over time, investigates unclosed resources or native allocations rather than focusing only on managed heap]
+  strong_signals: [correlates growth with request paths and uses process or OS diagnostics]
+  red_flags: [concludes there cannot be a leak because managed heap is stable]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

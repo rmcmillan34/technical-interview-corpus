@@ -1,0 +1,39 @@
+schema_version: 0.1.0
+id: tic-q-000044
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain the divide-and-conquer pattern. What are the divide, solve and combine stages, and how does merge sort
+    illustrate the pattern? You do not need to derive a recurrence formally.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary: [communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests recognition of a common algorithm-design pattern using a familiar example.
+  tags: [divide-and-conquer, merge-sort, recursion]
+assessment:
+  intent: Assess whether the candidate recognises recursive problem decomposition and recombination.
+  must_surface:
+  - divides a problem into smaller subproblems
+  - solves the smaller problems and combines their results
+  - merge sort recursively sorts halves and merges sorted results
+  strong_signals:
+  - connects repeated halving plus linear merge work to O(n log n) intuition
+  red_flags:
+  - treats divide-and-conquer as synonymous with any recursive function
+  rubric:
+  - {id: concepts, criterion: Correctly explains divide-and-conquer and the merge-sort example., importance: essential}
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

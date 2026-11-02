@@ -1,0 +1,57 @@
+schema_version: 0.1.0
+id: tic-q-000216
+revision: 1
+status: draft
+question:
+  prompt: Two teams agree a shared client library is unreliable but neither can allocate a full rewrite.
+    How would you influence a bounded improvement that both teams can actually support?
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 15
+classification:
+  competencies:
+    primary: leadership-and-influence
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      ambiguity: medium
+    rationale: Applies principles to a bounded scenario with explicit constraints and verifiable actions.
+  tags:
+  - leadership-and-influence
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable leadership-and-influence evidence at D2.
+  must_surface:
+  - Finds a shared concrete failure and establishes constraints and affected owners.
+  - Proposes a small reversible improvement with clear responsibilities and evidence of benefit.
+  - Gets explicit agreement, tracks adoption and handles objections using trade-offs rather than authority.
+  red_flags:
+  - Promises an unowned rewrite and assumes agreement implies capacity.
+  rubric:
+  - id: evidence-1
+    criterion: Finds a shared concrete failure and establishes constraints and affected owners.
+    importance: essential
+  - id: evidence-2
+    criterion: Proposes a small reversible improvement with clear responsibilities and evidence of benefit.
+    importance: essential
+  - id: evidence-3
+    criterion: Gets explicit agreement, tracks adoption and handles objections using trade-offs rather
+      than authority.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

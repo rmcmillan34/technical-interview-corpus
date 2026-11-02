@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000180
+revision: 1
+status: draft
+question:
+  prompt: Design an infrastructure-as-code layout for the same small web service in development, staging and production. Explain what should be shared, what should vary by environment and how you avoid copying entire configurations three times.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: infrastructure-as-code, secondary: [cloud-architecture, software-architecture, software-delivery-practices]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, scope: medium, tradeoff_reasoning: medium}
+    rationale: Applies modules and environment-specific inputs to a bounded multi-environment design.
+  tags: [environments, modules, configuration]
+assessment:
+  intent: Assess whether the candidate can reuse a common infrastructure pattern while preserving explicit environment differences.
+  must_surface: [shares reusable modules or common definitions, separates environment-specific values or state, avoids uncontrolled copy-paste divergence]
+  strong_signals: [keeps production protections explicit rather than assuming all environments are identical]
+  red_flags: [maintains three unrelated copies with no strategy to keep them aligned]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

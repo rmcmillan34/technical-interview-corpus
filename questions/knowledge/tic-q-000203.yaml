@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000203
+revision: 1
+status: draft
+question:
+  prompt: What does least privilege mean for users, services and machine identities? Why is broad standing access risky even inside a trusted network?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: identity-and-access-control, secondary: [security-architecture, secrets-management]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, security_reasoning: low, ambiguity: low}
+    rationale: Tests foundational least-privilege reasoning.
+  tags: [least-privilege, service-identities]
+assessment:
+  intent: Assess whether the candidate understands reducing granted capability and blast radius.
+  must_surface: [identities receive only permissions required for their tasks, unnecessary standing access increases impact if credentials or accounts are compromised]
+  red_flags: [assumes internal identities can safely receive administrator access by default]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

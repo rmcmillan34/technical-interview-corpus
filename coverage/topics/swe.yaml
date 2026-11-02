@@ -1,0 +1,1936 @@
+schema_version: 0.1.0
+role: swe
+observed_at: '2026-11-03'
+status: draft
+purpose: Source-linked scope inventory for generation and assessment review; not a claim of completed corpus ingestion.
+policy:
+  count_floors_are_completion_criteria: false
+  preferred_counts_are_caps: false
+  discovery_and_population_separate: true
+  complete_requires: Every relevant topic has reviewed assessment evidence or an explicit justified deferral. A
+    gap or partial record keeps the pass open.
+  source_rights: Research-only sources supply topic discovery only. Question reuse requires the existing source-register
+    approval and permitted-use rules.
+  importance: Topics do not automatically change role importance or apply a general SWE floor to specialist tracks.
+source_snapshots:
+- source_id: src-system-design-primer
+  repository: donnemartin/system-design-primer
+  commit: ae9bbd7b02d90b9866215de185217d33f39ab733
+  files:
+  - path: README.md
+    blob_sha: 9e2cdb88dec86c34c9b49b657f5629a1866c6976
+  observation_scope: Root README catalogue only; linked resources and individual question banks not ingested.
+  reuse: topic-discovery-only
+- source_id: src-tech-interview-handbook
+  repository: yangshun/tech-interview-handbook
+  commit: e1d28e8886c0b6ff3e50da991ce0e895134ddc59
+  files:
+  - path: README.md
+    blob_sha: fd6916d7b061a112b3e0698c7e6ebdb4d2d3d763
+  - path: apps/website/contents/algorithms/array.md
+    blob_sha: c9e354bb74c2400e0f82dbe1b8c52e8d171bafcb
+  - path: apps/website/contents/algorithms/binary.md
+    blob_sha: 4ae7202469bfc1ea10a92895a7243cd569f56c37
+  - path: apps/website/contents/algorithms/dynamic-programming.md
+    blob_sha: ed5bbfc0132755deeb8bece182882be5102981bd
+  - path: apps/website/contents/algorithms/geometry.md
+    blob_sha: dff02f4c27753599517d961d493b3208e96ac6cb
+  - path: apps/website/contents/algorithms/graph.md
+    blob_sha: 77fab1b3aa5d2618336035a391fe3961bf4abe96
+  - path: apps/website/contents/algorithms/hash-table.md
+    blob_sha: e6a4f1758b188baed89efb461ec5f9785ec518c4
+  - path: apps/website/contents/algorithms/heap.md
+    blob_sha: 9e5a6606e7e4b7626a8975e6edfb737d203600f3
+  - path: apps/website/contents/algorithms/interval.md
+    blob_sha: f3cbb82838f622480d44b96ee6dea7a99b34c3a6
+  - path: apps/website/contents/algorithms/linked-list.md
+    blob_sha: 38dd9d7eda4f22bc0ecdab18952bb3271c195780
+  - path: apps/website/contents/algorithms/math.md
+    blob_sha: 683514650470e60de470a035354fcf6ed98ece33
+  - path: apps/website/contents/algorithms/matrix.md
+    blob_sha: 58128fec9e034eb9f9efac341c7bcaab4603ef67
+  - path: apps/website/contents/algorithms/oop.md
+    blob_sha: cd6244ab09c539bccbfc9f5898fde4f4bd380eb3
+  - path: apps/website/contents/algorithms/queue.md
+    blob_sha: 3d3309b286b9ae01512c9757460d9fa51bbe6035
+  - path: apps/website/contents/algorithms/recursion.md
+    blob_sha: 94bc6dcc03759c4ee82949c34beb0e546f5a783d
+  - path: apps/website/contents/algorithms/sorting-searching.md
+    blob_sha: ab01716642fb376bfecb3fd76741657ac514303c
+  - path: apps/website/contents/algorithms/stack.md
+    blob_sha: 1b2f8935f2b8822cc356bc0296f4e4468948b022
+  - path: apps/website/contents/algorithms/string.md
+    blob_sha: 77d8adc854bc6268b90f470457afae81d33ba08d
+  - path: apps/website/contents/algorithms/tree.md
+    blob_sha: 66a1ee4db5f4ba2643bc2c09bd0d91731521a9ab
+  - path: apps/website/contents/algorithms/trie.md
+    blob_sha: 3e70298b6fb8ccb8c3983f527bb954bd310da0d1
+  - path: apps/website/contents/behavioral-interview-rubrics.md
+    blob_sha: a464b91929cd2d76efcb6615fe026510cbabc0b7
+  - path: apps/website/contents/behavioral-interview-senior-candidates.md
+    blob_sha: 8f7b74ce40b3f2e6ac7307bb7222dbcfc3aae07f
+  - path: apps/website/contents/coding-interview-rubrics.md
+    blob_sha: 23c4faa9e996082b5e1b23e7a75c57d488f07b78
+  - path: apps/website/contents/coding-interview-techniques.md
+    blob_sha: 4184a281fe7326a609eb3f973918c7f7c5591b54
+  - path: apps/website/contents/system-design.md
+    blob_sha: 4a3cbb5fdda808eccdc8e622f57fc0bf0f611604
+  observation_scope: Root catalogue and selected repository-owned topic/rubric documents.
+  reuse: topic-discovery-only
+- source_id: src-coding-interview-university
+  repository: jwasham/coding-interview-university
+  commit: 717298bf219a30d7fb0671285c5f057b1bb74b27
+  files:
+  - path: README.md
+    blob_sha: 95a0d31a935c01c94f4b04ea5d8b7fc436c3dcf4
+  observation_scope: Root README catalogue only; linked resources and individual question banks not ingested.
+  reuse: topic-discovery-only
+- source_id: src-interview-rounds
+  repository: sumitsingh4411/interview-rounds
+  commit: 2208b4a3fa9526e2cad49a12e6d6e41c632eb815
+  files:
+  - path: README.md
+    blob_sha: b0f064ccf5071a4d61eec6e11f2a1be531df3b60
+  observation_scope: Root README catalogue only; linked resources and individual question banks not ingested.
+  reuse: topic-discovery-only
+- source_id: src-awesome-interview-questions
+  repository: DopplerHQ/awesome-interview-questions
+  commit: bcb0c90a0ab3c495857ca9ea63f367e68848346c
+  files:
+  - path: README.md
+    blob_sha: 671c49891ae9118db47e8c2362bd4e4c2180480a
+  observation_scope: Root README catalogue only; linked resources and individual question banks not ingested.
+  reuse: topic-discovery-only
+- source_id: src-the-coding-interview
+  repository: mre/the-coding-interview
+  commit: 3dae86e66e18b3847e93a5647d69c60609014a2f
+  files:
+  - path: README.md
+    blob_sha: 477dfe9a1812699dfa410ceddbaa71d5063e59f0
+  observation_scope: Root README catalogue only; linked resources and individual question banks not ingested.
+  reuse: topic-discovery-only
+topics:
+- id: sequence-operations
+  competencies:
+  - data-structures
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/array.md
+    locator: array
+  assessment_focus: Choose and implement array operations under indexing, mutation and cost constraints.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000048
+    field: rubric
+    criterion_id: structure
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: sequence-patterns
+  competencies:
+  - algorithms-and-complexity
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/array.md
+    locator: array
+  assessment_focus: Apply two-pointer, window, prefix-state and precomputation techniques to a bounded sequence
+    task.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: text-processing
+  competencies:
+  - programming
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/string.md
+    locator: string
+  assessment_focus: Handle string scans, character counts, matching and representation assumptions.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: linked-structure-operations
+  competencies:
+  - data-structures
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/linked-list.md
+    locator: linked-list
+  assessment_focus: Reason about links, sentinels, pointer updates and cycle detection.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000048
+    field: rubric
+    criterion_id: structure
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: stack-applications
+  competencies:
+  - data-structures
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/stack.md
+    locator: stack
+  assessment_focus: Maintain LIFO invariants in parsing or nested-state processing.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000049
+    field: rubric
+    criterion_id: semantics
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: queue-applications
+  competencies:
+  - data-structures
+  - concurrency
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/queue.md
+    locator: queue
+  assessment_focus: Choose queue semantics and implement bounded or traversal worklists.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000049
+    field: rubric
+    criterion_id: semantics
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: hashing-and-sets
+  competencies:
+  - data-structures
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/hash-table.md
+    locator: hash-table
+  assessment_focus: Explain collisions, expected costs, identity and set membership.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000050
+    field: rubric
+    criterion_id: mechanics
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: heap-operations
+  competencies:
+  - data-structures
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/heap.md
+    locator: heap
+  assessment_focus: Maintain ordering under insertion, removal and bounded top-k requirements.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000052
+    field: rubric
+    criterion_id: invariant
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: interval-reasoning
+  competencies:
+  - algorithms-and-complexity
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/interval.md
+    locator: interval
+  assessment_focus: Define endpoints and reason about overlap, merging and ordering.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000011
+    field: rubric
+    criterion_id: approach
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: search-and-sort
+  competencies:
+  - algorithms-and-complexity
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/sorting-searching.md
+    locator: sorting-searching
+  assessment_focus: Choose and implement searching or sorting using invariants and constraints.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000038
+    field: rubric
+    criterion_id: concepts
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: stable-ordering
+  competencies:
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/sorting-searching.md
+    locator: sorting-searching
+  assessment_focus: Distinguish stability and comparison assumptions when selecting an ordering method.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000041
+    field: rubric
+    criterion_id: concepts
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: recursion-state
+  competencies:
+  - programming
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/recursion.md
+    locator: recursion
+  assessment_focus: Define base cases, progress, state restoration and call-stack costs.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000040
+    field: rubric
+    criterion_id: concepts
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: memoisation-and-dp
+  competencies:
+  - algorithms-and-complexity
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/dynamic-programming.md
+    locator: dynamic-programming
+  assessment_focus: Derive a recurrence, state, transition and evaluation order; implement and verify it.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000042
+    field: rubric
+    criterion_id: concepts
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: binary-tree-traversal
+  competencies:
+  - data-structures
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/tree.md
+    locator: tree
+  assessment_focus: Traverse and update trees while preserving structure and ordering assumptions.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000051
+    field: rubric
+    criterion_id: structure
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: prefix-indexes
+  competencies:
+  - data-structures
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/trie.md
+    locator: trie
+  assessment_focus: Select prefix structures and analyse memory, insertion and lookup behaviour.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: graph-models
+  competencies:
+  - data-structures
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/graph.md
+    locator: graph
+  assessment_focus: Choose a graph representation and define traversal state.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000053
+    field: rubric
+    criterion_id: representation
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: graph-traversal
+  competencies:
+  - algorithms-and-complexity
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/graph.md
+    locator: graph
+  assessment_focus: Apply traversal, component and dependency reasoning, including cycles.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000039
+    field: rubric
+    criterion_id: concepts
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: bit-representation
+  competencies:
+  - programming
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/binary.md
+    locator: binary
+  assessment_focus: Reason about binary representation, masks, shifts and finite-width edge cases.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: grid-indexing
+  competencies:
+  - data-structures
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/matrix.md
+    locator: matrix
+  assessment_focus: Translate indices and implement grid traversal or transformation with boundary checks.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: geometry-problems
+  competencies:
+  - algorithms-and-complexity
+  - quantitative-reasoning
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/geometry.md
+    locator: geometry
+  assessment_focus: Reason about geometric predicates and numeric edge cases in a bounded problem.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: arithmetic-correctness
+  competencies:
+  - programming
+  - quantitative-reasoning
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/math.md
+    locator: math
+  assessment_focus: Handle overflow, numeric boundaries and floating-point comparisons explicitly.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: complexity-and-correctness
+  competencies:
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Algorithmic complexity / Big-O / Asymptotic analysis
+  assessment_focus: Analyse time and space growth and defend correctness under constraints.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000021
+    field: rubric
+    criterion_id: concepts
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: amortised-analysis
+  competencies:
+  - algorithms-and-complexity
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Algorithmic complexity / Big-O / Asymptotic analysis
+  assessment_focus: Distinguish occasional expensive operations from cost over an operation sequence.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000043
+    field: rubric
+    criterion_id: concepts
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: runtime-program-execution
+  competencies:
+  - programming
+  - operating-systems
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: How computers process a program
+  assessment_focus: Explain translation, linking or execution boundaries relevant to the selected language.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: object-and-interface-design
+  competencies:
+  - software-architecture
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/algorithms/oop.md
+    locator: oop
+  assessment_focus: Decompose a bounded component into responsibilities, interfaces and collaborating objects.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000089
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: pattern-selection
+  competencies:
+  - software-architecture
+  - technical-judgement
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Design Patterns
+  assessment_focus: Select or reject a pattern based on coupling, change and testability rather than naming it.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: cache-hierarchy-and-locality
+  competencies:
+  - performance-engineering
+  - operating-systems
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Caches
+  assessment_focus: Reason about locality and hardware-memory access effects, distinct from distributed caching.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: process-memory-and-scheduling
+  competencies:
+  - operating-systems
+  - concurrency
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Processes and Threads
+  assessment_focus: Explain process/thread isolation, scheduling and resource ownership.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000132
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: virtual-memory
+  competencies:
+  - operating-systems
+  - performance-engineering
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Processes and Threads
+  assessment_focus: Explain address spaces, paging and memory-pressure effects on applications.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000133
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: resource-lifecycle
+  competencies:
+  - operating-systems
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: How computers process a program
+  assessment_focus: Manage files, descriptors and other resources across success and failure paths.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000135
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: text-encoding
+  competencies:
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Unicode
+  assessment_focus: Distinguish bytes, code points and user-visible text units in a contract.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: floating-point
+  competencies:
+  - programming
+  - quantitative-reasoning
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Floating Point Numbers
+  assessment_focus: Choose comparison and representation rules for approximate arithmetic.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: byte-order
+  competencies:
+  - programming
+  - networking
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Endianness
+  assessment_focus: Interpret multi-byte values correctly across storage and network boundaries.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: probability-and-counting
+  competencies:
+  - probability
+  - quantitative-reasoning
+  - algorithms-and-complexity
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Combinatorics (n choose k) & Probability
+  assessment_focus: Use elementary counting and probability when a role-specific problem requires them.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: intractability-and-approximation
+  competencies:
+  - algorithms-and-complexity
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: NP, NP-Complete and Approximation Algorithms
+  assessment_focus: Recognise computational limits and justify bounded exact or approximate approaches.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: compiler-basics
+  competencies:
+  - programming
+  - operating-systems
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Compilers
+  assessment_focus: Explain compiler/interpreter stages and diagnose a relevant execution boundary.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: garbage-collection
+  competencies:
+  - programming
+  - operating-systems
+  - performance-engineering
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Garbage collection
+  assessment_focus: Reason about reachability, allocation pressure and collection trade-offs.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: shell-and-unix-workflows
+  competencies:
+  - programming
+  - service-operations
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Unix command line tools
+  assessment_focus: Combine command-line tools safely for bounded investigation or transformation.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: parallel-work
+  competencies:
+  - concurrency
+  - performance-engineering
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Parallel Programming
+  assessment_focus: Partition work and reason about coordination overhead and shared-state correctness.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000146
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: wire-format-and-queues
+  competencies:
+  - api-design
+  - distributed-systems
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Messaging, Serialization, and Queueing Systems
+  assessment_focus: Choose serialization and delivery contracts across independently changing consumers.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000151
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: heuristic-search
+  competencies:
+  - algorithms-and-complexity
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: A*
+  assessment_focus: State the role of heuristic assumptions in search correctness and efficiency.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: probabilistic-data-structures
+  competencies:
+  - data-structures
+  - algorithms-and-complexity
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Bloom Filter
+  assessment_focus: Choose approximate membership/counting structures and explain their error model.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: advanced-index-structures
+  competencies:
+  - data-structures
+  - algorithms-and-complexity
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Balanced search trees
+  assessment_focus: Recognise when balanced, spatial, augmented or probabilistic indexing is useful.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: connectivity-and-flow
+  competencies:
+  - algorithms-and-complexity
+  - data-structures
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Disjoint Sets & Union Find
+  assessment_focus: Model connectivity or flow constraints and select a suitable graph technique.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: numerical-and-optimisation-specialisms
+  competencies:
+  - numerical-computing
+  - algorithms-and-complexity
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Fast Fourier Transform
+  assessment_focus: Recognise role-specific numerical, transform and optimisation requirements without imposing
+    them on every SWE interview.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: discrete-reasoning
+  competencies:
+  - quantitative-reasoning
+  - algorithms-and-complexity
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Discrete math
+  assessment_focus: Reason about finite structures, logic, relations and counting when the task requires it.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: network-flow-specialisms
+  competencies:
+  - algorithms-and-complexity
+  - data-structures
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Network Flows
+  assessment_focus: Model capacities and justify a flow algorithm for a relevant specialist problem.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: error-correction
+  competencies:
+  - programming
+  - networking
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Parity & Hamming Code
+  assessment_focus: Reason about detection and correction limits for encoded data in a specialist setting.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: information-and-entropy
+  competencies:
+  - quantitative-reasoning
+  - algorithms-and-complexity
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Entropy
+  assessment_focus: Relate uncertainty and representation limits to a bounded coding or compression problem.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: compression-and-information
+  competencies:
+  - algorithms-and-complexity
+  - programming
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Compression
+  assessment_focus: Explain representation-size trade-offs and correctness for a selected encoding problem.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: cryptography-boundaries
+  competencies:
+  - applied-cryptography
+  - application-security
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-coding-interview-university
+    path: README.md
+    locator: Cryptography
+  assessment_focus: Distinguish cryptographic purposes, trust assumptions and safe use of established primitives.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: system-requirements
+  competencies:
+  - software-architecture
+  - technical-judgement
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: How to approach a system design interview question
+  assessment_focus: Elicit use cases and quality constraints before committing to components.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000090
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: capacity-estimation
+  competencies:
+  - performance-engineering
+  - quantitative-reasoning
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Back-of-the-envelope calculations
+  assessment_focus: Estimate workload, storage and bandwidth with stated units and assumptions.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: quality-attribute-tradeoffs
+  competencies:
+  - software-architecture
+  - technical-judgement
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Performance vs scalability
+  assessment_focus: Distinguish performance, scalability and competing quality attributes.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000086
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: latency-throughput
+  competencies:
+  - performance-engineering
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Latency vs throughput
+  assessment_focus: Measure response time and throughput and explain why they can diverge.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000153
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: consistency-models
+  competencies:
+  - distributed-systems
+  - databases
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Consistency patterns
+  assessment_focus: State visibility and ordering guarantees and relate them to application needs.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000097
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: partition-behaviour
+  competencies:
+  - distributed-systems
+  - reliability-engineering
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Availability vs consistency
+  assessment_focus: Explain behaviour under partition instead of treating CAP as an unconstrained slogan.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000096
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: availability-and-failover
+  competencies:
+  - reliability-engineering
+  - cloud-architecture
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Availability patterns
+  assessment_focus: Choose failover and replication controls, including failure boundaries.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000159
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: dns-resolution
+  competencies:
+  - networking
+  - service-operations
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Domain name system
+  assessment_focus: Trace name resolution and distinguish it from connection and service failures.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000138
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: edge-delivery
+  competencies:
+  - cloud-architecture
+  - performance-engineering
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Content delivery network
+  assessment_focus: Choose push/pull or versioned edge delivery and reason about freshness.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000160
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: load-balancing
+  competencies:
+  - networking
+  - software-architecture
+  - reliability-engineering
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Load balancer
+  assessment_focus: Select routing level, balancing and health semantics for a service.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: reverse-proxy-boundaries
+  competencies:
+  - networking
+  - software-architecture
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Reverse proxy (web server)
+  assessment_focus: Separate proxy, balancing and application responsibilities.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: service-discovery
+  competencies:
+  - distributed-systems
+  - service-operations
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Application layer
+  assessment_focus: Locate changing service instances and reason about stale endpoints and failure.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: service-boundaries
+  competencies:
+  - software-architecture
+  - distributed-systems
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Application layer
+  assessment_focus: Choose component/service boundaries and assess operational costs.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000088
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: relational-storage
+  competencies:
+  - databases
+  - data-modelling
+  - sql
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Relational database management system (RDBMS)
+  assessment_focus: Choose relational constraints, access paths and query shapes.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000192
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: replication-and-sharding
+  competencies:
+  - databases
+  - distributed-systems
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Database
+  assessment_focus: Separate replication, partitioning and federation decisions.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000098
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: schema-and-query-tradeoffs
+  competencies:
+  - data-modelling
+  - databases
+  - sql
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: SQL tuning
+  assessment_focus: Choose modelling and index changes from measured query behaviour.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000029
+    field: rubric
+    criterion_id: diagnosis
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: storage-model-selection
+  competencies:
+  - databases
+  - data-modelling
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: NoSQL
+  assessment_focus: Compare document, key-value, graph and column-family models for actual access needs.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: cache-update-policies
+  competencies:
+  - distributed-systems
+  - performance-engineering
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: When to update the cache
+  assessment_focus: Compare read/write cache policies, invalidation and stale-state failure modes.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000009
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: asynchronous-work
+  competencies:
+  - distributed-systems
+  - reliability-engineering
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Asynchronism
+  assessment_focus: Define acknowledgement, retries, poison handling and backpressure.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000031
+    field: rubric
+    criterion_id: semantics
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: transport-semantics
+  competencies:
+  - networking
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Communication
+  assessment_focus: Distinguish HTTP, TCP, UDP and their relevant guarantees.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000139
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: api-styles-and-contracts
+  competencies:
+  - api-design
+  - software-architecture
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Communication
+  assessment_focus: Choose RPC or resource-oriented contracts and discuss evolution costs.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000061
+    field: rubric
+    criterion_id: modelling
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: secure-system-boundaries
+  competencies:
+  - security-architecture
+  - application-security
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Security
+  assessment_focus: Identify input, transport and trust-boundary controls during design.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000198
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: cloud-scalability
+  competencies:
+  - cloud-architecture
+  - reliability-engineering
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-system-design-primer
+    path: README.md
+    locator: Design a system that scales to millions of users on AWS
+  assessment_focus: Choose managed primitives, scaling and resilience under explicit constraints.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000162
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: coding-communication
+  competencies:
+  - communication
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/coding-interview-rubrics.md
+    locator: Document scope
+  assessment_focus: Make assumptions and reasoning understandable while producing executable work.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000011
+    field: rubric
+    criterion_id: approach
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: problem-decomposition
+  competencies:
+  - algorithms-and-complexity
+  - technical-judgement
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/coding-interview-techniques.md
+    locator: Document scope
+  assessment_focus: Break an unfamiliar problem into tractable parts and test candidate approaches.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000012
+    field: rubric
+    criterion_id: modelling
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: implementation-quality
+  competencies:
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/coding-interview-rubrics.md
+    locator: Document scope
+  assessment_focus: Use appropriate constructs and abstractions to implement a complete maintainable solution.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000013
+    field: rubric
+    criterion_id: structures
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: verification-strategy
+  competencies:
+  - testing
+  - debugging
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/coding-interview-rubrics.md
+    locator: Document scope
+  assessment_focus: Select examples, boundaries, failure paths and diagnostic checks that establish behaviour.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000080
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: ownership-and-initiative
+  competencies:
+  - ownership-and-delivery
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/behavioral-interview-rubrics.md
+    locator: Ability to be proactive
+  assessment_focus: Establish personal responsibility and concrete follow-through using credible evidence.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000118
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: adaptation-under-uncertainty
+  competencies:
+  - ambiguity-and-adaptability
+  - prioritisation
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/behavioral-interview-rubrics.md
+    locator: Ability to work in an unstructured environment
+  assessment_focus: Clarify unknowns and adapt a justified plan when circumstances change.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000017
+    field: rubric
+    criterion_id: uncertainty
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: constructive-disagreement
+  competencies:
+  - collaboration-and-conflict
+  - communication
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/behavioral-interview-rubrics.md
+    locator: Conflict resolution and empathy
+  assessment_focus: Represent competing views fairly and improve the decision process.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000131
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: learning-from-feedback
+  competencies:
+  - learning-and-reflection
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/behavioral-interview-rubrics.md
+    locator: Growth
+  assessment_focus: Show a changed practice and evidence that learning affected later behaviour.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000019
+    field: rubric
+    criterion_id: specificity
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: influence-and-scope
+  competencies:
+  - leadership-and-influence
+  - stakeholder-management
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-tech-interview-handbook
+    path: apps/website/contents/behavioral-interview-senior-candidates.md
+    locator: Document scope
+  assessment_focus: Explain alignment, influence and personal impact across differing priorities.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000020
+    field: rubric
+    criterion_id: context
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: bounded-component-build
+  competencies:
+  - programming
+  - testing
+  - software-architecture
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-interview-rounds
+    path: README.md
+    locator: Machine Coding
+  assessment_focus: Build and demonstrate a bounded working component, including interfaces and tests.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: low-level-design
+  competencies:
+  - software-architecture
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-interview-rounds
+    path: README.md
+    locator: Low-Level Design
+  assessment_focus: Defend concrete types, responsibilities and extension boundaries in a focused design.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000090
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: stack-depth-and-project-evidence
+  competencies:
+  - programming
+  - technical-judgement
+  - learning-and-reflection
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-interview-rounds
+    path: README.md
+    locator: Tech Deep-Dive
+  assessment_focus: Defend implementation choices and transfer experience to an unfamiliar but related technology.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: role-scope-and-impact
+  competencies:
+  - ownership-and-delivery
+  - leadership-and-influence
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-interview-rounds
+    path: README.md
+    locator: Hiring Manager
+  assessment_focus: Connect personal decisions and delivery evidence to the scope of the target role.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000118
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: language-runtime-variants
+  competencies:
+  - programming
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: Programming Languages/Frameworks/Platforms
+  assessment_focus: Assess the selected language/runtime semantics through a concrete use case.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: frontend-web
+  competencies:
+  - programming
+  - api-design
+  - software-architecture
+  - testing
+  - performance-engineering
+  - application-security
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: HTML
+  assessment_focus: Treat browser/UI state, rendering, client-server boundaries and browser-specific assurance as
+    a specialist scope.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: frontend-styling
+  competencies:
+  - programming
+  - testing
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: CSS
+  assessment_focus: Treat styling/layout behaviour as specialist assessment rather than proof of backend competence.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: frontend-frameworks
+  competencies:
+  - programming
+  - software-architecture
+  - testing
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: ReactJS
+  assessment_focus: Use framework variants only when they test a distinct state, lifecycle or architecture decision.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: frontend-toolchains
+  competencies:
+  - software-delivery-practices
+  - ci-cd
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: Front-end build tools
+  assessment_focus: Assess build, packaging and dependency concerns for the selected frontend stack.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: mobile-platforms
+  competencies:
+  - programming
+  - software-architecture
+  - testing
+  - performance-engineering
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: Android
+  assessment_focus: Track mobile lifecycle, state, storage and platform-specific constraints as a specialist scope.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: mobile-ios
+  competencies:
+  - programming
+  - software-architecture
+  - testing
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: iOS
+  assessment_focus: Track the iOS platform variant separately from generic algorithm competence.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: backend-frameworks
+  competencies:
+  - programming
+  - api-design
+  - software-architecture
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: Django
+  assessment_focus: Use backend framework variants for distinct request, persistence or integration behaviour.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: graphql-contracts
+  competencies:
+  - api-design
+  - application-security
+  - performance-engineering
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: GraphQl
+  assessment_focus: Assess schema, query execution and authorization concerns as an API-style variant.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: data-platform-variants
+  competencies:
+  - databases
+  - data-modelling
+  - sql
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: Database technologies
+  assessment_focus: Separate technology bindings from the generic storage and query competencies.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: cache-platform-variants
+  competencies:
+  - distributed-systems
+  - performance-engineering
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: Caching technologies
+  assessment_focus: Use cache technology variants only for materially different semantics or failure modes.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: container-runtime-variants
+  competencies:
+  - containerisation
+  - service-operations
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: Docker
+  assessment_focus: Track container packaging, execution and isolation evidence.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000163
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: platform-operations-variants
+  competencies:
+  - operating-systems
+  - service-operations
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: OS
+  assessment_focus: Track platform-specific diagnostics, processes and resource boundaries.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000136
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: delivery-and-devops
+  competencies:
+  - software-delivery-practices
+  - ci-cd
+  - infrastructure-as-code
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: DevOps
+  assessment_focus: Retain review, configuration and delivery practices as assessable engineering work.
+  status: partial
+  question_evidence:
+  - question_id: tic-q-000175
+    field: must_surface
+    index: 0
+    qualification: Partial topic evidence only; full source-topic assessment and difficulty calibration remain pending.
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: security-contexts
+  competencies:
+  - application-security
+  - security-architecture
+  scope: specialist
+  origin: source-discovery
+  sources:
+  - source_id: src-awesome-interview-questions
+    path: README.md
+    locator: Security
+  assessment_focus: Identify security topic candidates and verify the exact assessment scope before claiming coverage.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: practical-sequence-variety
+  competencies:
+  - algorithms-and-complexity
+  - programming
+  scope: general
+  origin: source-discovery
+  sources:
+  - source_id: src-the-coding-interview
+    path: README.md
+    locator: Maintenance status
+  assessment_focus: Track distinct string, sequence, searching and sorting practice rather than repeatedly reusing
+    caches.
+  status: gap
+  question_evidence: []
+  next_action: Review the linked assessment evidence and add or extend a question only for uncovered decisions,
+    failure modes, implementation or modality.
+- id: baseline-observability
+  competencies:
+  - observability
+  scope: general
+  origin: existing-role-profile
+  sources: []
+  profile_path: evidence/role-profiles/swe.yaml
+  assessment_focus: Reconcile the existing role-plan competency with distinct assessment subtopics and source evidence;
+    this mapping gap does not imply no questions exist.
+  status: gap
+  question_evidence: []
+  next_action: Reconcile existing questions and source evidence at subtopic level; do not infer coverage from a
+    competency count.
+- id: baseline-threat-modelling
+  competencies:
+  - threat-modelling
+  scope: general
+  origin: existing-role-profile
+  sources: []
+  profile_path: evidence/role-profiles/swe.yaml
+  assessment_focus: Reconcile the existing role-plan competency with distinct assessment subtopics and source evidence;
+    this mapping gap does not imply no questions exist.
+  status: gap
+  question_evidence: []
+  next_action: Reconcile existing questions and source evidence at subtopic level; do not infer coverage from a
+    competency count.
+- id: baseline-identity-and-access-control
+  competencies:
+  - identity-and-access-control
+  scope: general
+  origin: existing-role-profile
+  sources: []
+  profile_path: evidence/role-profiles/swe.yaml
+  assessment_focus: Reconcile the existing role-plan competency with distinct assessment subtopics and source evidence;
+    this mapping gap does not imply no questions exist.
+  status: gap
+  question_evidence: []
+  next_action: Reconcile existing questions and source evidence at subtopic level; do not infer coverage from a
+    competency count.
+- id: baseline-secrets-management
+  competencies:
+  - secrets-management
+  scope: general
+  origin: existing-role-profile
+  sources: []
+  profile_path: evidence/role-profiles/swe.yaml
+  assessment_focus: Reconcile the existing role-plan competency with distinct assessment subtopics and source evidence;
+    this mapping gap does not imply no questions exist.
+  status: gap
+  question_evidence: []
+  next_action: Reconcile existing questions and source evidence at subtopic level; do not infer coverage from a
+    competency count.

@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+id: tic-q-000070
+revision: 1
+status: draft
+question:
+  prompt: >
+    Design an API for submitting a long-running report-generation job. A client must be able to submit work, learn whether it was accepted, query status, retrieve the finished result and request cancellation. Define the core contract and failure states.
+  domain: system-design
+  response_modes: [discussion, written]
+  timebox_minutes: 22
+classification:
+  competencies:
+    primary: api-design
+    secondary: [reliability-engineering, distributed-systems, communication]
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: medium, failure_reasoning: medium, tradeoff_reasoning: medium}
+    rationale: Applies asynchronous-operation semantics to a bounded job lifecycle and client contract.
+  tags: [async-api, jobs, cancellation]
+assessment:
+  intent: Assess whether the candidate can model a long-running operation as an explicit API lifecycle.
+  must_surface:
+  - returns or exposes a stable operation/job identifier after acceptance
+  - defines status states including terminal success and failure
+  - defines how result retrieval and cancellation behave
+  - distinguishes request acceptance from eventual job success
+  strong_signals:
+  - considers idempotent submission or duplicate client retries
+  - makes cancellation best-effort or state-dependent explicitly
+  red_flags:
+  - returns success on submission with no way to discover later failure
+  rubric:
+  - id: lifecycle
+    criterion: Models the asynchronous job lifecycle coherently.
+    importance: essential
+  - id: failure
+    criterion: Makes acceptance, failure and cancellation semantics explicit.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

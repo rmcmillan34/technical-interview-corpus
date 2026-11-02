@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000128
+revision: 1
+status: draft
+question:
+  prompt: Two engineers each need a shared specialist for urgent work and both believe their task has priority. How would you help the group resolve the conflict?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 12
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [prioritisation, stakeholder-management, communication]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: medium, organisational_complexity: medium, tradeoff_reasoning: medium}
+    rationale: Applies shared-priority and resource-conflict resolution to a bounded team situation.
+  tags: [resource-conflict, prioritisation]
+assessment:
+  intent: Assess whether the candidate moves the conflict toward shared impact and decision criteria.
+  must_surface: [compares urgency impact and dependencies using common criteria, seeks sequencing scope or alternate-resource options before escalating]
+  red_flags: [argues that the louder requester should win]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

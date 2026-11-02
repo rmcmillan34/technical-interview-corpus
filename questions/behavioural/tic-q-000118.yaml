@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+id: tic-q-000118
+revision: 1
+status: draft
+question:
+  prompt: >
+    Tell me about a time you owned an engineering outcome that became materially harder than expected. Describe how you detected the change in risk, what you personally did, how you coordinated others, what trade-offs you made, the result, and what you changed afterward.
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 15
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [technical-judgement, stakeholder-management, learning-and-reflection, communication]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: medium, ambiguity: high, scope: medium, tradeoff_reasoning: high, organisational_complexity: medium, communication_demand: high}
+    rationale: Requires evidence from a real delivery situation with changing risk coordination trade-offs outcome and reflection.
+  tags: [star, delivery-risk, ownership]
+assessment:
+  intent: Assess demonstrated end-to-end ownership through concrete evidence rather than stated values.
+  must_surface: [specific situation and owned outcome, personal actions rather than only team actions, measurable or observable result, reflection or changed practice]
+  strong_signals: [surfaced risk before failure, made explicit trade-offs and coordinated dependencies]
+  red_flags: [provides only hypothetical behaviour, cannot distinguish personal contribution from team activity]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

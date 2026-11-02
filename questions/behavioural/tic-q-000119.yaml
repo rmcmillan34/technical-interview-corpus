@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000119
+revision: 1
+status: draft
+question:
+  prompt: What is the difference between productive technical disagreement and interpersonal conflict?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [communication, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low, communication_demand: low}
+    rationale: Tests foundational distinction between disagreeing about evidence or trade-offs and attacking people.
+  tags: [disagreement, conflict]
+assessment:
+  intent: Assess whether the candidate can separate idea-level challenge from relationship-level conflict.
+  must_surface: [technical disagreement can be healthy when focused on evidence and outcomes, interpersonal conflict concerns behaviour trust or relationship damage]
+  red_flags: [treats all disagreement as something to avoid]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

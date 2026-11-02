@@ -1,0 +1,60 @@
+schema_version: 0.1.0
+id: tic-q-000215
+revision: 1
+status: draft
+question:
+  prompt: A junior engineer asks you to implement their failing unit test for them. You have 30 minutes
+    to help. Describe how you would coach them while keeping delivery risk visible.
+  domain: behavioural
+  response_modes:
+  - discussion
+  timebox_minutes: 15
+classification:
+  competencies:
+    primary: leadership-and-influence
+    secondary: []
+  roles:
+  - swe
+  difficulty:
+    level: D2
+    drivers:
+      knowledge_depth: medium
+      ambiguity: medium
+    rationale: Applies principles to a bounded scenario with explicit constraints and verifiable actions.
+  tags:
+  - leadership-and-influence
+  - coverage-review-2026-11
+assessment:
+  intent: Assess observable leadership-and-influence evidence at D2.
+  must_surface:
+  - Establishes the actual blocker and has the learner explain the intended behaviour and current evidence.
+  - Provides bounded hints or a worked subproblem while the learner performs and explains the important
+    steps.
+  - Checks independent understanding and agrees an escalation or follow-up point if delivery risk remains.
+  red_flags:
+  - Either takes over the task completely or refuses all help in the name of independence.
+  rubric:
+  - id: evidence-1
+    criterion: Establishes the actual blocker and has the learner explain the intended behaviour and current
+      evidence.
+    importance: essential
+  - id: evidence-2
+    criterion: Provides bounded hints or a worked subproblem while the learner performs and explains the
+      important steps.
+    importance: essential
+  - id: evidence-3
+    criterion: Checks independent understanding and agrees an escalation or follow-up point if delivery
+      risk remains.
+    importance: essential
+provenance:
+  origin: synthetic
+  authoring:
+    method: llm-generated
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

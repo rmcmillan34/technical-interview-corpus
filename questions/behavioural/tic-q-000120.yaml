@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000120
+revision: 1
+status: draft
+question:
+  prompt: Why is it useful to restate another engineer's position before arguing against it?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: collaboration-and-conflict, secondary: [communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low, communication_demand: low}
+    rationale: Tests basic active-listening and shared-understanding behaviour.
+  tags: [active-listening, disagreement]
+assessment:
+  intent: Assess whether the candidate values accurate understanding before persuasion.
+  must_surface: [restating checks that the position was understood, it can expose assumptions or misunderstandings before debate]
+  red_flags: [treats listening as unnecessary once they have formed an opinion]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000156
+revision: 1
+status: draft
+question:
+  prompt: What is elasticity in cloud computing? Explain how horizontal scaling differs from vertical scaling.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: cloud-architecture, secondary: [performance-engineering, service-operations]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, scale: low}
+    rationale: Tests basic cloud scaling vocabulary.
+  tags: [elasticity, horizontal-scaling, vertical-scaling]
+assessment:
+  intent: Assess whether the candidate understands dynamic capacity and common scaling directions.
+  must_surface: [horizontal scaling changes instance or worker count, vertical scaling changes resources available to an instance]
+  strong_signals: [notes that state and architecture can constrain horizontal scaling]
+  red_flags: [equates elasticity only with buying a larger machine]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

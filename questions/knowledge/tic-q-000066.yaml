@@ -1,0 +1,40 @@
+schema_version: 0.1.0
+id: tic-q-000066
+revision: 1
+status: draft
+question:
+  prompt: >
+    What is API rate limiting and why might a service use it? Explain the difference between a quota or rate policy and the mechanism used to enforce it.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies:
+    primary: api-design
+    secondary: [reliability-engineering, application-security, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low, scale: low}
+    rationale: Requires explanation of a common API protection and fairness mechanism without implementation detail.
+  tags: [rate-limiting, quotas, resilience]
+assessment:
+  intent: Assess whether the candidate understands the purpose and contract implications of rate limiting.
+  must_surface:
+  - rate limiting bounds how frequently or how much a caller may consume
+  - limits can protect capacity, fairness or abuse boundaries
+  strong_signals:
+  - distinguishes policy such as requests-per-minute from implementation such as token bucket
+  - mentions communicating limit/retry information to clients
+  red_flags:
+  - treats rate limiting as equivalent to authentication
+  rubric:
+  - id: purpose
+    criterion: Explains rate limiting and its purpose accurately.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

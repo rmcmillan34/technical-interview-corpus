@@ -1,0 +1,38 @@
+schema_version: 0.1.0
+id: tic-q-000041
+revision: 1
+status: draft
+question:
+  prompt: >
+    What does it mean for a sorting algorithm to be stable? Give an example where preserving the relative order of
+    equal keys matters, and explain why stability is a property separate from the algorithm's time complexity.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary: [data-structures, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests a foundational sorting property and its practical meaning.
+  tags: [sorting, stable-sort]
+assessment:
+  intent: Assess whether the candidate understands sort stability independently of performance.
+  must_surface:
+  - equal-key elements retain their original relative order under a stable sort
+  - stability can matter when records are sorted repeatedly by different keys
+  strong_signals:
+  - gives a concrete multi-field record example
+  red_flags:
+  - equates stable sorting with deterministic runtime or numerical stability
+  rubric:
+  - {id: concepts, criterion: Correctly explains sort stability and a practical use case., importance: essential}
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
