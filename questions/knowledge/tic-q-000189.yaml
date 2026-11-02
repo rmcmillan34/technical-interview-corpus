@@ -15,7 +15,7 @@ classification:
     level: D2
     drivers: {knowledge_depth: medium, implementation_depth: medium, ambiguity: low}
     rationale: Applies anti-join semantics and NULL reasoning to a bounded query.
-  tags: [anti-join, not-exists, null]
+  tags: [anti-join, not-exists, "null"]
 assessment:
   intent: Assess whether the candidate can express absence safely.
   must_surface: [uses NOT EXISTS or a LEFT JOIN followed by a null check or another equivalent safe form, explains why NOT IN can be surprising when its subquery contains NULL]

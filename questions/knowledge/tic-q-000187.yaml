@@ -14,7 +14,7 @@ classification:
     level: D1
     drivers: {knowledge_depth: low, ambiguity: low}
     rationale: Tests foundational NULL and unknown-value semantics.
-  tags: [null, three-valued-logic]
+  tags: ["null", three-valued-logic]
 assessment:
   intent: Assess whether the candidate understands SQL NULL as unknown/missing rather than an ordinary comparable value.
   must_surface: [NULL comparisons can yield unknown rather than true or false, IS NULL or IS NOT NULL checks nullness explicitly]
