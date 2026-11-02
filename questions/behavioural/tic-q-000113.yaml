@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000113
+revision: 1
+status: draft
+question:
+  prompt: Why should an engineer close the loop on a production issue after the immediate symptom has been restored?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [reliability-engineering, learning-and-reflection]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low, failure_reasoning: low}
+    rationale: Tests foundational follow-through after incident recovery.
+  tags: [incident-follow-through, learning]
+assessment:
+  intent: Assess whether the candidate recognises remediation learning and prevention as part of outcome ownership.
+  must_surface: [underlying cause or contributing conditions should be understood, appropriate follow-up actions should be tracked]
+  red_flags: [considers restoration the only necessary outcome regardless of recurring risk]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

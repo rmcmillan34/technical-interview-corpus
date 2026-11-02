@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000112
+revision: 1
+status: draft
+question:
+  prompt: When a requirement is unclear but work must progress, what are the basic responsibilities of the engineer who owns delivery?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [ambiguity-and-adaptability, stakeholder-management, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: medium}
+    rationale: Tests basic ownership under uncertainty without requiring a complex scenario.
+  tags: [ambiguity, assumptions]
+assessment:
+  intent: Assess whether the candidate actively resolves or bounds uncertainty rather than silently guessing.
+  must_surface: [clarifies high-impact unknowns, records or communicates assumptions when immediate clarification is unavailable]
+  red_flags: [makes consequential assumptions without surfacing them]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

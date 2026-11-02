@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000109
+revision: 1
+status: draft
+question:
+  prompt: What should a useful definition of done include for an engineering change besides implementation being complete?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [testing, software-delivery-practices]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational completion and verification expectations.
+  tags: [definition-of-done, verification]
+assessment:
+  intent: Assess whether the candidate includes evidence of correctness and operational readiness in completion criteria.
+  must_surface: [relevant tests or verification, documentation or deployment considerations where required]
+  strong_signals: [mentions acceptance criteria observability or rollback when context warrants]
+  red_flags: [defines done only as code written]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

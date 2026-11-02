@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000106
+revision: 1
+status: draft
+question:
+  prompt: What does ownership mean in software engineering beyond simply completing the code assigned to you?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [technical-judgement, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational understanding of end-to-end responsibility.
+  tags: [ownership, accountability]
+assessment:
+  intent: Assess whether the candidate sees ownership as responsibility for outcomes rather than task completion alone.
+  must_surface: [clarifying the intended outcome, following work through validation or handoff]
+  strong_signals: [mentions surfacing risks early, distinguishes ownership from doing everything personally]
+  red_flags: [equates ownership only with writing assigned code]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

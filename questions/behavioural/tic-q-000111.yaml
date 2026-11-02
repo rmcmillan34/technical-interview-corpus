@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000111
+revision: 1
+status: draft
+question:
+  prompt: What makes an engineering handover effective when work must move from one person or team to another?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [communication, collaboration-and-conflict]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational transfer-of-ownership concepts.
+  tags: [handover, continuity]
+assessment:
+  intent: Assess whether the candidate understands that responsibility transfer requires context evidence and explicit acceptance.
+  must_surface: [current state and remaining risks are communicated, next owner knows expected actions or acceptance criteria]
+  red_flags: [treats sending a link with no context as a complete handover]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000117
+revision: 1
+status: draft
+question:
+  prompt: A bug you introduced has reached production but another engineer discovers it first. How should you respond as the owner of the change?
+  domain: behavioural
+  response_modes: [discussion]
+  timebox_minutes: 12
+classification:
+  competencies: {primary: ownership-and-delivery, secondary: [collaboration-and-conflict, learning-and-reflection, reliability-engineering]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: low, failure_reasoning: medium, communication_demand: medium}
+    rationale: Applies accountability to an observed production defect without requiring organisational-scale reasoning.
+  tags: [production-defect, accountability]
+assessment:
+  intent: Assess whether the candidate focuses on restoration evidence and learning rather than defensiveness or blame.
+  must_surface: [helps assess and mitigate impact, acknowledges responsibility for follow-through without obstructing incident response]
+  strong_signals: [thanks the discoverer and turns the defect into a regression or process improvement]
+  red_flags: [argues about who found it before helping restore service]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
