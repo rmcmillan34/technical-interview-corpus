@@ -54,3 +54,7 @@ edges:
 - {from: tic-q-000013, to: tic-q-000050, relation: recover, rationale: Re-checks hash-table mechanics if cache lookup complexity is misunderstood.}
 - {from: tic-q-000053, to: tic-q-000046, relation: escalate, rationale: Applies graph representation trade-offs to an explicit unweighted shortest-path implementation.}
 - {from: tic-q-000046, to: tic-q-000053, relation: recover, rationale: Re-checks graph representation fundamentals if traversal storage or complexity reasoning is weak.}
+- {from: tic-q-000059, to: tic-q-000015, relation: escalate, rationale: Applies basic control-flow reasoning to diagnosing a bounded faulty implementation.}
+- {from: tic-q-000015, to: tic-q-000059, relation: recover, rationale: Falls back to control-flow fundamentals if the candidate cannot reason about loop progress or branching.}
+- {from: tic-q-000060, to: tic-q-000031, relation: escalate, rationale: Extends basic error propagation and handling concepts into production at-least-once processing and retry behaviour.}
+- {from: tic-q-000031, to: tic-q-000060, relation: recover, rationale: Re-checks foundational failure-handling responsibilities after weak retry/error reasoning.}

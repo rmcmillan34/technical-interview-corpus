@@ -1,0 +1,44 @@
+schema_version: 0.1.0
+id: tic-q-000058
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain variable scope and lifetime. How can two variables with the same name refer to different values, and why can broad global state make programs harder to reason about?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: programming
+    secondary: [debugging, software-architecture, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests basic scope, shadowing and state-lifetime concepts without requiring language-specific syntax.
+  tags: [scope, lifetime, globals, shadowing]
+assessment:
+  intent: Assess foundational understanding of name visibility, lifetime and the reasoning cost of global state.
+  must_surface:
+  - scope determines where a name is visible
+  - lifetime describes how long a value or object exists
+  - nested or local scopes can shadow outer names
+  strong_signals:
+  - explains why uncontrolled global mutable state increases coupling and debugging difficulty
+  - notes that exact lifetime rules vary across languages and runtimes
+  red_flags:
+  - treats scope and lifetime as identical concepts
+  rubric:
+  - id: scope
+    criterion: Correctly explains visibility and shadowing.
+    importance: essential
+  - id: lifetime
+    criterion: Distinguishes value lifetime from name scope.
+    importance: supporting
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

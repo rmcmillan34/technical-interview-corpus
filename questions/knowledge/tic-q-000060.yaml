@@ -1,0 +1,46 @@
+schema_version: 0.1.0
+id: tic-q-000060
+revision: 1
+status: draft
+question:
+  prompt: >
+    What are exceptions or errors used for in programs? Explain the difference between detecting an error, propagating it, handling it and cleaning up resources when an operation fails.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: programming
+    secondary: [reliability-engineering, debugging, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low, failure_reasoning: low}
+    rationale: Tests foundational error-handling vocabulary and responsibility without requiring production design.
+  tags: [errors, exceptions, cleanup]
+assessment:
+  intent: Assess whether the candidate understands the basic stages and responsibilities of error handling.
+  must_surface:
+  - detection identifies that an operation cannot proceed as expected
+  - propagation communicates failure to another layer or caller
+  - handling decides what action to take in response
+  - cleanup prevents leaked or inconsistent resources after failure
+  strong_signals:
+  - distinguishes expected recoverable errors from programmer bugs conceptually
+  - mentions structured cleanup mechanisms or deterministic resource management without requiring one language
+  red_flags:
+  - suggests silently swallowing all errors
+  - assumes reporting an error automatically restores partial state
+  rubric:
+  - id: lifecycle
+    criterion: Distinguishes detecting, propagating, handling and cleaning up after errors.
+    importance: essential
+  - id: responsibility
+    criterion: Explains why failures should be handled at an appropriate layer rather than ignored.
+    importance: supporting
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
