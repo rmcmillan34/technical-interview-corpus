@@ -1,0 +1,64 @@
+schema_version: 0.1.0
+id: tic-q-000050
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain how a hash table works. What are hashing, collisions and load factor, and why are lookup and insertion
+    usually described as expected O(1) rather than guaranteed O(1)?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 9
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - algorithms-and-complexity
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: low
+      ambiguity: low
+      quantitative_reasoning: low
+    rationale: Requires foundational understanding of hash-table mechanics and expected complexity.
+  tags:
+  - hash-table
+  - hashing
+  - collisions
+assessment:
+  intent: Assess whether the candidate understands the mechanics and performance assumptions behind hash maps and sets.
+  must_surface:
+  - a hash function maps keys toward storage locations or buckets
+  - collisions require a resolution strategy
+  - load factor affects collision frequency and resizing behaviour
+  - worst-case operations can degrade beyond constant time
+  strong_signals:
+  - mentions chaining or open addressing as collision strategies
+  - explains that resizing trades occasional expensive operations for good expected performance
+  red_flags:
+  - claims collisions cannot occur with a good hash function
+  - states hash-table operations are unconditionally O(1)
+  rubric:
+  - id: mechanics
+    criterion: Correctly explains hashing collisions and load factor.
+    importance: essential
+  - id: complexity
+    criterion: Explains expected and worst-case performance accurately.
+    importance: supporting
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

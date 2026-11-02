@@ -41,3 +41,16 @@ edges:
 - {from: tic-q-000040, to: tic-q-000012, relation: escalate, rationale: Connects recursive traversal fundamentals to DFS-based graph reasoning and cycle detection.}
 - {from: tic-q-000021, to: tic-q-000011, relation: escalate, rationale: Applies asymptotic complexity fundamentals to a concrete sort-and-scan coding task.}
 - {from: tic-q-000036, to: tic-q-000011, relation: escalate, rationale: Moves from complexity-case reasoning to analysing a bounded implementation.}
+- {from: tic-q-000048, to: tic-q-000001, relation: escalate, rationale: Applies linked-list and sequence-structure trade-offs inside an LRU cache implementation.}
+- {from: tic-q-000050, to: tic-q-000001, relation: escalate, rationale: Applies hash-table lookup fundamentals inside the complementary structures required for an LRU cache.}
+- {from: tic-q-000001, to: tic-q-000050, relation: recover, rationale: Re-checks hash-table fundamentals if expected constant-time cache lookup reasoning is weak.}
+- {from: tic-q-000049, to: tic-q-000054, relation: escalate, rationale: Applies stack semantics to an augmented stack that maintains a minimum invariant.}
+- {from: tic-q-000054, to: tic-q-000049, relation: recover, rationale: Falls back to stack fundamentals if the augmented structure loses basic LIFO correctness.}
+- {from: tic-q-000052, to: tic-q-000014, relation: escalate, rationale: Applies heap and priority-queue fundamentals to bounded streaming top-k maintenance.}
+- {from: tic-q-000014, to: tic-q-000052, relation: recover, rationale: Re-checks heap invariants if the candidate cannot explain the bounded top-k structure.}
+- {from: tic-q-000052, to: tic-q-000055, relation: escalate, rationale: Extends priority-queue fundamentals into a large mutable timer index with cancellation and stale-state management.}
+- {from: tic-q-000055, to: tic-q-000052, relation: recover, rationale: Falls back to heap and priority-queue fundamentals after weak scheduler ordering reasoning.}
+- {from: tic-q-000050, to: tic-q-000013, relation: escalate, rationale: Applies hash-based direct lookup to a production cache with TTL and recency semantics.}
+- {from: tic-q-000013, to: tic-q-000050, relation: recover, rationale: Re-checks hash-table mechanics if cache lookup complexity is misunderstood.}
+- {from: tic-q-000053, to: tic-q-000046, relation: escalate, rationale: Applies graph representation trade-offs to an explicit unweighted shortest-path implementation.}
+- {from: tic-q-000046, to: tic-q-000053, relation: recover, rationale: Re-checks graph representation fundamentals if traversal storage or complexity reasoning is weak.}

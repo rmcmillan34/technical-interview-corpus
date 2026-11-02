@@ -1,0 +1,60 @@
+schema_version: 0.1.0
+id: tic-q-000049
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain the difference between a stack and a queue. Describe their ordering rules, common core operations,
+    typical complexity, and one practical use case for each.
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 7
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      implementation_depth: low
+      ambiguity: low
+    rationale: Tests recognition and explanation of two foundational abstract data types.
+  tags:
+  - stacks
+  - queues
+assessment:
+  intent: Assess whether the candidate can distinguish LIFO and FIFO structures and their normal operations.
+  must_surface:
+  - a stack is last-in first-out
+  - a queue is first-in first-out
+  - standard implementations support core insertion and removal operations efficiently
+  strong_signals:
+  - relates stacks to call stacks or parsing and queues to scheduling or breadth-first traversal
+  - distinguishes the abstract interface from a particular underlying implementation
+  red_flags:
+  - reverses FIFO and LIFO semantics
+  - assumes either structure must use one specific container implementation
+  rubric:
+  - id: semantics
+    criterion: Correctly explains stack and queue ordering and core operations.
+    importance: essential
+  - id: application
+    criterion: Provides appropriate practical examples and expected operation costs.
+    importance: supporting
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

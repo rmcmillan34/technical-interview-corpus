@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+id: tic-q-000052
+revision: 1
+status: draft
+question:
+  prompt: >
+    What is a heap and how is it commonly used to implement a priority queue? Explain the heap property and the
+    typical cost of reading the highest-priority element, inserting an element and removing the highest-priority element.
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - algorithms-and-complexity
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      implementation_depth: low
+      ambiguity: low
+      quantitative_reasoning: low
+    rationale: Requires recall and explanation of a standard priority structure and its common operation costs.
+  tags:
+  - heap
+  - priority-queue
+assessment:
+  intent: Assess whether the candidate understands the heap invariant and why heaps support efficient priority queues.
+  must_surface:
+  - a heap maintains a parent-child ordering property rather than full sorted order
+  - the root exposes the minimum or maximum element depending on heap type
+  - insertion and removal are typically O(log n) while peeking is O(1)
+  strong_signals:
+  - distinguishes heap order from a fully sorted array or BST ordering
+  - explains that binary heaps are commonly stored compactly in arrays
+  red_flags:
+  - claims every heap element is globally sorted
+  - states arbitrary search in a heap is logarithmic by default
+  rubric:
+  - id: invariant
+    criterion: Correctly explains min-heap or max-heap ordering and priority-queue use.
+    importance: essential
+  - id: operations
+    criterion: Gives accurate typical costs for peek insertion and removal.
+    importance: supporting
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

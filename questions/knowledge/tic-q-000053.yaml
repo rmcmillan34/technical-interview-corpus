@@ -1,0 +1,63 @@
+schema_version: 0.1.0
+id: tic-q-000053
+revision: 1
+status: draft
+question:
+  prompt: >
+    Compare adjacency-list and adjacency-matrix representations of a graph. How do their memory requirements and
+    common operations differ, and when might you choose one over the other?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 9
+classification:
+  competencies:
+    primary: data-structures
+    secondary:
+    - algorithms-and-complexity
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: low
+      ambiguity: low
+      tradeoff_reasoning: low
+    rationale: Requires comparison of standard graph representations and their basic space and lookup trade-offs.
+  tags:
+  - graphs
+  - adjacency-list
+  - adjacency-matrix
+assessment:
+  intent: Assess whether the candidate can choose a graph representation based on density and access requirements.
+  must_surface:
+  - adjacency lists usually use space proportional to vertices plus edges
+  - adjacency matrices use space proportional to the square of the vertex count
+  - checking a specific edge is straightforward and constant-time in a matrix
+  strong_signals:
+  - relates sparse graphs to adjacency lists and dense graphs or frequent edge-membership checks to matrices
+  - notes that iterating neighbours differs substantially between representations
+  red_flags:
+  - treats the two representations as having identical memory cost
+  - cannot relate representation choice to graph density
+  rubric:
+  - id: representation
+    criterion: Correctly explains the structure and memory model of both representations.
+    importance: essential
+  - id: tradeoffs
+    criterion: Connects operation costs and graph density to a sensible choice.
+    importance: supporting
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved
