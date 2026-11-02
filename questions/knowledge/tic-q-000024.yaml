@@ -1,0 +1,64 @@
+schema_version: 0.1.0
+id: tic-q-000024
+revision: 1
+status: draft
+question:
+  prompt: >
+    What is a race condition? Explain how a mutex or lock can prevent one, and give a simple example of shared state that
+    could become incorrect if two threads update it concurrently without coordination.
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: concurrency
+    secondary:
+    - operating-systems
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      implementation_depth: low
+      ambiguity: low
+      failure_reasoning: low
+      communication_demand: medium
+    rationale: Requires recall and explanation of foundational concurrency concepts without implementing synchronization logic.
+  tags:
+  - race-condition
+  - mutex
+  - shared-state
+assessment:
+  intent: Assess whether the candidate understands the basic failure mode of unsynchronised shared mutable state.
+  must_surface:
+  - a race condition depends on timing or interleaving between concurrent operations
+  - unsynchronised read-modify-write operations can lose updates or observe inconsistent state
+  - a mutex or lock can provide mutual exclusion around a critical section
+  strong_signals:
+  - distinguishes a race condition from deadlock
+  - explains that locking too broadly can reduce concurrency
+  red_flags:
+  - says concurrency bugs require multiple CPU cores
+  - defines a mutex as making all code in the process single-threaded
+  rubric:
+  - id: race
+    criterion: Correctly explains what a race condition is and why shared state can become inconsistent.
+    importance: essential
+  - id: synchronization
+    criterion: Correctly explains the basic role of mutual exclusion.
+    importance: essential
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

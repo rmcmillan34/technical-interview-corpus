@@ -1,0 +1,61 @@
+schema_version: 0.1.0
+id: tic-q-000033
+revision: 1
+status: draft
+question:
+  prompt: >
+    Design the observability for a checkout API that calls inventory, payment and fulfilment services. You need to detect customer-impacting
+    failures quickly and give an on-call engineer enough evidence to determine which dependency or code path is responsible. Define the
+    metrics, logs, traces and correlation data you would capture, plus alerting and dashboard principles.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 25
+classification:
+  competencies:
+    primary: observability
+    secondary: [reliability-engineering, service-operations, distributed-systems]
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers:
+      implementation_depth: medium
+      ambiguity: medium
+      scope: medium
+      failure_reasoning: high
+      tradeoff_reasoning: medium
+    rationale: Requires turning observability concepts into production instrumentation, correlation and alerting for a distributed request path.
+  aspects: [failure-mode-analysis, tradeoff-reasoning]
+  tags: [metrics, logs, traces, alerting, correlation]
+assessment:
+  intent: Assess whether the candidate can design useful production telemetry around customer impact and cross-service diagnosis.
+  must_surface:
+  - defines service-level latency, traffic and error metrics
+  - captures dependency-level outcomes and latency
+  - uses a request or trace identifier to correlate evidence across services
+  - structures logs with useful context rather than only free text
+  - alerts on symptoms tied to user impact rather than every internal event
+  strong_signals:
+  - proposes percentile latency and saturation signals
+  - distinguishes high-cardinality trace/log context from low-cardinality metric labels
+  - connects alerts to SLOs or error budgets
+  - considers sampling and telemetry cost
+  red_flags:
+  - logs every request payload indiscriminately
+  - puts unbounded user identifiers into metric labels
+  - creates alerts for every dependency error without customer-impact context
+  rubric:
+  - id: signals
+    criterion: Defines complementary metrics, logs and traces that answer distinct diagnostic questions.
+    importance: essential
+  - id: correlation
+    criterion: Makes a request path diagnosable across service boundaries.
+    importance: essential
+  - id: alerting
+    criterion: Uses actionable, user-impact-oriented alerting rather than noisy event alerts.
+    importance: supporting
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

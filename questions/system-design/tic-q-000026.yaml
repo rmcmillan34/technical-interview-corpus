@@ -1,0 +1,65 @@
+schema_version: 0.1.0
+id: tic-q-000026
+revision: 1
+status: draft
+question:
+  prompt: >
+    Design the POST endpoint for creating a customer order in a system where clients may retry after timeouts. The API must
+    avoid duplicate orders, support safe retries, expose meaningful error semantics, and remain usable when a downstream
+    payment service is temporarily unavailable. Explain the contract, idempotency model, persistence and tests.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 25
+classification:
+  competencies:
+    primary: api-design
+    secondary: [distributed-systems, reliability-engineering, testing, databases]
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers:
+      implementation_depth: medium
+      ambiguity: medium
+      failure_reasoning: high
+      tradeoff_reasoning: high
+    rationale: Requires a production API design that handles retries, duplicate side effects, persistent state and downstream failure.
+  aspects: [requirements-elicitation, failure-mode-analysis, tradeoff-reasoning]
+  tags: [idempotency, retries, order-creation, failure-semantics]
+assessment:
+  intent: Assess whether the candidate can design a retry-safe mutating API under distributed failure modes.
+  must_surface:
+  - distinguishes client retry from duplicate business intent
+  - uses an idempotency key or equivalent stable request identity
+  - persists enough state to return a consistent result for repeated requests
+  - defines behaviour for in-progress, completed and failed operations
+  - considers downstream timeout or partial failure
+  strong_signals:
+  - scopes idempotency to caller and operation
+  - explains retention and cleanup of idempotency records
+  - proposes concurrency-safe duplicate suppression
+  - includes race and retry tests
+  red_flags:
+  - assumes retries are safe without server-side state
+  - relies only on checking for an identical payload
+  - ignores concurrent duplicate requests
+  rubric:
+  - id: contract
+    criterion: Defines a coherent retry and failure contract.
+    importance: essential
+  - id: idempotency
+    criterion: Enforces idempotency durably and safely under concurrency.
+    importance: essential
+  - id: failure
+    criterion: Handles downstream and partial failure without duplicate side effects.
+    importance: essential
+followups:
+- id: f1
+  prompt: Two requests with the same idempotency key arrive concurrently on different instances. What prevents both from creating an order?
+  axis: concurrency
+  difficulty_effect: up
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

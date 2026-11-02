@@ -1,0 +1,61 @@
+schema_version: 0.1.0
+id: tic-q-000031
+revision: 1
+status: draft
+question:
+  prompt: >
+    A background worker consumes jobs from a queue that provides at-least-once delivery. During deployments or worker crashes,
+    some jobs are processed more than once. Design the worker so duplicate deliveries do not corrupt state. Explain acknowledgement,
+    idempotency, retry, poison-message and observability behaviour.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 30
+classification:
+  competencies:
+    primary: distributed-systems
+    secondary: [reliability-engineering, service-operations, observability, databases]
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers:
+      implementation_depth: medium
+      ambiguity: medium
+      failure_reasoning: high
+      tradeoff_reasoning: high
+      scope: medium
+    rationale: Requires designing for duplicate delivery and crash recovery using realistic processing and acknowledgement semantics.
+  aspects: [failure-mode-analysis, tradeoff-reasoning]
+  tags: [queues, at-least-once, idempotency, retries, dead-letter]
+assessment:
+  intent: Assess whether the candidate can design reliable job processing without assuming exactly-once execution from the transport.
+  must_surface:
+  - accepts that a delivered job can be processed more than once
+  - makes the business side effect idempotent or deduplicated
+  - acknowledges only after the required durable work succeeds
+  - defines bounded retries and handling for repeatedly failing jobs
+  - exposes retry or duplicate behaviour through telemetry
+  strong_signals:
+  - separates message identity from business operation identity
+  - discusses transactional outbox/inbox or atomic persistence where relevant
+  - uses dead-letter handling with investigation and replay controls
+  - considers visibility timeout or lease expiry behaviour
+  red_flags:
+  - claims exactly-once processing can be guaranteed solely by acknowledging earlier
+  - acknowledges before durable work to prevent duplicates
+  - retries poison jobs forever
+  rubric:
+  - id: semantics
+    criterion: Correctly reasons about at-least-once delivery and acknowledgement timing.
+    importance: essential
+  - id: idempotency
+    criterion: Prevents duplicate business side effects under replay.
+    importance: essential
+  - id: recovery
+    criterion: Defines bounded retry, poison-message and operational recovery behaviour.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

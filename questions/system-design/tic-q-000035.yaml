@@ -1,0 +1,80 @@
+schema_version: 0.1.0
+id: tic-q-000035
+revision: 1
+status: draft
+question:
+  prompt: >
+    Your organisation has dozens of services that directly read and write a shared transactional database. The design now blocks
+    independent delivery, makes schema changes dangerous, and creates large incident blast radii. You have been asked to lead a
+    multi-stage migration toward clearer service ownership without a big-bang rewrite. Define the target principles, sequencing,
+    compatibility strategy, data migration approach, rollback boundaries, observability, governance and how you would keep teams
+    delivering product work during the transition.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 45
+classification:
+  competencies:
+    primary: software-architecture
+    secondary: [distributed-systems, reliability-engineering, stakeholder-management, technical-judgement, ownership-and-delivery]
+  roles: [swe]
+  difficulty:
+    level: D5
+    drivers:
+      ambiguity: high
+      scope: high
+      scale: high
+      failure_reasoning: high
+      tradeoff_reasoning: high
+      organisational_complexity: high
+      communication_demand: high
+    rationale: Requires strategic reasoning across architecture, migration, multiple teams, delivery constraints, long-term ownership and reversible change.
+  aspects: [requirements-elicitation, failure-mode-analysis, tradeoff-reasoning]
+  tags: [shared-database, migration, service-boundaries, compatibility, organisational-change]
+assessment:
+  intent: Assess whether the candidate can lead a long-running architectural migration while balancing technical correctness, organisational constraints and continued delivery.
+  must_surface:
+  - avoids a big-bang rewrite and proposes incremental boundaries
+  - defines how ownership of data and write authority will change
+  - provides compatibility mechanisms while old and new paths coexist
+  - plans migration evidence, rollback and correctness verification
+  - sequences work according to risk, dependency and organisational capacity
+  - addresses team ownership and governance rather than architecture diagrams alone
+  strong_signals:
+  - identifies bounded contexts or seams before selecting service boundaries
+  - uses strangler-style migration, facades or anti-corruption boundaries where appropriate
+  - distinguishes read migration from write-authority migration
+  - plans dual-write only with an explicit reconciliation and exit strategy
+  - defines measurable milestones such as reduced direct DB consumers and smaller incident blast radius
+  - accounts for incentives, documentation and migration support for dependent teams
+  red_flags:
+  - proposes rewriting all services before switching traffic
+  - creates a new distributed architecture without a consistency or failure model
+  - leaves shared write access indefinitely while claiming ownership has been separated
+  - treats organisational coordination as somebody else's problem
+  rubric:
+  - id: strategy
+    criterion: Defines a credible incremental migration strategy with clear target principles.
+    importance: essential
+  - id: correctness
+    criterion: Preserves data correctness and provides observable, reversible transitions between old and new paths.
+    importance: essential
+  - id: sequencing
+    criterion: Prioritises migration work using dependency, risk and value rather than arbitrary service order.
+    importance: essential
+  - id: organisation
+    criterion: Addresses ownership, governance, support and continued product delivery across teams.
+    importance: essential
+  - id: outcomes
+    criterion: Defines evidence that the migration is reducing coupling and operational risk.
+    importance: differentiator
+followups:
+- id: f1
+  prompt: Six months in, adoption is slower than expected because teams see migration work as competing with product delivery. What would you change?
+  axis: organisational-complexity
+  difficulty_effect: same
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

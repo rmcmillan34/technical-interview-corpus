@@ -1,0 +1,64 @@
+schema_version: 0.1.0
+id: tic-q-000025
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain the difference between logs, metrics and traces in production observability. Give one example of a question each
+    signal is particularly useful for answering during an incident.
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: observability
+    secondary:
+    - reliability-engineering
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      implementation_depth: low
+      ambiguity: low
+      failure_reasoning: low
+      communication_demand: medium
+    rationale: Requires foundational explanation and recognition of core observability signal types without designing an observability architecture.
+  tags:
+  - logs
+  - metrics
+  - traces
+assessment:
+  intent: Assess whether the candidate can distinguish the main observability signals and explain their basic diagnostic value.
+  must_surface:
+  - logs capture discrete events or contextual records
+  - metrics capture aggregated numerical measurements over time
+  - traces connect work across operations or service boundaries for a request or transaction
+  strong_signals:
+  - explains that the signals are complementary rather than interchangeable
+  - gives examples such as error context, saturation trends and cross-service latency attribution
+  red_flags:
+  - describes all three as different names for the same monitoring data
+  - assumes traces replace the need for logs or metrics
+  rubric:
+  - id: signals
+    criterion: Correctly distinguishes logs, metrics and traces.
+    importance: essential
+  - id: use-cases
+    criterion: Gives sensible incident-diagnosis use cases for each signal.
+    importance: supporting
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+id: tic-q-000032
+revision: 1
+status: draft
+question:
+  prompt: >
+    A synchronous API becomes unstable when a downstream dependency slows from 100 ms to several seconds. Request queues grow,
+    threads are exhausted, retries amplify traffic, and eventually healthy endpoints on the same service begin failing. Redesign
+    the failure handling so the service degrades predictably under downstream slowness. Cover timeouts, retry policy, concurrency
+    limits, backpressure, circuit breaking and what clients should observe.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 30
+classification:
+  competencies:
+    primary: reliability-engineering
+    secondary: [distributed-systems, performance-engineering, service-operations, api-design]
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers:
+      implementation_depth: medium
+      ambiguity: medium
+      scale: medium
+      failure_reasoning: high
+      tradeoff_reasoning: high
+    rationale: Requires a bounded production redesign for cascading failure and overload rather than merely naming resilience patterns.
+  aspects: [failure-mode-analysis, tradeoff-reasoning]
+  tags: [timeouts, retries, backpressure, circuit-breaker, cascading-failure]
+assessment:
+  intent: Assess whether the candidate can contain downstream slowness and prevent resource exhaustion from cascading across a service.
+  must_surface:
+  - uses finite timeouts rather than unbounded waits
+  - avoids unbounded retries and retry storms
+  - limits concurrent work or queue growth
+  - applies backpressure or load shedding when capacity is exhausted
+  - defines an explicit degraded or failure response for callers
+  strong_signals:
+  - uses retry budgets with jitter and only retries suitable failures
+  - separates dependency pools or bulkheads where isolation matters
+  - explains circuit-breaking as a temporary containment mechanism rather than a cure
+  - relates limits to measured capacity and SLOs
+  red_flags:
+  - increases all timeouts and queue sizes as the primary fix
+  - retries every failure immediately
+  - treats circuit breakers as a substitute for capacity planning
+  rubric:
+  - id: containment
+    criterion: Prevents downstream slowness from exhausting shared service resources.
+    importance: essential
+  - id: retries
+    criterion: Defines bounded, selective retry behaviour that does not amplify overload.
+    importance: essential
+  - id: degradation
+    criterion: Provides predictable backpressure, load shedding or degraded responses.
+    importance: essential
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

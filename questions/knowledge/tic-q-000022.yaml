@@ -1,0 +1,64 @@
+schema_version: 0.1.0
+id: tic-q-000022
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain the difference between GET, POST, PUT and PATCH in an HTTP API. Which of these methods are normally expected
+    to be idempotent, and what does idempotent mean in this context?
+  domain: knowledge
+  response_modes:
+  - discussion
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: api-design
+    secondary:
+    - communication
+  roles:
+  - swe
+  difficulty:
+    level: D1
+    drivers:
+      knowledge_depth: low
+      implementation_depth: low
+      ambiguity: low
+      communication_demand: medium
+    rationale: Requires recall and explanation of foundational HTTP API semantics without designing a production API.
+  tags:
+  - http
+  - rest
+  - idempotency
+assessment:
+  intent: Assess whether the candidate understands common HTTP method semantics and basic idempotency.
+  must_surface:
+  - GET retrieves a representation without intending a state-changing side effect
+  - POST commonly creates or triggers a non-idempotent operation
+  - PUT commonly replaces or creates a resource at a known target and is expected to be idempotent
+  - PATCH applies a partial modification and idempotency depends on the operation semantics
+  - idempotency means repeating the same request has the same intended effect as performing it once
+  strong_signals:
+  - distinguishes protocol semantics from whether a particular implementation actually behaves correctly
+  - notes that safe and idempotent are related but different concepts
+  red_flags:
+  - defines idempotency as returning exactly the same response bytes
+  - states that all POST requests are automatically unsafe to retry under any design
+  rubric:
+  - id: methods
+    criterion: Correctly explains the common purpose of the four HTTP methods.
+    importance: essential
+  - id: idempotency
+    criterion: Correctly explains idempotency and its relationship to method semantics.
+    importance: essential
+provenance:
+  origin: native
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources: []
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

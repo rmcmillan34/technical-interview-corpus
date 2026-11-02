@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+id: tic-q-000029
+revision: 1
+status: draft
+question:
+  prompt: >
+    A customer-search endpoint has become slow as the table has grown. The query filters by tenant_id and status, orders by
+    created_at descending, and returns the newest 50 rows. Explain how you would diagnose the query before changing anything,
+    then propose an indexing strategy and the evidence you would use to verify that it helped without creating unacceptable
+    write or storage costs.
+  domain: debugging
+  response_modes: [discussion]
+  timebox_minutes: 25
+classification:
+  competencies:
+    primary: databases
+    secondary: [performance-engineering, observability, data-modelling, technical-judgement]
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: medium
+      ambiguity: medium
+      quantitative_reasoning: medium
+      tradeoff_reasoning: high
+    rationale: Requires production query diagnosis, index design and measurement rather than recalling what an index is.
+  aspects: [failure-mode-analysis, tradeoff-reasoning]
+  tags: [indexes, query-plan, performance, pagination]
+assessment:
+  intent: Assess whether the candidate can investigate and improve database query performance using evidence and access-pattern-aware indexing.
+  must_surface:
+  - inspects an execution or query plan rather than guessing
+  - reasons about selectivity and filter/order columns
+  - proposes an index aligned with the actual access pattern
+  - verifies latency or scan reduction after the change
+  - acknowledges write and storage overhead
+  strong_signals:
+  - considers a composite index such as tenant_id, status, created_at in an order justified by the query
+  - distinguishes covering/index-only opportunities from mandatory design
+  - checks production-like cardinality and data distribution
+  - considers cursor pagination if deep offsets are involved
+  red_flags:
+  - adds independent indexes to every column without examining the plan
+  - assumes the database will always combine indexes optimally
+  - optimizes only average latency and ignores write regression
+  rubric:
+  - id: diagnosis
+    criterion: Uses query-plan and workload evidence to identify the bottleneck.
+    importance: essential
+  - id: index
+    criterion: Proposes an index justified by filter, ordering and data distribution.
+    importance: essential
+  - id: verification
+    criterion: Measures improvement and checks write/storage trade-offs.
+    importance: supporting
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

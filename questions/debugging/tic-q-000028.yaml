@@ -1,0 +1,61 @@
+schema_version: 0.1.0
+id: tic-q-000028
+revision: 1
+status: draft
+question:
+  prompt: >
+    A booking service occasionally allows two users to reserve the same seat at nearly the same time. The application first
+    checks availability and then writes a reservation. Explain why this fails under concurrency and redesign persistence so
+    the invariant "one active reservation per seat" holds across multiple application instances. Include transaction,
+    constraint, retry and test considerations.
+  domain: debugging
+  response_modes: [discussion]
+  timebox_minutes: 25
+classification:
+  competencies:
+    primary: databases
+    secondary: [concurrency, data-modelling, testing, debugging]
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers:
+      knowledge_depth: medium
+      implementation_depth: medium
+      ambiguity: medium
+      failure_reasoning: high
+      tradeoff_reasoning: high
+    rationale: Requires reasoning about a production race and enforcing correctness at the persistence boundary under concurrent access.
+  aspects: [failure-mode-analysis, tradeoff-reasoning]
+  tags: [transactions, race-condition, uniqueness, booking]
+assessment:
+  intent: Assess whether the candidate can enforce a business invariant correctly under concurrent database access.
+  must_surface:
+  - explains the time-of-check to time-of-use race
+  - moves invariant enforcement into a transactional or constraint-backed persistence operation
+  - defines how conflicting writes are surfaced to callers
+  - distinguishes database correctness from process-local locking
+  - includes concurrent tests
+  strong_signals:
+  - proposes a unique or exclusion constraint where appropriate
+  - discusses isolation or atomic conditional writes
+  - treats constraint violation as an expected race outcome rather than an exceptional corruption
+  red_flags:
+  - relies only on an application-level availability check
+  - uses an in-memory lock in each service instance as the correctness boundary
+  - assumes serial execution in production
+  rubric:
+  - id: race
+    criterion: Correctly explains why the check-then-write flow can violate the invariant.
+    importance: essential
+  - id: invariant
+    criterion: Enforces the invariant atomically at the persistence boundary.
+    importance: essential
+  - id: verification
+    criterion: Includes meaningful concurrent and retry tests.
+    importance: supporting
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
