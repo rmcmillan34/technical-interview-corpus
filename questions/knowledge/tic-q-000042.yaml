@@ -1,0 +1,39 @@
+schema_version: 0.1.0
+id: tic-q-000042
+revision: 1
+status: draft
+question:
+  prompt: >
+    At a high level, how do greedy algorithms differ from dynamic programming? What kinds of problem structure make
+    dynamic programming useful, and why does a greedy choice require justification rather than simply choosing the locally best option?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary: [communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Requires recognition of two common algorithm-design strategies without solving a concrete optimisation problem.
+  tags: [greedy, dynamic-programming, optimisation]
+assessment:
+  intent: Assess whether the candidate can distinguish greedy reasoning from dynamic-programming decomposition.
+  must_surface:
+  - greedy algorithms commit to locally chosen decisions without revisiting them
+  - dynamic programming commonly exploits overlapping subproblems and stores reusable results
+  - a greedy strategy is only correct when the problem has a property that makes local choices globally safe
+  strong_signals:
+  - mentions optimal substructure while avoiding the claim that it alone guarantees a greedy solution
+  red_flags:
+  - describes greedy algorithms as a faster form of dynamic programming
+  rubric:
+  - {id: concepts, criterion: Correctly distinguishes greedy and dynamic-programming approaches., importance: essential}
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

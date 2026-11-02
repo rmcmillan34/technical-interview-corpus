@@ -1,0 +1,39 @@
+schema_version: 0.1.0
+id: tic-q-000040
+revision: 1
+status: draft
+question:
+  prompt: >
+    Explain the essential parts of a recursive algorithm. What are the base case and recursive case, what happens on
+    the call stack, and what kinds of mistakes can cause recursion not to terminate or to exhaust the stack?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary: [programming, operating-systems]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Requires foundational explanation of recursion and its resource behaviour.
+  tags: [recursion, call-stack, termination]
+assessment:
+  intent: Assess whether the candidate understands recursive control flow and termination conditions.
+  must_surface:
+  - a base case stops further recursive calls
+  - the recursive case must make progress toward termination
+  - each active call normally consumes a stack frame
+  strong_signals:
+  - distinguishes recursion depth from total number of calls
+  red_flags:
+  - describes a base case without requiring progress toward it
+  rubric:
+  - {id: concepts, criterion: Correctly explains recursive structure, progress and stack use., importance: essential}
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

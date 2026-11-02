@@ -1,0 +1,39 @@
+schema_version: 0.1.0
+id: tic-q-000043
+revision: 1
+status: draft
+question:
+  prompt: >
+    What is amortised complexity? Explain how an operation can occasionally be expensive while still having a low
+    amortised cost over a sequence of operations, using dynamic-array append and resizing as an example.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary: [data-structures, communication]
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: low, quantitative_reasoning: low}
+    rationale: Requires explanation of a standard complexity-analysis concept without formal proof or implementation.
+  tags: [amortised-analysis, dynamic-array, complexity]
+assessment:
+  intent: Assess whether the candidate distinguishes per-operation worst case from cost averaged over an operation sequence.
+  must_surface:
+  - a resize can make one append O(n)
+  - geometric growth spreads resize costs across many cheap appends
+  - append is commonly described as O(1) amortised under that growth strategy
+  strong_signals:
+  - distinguishes amortised analysis from probabilistic average-case analysis
+  red_flags:
+  - claims every individual append is O(1)
+  rubric:
+  - {id: concepts, criterion: Correctly explains amortised cost using dynamic-array growth., importance: essential}
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

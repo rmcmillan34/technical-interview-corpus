@@ -1,0 +1,46 @@
+schema_version: 0.1.0
+id: tic-q-000046
+revision: 1
+status: draft
+question:
+  prompt: >
+    You are given a rectangular grid containing open cells and blocked cells, plus a start and destination cell.
+    Movement is allowed one cell at a time up, down, left or right through open cells. Return the minimum number of
+    moves needed to reach the destination, or report that it is unreachable. Explain your approach, implement it,
+    and state the time and space complexity.
+  domain: coding
+  response_modes: [discussion, code]
+  timebox_minutes: 25
+classification:
+  competencies:
+    primary: algorithms-and-complexity
+    secondary: [data-structures, programming, testing, communication]
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: medium, ambiguity: low, tradeoff_reasoning: low}
+    rationale: Applies graph-traversal fundamentals to a bounded implementation problem with clear correctness and complexity requirements.
+  tags: [graphs, bfs, shortest-path, grid]
+assessment:
+  intent: Assess whether the candidate recognises an unweighted shortest-path problem and implements BFS correctly.
+  must_surface:
+  - models cells and valid moves as an unweighted graph or equivalent implicit graph
+  - uses BFS or an equivalent level-order method to guarantee the minimum number of moves
+  - prevents repeated processing with a visited structure
+  - states O(rows*columns) time and space bounds for the straightforward approach
+  strong_signals:
+  - marks cells visited when enqueued rather than allowing duplicate queue growth
+  - tests start-equals-destination, unreachable, narrow and boundary cases
+  red_flags:
+  - uses DFS and assumes the first path found is shortest
+  - repeatedly revisits the same cells
+  rubric:
+  - {id: approach, criterion: Selects a correct shortest-path traversal for an unweighted grid., importance: essential}
+  - {id: implementation, criterion: Implements traversal and visited-state handling correctly., importance: essential}
+  - {id: complexity, criterion: Explains time and space costs accurately., importance: supporting}
+provenance:
+  origin: native
+  authoring: {method: llm-assisted, llm_assisted: true}
+  sources: []
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
