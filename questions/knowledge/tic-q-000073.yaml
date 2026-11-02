@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+id: tic-q-000073
+revision: 1
+status: draft
+question:
+  prompt: Explain the difference between unit, integration and end-to-end tests. What kinds of failures is each level best positioned to detect?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: testing, secondary: [software-architecture, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational test-level vocabulary and purpose.
+  tags: [unit-testing, integration-testing, end-to-end]
+assessment:
+  intent: Assess whether the candidate distinguishes test scope and purpose.
+  must_surface:
+  - unit tests isolate a small unit of behaviour
+  - integration tests exercise interactions between components
+  - end-to-end tests exercise a broader user or system path
+  strong_signals:
+  - explains that broader tests usually cost more to run and diagnose
+  red_flags:
+  - treats all three terms as interchangeable
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

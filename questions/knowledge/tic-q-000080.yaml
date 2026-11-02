@@ -1,0 +1,33 @@
+schema_version: 0.1.0
+id: tic-q-000080
+revision: 1
+status: draft
+question:
+  prompt: >
+    A function normalize_username(text) trims surrounding whitespace, converts letters to lowercase, rejects an empty result, and rejects results longer than 30 characters. Design a compact but strong test suite using equivalence classes, boundaries and error cases. Explain why each test exists.
+  domain: knowledge
+  response_modes: [discussion, written]
+  timebox_minutes: 15
+classification:
+  competencies: {primary: testing, secondary: [programming, communication]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: low, tradeoff_reasoning: low}
+    rationale: Applies foundational test-design techniques to a bounded specification and requires justification of coverage.
+  tags: [test-design, boundaries, equivalence-classes]
+assessment:
+  intent: Assess whether the candidate can derive a non-redundant test set from an explicit behavioural contract.
+  must_surface:
+  - valid ordinary input and normalisation behaviour
+  - empty and whitespace-only rejection
+  - length boundary around 30 characters after normalisation
+  - at least one case that combines trimming and case conversion
+  strong_signals:
+  - distinguishes input length from post-normalisation length
+  - avoids many redundant examples from the same equivalence class
+  red_flags:
+  - proposes only happy-path examples
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+id: tic-q-000076
+revision: 1
+status: draft
+question:
+  prompt: Explain the purpose of test doubles such as stubs, fakes and mocks. Why can excessive mocking make tests brittle?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: testing, secondary: [software-architecture, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests basic test-double concepts and their trade-offs.
+  tags: [mocks, stubs, fakes]
+assessment:
+  intent: Assess whether the candidate understands why dependencies are replaced in tests and the cost of over-specifying interactions.
+  must_surface:
+  - test doubles replace dependencies to control behaviour or observation
+  - mocks often verify interactions while fakes can provide lightweight working behaviour
+  strong_signals:
+  - explains that mocking implementation details can make harmless refactors break tests
+  red_flags:
+  - assumes every dependency should always be mocked
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

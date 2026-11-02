@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+id: tic-q-000079
+revision: 1
+status: draft
+question:
+  prompt: What is property-based testing? How does checking a general invariant across generated inputs differ from writing a few example-based test cases?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: testing, secondary: [algorithms-and-complexity, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Requires recognition and explanation of property-based testing without implementation.
+  tags: [property-based-testing, invariants]
+assessment:
+  intent: Assess whether the candidate understands invariant-driven generated testing at a foundational level.
+  must_surface:
+  - property-based tests assert general properties or invariants over many generated inputs
+  - example tests assert expected outcomes for selected concrete inputs
+  strong_signals:
+  - mentions shrinking or minimising failing generated examples conceptually
+  red_flags:
+  - equates property-based testing with random testing without assertions
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
