@@ -73,8 +73,8 @@ assessment:
 provenance:
   origin: native
   authoring:
-    method: human
-    llm_assisted: false
+    method: llm-assisted
+    llm_assisted: true
   sources: []
 license:
   spdx: CC-BY-4.0
