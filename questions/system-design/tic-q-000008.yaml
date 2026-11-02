@@ -1,0 +1,97 @@
+schema_version: 0.1.0
+id: tic-q-000008
+revision: 1
+status: draft
+question:
+  prompt: >
+    Design a web-crawling service that continuously discovers and refreshes a very large set of pages. The crawler
+    must avoid loops, respect per-site politeness limits, tolerate fetch failures, prevent duplicate work, and make
+    newly fetched content available to downstream indexing. Explain scheduling, deduplication, storage, retries,
+    observability, and how you would keep the system fresh as the crawl frontier grows.
+  domain: system-design
+  response_modes:
+  - discussion
+  timebox_minutes: 40
+classification:
+  competencies:
+    primary: distributed-systems
+    secondary:
+    - networking
+    - data-pipelines
+    - orchestration
+    - reliability-engineering
+    - data-quality
+  roles:
+  - swe
+  - de
+  - mle
+  - ai-eng
+  difficulty:
+    level: D4
+    drivers:
+      ambiguity: high
+      scope: high
+      scale: high
+      failure_reasoning: high
+      tradeoff_reasoning: high
+      implementation_depth: medium
+    rationale: >
+      Requires a distributed scheduler/frontier design with correctness, politeness, duplicate suppression,
+      freshness and partial-failure trade-offs across many workers.
+  aspects:
+  - requirements-elicitation
+  - failure-mode-analysis
+  - tradeoff-reasoning
+  tags:
+  - web-crawler
+  - scheduling
+  - deduplication
+  - freshness
+  - retries
+assessment:
+  intent: >
+    Assess whether the candidate can decompose a distributed crawl pipeline and preserve useful invariants under
+    retries, duplication, unbounded graph discovery and heterogeneous remote servers.
+  must_surface:
+  - maintains a crawl frontier or equivalent scheduling abstraction
+  - prevents uncontrolled repeated crawling of the same URL or content
+  - separates transient fetch failure from permanent failure
+  - enforces per-site rate or politeness constraints
+  - defines a path from fetched content to downstream processing
+  strong_signals:
+  - distinguishes URL deduplication from content deduplication
+  - discusses idempotent work and at-least-once delivery
+  - incorporates freshness priority into scheduling
+  - considers robots directives or equivalent external constraints
+  - identifies frontier depth, fetch latency, failure rate and freshness telemetry
+  red_flags:
+  - assumes the web graph is acyclic
+  - retries indefinitely without backoff or terminal handling
+  - allows unconstrained parallel requests to the same host
+  - stores worker-local state as the only crawl history
+followups:
+- id: f1
+  prompt: A domain starts returning intermittent 429 and 503 responses. How should the scheduler react?
+  axis: failure
+  difficulty_effect: same
+- id: f2
+  prompt: The frontier now contains ten billion URLs. Which state would you partition, and on what key?
+  axis: scale
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: System Design Primer
+    url: https://github.com/donnemartin/system-design-primer
+    license: CC-BY-4.0
+    attribution: Adapted from System Design Primer by Donne Martin, licensed under CC BY 4.0.
+    modification: Reframed the web-crawler design scenario around scheduling, politeness, deduplication and pipeline reliability; authored new assessment criteria and follow-ups.
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved

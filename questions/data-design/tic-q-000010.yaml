@@ -1,0 +1,97 @@
+schema_version: 0.1.0
+id: tic-q-000010
+revision: 1
+status: draft
+question:
+  prompt: >
+    Design a service that continuously computes the most popular products in each category over a rolling seven-day
+    window. Products may belong to multiple categories, transaction volume is large, results are read far more often
+    than they are updated, and users expect rankings to refresh at least hourly. Explain ingestion, aggregation,
+    storage, update cadence, failure recovery, late data handling, and how you would serve the ranked results.
+  domain: data-design
+  response_modes:
+  - discussion
+  timebox_minutes: 35
+classification:
+  competencies:
+    primary: data-pipelines
+    secondary:
+    - stream-processing
+    - analytical-data-platforms
+    - data-modelling
+    - distributed-systems
+    - data-quality
+  roles:
+  - de
+  - swe
+  - mle
+  - ds
+  difficulty:
+    level: D3
+    drivers:
+      ambiguity: medium
+      scope: high
+      scale: high
+      failure_reasoning: medium
+      tradeoff_reasoning: high
+      quantitative_reasoning: medium
+    rationale: >
+      Requires a production data architecture with rolling-window aggregation, high read/write asymmetry and
+      recoverable incremental processing, but the problem remains bounded to a ranking pipeline.
+  aspects:
+  - requirements-elicitation
+  - failure-mode-analysis
+  - tradeoff-reasoning
+  tags:
+  - rolling-window
+  - ranking
+  - aggregation
+  - late-data
+  - materialized-results
+assessment:
+  intent: >
+    Assess whether the candidate can build a reliable large-scale aggregation pipeline whose derived rankings can
+    be refreshed and served efficiently.
+  must_surface:
+  - defines the transaction event and category relationship needed for ranking
+  - maintains only the data required for the rolling seven-day window or explains compaction
+  - separates aggregation work from read-serving state
+  - defines recovery or replay behaviour for failed processing
+  - addresses duplicate, delayed or corrected events
+  strong_signals:
+  - compares batch, micro-batch and streaming approaches against the hourly freshness requirement
+  - proposes idempotent or exactly-once-equivalent aggregation semantics
+  - discusses precomputed top-N results for read-heavy serving
+  - identifies event-time versus processing-time implications
+  - defines freshness, lag, duplicate and reconciliation metrics
+  red_flags:
+  - recomputes every category from all historical transactions for every read
+  - assumes events always arrive once and in order
+  - couples user reads directly to the aggregation job
+  - provides no reconciliation strategy after processor failure
+followups:
+- id: f1
+  prompt: A two-hour ingestion outage is recovered and events arrive late. How do you repair the rankings without double-counting?
+  axis: failure
+  difficulty_effect: up
+- id: f2
+  prompt: Product now requires rankings every minute instead of every hour. Which architecture decision changes first?
+  axis: requirements
+  difficulty_effect: up
+provenance:
+  origin: external-adapted
+  authoring:
+    method: llm-assisted
+    llm_assisted: true
+  sources:
+  - name: System Design Primer
+    url: https://github.com/donnemartin/system-design-primer
+    license: CC-BY-4.0
+    attribution: Adapted from System Design Primer by Donne Martin, licensed under CC BY 4.0.
+    modification: Reframed the sales-rank scenario as a rolling-window data-pipeline assessment and authored new late-data, recovery and serving criteria.
+license:
+  spdx: CC-BY-4.0
+review:
+  technical: pending
+  taxonomy: pending
+  provenance: approved
