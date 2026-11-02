@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000177
+revision: 1
+status: draft
+question:
+  prompt: Why do many infrastructure-as-code tools maintain state? What problems can occur if two operators update the same infrastructure from stale or independent state at the same time?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: infrastructure-as-code, secondary: [concurrency, service-operations]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests basic IaC state and coordination concepts.
+  tags: [state, locking, concurrency]
+assessment:
+  intent: Assess whether the candidate understands why tooling tracks resource identity/current mapping and why state access must be coordinated.
+  must_surface: [state can map declared resources to real managed objects and observed attributes, concurrent stale updates can overwrite or conflict and often require locking or serialized apply]
+  red_flags: [assumes state files are disposable caches in every IaC model]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

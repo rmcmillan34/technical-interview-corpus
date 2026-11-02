@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000181
+revision: 1
+status: draft
+question:
+  prompt: An engineer manually changes a cloud security-group rule in the console. The next IaC plan wants to revert it. Explain what drift is, how you would decide whether the manual change or the declared configuration is correct, and how to reconcile safely.
+  domain: debugging
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: infrastructure-as-code, secondary: [cloud-architecture, security-architecture, service-operations, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: medium, security_reasoning: medium, tradeoff_reasoning: medium}
+    rationale: Applies drift detection and source-of-truth reasoning to a bounded infrastructure discrepancy.
+  tags: [drift, security-group, reconciliation]
+assessment:
+  intent: Assess whether the candidate treats drift as evidence requiring reconciliation rather than blindly applying either side.
+  must_surface: [identifies out-of-band change as drift, verifies the intended requirement before reverting or codifying it, returns the accepted state to version-controlled IaC]
+  red_flags: [blindly applies a plan without checking why the security change occurred]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000178
+revision: 1
+status: draft
+question:
+  prompt: What is an infrastructure plan or preview, and why is reviewing expected changes before apply useful?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 7
+classification:
+  competencies: {primary: infrastructure-as-code, secondary: [technical-judgement, software-delivery-practices]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, ambiguity: low}
+    rationale: Tests foundational pre-change evidence concepts.
+  tags: [plan, preview, change-review]
+assessment:
+  intent: Assess whether the candidate understands plan output as evidence about intended resource changes before mutation.
+  must_surface: [a plan previews create/update/delete actions, review can catch unexpected destructive or broad changes before apply]
+  red_flags: [treats a generated plan as proof that runtime apply cannot fail]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
