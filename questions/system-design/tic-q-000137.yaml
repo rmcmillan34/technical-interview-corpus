@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000137
+revision: 1
+status: draft
+question:
+  prompt: A production service experiences severe latency spikes whenever memory pressure rises. Metrics show page-fault activity and swap I/O increasing sharply before the spikes. Diagnose the likely mechanism and propose a production mitigation plan covering application memory behaviour and host/container limits.
+  domain: system-design
+  response_modes: [discussion]
+  timebox_minutes: 25
+classification:
+  competencies: {primary: operating-systems, secondary: [performance-engineering, service-operations, reliability-engineering]}
+  roles: [swe]
+  difficulty:
+    level: D3
+    drivers: {knowledge_depth: high, ambiguity: medium, scale: medium, failure_reasoning: high, tradeoff_reasoning: medium}
+    rationale: Requires production reasoning across virtual memory, swapping, application working set and resource limits.
+  tags: [memory-pressure, swapping, latency]
+assessment:
+  intent: Assess whether the candidate can connect OS memory pressure to latency and choose layered mitigations.
+  must_surface: [recognises excessive paging or swapping can cause major latency, investigates working-set growth and memory limits, proposes reducing pressure or resizing resources rather than treating latency in isolation]
+  strong_signals: [considers OOM behaviour headroom and workload-specific memory profiling]
+  red_flags: [tunes network timeouts without addressing memory pressure]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

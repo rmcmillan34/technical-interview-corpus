@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000132
+revision: 1
+status: draft
+question:
+  prompt: Explain the difference between a process and a thread. What state is typically isolated per process and what state may be shared between threads in one process?
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: operating-systems, secondary: [concurrency, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational process and thread concepts.
+  tags: [processes, threads]
+assessment:
+  intent: Assess whether the candidate understands basic execution and address-space boundaries.
+  must_surface: [processes normally have separate virtual address spaces, threads in one process commonly share heap and process resources while retaining their own execution state]
+  red_flags: [claims threads in one process have fully independent memory by default]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

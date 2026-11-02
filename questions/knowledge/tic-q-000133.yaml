@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000133
+revision: 1
+status: draft
+question:
+  prompt: What is virtual memory? Explain pages, page faults and why a program's virtual address space is not the same thing as the machine's physical RAM.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 8
+classification:
+  competencies: {primary: operating-systems, secondary: [performance-engineering, communication]}
+  roles: [swe]
+  difficulty:
+    level: D1
+    drivers: {knowledge_depth: low, implementation_depth: low, ambiguity: low}
+    rationale: Tests foundational virtual-memory terminology and abstraction.
+  tags: [virtual-memory, pages, page-faults]
+assessment:
+  intent: Assess whether the candidate understands address translation and demand paging at a basic level.
+  must_surface: [virtual addresses are mapped to physical memory or other backing, a page fault occurs when required mapping or resident data needs operating-system handling]
+  red_flags: [equates allocated virtual address space directly with resident RAM]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+id: tic-q-000134
+revision: 1
+status: draft
+question:
+  prompt: A CPU-bound service runs on a four-core machine. It currently creates 100 worker threads for CPU-heavy tasks. Explain what you would expect from that design and how you would choose a more appropriate worker count.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 15
+classification:
+  competencies: {primary: operating-systems, secondary: [concurrency, performance-engineering, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: low, quantitative_reasoning: low, tradeoff_reasoning: medium}
+    rationale: Applies scheduling and CPU-core concepts to a bounded worker-sizing problem.
+  tags: [scheduling, cpu-bound, threads]
+assessment:
+  intent: Assess whether the candidate recognises oversubscription and context-switch overhead for CPU-bound work.
+  must_surface: [more runnable CPU-bound threads than cores do not create more CPU capacity, excessive runnable threads can increase scheduling and context-switch overhead]
+  strong_signals: [starts near available CPU parallelism and measures workload-specific behaviour]
+  red_flags: [assumes more threads always increase CPU throughput]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

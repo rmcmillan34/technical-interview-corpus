@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+id: tic-q-000135
+revision: 1
+status: draft
+question:
+  prompt: A program opens a file, duplicates the file descriptor, then closes the original descriptor. Explain whether the duplicate can still be used and what this teaches about descriptors versus underlying open-file state.
+  domain: knowledge
+  response_modes: [discussion]
+  timebox_minutes: 15
+classification:
+  competencies: {primary: operating-systems, secondary: [programming, debugging]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, ambiguity: low}
+    rationale: Applies operating-system handle semantics to a bounded resource-lifetime example.
+  tags: [file-descriptors, resources]
+assessment:
+  intent: Assess whether the candidate distinguishes a process-level descriptor from the underlying kernel-managed open file description/resource.
+  must_surface: [a duplicated descriptor can remain valid after the original descriptor is closed, underlying resource lifetime depends on remaining references]
+  red_flags: [assumes closing one descriptor necessarily invalidates every duplicate]
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
