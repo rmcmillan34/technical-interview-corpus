@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+id: tic-q-000084
+revision: 1
+status: draft
+question:
+  prompt: >
+    A service works locally but returns HTTP 503 after deployment. Application startup logs show "database host=db:5432" followed by repeated connection timeouts. The deployment environment exposes the database at postgres.internal:5432. Walk through how you would diagnose the problem, the evidence you would collect, and the safest first fix.
+  domain: debugging
+  response_modes: [discussion]
+  timebox_minutes: 18
+classification:
+  competencies: {primary: debugging, secondary: [service-operations, observability, networking, technical-judgement]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: low, failure_reasoning: medium}
+    rationale: Applies evidence-driven debugging to a bounded environment/configuration mismatch.
+  tags: [configuration, deployment, connectivity]
+assessment:
+  intent: Assess whether the candidate traces a deployment failure from observed evidence to configuration and validates the fix.
+  must_surface:
+  - compares configured host with the deployment-provided endpoint
+  - verifies connectivity/config resolution rather than assuming application logic is broken
+  - proposes correcting environment/configuration and validating health after rollout
+  strong_signals:
+  - checks whether the configuration source is duplicated or overridden elsewhere
+  red_flags:
+  - rewrites database client logic before testing the obvious endpoint mismatch
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}

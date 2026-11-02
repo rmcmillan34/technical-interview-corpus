@@ -1,0 +1,40 @@
+schema_version: 0.1.0
+id: tic-q-000083
+revision: 1
+status: draft
+question:
+  prompt: Review the function, identify the defect, explain a minimal failing input, then correct it and propose regression tests.
+  domain: debugging
+  response_modes: [discussion, code]
+  timebox_minutes: 15
+  stimuli:
+  - id: max-value-bug
+    type: code
+    language: python
+    content: |
+      def max_value(values):
+          best = 0
+          for value in values:
+              if value > best:
+                  best = value
+          return best
+classification:
+  competencies: {primary: debugging, secondary: [programming, testing, algorithms-and-complexity]}
+  roles: [swe]
+  difficulty:
+    level: D2
+    drivers: {knowledge_depth: medium, implementation_depth: low, ambiguity: low, failure_reasoning: medium}
+    rationale: Requires diagnosis from behaviour, a counterexample, correction and targeted regression tests.
+  tags: [initialisation, edge-cases]
+assessment:
+  intent: Assess whether the candidate can derive a failing case from an incorrect initial assumption rather than patching by trial.
+  must_surface:
+  - all-negative input exposes the incorrect zero initialisation
+  - empty-input semantics must be stated or handled explicitly
+  strong_signals:
+  - proposes tests for all-negative, singleton and empty inputs
+  red_flags:
+  - changes the comparison operator without explaining the failure mechanism
+provenance: {origin: native, authoring: {method: llm-assisted, llm_assisted: true}, sources: []}
+license: {spdx: CC-BY-4.0}
+review: {technical: pending, taxonomy: pending, provenance: approved}
