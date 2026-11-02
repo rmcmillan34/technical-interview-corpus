@@ -1,0 +1,75 @@
+schema_version: 0.1.0
+role: swe
+policy:
+  graph_type: directed-many-to-many
+  principles:
+  - Questions remain independently reusable; progression is modeled separately.
+  - Escalation may skip a level when the candidate has already demonstrated prerequisite knowledge.
+  - Recovery edges point toward narrower prerequisite checks after a weak answer.
+  - Not every D1 node requires a descendant at every higher difficulty.
+  - Higher-difficulty questions may converge several foundational concepts.
+edges:
+- from: tic-q-000022
+  to: tic-q-000026
+  relation: escalate
+  rationale: Moves from HTTP/idempotency fundamentals to retry-safe mutating API behaviour under failure.
+- from: tic-q-000026
+  to: tic-q-000022
+  relation: recover
+  rationale: Re-checks the underlying meaning and consequences of idempotency after a weak production answer.
+- from: tic-q-000026
+  to: tic-q-000027
+  relation: escalate
+  rationale: Expands API correctness into public API evolution, compatibility and multi-consumer trade-offs.
+- from: tic-q-000023
+  to: tic-q-000029
+  relation: escalate
+  rationale: Applies index fundamentals to production query-plan and performance diagnosis.
+- from: tic-q-000029
+  to: tic-q-000023
+  relation: recover
+  rationale: Falls back to index purpose and trade-offs if query-plan reasoning is weak.
+- from: tic-q-000024
+  to: tic-q-000028
+  relation: escalate
+  rationale: Applies race-condition fundamentals to transactional invariant enforcement under concurrent writes.
+- from: tic-q-000028
+  to: tic-q-000024
+  relation: recover
+  rationale: Re-checks race-condition and mutual-exclusion fundamentals.
+- from: tic-q-000024
+  to: tic-q-000030
+  relation: escalate
+  rationale: Extends concurrency fundamentals into deadlock diagnosis and lock-order reasoning.
+- from: tic-q-000030
+  to: tic-q-000024
+  relation: recover
+  rationale: Falls back to core concurrency vocabulary and shared-state reasoning.
+- from: tic-q-000025
+  to: tic-q-000033
+  relation: escalate
+  rationale: Moves from logs/metrics/traces definitions to an observability design across distributed services.
+- from: tic-q-000033
+  to: tic-q-000025
+  relation: recover
+  rationale: Checks whether weak observability design stems from missing telemetry fundamentals.
+- from: tic-q-000033
+  to: tic-q-000034
+  relation: escalate
+  rationale: Uses observability signals in an ambiguous cross-service tail-latency investigation.
+- from: tic-q-000034
+  to: tic-q-000033
+  relation: recover
+  rationale: Narrows an incident investigation back to telemetry design and signal selection.
+- from: tic-q-000031
+  to: tic-q-000032
+  relation: escalate
+  rationale: Extends delivery-semantics reasoning into overload containment, queue pressure and backpressure.
+- from: tic-q-000027
+  to: tic-q-000035
+  relation: escalate
+  rationale: Broadens compatibility and migration reasoning into a strategic cross-team data-boundary migration.
+- from: tic-q-000032
+  to: tic-q-000035
+  relation: escalate
+  rationale: Connects operational resilience decisions to organisation-scale architectural migration trade-offs.
